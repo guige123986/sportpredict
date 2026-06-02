@@ -1,0 +1,11 @@
+# robots.txt for SportPredict
+# https://sportpredict.github.io/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sportpredict.github.io/sitemap.xml
+
+# Crawl-delay (optional, gentle on server)
+Crawl-delay: 1

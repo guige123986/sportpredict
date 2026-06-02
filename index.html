@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Primary Meta Tags -->
+<title>Sports Predictions Today - Free Match Analysis & Tips | SportPredict</title>
+<meta name="description" content="Free sports predictions for football, basketball, esports, tennis and more. Daily match analysis, win rate predictions, and expert tips. Updated in real-time." />
+<meta name="keywords" content="sports predictions, football predictions, soccer predictions, match prediction, today prediction, prediction site, basketball predictions, esports predictions, free sports tips, correct score prediction, premier league predictions, NBA predictions, LOL predictions" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="SportPredict" />
+<link rel="canonical" href="https://sportpredict.github.io/" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sportpredict.github.io/" />
+<meta property="og:title" content="Sports Predictions Today - Free Match Analysis & Tips" />
+<meta property="og:description" content="Free sports predictions for football, basketball, esports and more. Daily analysis, win rates, and expert tips." />
+<meta property="og:image" content="https://sportpredict.github.io/og-image.jpg" />
+<meta property="og:site_name" content="SportPredict" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="zh_CN" />
+<meta property="og:locale:alternate" content="es_ES" />
+<meta property="og:locale:alternate" content="pt_BR" />
+<meta property="og:locale:alternate" content="ar_SA" />
+<meta property="og:locale:alternate" content="ja_JP" />
+<meta property="og:locale:alternate" content="ko_KR" />
+<meta property="og:locale:alternate" content="ru_RU" />
+<meta property="og:locale:alternate" content="fr_FR" />
+<meta property="og:locale:alternate" content="de_DE" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content="https://sportpredict.github.io/" />
+<meta name="twitter:title" content="Sports Predictions Today - Free Match Analysis & Tips" />
+<meta name="twitter:description" content="Free sports predictions for football, basketball, esports and more." />
+<meta name="twitter:image" content="https://sportpredict.github.io/og-image.jpg" />
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="zh" href="https://sportpredict.github.io/?lang=zh" />
+<link rel="alternate" hreflang="en" href="https://sportpredict.github.io/?lang=en" />
+<link rel="alternate" hreflang="es" href="https://sportpredict.github.io/?lang=es" />
+<link rel="alternate" hreflang="pt" href="https://sportpredict.github.io/?lang=pt" />
+<link rel="alternate" hreflang="ar" href="https://sportpredict.github.io/?lang=ar" />
+<link rel="alternate" hreflang="ja" href="https://sportpredict.github.io/?lang=ja" />
+<link rel="alternate" hreflang="ko" href="https://sportpredict.github.io/?lang=ko" />
+<link rel="alternate" hreflang="ru" href="https://sportpredict.github.io/?lang=ru" />
+<link rel="alternate" hreflang="fr" href="https://sportpredict.github.io/?lang=fr" />
+<link rel="alternate" hreflang="de" href="https://sportpredict.github.io/?lang=de" />
+<link rel="alternate" hreflang="x-default" href="https://sportpredict.github.io/" />
+
+<!-- Extra SEO -->
+<meta name="theme-color" content="#1a1a2e" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
+<style>
+:root {
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-card: #1c2128;
+  --bg-card-hover: #22272e;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --border: #30363d;
+  --accent-football: #2ea043;
+  --accent-basketball: #f0883e;
+  --accent-esports: #a855f7;
+  --accent-tennis: #a3e635;
+  --accent-baseball: #3b82f6;
+  --accent-football-nfl: #ef4444;
+  --accent-hockey: #06b6d4;
+  --accent-rugby: #10b981;
+  --accent-cricket: #f59e0b;
+  --accent-fighting: #dc2626;
+  --accent-current: var(--accent-football);
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { color: var(--accent-current); text-decoration:none; }
+
+/* Layout */
+.app-layout { display:flex; flex:1; min-height:0; }
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+.sidebar-logo {
+  padding: 20px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sidebar-logo span { font-size:22px; }
+.sidebar-nav { padding: 12px 0; flex:1; }
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all .2s;
+  font-size: 14px;
+  border-left: 3px solid transparent;
+}
+.nav-item:hover { background: var(--bg-card); color: var(--text-primary); }
+.nav-item.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border-left-color: var(--accent-current);
+  font-weight: 600;
+}
+.nav-item .emoji { font-size:20px; width:28px; text-align:center; }
+.sidebar-footer {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Main Content */
+.main-content { flex:1; display:flex; flex-direction:column; min-width:0; }
+.top-bar {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-secondary);
+}
+.top-bar h1 { font-size:20px; font-weight:700; }
+.top-bar-right { display:flex; align-items:center; gap:16px; font-size:13px; color:var(--text-secondary); }
+.page-tabs { display:flex; gap:0; border-bottom:1px solid var(--border); background:var(--bg-secondary); }
+.page-tab {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+}
+.page-tab:hover { color:var(--text-primary); }
+.page-tab.active { color:var(--accent-current); border-bottom-color:var(--accent-current); font-weight:600; }
+
+.content-area { flex:1; overflow-y:auto; padding:20px 24px; }
+
+/* Sub-filter */
+.sub-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.sub-filter-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.sub-filter-btn:hover { border-color:var(--accent-current); color:var(--text-primary); }
+.sub-filter-btn.active {
+  background: var(--accent-current);
+  color: #fff;
+  border-color: var(--accent-current);
+}
+
+/* Match Card */
+.match-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  transition: all .2s;
+}
+.match-card:hover { background:var(--bg-card-hover); border-color:var(--accent-current); }
+.match-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.match-league {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,.06);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.match-time { color:var(--text-secondary); }
+.match-body { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.team {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:6px;
+}
+.team-name { font-size:15px; font-weight:600; }
+.team-logo { font-size:28px; }
+.predict-bar-wrap { flex:2; max-width:360px; }
+.predict-bar {
+  height: 28px;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  background: var(--bg-primary);
+  position: relative;
+}
+.predict-bar .fill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  transition: width .6s ease;
+}
+.fill-home { background: var(--accent-current); border-radius:14px 0 0 14px; }
+.fill-draw { background: #6e7681; }
+.fill-away { background: #3b434d; border-radius:0 14px 14px 0; }
+.predict-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.confidence {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+.confidence-label { color:var(--text-muted); }
+.confidence-value { font-weight:700; }
+.confidence-value.high { color:#2ea043; }
+.confidence-value.medium { color:#f0883e; }
+.confidence-value.low { color:#ef4444; }
+.esports-meta {
+  margin-top: 8px;
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.esports-meta span { display:flex; align-items:center; gap:4px; }
+.map-wins { display:flex; gap:4px; margin-top:4px; }
+.map-win-dot {
+  width:20px; height:20px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:700; color:#fff;
+}
+.map-win-dot.win { background:var(--accent-current); }
+.map-win-dot.lose { background:#3b434d; }
+
+/* Match card footer row */
+.match-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* Watch Live Button */
+.watch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.watch-btn:hover {
+  background: var(--accent-current);
+  color: #fff;
+  border-color: var(--accent-current);
+}
+
+/* Combo Section */
+.combo-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.combo-header {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:12px;
+}
+.combo-type {
+  font-weight:700;
+  font-size:14px;
+  padding:4px 10px;
+  border-radius:6px;
+}
+.combo-type.s2 { background:rgba(46,160,67,.15); color:var(--accent-football); }
+.combo-type.s3 { background:rgba(168,85,247,.15); color:var(--accent-esports); }
+.combo-type.cross { background:rgba(240,136,62,.15); color:var(--accent-basketball); }
+.combo-risk { font-size:12px; }
+.combo-risk.low { color:#2ea043; }
+.combo-risk.medium { color:#f0883e; }
+.combo-risk.high { color:#ef4444; }
+.combo-picks { display:flex; flex-direction:column; gap:8px; }
+.combo-pick {
+  display:flex; align-items:center; gap:12px;
+  padding:8px 12px;
+  background:var(--bg-primary);
+  border-radius:8px;
+  font-size:13px;
+}
+.combo-pick .sport-emoji { font-size:18px; }
+.combo-pick .pick-info { flex:1; }
+.combo-pick .pick-team { font-weight:600; }
+.combo-pick .pick-opp { color:var(--text-secondary); }
+.combo-pick .pick-pct {
+  font-weight:700; font-size:14px;
+}
+.combo-footer {
+  margin-top:12px;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:13px; color:var(--text-secondary);
+}
+.combo-total { font-weight:700; color:var(--text-primary); }
+
+/* Dashboard */
+.dashboard-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; }
+.dash-card {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:20px;
+}
+.dash-card h3 { font-size:15px; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
+.hit-rate-row {
+  display:flex; align-items:center; gap:12px;
+  padding:8px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+.hit-rate-row:last-child { border:none; }
+.hit-rate-row .emoji { font-size:18px; width:24px; text-align:center; }
+.hit-rate-row .sport-name { flex:1; }
+.hit-rate-bar-bg {
+  width:100px; height:8px; background:var(--bg-primary);
+  border-radius:4px; overflow:hidden;
+}
+.hit-rate-bar { height:100%; border-radius:4px; transition:width .6s; }
+.hit-rate-pct { font-weight:700; width:48px; text-align:right; }
+.hot-item {
+  display:flex; align-items:center; gap:10px;
+  padding:8px 0; border-bottom:1px solid var(--border); font-size:13px;
+}
+.hot-item:last-child { border:none; }
+.hot-rank {
+  width:24px; height:24px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700; color:#fff;
+  background:#3b434d;
+}
+.hot-rank.r1 { background:#f0883e; }
+.hot-rank.r2 { background:#8b949e; }
+.hot-rank.r3 { background:#a0522d; }
+.streak-item {
+  display:flex; align-items:center; gap:10px;
+  padding:8px 0; border-bottom:1px solid var(--border); font-size:13px;
+}
+.streak-item:last-child { border:none; }
+.streak-count { font-weight:700; font-size:16px; }
+
+/* Disclaimer */
+.disclaimer {
+  padding:20px 24px;
+  border-top:1px solid var(--border);
+  font-size:11px;
+  color:var(--text-muted);
+  text-align:center;
+  line-height:1.8;
+}
+
+/* ===== Language Switcher ===== */
+.lang-switcher {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.lang-btn:hover { border-color: var(--accent-current); color: var(--text-primary); }
+.lang-btn .lang-globe { font-size: 16px; }
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  min-width: 160px;
+  z-index: 1000;
+  display: none;
+  overflow: hidden;
+}
+.lang-dropdown.open { display: block; }
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-secondary);
+  transition: all .15s;
+}
+.lang-option:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+.lang-option.active { color: var(--accent-current); font-weight: 600; }
+.lang-option .lang-flag { font-size: 18px; }
+
+/* ===== Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s;
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 48px rgba(0,0,0,.5);
+  transform: translateY(20px);
+  transition: transform .25s;
+}
+.modal-overlay.open .modal-box { transform: translateY(0); }
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.modal-header h2 { font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.modal-close {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .15s;
+}
+.modal-close:hover { background: var(--bg-primary); color: var(--text-primary); }
+.modal-body { padding: 20px; }
+.channel-list { display: flex; flex-direction: column; gap: 10px; }
+.channel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  transition: all .2s;
+}
+.channel-item:hover { background: var(--bg-card-hover); }
+.channel-icon { font-size: 22px; width: 32px; text-align: center; flex-shrink: 0; }
+.channel-info { flex: 1; }
+.channel-name { font-size: 14px; font-weight: 600; }
+.channel-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+.channel-link {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  background: var(--accent-current);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: opacity .2s;
+  flex-shrink: 0;
+}
+.channel-link:hover { opacity: .85; }
+.modal-disclaimer {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(240,136,62,.08);
+  border: 1px solid rgba(240,136,62,.2);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ===== RTL Support ===== */
+html[dir="rtl"] .sidebar {
+  border-right: none;
+  border-left: 1px solid var(--border);
+}
+html[dir="rtl"] .nav-item {
+  border-left: none;
+  border-right: 3px solid transparent;
+}
+html[dir="rtl"] .nav-item.active {
+  border-left-color: transparent;
+  border-right-color: var(--accent-current);
+}
+html[dir="rtl"] .fill-home { border-radius: 0 14px 14px 0; }
+html[dir="rtl"] .fill-away { border-radius: 14px 0 0 14px; }
+html[dir="rtl"] .lang-dropdown {
+  right: auto;
+  left: 0;
+}
+html[dir="rtl"] .predict-labels { flex-direction: row-reverse; }
+html[dir="rtl"] .match-header { flex-direction: row-reverse; }
+html[dir="rtl"] .combo-header { flex-direction: row-reverse; }
+html[dir="rtl"] .combo-footer { flex-direction: row-reverse; }
+html[dir="rtl"] .hit-rate-row { flex-direction: row-reverse; }
+html[dir="rtl"] .hot-item { flex-direction: row-reverse; }
+html[dir="rtl"] .streak-item { flex-direction: row-reverse; }
+html[dir="rtl"] .modal-header { flex-direction: row-reverse; }
+html[dir="rtl"] .channel-item { flex-direction: row-reverse; }
+html[dir="rtl"] .match-card-footer { flex-direction: row-reverse; }
+
+/* Mobile */
+.mobile-nav { display:none; }
+@media (max-width:768px) {
+  .sidebar { display:none; }
+  .mobile-nav {
+    display:flex;
+    overflow-x:auto;
+    background:var(--bg-secondary);
+    border-bottom:1px solid var(--border);
+    -webkit-overflow-scrolling:touch;
+  }
+  .mobile-nav-item {
+    flex-shrink:0;
+    padding:10px 14px;
+    font-size:13px;
+    cursor:pointer;
+    color:var(--text-secondary);
+    border-bottom:2px solid transparent;
+    display:flex; align-items:center; gap:4px;
+  }
+  .mobile-nav-item.active { color:var(--accent-current); border-bottom-color:var(--accent-current); font-weight:600; }
+  .content-area { padding:14px; }
+  .match-body { flex-direction:column; gap:8px; }
+  .predict-bar-wrap { max-width:100%; width:100%; }
+  .team { flex-direction:row; justify-content:space-between; }
+  .dashboard-grid { grid-template-columns:1fr; }
+  .top-bar { padding: 12px 16px; }
+  .top-bar h1 { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Watch Live Modal -->
+<div class="modal-overlay" id="watchModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h2 id="modalTitle">📺 官方直播渠道</h2>
+      <button class="modal-close" onclick="closeWatchModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="channel-list" id="channelList"></div>
+      <div class="modal-disclaimer" id="modalDisclaimer">
+        ⚖️ 请通过官方合法渠道观看比赛<br>Please watch through official legal channels
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav"></div>
+
+<div class="app-layout">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-logo"><span>🏆</span> <span data-i18n="sidebarLogo">全赛事预测</span></div>
+    <nav class="sidebar-nav" id="sidebarNav"></nav>
+    <div class="sidebar-footer" data-i18n="sidebarFooter">数据仅供参考 · 不构成投注建议</div>
+  </div>
+
+  <!-- Main -->
+  <div class="main-content">
+    <div class="top-bar">
+      <h1 id="pageTitle">⚽ 足球预测</h1>
+      <div class="top-bar-right">
+        <span id="currentDate"></span>
+        <span data-i18n="simulatedData">🔄 模拟数据</span>
+        <!-- Language Switcher -->
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-btn" onclick="toggleLangDropdown()">
+            <span class="lang-globe">🌐</span>
+            <span id="langLabel">中文</span>
+            <span style="font-size:10px">▾</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-tabs">
+      <div class="page-tab active" data-page="matches" data-i18n="tabMatches" onclick="switchPage('matches')">赛事列表</div>
+      <div class="page-tab" data-page="combos" data-i18n="tabCombos" onclick="switchPage('combos')">推荐组合</div>
+      <div class="page-tab" data-page="dashboard" data-i18n="tabDashboard" onclick="switchPage('dashboard')">数据看板</div>
+    </div>
+    <div class="content-area" id="contentArea"></div>
+    <div class="disclaimer" id="disclaimerText">
+      ⚠️ 免责声明：本平台所有预测数据均为模拟生成，仅供娱乐参考，不构成任何投注建议。<br>
+      体育赛事结果受多种因素影响，历史数据不代表未来表现。请理性对待，切勿沉迷。
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== I18N SYSTEM =====
+const LANGS = [
+  { code: 'zh', label: '中文', flag: '🇨🇳' },
+  { code: 'en', label: 'English', flag: '🇺🇸' },
+  { code: 'es', label: 'Español', flag: '🇪🇸' },
+  { code: 'pt', label: 'Português', flag: '🇧🇷' },
+  { code: 'ar', label: 'العربية', flag: '🇸🇦' },
+  { code: 'ja', label: '日本語', flag: '🇯🇵' },
+  { code: 'ko', label: '한국어', flag: '🇰🇷' },
+  { code: 'ru', label: 'Русский', flag: '🇷🇺' },
+  { code: 'fr', label: 'Français', flag: '🇫🇷' },
+  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
+];
+
+const I18N = {
+  zh: {
+    sidebarLogo: '全赛事预测',
+    sidebarFooter: '数据仅供参考 · 不构成投注建议',
+    simulatedData: '🔄 模拟数据',
+    tabMatches: '赛事列表',
+    tabCombos: '推荐组合',
+    tabDashboard: '数据看板',
+    pageTitle: '{emoji} {sport}预测',
+    homeTeam: '主胜',
+    awayTeam: '客胜',
+    draw: '平',
+    player1: '选手1',
+    player2: '选手2',
+    confidence: '置信度',
+    noMatches: '暂无{sport}赛事数据',
+    all: '全部',
+    combo2: '2串1推荐',
+    combo3: '3串1推荐',
+    combo2Label: '2串1',
+    combo3Label: '3串1',
+    crossCombo: '跨运动组合推荐',
+    crossCombo3: '跨运动3串1',
+    comboWinRate: '综合胜率',
+    lowRisk: '低风险',
+    mediumRisk: '中风险',
+    highRisk: '高风险',
+    dashHitRate: '📊 各运动预测命中率',
+    dashHot: '🔥 热门赛事排行',
+    dashStreak: '🔥 连红榜单',
+    streakUnit: '连红',
+    watchLive: '📺 观赛',
+    modalTitle: '📺 官方直播渠道',
+    modalDisclaimer: '⚖️ 请通过官方合法渠道观看比赛',
+    vs: 'vs',
+    mapProgress: '🗺️ 地图进度',
+    // Sport names
+    sportFootball: '足球',
+    sportBasketball: '篮球',
+    sportEsports: '电竞',
+    sportTennis: '网球',
+    sportBaseball: '棒球',
+    sportNFL: '橄榄球',
+    sportHockey: '冰球',
+    sportRugby: '英式橄榄球',
+    sportCricket: '板球',
+    sportFighting: '格斗',
+    // Channel names
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'FIFA官方流媒体平台',
+    chLeagueOfficial: '联赛官方转播',
+    chLeagueOfficialDesc: '各联赛官方数字转播平台',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'NBA官方流媒体订阅服务',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'LOL Esports官方Twitch频道',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'LOL Esports官方YouTube频道',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'ESPN流媒体订阅服务',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: '欧洲体育频道流媒体',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'MLB官方流媒体订阅服务',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'NFL官方流媒体订阅服务',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'NHL官方流媒体订阅服务',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'YouTube体育频道',
+    // Disclaimer
+    disclaimer: '⚠️ 免责声明：本平台所有预测数据均为模拟生成，仅供娱乐参考，不构成任何投注建议。',
+    disclaimer2: '体育赛事结果受多种因素影响，历史数据不代表未来表现。请理性对待，切勿沉迷。',
+    // Heat unit
+    heatUnit: '万',
+  },
+  en: {
+    sidebarLogo: 'All Sports Predictor',
+    sidebarFooter: 'Data for reference only · Not betting advice',
+    simulatedData: '🔄 Simulated Data',
+    tabMatches: 'Matches',
+    tabCombos: 'Combos',
+    tabDashboard: 'Dashboard',
+    pageTitle: '{emoji} {sport} Predictions',
+    homeTeam: 'Home',
+    awayTeam: 'Away',
+    draw: 'Draw',
+    player1: 'Player 1',
+    player2: 'Player 2',
+    confidence: 'Confidence',
+    noMatches: 'No {sport} match data',
+    all: 'All',
+    combo2: '{sport} 2-Leg Parlay',
+    combo3: '{sport} 3-Leg Parlay',
+    combo2Label: '2-Leg',
+    combo3Label: '3-Leg',
+    crossCombo: '🌍 Cross-Sport Parlays',
+    crossCombo3: 'Cross-Sport 3-Leg',
+    comboWinRate: 'Combined Win Rate',
+    lowRisk: 'Low Risk',
+    mediumRisk: 'Medium Risk',
+    highRisk: 'High Risk',
+    dashHitRate: '📊 Prediction Hit Rate by Sport',
+    dashHot: '🔥 Trending Matches',
+    dashStreak: '🔥 Hot Streaks',
+    streakUnit: '-streak',
+    watchLive: '📺 Watch Live',
+    modalTitle: '📺 Official Live Channels',
+    modalDisclaimer: '⚖️ Please watch through official legal channels',
+    vs: 'vs',
+    mapProgress: '🗺️ Map Progress',
+    sportFootball: 'Football',
+    sportBasketball: 'Basketball',
+    sportEsports: 'Esports',
+    sportTennis: 'Tennis',
+    sportBaseball: 'Baseball',
+    sportNFL: 'American Football',
+    sportHockey: 'Ice Hockey',
+    sportRugby: 'Rugby',
+    sportCricket: 'Cricket',
+    sportFighting: 'Combat Sports',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'FIFA official streaming platform',
+    chLeagueOfficial: 'League Official Broadcast',
+    chLeagueOfficialDesc: 'Official digital broadcast platforms',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'NBA official streaming subscription',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'LOL Esports official Twitch channel',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'LOL Esports official YouTube channel',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'ESPN streaming subscription',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: 'European sports streaming',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'MLB official streaming subscription',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'NFL official streaming subscription',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'NHL official streaming subscription',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'YouTube Sports channel',
+    disclaimer: '⚠️ Disclaimer: All prediction data is simulated for entertainment only, not betting advice.',
+    disclaimer2: 'Match results are affected by many factors. Past data does not guarantee future performance. Be rational.',
+    heatUnit: 'K',
+  },
+  es: {
+    sidebarLogo: 'Predicción Deportiva',
+    sidebarFooter: 'Datos solo de referencia · No es consejo de apuestas',
+    simulatedData: '🔄 Datos Simulados',
+    tabMatches: 'Partidos',
+    tabCombos: 'Combinaciones',
+    tabDashboard: 'Panel',
+    pageTitle: '{emoji} Predicciones {sport}',
+    homeTeam: 'Local',
+    awayTeam: 'Visitante',
+    draw: 'Empate',
+    player1: 'Jugador 1',
+    player2: 'Jugador 2',
+    confidence: 'Confianza',
+    noMatches: 'Sin datos de {sport}',
+    all: 'Todos',
+    combo2: '{sport} Combinada 2',
+    combo3: '{sport} Combinada 3',
+    combo2Label: 'Combi 2',
+    combo3Label: 'Combi 3',
+    crossCombo: '🌍 Combinadas Multideporte',
+    crossCombo3: 'Multideporte 3',
+    comboWinRate: 'Tasa Combinada',
+    lowRisk: 'Riesgo Bajo',
+    mediumRisk: 'Riesgo Medio',
+    highRisk: 'Riesgo Alto',
+    dashHitRate: '📊 Tasa de Acierto por Deporte',
+    dashHot: '🔥 Partidos en Tendencia',
+    dashStreak: '🔥 Rachas Calientes',
+    streakUnit: ' racha',
+    watchLive: '📺 Ver en Vivo',
+    modalTitle: '📺 Canales Oficiales en Vivo',
+    modalDisclaimer: '⚖️ Vea a través de canales oficiales legales',
+    vs: 'vs',
+    mapProgress: '🗺️ Progreso de Mapa',
+    sportFootball: 'Fútbol',
+    sportBasketball: 'Baloncesto',
+    sportEsports: 'Esports',
+    sportTennis: 'Tenis',
+    sportBaseball: 'Béisbol',
+    sportNFL: 'Fútbol Americano',
+    sportHockey: 'Hockey sobre Hielo',
+    sportRugby: 'Rugby',
+    sportCricket: 'Críquet',
+    sportFighting: 'Deportes de Combate',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'Plataforma oficial de streaming de FIFA',
+    chLeagueOfficial: 'Transmisión Oficial de Liga',
+    chLeagueOfficialDesc: 'Plataformas oficiales de transmisión digital',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'Suscripción oficial de streaming NBA',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'Canal oficial de LOL Esports en Twitch',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'Canal oficial de LOL Esports en YouTube',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'Suscripción de streaming ESPN',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: 'Streaming deportivo europeo',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'Suscripción oficial de streaming MLB',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'Suscripción oficial de streaming NFL',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'Suscripción oficial de streaming NHL',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'Canal deportivo de YouTube',
+    disclaimer: '⚠️ Aviso: Todos los datos de predicción son simulados, solo para entretenimiento, no consejo de apuestas.',
+    disclaimer2: 'Los resultados deportivos dependen de muchos factores. Los datos pasados no garantizan resultados futuros.',
+    heatUnit: 'K',
+  },
+  pt: {
+    sidebarLogo: 'Previsão Esportiva',
+    sidebarFooter: 'Dados apenas de referência · Não é conselho de apostas',
+    simulatedData: '🔄 Dados Simulados',
+    tabMatches: 'Jogos',
+    tabCombos: 'Combinações',
+    tabDashboard: 'Painel',
+    pageTitle: '{emoji} Previsões {sport}',
+    homeTeam: 'Mandante',
+    awayTeam: 'Visitante',
+    draw: 'Empate',
+    player1: 'Jogador 1',
+    player2: 'Jogador 2',
+    confidence: 'Confiança',
+    noMatches: 'Sem dados de {sport}',
+    all: 'Todos',
+    combo2: '{sport} Combinada 2',
+    combo3: '{sport} Combinada 3',
+    combo2Label: 'Combi 2',
+    combo3Label: 'Combi 3',
+    crossCombo: '🌍 Combinações Multiesporte',
+    crossCombo3: 'Multiesporte 3',
+    comboWinRate: 'Taxa Combinada',
+    lowRisk: 'Baixo Risco',
+    mediumRisk: 'Risco Médio',
+    highRisk: 'Alto Risco',
+    dashHitRate: '📊 Taxa de Acerto por Esporte',
+    dashHot: '🔥 Jogos em Alta',
+    dashStreak: '🔥 Sequências Quentes',
+    streakUnit: ' seq.',
+    watchLive: '📺 Assistir Ao Vivo',
+    modalTitle: '📺 Canais Oficiais Ao Vivo',
+    modalDisclaimer: '⚖️ Assista através de canais oficiais legais',
+    vs: 'vs',
+    mapProgress: '🗺️ Progresso do Mapa',
+    sportFootball: 'Futebol',
+    sportBasketball: 'Basquete',
+    sportEsports: 'Esports',
+    sportTennis: 'Tênis',
+    sportBaseball: 'Beisebol',
+    sportNFL: 'Futebol Americano',
+    sportHockey: 'Hóquei no Gelo',
+    sportRugby: 'Rugby',
+    sportCricket: 'Críquete',
+    sportFighting: 'Artes Marciais',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'Plataforma oficial de streaming da FIFA',
+    chLeagueOfficial: 'Transmissão Oficial da Liga',
+    chLeagueOfficialDesc: 'Plataformas oficiais de transmissão digital',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'Assinatura oficial de streaming da NBA',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'Canal oficial do LOL Esports na Twitch',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'Canal oficial do LOL Esports no YouTube',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'Assinatura de streaming ESPN',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: 'Streaming esportivo europeu',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'Assinatura oficial de streaming da MLB',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'Assinatura oficial de streaming da NFL',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'Assinatura oficial de streaming da NHL',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'Canal esportivo do YouTube',
+    disclaimer: '⚠️ Aviso: Todos os dados são simulados, apenas para entretenimento, não conselho de apostas.',
+    disclaimer2: 'Resultados esportivos dependem de muitos fatores. Dados passados não garantem resultados futuros.',
+    heatUnit: 'K',
+  },
+  ar: {
+    sidebarLogo: 'توقعات رياضية',
+    sidebarFooter: 'بيانات مرجعية فقط · ليست نصيحة رهان',
+    simulatedData: '🔄 بيانات محاكاة',
+    tabMatches: 'المباريات',
+    tabCombos: 'التركيبات',
+    tabDashboard: 'لوحة المعلومات',
+    pageTitle: '{emoji} توقعات {sport}',
+    homeTeam: 'المضيف',
+    awayTeam: 'الضيف',
+    draw: 'تعادل',
+    player1: 'لاعب ١',
+    player2: 'لاعب ٢',
+    confidence: 'الثقة',
+    noMatches: 'لا بيانات {sport}',
+    all: 'الكل',
+    combo2: '{sport} تركيبة ٢',
+    combo3: '{sport} تركيبة ٣',
+    combo2Label: 'تركيبة ٢',
+    combo3Label: 'تركيبة ٣',
+    crossCombo: '🌍 تركيبات متعددة الرياضات',
+    crossCombo3: 'متعدد ٣',
+    comboWinRate: 'نسبة الفوز المجمعة',
+    lowRisk: 'خطر منخفض',
+    mediumRisk: 'خطر متوسط',
+    highRisk: 'خطر مرتفع',
+    dashHitRate: '📊 نسبة الدقة حسب الرياضة',
+    dashHot: '🔥 المباريات الرائجة',
+    dashStreak: '🔥 السلاسل الساخنة',
+    streakUnit: ' سلسلة',
+    watchLive: '📺 شاهد مباشر',
+    modalTitle: '📺 القنوات الرسمية المباشرة',
+    modalDisclaimer: '⚖️ يرجى المشاهدة عبر القنوات الرسمية القانونية',
+    vs: 'ضد',
+    mapProgress: '🗺️ تقدم الخريطة',
+    sportFootball: 'كرة القدم',
+    sportBasketball: 'كرة السلة',
+    sportEsports: 'الرياضات الإلكترونية',
+    sportTennis: 'التنس',
+    sportBaseball: 'البيسبول',
+    sportNFL: 'كرة القدم الأمريكية',
+    sportHockey: 'الهوكي على الجليد',
+    sportRugby: 'الرجبي',
+    sportCricket: 'الكريكيت',
+    sportFighting: 'رياضات القتال',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'منصة البث الرسمية للفيفا',
+    chLeagueOfficial: 'البث الرسمي للدوري',
+    chLeagueOfficialDesc: 'منصات البث الرقمية الرسمية',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'اشتراك البث الرسمي للـ NBA',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'قناة LOL Esports الرسمية على Twitch',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'قناة LOL Esports الرسمية على YouTube',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'اشتراك بث ESPN',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: 'بث رياضي أوروبي',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'اشتراك البث الرسمي للـ MLB',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'اشتراك البث الرسمي للـ NFL',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'اشتراك البث الرسمي للـ NHL',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'قناة YouTube الرياضية',
+    disclaimer: '⚠️ إخلاء مسؤولية: جميع بيانات التوقعات محاكاة للترفيه فقط، وليست نصيحة رهان.',
+    disclaimer2: 'تتأثر نتائج المباريات بعوامل عديدة. البيانات السابقة لا تضمن النتائج المستقبلية.',
+    heatUnit: 'K',
+  },
+  ja: {
+    sidebarLogo: '全スポーツ予測',
+    sidebarFooter: 'データは参考用 · 投資アドバイスではありません',
+    simulatedData: '🔄 シミュレーションデータ',
+    tabMatches: '試合一覧',
+    tabCombos: 'おすすめ組み合わせ',
+    tabDashboard: 'ダッシュボード',
+    pageTitle: '{emoji} {sport}予測',
+    homeTeam: 'ホーム勝ち',
+    awayTeam: 'アウェイ勝ち',
+    draw: '引き分け',
+    player1: '選手1',
+    player2: '選手2',
+    confidence: '信頼度',
+    noMatches: '{sport}の試合データがありません',
+    all: 'すべて',
+    combo2: '{sport} 2連単',
+    combo3: '{sport} 3連単',
+    combo2Label: '2連単',
+    combo3Label: '3連単',
+    crossCombo: '🌍 競技横断組み合わせ',
+    crossCombo3: '競技横断3連単',
+    comboWinRate: '総合勝率',
+    lowRisk: '低リスク',
+    mediumRisk: '中リスク',
+    highRisk: '高リスク',
+    dashHitRate: '📊 スポーツ別予測的中率',
+    dashHot: '🔥 トレンド試合',
+    dashStreak: '🔥 連勝ランキング',
+    streakUnit: '連勝',
+    watchLive: '📺 観戦する',
+    modalTitle: '📺 公式生放送チャンネル',
+    modalDisclaimer: '⚖️ 公式の合法チャンネルで視聴してください',
+    vs: 'vs',
+    mapProgress: '🗺️ マップ進行',
+    sportFootball: 'サッカー',
+    sportBasketball: 'バスケットボール',
+    sportEsports: 'eスポーツ',
+    sportTennis: 'テニス',
+    sportBaseball: '野球',
+    sportNFL: 'アメフト',
+    sportHockey: 'アイスホッケー',
+    sportRugby: 'ラグビー',
+    sportCricket: 'クリケット',
+    sportFighting: '格闘技',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'FIFA公式ストリーミングプラットフォーム',
+    chLeagueOfficial: 'リーグ公式放送',
+    chLeagueOfficialDesc: '各リーグ公式デジタル放送プラットフォーム',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'NBA公式ストリーミングサブスク',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'LOL Esports公式Twitchチャンネル',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'LOL Esports公式YouTubeチャンネル',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'ESPNストリーミングサブスク',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: 'ヨーロッパスポーツストリーミング',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'MLB公式ストリーミングサブスク',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'NFL公式ストリーミングサブスク',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'NHL公式ストリーミングサブスク',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'YouTubeスポーツチャンネル',
+    disclaimer: '⚠️ 免責事項：本プラットフォームの予測データはシミュレーションであり、娯楽参考のみです。',
+    disclaimer2: 'スポーツ結果は多くの要因に影響されます。過去のデータは将来の結果を保証しません。',
+    heatUnit: '万',
+  },
+  ko: {
+    sidebarLogo: '전체 스포츠 예측',
+    sidebarFooter: '데이터는 참고용 · 베팅 조언이 아닙니다',
+    simulatedData: '🔄 시뮬레이션 데이터',
+    tabMatches: '경기 목록',
+    tabCombos: '추천 조합',
+    tabDashboard: '대시보드',
+    pageTitle: '{emoji} {sport} 예측',
+    homeTeam: '홈 승',
+    awayTeam: '원정 승',
+    draw: '무승부',
+    player1: '선수 1',
+    player2: '선수 2',
+    confidence: '신뢰도',
+    noMatches: '{sport} 경기 데이터 없음',
+    all: '전체',
+    combo2: '{sport} 2폴더',
+    combo3: '{sport} 3폴더',
+    combo2Label: '2폴더',
+    combo3Label: '3폴더',
+    crossCombo: '🌍 종목 교차 조합',
+    crossCombo3: '교차 3폴더',
+    comboWinRate: '종합 승률',
+    lowRisk: '저위험',
+    mediumRisk: '중위험',
+    highRisk: '고위험',
+    dashHitRate: '📊 종목별 예측 적중률',
+    dashHot: '🔥 인기 경기',
+    dashStreak: '🔥 연승 랭킹',
+    streakUnit: '연승',
+    watchLive: '📺 시청하기',
+    modalTitle: '📺 공식 생중계 채널',
+    modalDisclaimer: '⚖️ 공식 합법 채널을 통해 시청하세요',
+    vs: 'vs',
+    mapProgress: '🗺️ 맵 진행',
+    sportFootball: '축구',
+    sportBasketball: '농구',
+    sportEsports: 'e스포츠',
+    sportTennis: '테니스',
+    sportBaseball: '야구',
+    sportNFL: '미식축구',
+    sportHockey: '아이스하키',
+    sportRugby: '럭비',
+    sportCricket: '크리켓',
+    sportFighting: '격투기',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'FIFA 공식 스트리밍 플랫폼',
+    chLeagueOfficial: '리그 공식 중계',
+    chLeagueOfficialDesc: '각 리그 공식 디지털 중계 플랫폼',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'NBA 공식 스트리밍 구독',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'LOL Esports 공식 Twitch 채널',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'LOL Esports 공식 YouTube 채널',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'ESPN 스트리밍 구독',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: '유럽 스포츠 스트리밍',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'MLB 공식 스트리밍 구독',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'NFL 공식 스트리밍 구독',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'NHL 공식 스트리밍 구독',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'YouTube 스포츠 채널',
+    disclaimer: '⚠️ 면책: 모든 예측 데이터는 시뮬레이션으로 엔터테인먼트 참고용이며, 베팅 조언이 아닙니다.',
+    disclaimer2: '스포츠 결과는 여러 요인의 영향을 받습니다. 과거 데이터가 미래 성과를 보장하지 않습니다.',
+    heatUnit: '만',
+  },
+  ru: {
+    sidebarLogo: 'Спортивные Прогнозы',
+    sidebarFooter: 'Данные для справки · Не совет для ставок',
+    simulatedData: '🔄 Симулированные данные',
+    tabMatches: 'Матчи',
+    tabCombos: 'Экспрессы',
+    tabDashboard: 'Панель',
+    pageTitle: '{emoji} Прогнозы {sport}',
+    homeTeam: 'Хозяева',
+    awayTeam: 'Гости',
+    draw: 'Ничья',
+    player1: 'Игрок 1',
+    player2: 'Игрок 2',
+    confidence: 'Уверенность',
+    noMatches: 'Нет данных {sport}',
+    all: 'Все',
+    combo2: '{sport} Экспресс 2',
+    combo3: '{sport} Экспресс 3',
+    combo2Label: 'Экспресс 2',
+    combo3Label: 'Экспресс 3',
+    crossCombo: '🌍 Кросс-спортивные экспрессы',
+    crossCombo3: 'Кросс 3',
+    comboWinRate: 'Общий рейтинг',
+    lowRisk: 'Низкий риск',
+    mediumRisk: 'Средний риск',
+    highRisk: 'Высокий риск',
+    dashHitRate: '📊 Точность прогнозов по видам',
+    dashHot: '🔥 Популярные матчи',
+    dashStreak: '🔥 Серии побед',
+    streakUnit: ' серий',
+    watchLive: '📺 Смотреть',
+    modalTitle: '📺 Официальные каналы трансляций',
+    modalDisclaimer: '⚖️ Смотрите через официальные легальные каналы',
+    vs: 'vs',
+    mapProgress: '🗺️ Прогресс карт',
+    sportFootball: 'Футбол',
+    sportBasketball: 'Баскетбол',
+    sportEsports: 'Киберспорт',
+    sportTennis: 'Теннис',
+    sportBaseball: 'Бейсбол',
+    sportNFL: 'Американский футбол',
+    sportHockey: 'Хоккей',
+    sportRugby: 'Регби',
+    sportCricket: 'Крикет',
+    sportFighting: 'Единоборства',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'Официальная стриминговая платформа FIFA',
+    chLeagueOfficial: 'Официальная трансляция лиги',
+    chLeagueOfficialDesc: 'Официальные цифровые платформы трансляций',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'Официальная стриминговая подписка NBA',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'Официальный канал LOL Esports на Twitch',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'Официальный канал LOL Esports на YouTube',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'Стриминговая подписка ESPN',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: 'Европейский спортивный стриминг',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'Официальная стриминговая подписка MLB',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'Официальная стриминговая подписка NFL',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'Официальная стриминговая подписка NHL',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'Спортивный канал YouTube',
+    disclaimer: '⚠️ Дисклеймер: Все данные прогнозов смоделированы для развлечения, не являются советом для ставок.',
+    disclaimer2: 'На результаты матчей влияют многие факторы. Прошлые данные не гарантируют будущих результатов.',
+    heatUnit: 'K',
+  },
+  fr: {
+    sidebarLogo: 'Prédictions Sportives',
+    sidebarFooter: 'Données à titre indicatif · Pas un conseil de pari',
+    simulatedData: '🔄 Données Simulées',
+    tabMatches: 'Matchs',
+    tabCombos: 'Combinaisons',
+    tabDashboard: 'Tableau de Bord',
+    pageTitle: '{emoji} Prédictions {sport}',
+    homeTeam: 'Domicile',
+    awayTeam: 'Extérieur',
+    draw: 'Nul',
+    player1: 'Joueur 1',
+    player2: 'Joueur 2',
+    confidence: 'Confiance',
+    noMatches: 'Aucune donnée {sport}',
+    all: 'Tous',
+    combo2: '{sport} Combi 2',
+    combo3: '{sport} Combi 3',
+    combo2Label: 'Combi 2',
+    combo3Label: 'Combi 3',
+    crossCombo: '🌍 Combinaisons Multi-Sports',
+    crossCombo3: 'Multi-Sports 3',
+    comboWinRate: 'Taux Combiné',
+    lowRisk: 'Risque Faible',
+    mediumRisk: 'Risque Moyen',
+    highRisk: 'Risque Élevé',
+    dashHitRate: '📊 Taux de Réussite par Sport',
+    dashHot: '🔥 Matchs Tendance',
+    dashStreak: '🔥 Séries Chaudes',
+    streakUnit: ' séries',
+    watchLive: '📺 Regarder en Direct',
+    modalTitle: '📺 Chaînes Officielles en Direct',
+    modalDisclaimer: '⚖️ Veuillez regarder via des chaînes officielles légales',
+    vs: 'vs',
+    mapProgress: '🗺️ Progression de la Carte',
+    sportFootball: 'Football',
+    sportBasketball: 'Basketball',
+    sportEsports: 'Esports',
+    sportTennis: 'Tennis',
+    sportBaseball: 'Baseball',
+    sportNFL: 'Football Américain',
+    sportHockey: 'Hockey sur Glace',
+    sportRugby: 'Rugby',
+    sportCricket: 'Cricket',
+    sportFighting: 'Sports de Combat',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'Plateforme de streaming officielle FIFA',
+    chLeagueOfficial: 'Diffusion Officielle de Ligue',
+    chLeagueOfficialDesc: 'Plateformes numériques officielles',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'Abonnement streaming officiel NBA',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'Chaîne officielle LOL Esports sur Twitch',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'Chaîne officielle LOL Esports sur YouTube',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'Abonnement streaming ESPN',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: 'Streaming sportif européen',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'Abonnement streaming officiel MLB',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'Abonnement streaming officiel NFL',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'Abonnement streaming officiel NHL',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'Chaîne sportive YouTube',
+    disclaimer: '⚠️ Avertissement : Toutes les données de prédiction sont simulées, pour divertissement uniquement.',
+    disclaimer2: 'Les résultats sportifs dépendent de nombreux facteurs. Les données passées ne garantissent pas les résultats futurs.',
+    heatUnit: 'K',
+  },
+  de: {
+    sidebarLogo: 'Sportvorhersagen',
+    sidebarFooter: 'Daten nur als Referenz · Keine Wettberatung',
+    simulatedData: '🔄 Simulierte Daten',
+    tabMatches: 'Spiele',
+    tabCombos: 'Kombinationen',
+    tabDashboard: 'Dashboard',
+    pageTitle: '{emoji} {sport} Vorhersagen',
+    homeTeam: 'Heim',
+    awayTeam: 'Auswärts',
+    draw: 'Unentschieden',
+    player1: 'Spieler 1',
+    player2: 'Spieler 2',
+    confidence: 'Konfidenz',
+    noMatches: 'Keine {sport}-Daten',
+    all: 'Alle',
+    combo2: '{sport} Kombi 2',
+    combo3: '{sport} Kombi 3',
+    combo2Label: 'Kombi 2',
+    combo3Label: 'Kombi 3',
+    crossCombo: '🌍 Sportübergreifende Kombinationen',
+    crossCombo3: 'Sportübergreifend 3',
+    comboWinRate: 'Kombinierte Gewinnquote',
+    lowRisk: 'Niedriges Risiko',
+    mediumRisk: 'Mittleres Risiko',
+    highRisk: 'Hohes Risiko',
+    dashHitRate: '📊 Trefferquote nach Sportart',
+    dashHot: '🔥 Trendspiele',
+    dashStreak: '🔥 Gewinnserien',
+    streakUnit: ' Serien',
+    watchLive: '📺 Live ansehen',
+    modalTitle: '📺 Offizielle Live-Kanäle',
+    modalDisclaimer: '⚖️ Bitte über offizielle legale Kanäle schauen',
+    vs: 'vs',
+    mapProgress: '🗺️ Kartenfortschritt',
+    sportFootball: 'Fußball',
+    sportBasketball: 'Basketball',
+    sportEsports: 'E-Sport',
+    sportTennis: 'Tennis',
+    sportBaseball: 'Baseball',
+    sportNFL: 'American Football',
+    sportHockey: 'Eishockey',
+    sportRugby: 'Rugby',
+    sportCricket: 'Cricket',
+    sportFighting: 'Kampfsport',
+    chFIFA: 'FIFA+',
+    chFIFADesc: 'Offizielle FIFA-Streaming-Plattform',
+    chLeagueOfficial: 'Offizielle Ligaübertragung',
+    chLeagueOfficialDesc: 'Offizielle digitale Übertragungsplattformen',
+    chNBALeaguePass: 'NBA League Pass',
+    chNBALeaguePassDesc: 'Offizielles NBA-Streaming-Abo',
+    chTwitchLol: 'Twitch (lolesports)',
+    chTwitchLolDesc: 'Offizieller LOL Esports Twitch-Kanal',
+    chYoutubeLol: 'YouTube (LOL Esports)',
+    chYoutubeLolDesc: 'Offizieller LOL Esports YouTube-Kanal',
+    chESPNPlus: 'ESPN+',
+    chESPNPlusDesc: 'ESPN-Streaming-Abo',
+    chEurosport: 'Eurosport',
+    chEurosportDesc: 'Europäisches Sport-Streaming',
+    chMLBtv: 'MLB.tv',
+    chMLBtvDesc: 'Offizielles MLB-Streaming-Abo',
+    chNFLGamePass: 'NFL Game Pass',
+    chNFLGamePassDesc: 'Offizielles NFL-Streaming-Abo',
+    chNHLtv: 'NHL.tv',
+    chNHLtvDesc: 'Offizielles NHL-Streaming-Abo',
+    chYoutubeSports: 'YouTube Sports',
+    chYoutubeSportsDesc: 'YouTube-Sportkanal',
+    disclaimer: '⚠️ Haftungsausschluss: Alle Vorhersagedaten sind simuliert, nur zur Unterhaltung, keine Wettberatung.',
+    disclaimer2: 'Sportergebnisse werden von vielen Faktoren beeinflusst. Vergangene Daten garantieren keine zukünftigen Ergebnisse.',
+    heatUnit: 'K',
+  },
+};
+
+// Current language
+let currentLang = 'zh';
+
+// Translation function with interpolation
+function t(key, replacements) {
+  let str = (I18N[currentLang] && I18N[currentLang][key]) || (I18N.zh[key]) || key;
+  if (replacements) {
+    Object.keys(replacements).forEach(k => {
+      str = str.replace(new RegExp('\\{' + k + '\\}', 'g'), replacements[k]);
+    });
+  }
+  return str;
+}
+
+// Get sport name in current language
+function tSport(sportId) {
+  const keyMap = {
+    football: 'sportFootball',
+    basketball: 'sportBasketball',
+    esports: 'sportEsports',
+    tennis: 'sportTennis',
+    baseball: 'sportBaseball',
+    nfl: 'sportNFL',
+    hockey: 'sportHockey',
+    rugby: 'sportRugby',
+    cricket: 'sportCricket',
+    fighting: 'sportFighting',
+  };
+  return t(keyMap[sportId] || 'sportFootball');
+}
+
+// Detect browser language
+function detectLang() {
+  const stored = localStorage.getItem('sportsPredictorLang');
+  if (stored && I18N[stored]) return stored;
+  const browserLang = (navigator.language || navigator.userLanguage || 'zh').toLowerCase().split('-')[0];
+  if (I18N[browserLang]) return browserLang;
+  return 'zh';
+}
+
+// Set language
+function setLang(code) {
+  if (!I18N[code]) return;
+  currentLang = code;
+  localStorage.setItem('sportsPredictorLang', code);
+  // RTL for Arabic
+  document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr';
+  // Update html lang attribute dynamically for SEO
+  const langMap = { zh:'zh-CN', en:'en', es:'es', pt:'pt-BR', ar:'ar', ja:'ja', ko:'ko', ru:'ru', fr:'fr', de:'de' };
+  document.documentElement.lang = langMap[code] || code;
+  // Update page title for SEO
+  const titleMap = {
+    zh: '全赛事智能预测平台 - 足球篮球电竞免费预测 | SportPredict',
+    en: 'Sports Predictions Today - Free Match Analysis & Tips | SportPredict',
+    es: 'Predicciones Deportivas Hoy - Análisis y Consejos Gratis | SportPredict',
+    pt: 'Previsões Esportivas Hoje - Análise e Dicas Grátis | SportPredict',
+    ar: 'توقعات رياضية اليوم - تحليل ونصائح مجانية | SportPredict',
+    ja: 'スポーツ予測今日 - 無料試合分析＆ヒント | SportPredict',
+    ko: '오늘의 스포츠 예측 - 무료 경기 분석 & 팁 | SportPredict',
+    ru: 'Спортивные Прогнозы Сегодня - Бесплатный Анализ | SportPredict',
+    fr: 'Prédictions Sportives Aujourd\'hui - Analyse Gratuite | SportPredict',
+    de: 'Sportvorhersagen Heute - Kostenlose Analyse & Tipps | SportPredict',
+  };
+  document.title = titleMap[code] || titleMap.en;
+  applyLang();
+}
+
+// Apply language to all static elements
+function applyLang() {
+  // Update data-i18n elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  // Update lang label
+  const langInfo = LANGS.find(l => l.code === currentLang);
+  document.getElementById('langLabel').textContent = langInfo ? langInfo.label : '中文';
+  // Update lang dropdown active state
+  document.querySelectorAll('.lang-option').forEach(el => {
+    el.classList.toggle('active', el.dataset.lang === currentLang);
+  });
+  // Rebuild sidebar and mobile nav with translated names
+  buildSidebar();
+  buildMobileNav();
+  // Re-set sport to update page title
+  setSport(currentSport);
+  // Update disclaimer
+  document.getElementById('disclaimerText').innerHTML =
+    t('disclaimer') + '<br>' + t('disclaimer2');
+  // Update date
+  updateDate();
+}
+
+function updateDate() {
+  const dateEl = document.getElementById('currentDate');
+  const localeMap = {
+    zh: 'zh-CN', en: 'en-US', es: 'es-ES', pt: 'pt-BR',
+    ar: 'ar-SA', ja: 'ja-JP', ko: 'ko-KR', ru: 'ru-RU',
+    fr: 'fr-FR', de: 'de-DE',
+  };
+  dateEl.textContent = new Date().toLocaleDateString(localeMap[currentLang] || 'zh-CN', {
+    year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
+  });
+}
+
+function buildLangDropdown() {
+  const dropdown = document.getElementById('langDropdown');
+  dropdown.innerHTML = LANGS.map(l =>
+    `<div class="lang-option${l.code === currentLang ? ' active' : ''}" data-lang="${l.code}" onclick="setLang('${l.code}');closeLangDropdown();">
+      <span class="lang-flag">${l.flag}</span>
+      <span>${l.label}</span>
+    </div>`
+  ).join('');
+}
+
+function toggleLangDropdown() {
+  const dd = document.getElementById('langDropdown');
+  dd.classList.toggle('open');
+}
+
+function closeLangDropdown() {
+  document.getElementById('langDropdown').classList.remove('open');
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', function(e) {
+  const sw = document.getElementById('langSwitcher');
+  if (!sw.contains(e.target)) closeLangDropdown();
+});
+
+// ===== SPORTS CONFIG =====
+const SPORTS = [
+  { id:'football', name:'足球', emoji:'⚽', accent:'--accent-football', accentVal:'#2ea043' },
+  { id:'basketball', name:'篮球', emoji:'🏀', accent:'--accent-basketball', accentVal:'#f0883e' },
+  { id:'esports', name:'电竞', emoji:'🎮', accent:'--accent-esports', accentVal:'#a855f7' },
+  { id:'tennis', name:'网球', emoji:'🎾', accent:'--accent-tennis', accentVal:'#a3e635' },
+  { id:'baseball', name:'棒球', emoji:'⚾', accent:'--accent-baseball', accentVal:'#3b82f6' },
+  { id:'nfl', name:'橄榄球', emoji:'🏈', accent:'--accent-football-nfl', accentVal:'#ef4444' },
+  { id:'hockey', name:'冰球', emoji:'🏒', accent:'--accent-hockey', accentVal:'#06b6d4' },
+  { id:'rugby', name:'英式橄榄球', emoji:'🏉', accent:'--accent-rugby', accentVal:'#10b981' },
+  { id:'cricket', name:'板球', emoji:'🏏', accent:'--accent-cricket', accentVal:'#f59e0b' },
+  { id:'fighting', name:'格斗', emoji:'🥊', accent:'--accent-fighting', accentVal:'#dc2626' },
+];
+
+const SUB_LEAGUES = {
+  football: ['全部','英超','西甲','意甲','德甲','法甲','欧冠','欧联','中超','日职','韩职','美职联','世预赛'],
+  basketball: ['全部','NBA','CBA','欧冠篮球','欧锦赛'],
+  esports: ['全部','LOL','CS2','Dota2','王者荣耀'],
+  tennis: ['全部','ATP大满贯','WTA大满贯','大师赛'],
+  baseball: ['全部','MLB','日职棒','韩职棒'],
+  nfl: ['全部','NFL','CFL'],
+  hockey: ['全部','NHL','KHL'],
+  rugby: ['全部','六国赛','橄榄球世界杯'],
+  cricket: ['全部','IPL','测试赛'],
+  fighting: ['全部','UFC','拳击'],
+};
+
+// ===== LIVE CHANNELS CONFIG =====
+const LIVE_CHANNELS = {
+  football: [
+    { icon: '⚽', nameKey: 'chFIFA', descKey: 'chFIFADesc', url: 'https://www.fifa.com/fifaplus/' },
+    { icon: '📺', nameKey: 'chLeagueOfficial', descKey: 'chLeagueOfficialDesc', url: 'https://www.uefa.com/' },
+  ],
+  basketball: [
+    { icon: '🏀', nameKey: 'chNBALeaguePass', descKey: 'chNBALeaguePassDesc', url: 'https://www.nba.com/watch/league-pass' },
+  ],
+  esports: [
+    { icon: '🎮', nameKey: 'chTwitchLol', descKey: 'chTwitchLolDesc', url: 'https://www.twitch.tv/lolesports' },
+    { icon: '▶️', nameKey: 'chYoutubeLol', descKey: 'chYoutubeLolDesc', url: 'https://www.youtube.com/@lolesports' },
+  ],
+  tennis: [
+    { icon: '🎾', nameKey: 'chESPNPlus', descKey: 'chESPNPlusDesc', url: 'https://www.espn.com/espnplus/' },
+    { icon: '🎾', nameKey: 'chEurosport', descKey: 'chEurosportDesc', url: 'https://www.eurosport.com/' },
+  ],
+  baseball: [
+    { icon: '⚾', nameKey: 'chMLBtv', descKey: 'chMLBtvDesc', url: 'https://www.mlb.com/tv' },
+  ],
+  nfl: [
+    { icon: '🏈', nameKey: 'chNFLGamePass', descKey: 'chNFLGamePassDesc', url: 'https://www.nfl.com/gamepass/' },
+  ],
+  hockey: [
+    { icon: '🏒', nameKey: 'chNHLtv', descKey: 'chNHLtvDesc', url: 'https://www.nhl.com/tv' },
+  ],
+  rugby: [
+    { icon: '🏉', nameKey: 'chESPNPlus', descKey: 'chESPNPlusDesc', url: 'https://www.espn.com/espnplus/' },
+  ],
+  cricket: [
+    { icon: '🏏', nameKey: 'chESPNPlus', descKey: 'chESPNPlusDesc', url: 'https://www.espn.com/espnplus/' },
+    { icon: '▶️', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/sports' },
+  ],
+  fighting: [
+    { icon: '🥊', nameKey: 'chESPNPlus', descKey: 'chESPNPlusDesc', url: 'https://www.espn.com/espnplus/' },
+  ],
+};
+
+// ===== SIMULATED MATCH DATA =====
+const MATCHES = {
+  football: [
+    { id:'f1', league:'英超', home:'曼城', away:'阿森纳', homeEmoji:'🔵', awayEmoji:'🔴', time:'06-04 21:00', homeWin:48, draw:26, awayWin:26, confidence:78 },
+    { id:'f2', league:'英超', home:'利物浦', away:'切尔西', homeEmoji:'🔴', awayEmoji:'🔵', time:'06-04 23:30', homeWin:52, draw:24, awayWin:24, confidence:72 },
+    { id:'f3', league:'西甲', home:'皇马', away:'巴萨', homeEmoji:'⚪', awayEmoji:'🔵🔴', time:'06-05 03:00', homeWin:44, draw:24, awayWin:32, confidence:70 },
+    { id:'f4', league:'西甲', home:'马竞', away:'皇家社会', homeEmoji:'🔴⚪', awayEmoji:'🔵⚪', time:'06-05 01:00', homeWin:46, draw:28, awayWin:26, confidence:65 },
+    { id:'f5', league:'意甲', home:'国米', away:'AC米兰', homeEmoji:'🔵⚫', awayEmoji:'🔴⚫', time:'06-05 02:45', homeWin:50, draw:25, awayWin:25, confidence:74 },
+    { id:'f6', league:'意甲', home:'尤文', away:'那不勒斯', homeEmoji:'⚪⚫', awayEmoji:'🔵', time:'06-06 02:45', homeWin:42, draw:28, awayWin:30, confidence:62 },
+    { id:'f7', league:'欧冠', home:'皇马', away:'拜仁', homeEmoji:'⚪', awayEmoji:'🔴', time:'06-07 03:00', homeWin:40, draw:26, awayWin:34, confidence:68 },
+    { id:'f8', league:'欧冠', home:'巴黎', away:'多特', homeEmoji:'🔵🔴', awayEmoji:'🟡⚫', time:'06-07 03:00', homeWin:44, draw:26, awayWin:30, confidence:66 },
+  ],
+  basketball: [
+    { id:'b1', league:'NBA', home:'湖人', away:'凯尔特人', homeEmoji:'💜💛', awayEmoji:'💚', time:'06-04 08:00', homeWin:45, awayWin:55, confidence:71 },
+    { id:'b2', league:'NBA', home:'勇士', away:'掘金', homeEmoji:'💙💛', awayEmoji:'🔵🟡', time:'06-04 10:30', homeWin:48, awayWin:52, confidence:68 },
+    { id:'b3', league:'NBA', home:'雄鹿', away:'76人', homeEmoji:'🟢', awayEmoji:'🔵🔴', time:'06-05 08:00', homeWin:54, awayWin:46, confidence:73 },
+    { id:'b4', league:'CBA', home:'广东宏远', away:'辽宁本钢', homeEmoji:'🦁', awayEmoji:'🐆', time:'06-05 19:35', homeWin:46, awayWin:54, confidence:64 },
+  ],
+  esports: [
+    { id:'e1', league:'LOL', home:'T1', away:'Gen.G', homeEmoji:'🔴', awayEmoji:'🟡🔵', time:'06-04 16:00', homeWin:52, awayWin:48, confidence:74, bo:'BO5', maps:[2,1] },
+    { id:'e2', league:'LOL', home:'JDG', away:'BLG', homeEmoji:'🔴', awayEmoji:'🔵⚪', time:'06-04 19:00', homeWin:46, awayWin:54, confidence:69, bo:'BO5', maps:[1,2] },
+    { id:'e3', league:'CS2', home:'NaVi', away:'FaZe', homeEmoji:'🟡', awayEmoji:'🔴', time:'06-05 20:00', homeWin:55, awayWin:45, confidence:71, bo:'BO3', maps:[1,0] },
+    { id:'e4', league:'Dota2', home:'Team Spirit', away:'Tundra', homeEmoji:'🟢', awayEmoji:'🔵❄️', time:'06-06 15:00', homeWin:50, awayWin:50, confidence:60, bo:'BO3', maps:[0,0] },
+  ],
+  tennis: [
+    { id:'t1', league:'ATP大满贯', home:'德约科维奇', away:'阿尔卡拉斯', homeEmoji:'🇷🇸', awayEmoji:'🇪🇸', time:'06-05 15:00', homeWin:48, awayWin:52, confidence:72, isIndividual:true },
+    { id:'t2', league:'WTA大满贯', home:'斯瓦泰克', away:'萨巴伦卡', homeEmoji:'🇵🇱', awayEmoji:'🇧🇾', time:'06-05 17:00', homeWin:54, awayWin:46, confidence:68, isIndividual:true },
+  ],
+  baseball: [
+    { id:'bs1', league:'MLB', home:'洋基', away:'道奇', homeEmoji:'🔵⚪', awayEmoji:'🔵', time:'06-04 07:05', homeWin:52, awayWin:48, confidence:66 },
+    { id:'bs2', league:'MLB', home:'太空人', away:'勇士', homeEmoji:'🟠', awayEmoji:'🔵🔴', time:'06-04 08:10', homeWin:55, awayWin:45, confidence:69 },
+  ],
+  nfl: [
+    { id:'n1', league:'NFL', home:'酋长', away:'49人', homeEmoji:'🔴', awayEmoji:'🟡🔴', time:'06-09 01:20', homeWin:51, awayWin:49, confidence:64 },
+    { id:'n2', league:'NFL', home:'比尔', away:'海豚', homeEmoji:'🔵🔴', awayEmoji:'🟢🟠', time:'06-09 18:00', homeWin:57, awayWin:43, confidence:71 },
+  ],
+  hockey: [
+    { id:'h1', league:'NHL', home:'油人', away:'黑豹', homeEmoji:'🔵🟠', awayEmoji:'🔵🔴🟡', time:'06-05 08:00', homeWin:48, awayWin:52, confidence:65 },
+    { id:'h2', league:'NHL', home:'游骑兵', away:'星队', homeEmoji:'🔵🔴', awayEmoji:'🟢', time:'06-05 08:30', homeWin:53, awayWin:47, confidence:67 },
+  ],
+  rugby: [
+    { id:'r1', league:'六国赛', home:'英格兰', away:'爱尔兰', homeEmoji:'🤍', awayEmoji:'💚', time:'06-08 17:45', homeWin:44, awayWin:56, confidence:70 },
+  ],
+  cricket: [
+    { id:'c1', league:'IPL', home:'孟买印第安人', away:'钦奈超级国王', homeEmoji:'🔵', awayEmoji:'🟡', time:'06-06 15:30', homeWin:50, awayWin:50, confidence:58 },
+  ],
+  fighting: [
+    { id:'fg1', league:'UFC', home:'马哈切夫', away:'普瓦里尔', homeEmoji:'🇷🇺', awayEmoji:'🇺🇸', time:'06-08 11:00', homeWin:68, awayWin:32, confidence:76, isIndividual:true },
+  ],
+};
+
+let currentSport = 'football';
+let currentPage = 'matches';
+let currentSubFilter = '全部';
+
+// ===== INIT =====
+function init() {
+  // Initialize language
+  currentLang = detectLang();
+  buildLangDropdown();
+  // RTL for Arabic
+  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+  const langMapInit = { zh:'zh-CN', en:'en', es:'es', pt:'pt-BR', ar:'ar', ja:'ja', ko:'ko', ru:'ru', fr:'fr', de:'de' };
+  document.documentElement.lang = langMapInit[currentLang] || currentLang;
+  // Update lang label
+  const langInfo = LANGS.find(l => l.code === currentLang);
+  document.getElementById('langLabel').textContent = langInfo ? langInfo.label : '中文';
+
+  updateDate();
+  buildSidebar();
+  buildMobileNav();
+  setSport('football');
+
+  // Apply language to static elements
+  applyLang();
+}
+
+function buildSidebar() {
+  const nav = document.getElementById('sidebarNav');
+  nav.innerHTML = SPORTS.map(s =>
+    `<div class="nav-item" data-sport="${s.id}" onclick="setSport('${s.id}')"><span class="emoji">${s.emoji}</span>${tSport(s.id)}</div>`
+  ).join('');
+}
+
+function buildMobileNav() {
+  const nav = document.getElementById('mobileNav');
+  nav.innerHTML = SPORTS.map(s =>
+    `<div class="mobile-nav-item" data-sport="${s.id}" onclick="setSport('${s.id}')">${s.emoji} ${tSport(s.id)}</div>`
+  ).join('');
+}
+
+function setSport(id) {
+  currentSport = id;
+  currentSubFilter = t('all');
+  const sport = SPORTS.find(s=>s.id===id);
+  document.documentElement.style.setProperty('--accent-current', `var(${sport.accent})`);
+  document.getElementById('pageTitle').textContent = t('pageTitle', { emoji: sport.emoji, sport: tSport(id) });
+  // Update nav active
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.toggle('active', el.dataset.sport===id));
+  document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.toggle('active', el.dataset.sport===id));
+  renderContent();
+}
+
+function switchPage(page) {
+  currentPage = page;
+  document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page===page));
+  renderContent();
+}
+
+function renderContent() {
+  const area = document.getElementById('contentArea');
+  if (currentPage === 'matches') area.innerHTML = renderMatches();
+  else if (currentPage === 'combos') area.innerHTML = renderCombos();
+  else if (currentPage === 'dashboard') area.innerHTML = renderDashboard();
+}
+
+// ===== WATCH LIVE MODAL =====
+function openWatchModal(sportId) {
+  const channels = LIVE_CHANNELS[sportId] || [];
+  const listEl = document.getElementById('channelList');
+  document.getElementById('modalTitle').textContent = t('modalTitle');
+  document.getElementById('modalDisclaimer').innerHTML = t('modalDisclaimer');
+
+  if (!channels.length) {
+    listEl.innerHTML = `<div style="text-align:center;padding:24px;color:var(--text-muted);">No channels available</div>`;
+  } else {
+    listEl.innerHTML = channels.map(ch => `
+      <div class="channel-item">
+        <span class="channel-icon">${ch.icon}</span>
+        <div class="channel-info">
+          <div class="channel-name">${t(ch.nameKey)}</div>
+          <div class="channel-desc">${t(ch.descKey)}</div>
+        </div>
+        <a class="channel-link" href="${ch.url}" target="_blank" rel="noopener noreferrer nofollow">▶</a>
+      </div>
+    `).join('');
+  }
+
+  document.getElementById('watchModal').classList.add('open');
+}
+
+function closeWatchModal() {
+  document.getElementById('watchModal').classList.remove('open');
+}
+
+// Close modal on overlay click
+document.getElementById('watchModal').addEventListener('click', function(e) {
+  if (e.target === this) closeWatchModal();
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeWatchModal();
+});
+
+// ===== MATCHES =====
+function renderMatches() {
+  const leagues = SUB_LEAGUES[currentSport] || ['全部'];
+  const matches = MATCHES[currentSport] || [];
+  const allLabel = t('all');
+  const filtered = currentSubFilter === allLabel ? matches : matches.filter(m => m.league === currentSubFilter);
+  const sport = SPORTS.find(s=>s.id===currentSport);
+  const sportName = tSport(currentSport);
+
+  let html = `<div class="sub-filter">${leagues.map((l, i) => {
+    const label = i === 0 ? allLabel : l;
+    const isActive = label === currentSubFilter || (i === 0 && currentSubFilter === allLabel);
+    return `<button class="sub-filter-btn${isActive?' active':''}" onclick="filterSub('${label}')">${label}</button>`;
+  }).join('')}</div>`;
+
+  if (!filtered.length) {
+    html += `<div style="text-align:center;padding:60px 0;color:var(--text-muted);font-size:15px;">${t('noMatches', {sport: sportName})}</div>`;
+    return html;
+  }
+
+  filtered.forEach(m => {
+    const isEsport = currentSport === 'esports';
+    const isIndividual = m.isIndividual;
+    const homeLabel = isIndividual ? t('player1') : t('homeTeam');
+    const awayLabel = isIndividual ? t('player2') : t('awayTeam');
+    const hasDraw = !currentSport.startsWith('basket') && !currentSport.startsWith('base') && !currentSport.startsWith('nfl') && !currentSport.startsWith('hockey') && !currentSport.startsWith('rugby') && !currentSport.startsWith('cricket') && !currentSport.startsWith('fight') && currentSport !== 'esports';
+
+    const confClass = m.confidence >= 75 ? 'high' : m.confidence >= 65 ? 'medium' : 'low';
+
+    html += `<div class="match-card">
+      <div class="match-header">
+        <span class="match-league">${sport.emoji} ${m.league}</span>
+        <span class="match-time">🕐 ${m.time}</span>
+      </div>
+      <div class="match-body">
+        <div class="team">
+          <span class="team-logo">${m.homeEmoji}</span>
+          <span class="team-name">${m.home}</span>
+        </div>
+        <div class="predict-bar-wrap">
+          <div class="predict-bar">
+            <div class="fill fill-home" style="width:${m.homeWin}%">${m.homeWin}%</div>
+            ${hasDraw ? `<div class="fill fill-draw" style="width:${m.draw}%">${m.draw}%</div>` : ''}
+            <div class="fill fill-away" style="width:${m.awayWin}%">${m.awayWin}%</div>
+          </div>
+          <div class="predict-labels">
+            <span>${homeLabel}</span>
+            ${hasDraw ? '<span>' + t('draw') + '</span>' : ''}
+            <span>${awayLabel}</span>
+          </div>
+        </div>
+        <div class="team">
+          <span class="team-logo">${m.awayEmoji}</span>
+          <span class="team-name">${m.away}</span>
+        </div>
+      </div>
+      <div class="match-card-footer">
+        <div class="confidence">
+          <span class="confidence-label">${t('confidence')}</span>
+          <span class="confidence-value ${confClass}">${m.confidence}%</span>
+        </div>
+        <button class="watch-btn" onclick="openWatchModal('${currentSport}')">${t('watchLive')}</button>
+      </div>`;
+
+    if (isEsport && m.bo) {
+      html += `<div class="esports-meta">
+        <span>📋 ${m.bo}</span>
+        <span>${t('mapProgress')}</span>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:4px;">
+        <div style="font-size:12px;color:var(--text-secondary)">${m.home} <div class="map-wins">${m.maps[0]>0?'<div class="map-win-dot win">W</div>'.repeat(m.maps[0]):''}<div class="map-win-dot lose">L</div>${m.maps[0]<2?'<div class="map-win-dot lose">L</div>'.repeat(Math.min((parseInt(m.bo.replace('BO',''))-1)-m.maps[0],1)):''}</div></div>
+        <div style="font-size:12px;color:var(--text-secondary)">${m.away} <div class="map-wins">${m.maps[1]>0?'<div class="map-win-dot win">W</div>'.repeat(m.maps[1]):''}<div class="map-win-dot lose">L</div>${m.maps[1]<2?'<div class="map-win-dot lose">L</div>'.repeat(Math.min((parseInt(m.bo.replace('BO',''))-1)-m.maps[1],1)):''}</div></div>
+      </div>`;
+    }
+
+    html += `</div>`;
+  });
+
+  return html;
+}
+
+function filterSub(league) {
+  currentSubFilter = league;
+  renderContent();
+}
+
+// ===== COMBOS =====
+function renderCombos() {
+  const sport = SPORTS.find(s=>s.id===currentSport);
+  const sportName = tSport(currentSport);
+  const matches = MATCHES[currentSport] || [];
+  let html = '';
+
+  // Same-sport 2串1
+  if (matches.length >= 2) {
+    html += `<h3 style="margin-bottom:12px;font-size:16px;">${sport.emoji} ${t('combo2', {sport: sportName})}</h3>`;
+    for (let i = 0; i < matches.length - 1; i += 2) {
+      const m1 = matches[i], m2 = matches[i+1];
+      const comboPct = Math.round(m1.confidence * m2.confidence / 100);
+      const riskClass = comboPct >= 55 ? 'low' : comboPct >= 45 ? 'medium' : 'high';
+      const riskLabel = comboPct >= 55 ? t('lowRisk') : comboPct >= 45 ? t('mediumRisk') : t('highRisk');
+      html += `<div class="combo-card">
+        <div class="combo-header">
+          <span class="combo-type s2">${t('combo2Label')}</span>
+          <span class="combo-risk ${riskClass}">${riskLabel} · ${t('comboWinRate')} ${comboPct}%</span>
+        </div>
+        <div class="combo-picks">
+          <div class="combo-pick">
+            <span class="sport-emoji">${sport.emoji}</span>
+            <span class="pick-info"><span class="pick-team">${m1.home}</span> <span class="pick-opp">${t('vs')} ${m1.away}</span></span>
+            <span class="pick-pct" style="color:var(--accent-current)">${m1.homeWin}%</span>
+          </div>
+          <div class="combo-pick">
+            <span class="sport-emoji">${sport.emoji}</span>
+            <span class="pick-info"><span class="pick-team">${m2.home}</span> <span class="pick-opp">${t('vs')} ${m2.away}</span></span>
+            <span class="pick-pct" style="color:var(--accent-current)">${m2.homeWin}%</span>
+          </div>
+        </div>
+        <div class="combo-footer">
+          <span>${t('comboWinRate')}</span>
+          <span class="combo-total">${comboPct}%</span>
+        </div>
+      </div>`;
+    }
+  }
+
+  // 3串1
+  if (matches.length >= 3) {
+    html += `<h3 style="margin:20px 0 12px;font-size:16px;">${sport.emoji} ${t('combo3', {sport: sportName})}</h3>`;
+    const m1=matches[0],m2=matches[1],m3=matches[2];
+    const comboPct = Math.round(m1.confidence * m2.confidence * m3.confidence / 10000);
+    const riskClass = comboPct >= 40 ? 'low' : comboPct >= 30 ? 'medium' : 'high';
+    const riskLabel = comboPct >= 40 ? t('lowRisk') : comboPct >= 30 ? t('mediumRisk') : t('highRisk');
+    html += `<div class="combo-card">
+      <div class="combo-header">
+        <span class="combo-type s3">${t('combo3Label')}</span>
+        <span class="combo-risk ${riskClass}">${riskLabel} · ${t('comboWinRate')} ${comboPct}%</span>
+      </div>
+      <div class="combo-picks">
+        <div class="combo-pick">
+          <span class="sport-emoji">${sport.emoji}</span>
+          <span class="pick-info"><span class="pick-team">${m1.home}</span> <span class="pick-opp">${t('vs')} ${m1.away}</span></span>
+          <span class="pick-pct" style="color:var(--accent-current)">${m1.homeWin}%</span>
+        </div>
+        <div class="combo-pick">
+          <span class="sport-emoji">${sport.emoji}</span>
+          <span class="pick-info"><span class="pick-team">${m2.home}</span> <span class="pick-opp">${t('vs')} ${m2.away}</span></span>
+          <span class="pick-pct" style="color:var(--accent-current)">${m2.homeWin}%</span>
+        </div>
+        <div class="combo-pick">
+          <span class="sport-emoji">${sport.emoji}</span>
+          <span class="pick-info"><span class="pick-team">${m3.home}</span> <span class="pick-opp">${t('vs')} ${m3.away}</span></span>
+          <span class="pick-pct" style="color:var(--accent-current)">${m3.homeWin}%</span>
+        </div>
+      </div>
+      <div class="combo-footer">
+        <span>${t('comboWinRate')}</span>
+        <span class="combo-total">${comboPct}%</span>
+      </div>
+    </div>`;
+  }
+
+  // Cross-sport combos
+  html += `<h3 style="margin:20px 0 12px;font-size:16px;">🌍 ${t('crossCombo')}</h3>`;
+  const allMatches = [];
+  Object.entries(MATCHES).forEach(([sid, ms]) => {
+    ms.forEach(m => allMatches.push({...m, sportId: sid}));
+  });
+  const crossCombos = [
+    [allMatches.find(m=>m.id==='f1'), allMatches.find(m=>m.id==='b1'), allMatches.find(m=>m.id==='e1')],
+    [allMatches.find(m=>m.id==='f3'), allMatches.find(m=>m.id==='b3'), allMatches.find(m=>m.id==='t1')],
+    [allMatches.find(m=>m.id==='f5'), allMatches.find(m=>m.id==='bs1'), allMatches.find(m=>m.id==='fg1')],
+  ];
+
+  crossCombos.forEach(combo => {
+    if (combo.some(c=>!c)) return;
+    const comboPct = Math.round(combo.reduce((acc,c)=>acc*c.confidence,1) / Math.pow(100, combo.length-1));
+    const riskClass = comboPct >= 40 ? 'low' : comboPct >= 30 ? 'medium' : 'high';
+    const riskLabel = comboPct >= 40 ? t('lowRisk') : comboPct >= 30 ? t('mediumRisk') : t('highRisk');
+    const sportEm = sid => SPORTS.find(s=>s.id===sid)?.emoji||'🏆';
+
+    html += `<div class="combo-card">
+      <div class="combo-header">
+        <span class="combo-type cross">${t('crossCombo3')}</span>
+        <span class="combo-risk ${riskClass}">${riskLabel} · ${t('comboWinRate')} ${comboPct}%</span>
+      </div>
+      <div class="combo-picks">
+        ${combo.map(c => `<div class="combo-pick">
+          <span class="sport-emoji">${sportEm(c.sportId)}</span>
+          <span class="pick-info"><span class="pick-team">${c.home}</span> <span class="pick-opp">${t('vs')} ${c.away}</span></span>
+          <span class="pick-pct" style="color:var(--accent-current)">${c.homeWin}%</span>
+        </div>`).join('')}
+      </div>
+      <div class="combo-footer">
+        <span>${t('comboWinRate')}</span>
+        <span class="combo-total">${comboPct}%</span>
+      </div>
+    </div>`;
+  });
+
+  return html;
+}
+
+// ===== DASHBOARD =====
+function renderDashboard() {
+  let html = '<div class="dashboard-grid">';
+
+  // Hit rates
+  html += `<div class="dash-card"><h3>${t('dashHitRate')}</h3>`;
+  const hitRates = [
+    { emoji:'⚽', sportId:'football', rate:72, color:'var(--accent-football)' },
+    { emoji:'🏀', sportId:'basketball', rate:68, color:'var(--accent-basketball)' },
+    { emoji:'🎮', sportId:'esports', rate:65, color:'var(--accent-esports)' },
+    { emoji:'🎾', sportId:'tennis', rate:61, color:'var(--accent-tennis)' },
+    { emoji:'⚾', sportId:'baseball', rate:70, color:'var(--accent-baseball)' },
+    { emoji:'🏈', sportId:'nfl', rate:63, color:'var(--accent-football-nfl)' },
+    { emoji:'🏒', sportId:'hockey', rate:59, color:'var(--accent-hockey)' },
+    { emoji:'🏉', sportId:'rugby', rate:57, color:'var(--accent-rugby)' },
+    { emoji:'🏏', sportId:'cricket', rate:55, color:'var(--accent-cricket)' },
+    { emoji:'🥊', sportId:'fighting', rate:66, color:'var(--accent-fighting)' },
+  ];
+  hitRates.forEach(r => {
+    html += `<div class="hit-rate-row">
+      <span class="emoji">${r.emoji}</span>
+      <span class="sport-name">${tSport(r.sportId)}</span>
+      <div class="hit-rate-bar-bg"><div class="hit-rate-bar" style="width:${r.rate}%;background:${r.color}"></div></div>
+      <span class="hit-rate-pct" style="color:${r.color}">${r.rate}%</span>
+    </div>`;
+  });
+  html += `</div>`;
+
+  // Hot matches
+  html += `<div class="dash-card"><h3>${t('dashHot')}</h3>`;
+  const hotMatches = [
+    { rank:1, name:'皇马 vs 巴萨', sport:'⚽ 西甲', heat:'98.2' },
+    { rank:2, name:'T1 vs Gen.G', sport:'🎮 LOL', heat:'85.6' },
+    { rank:3, name:'曼城 vs 阿森纳', sport:'⚽ 英超', heat:'79.3' },
+    { rank:4, name:'湖人 vs 凯尔特人', sport:'🏀 NBA', heat:'72.1' },
+    { rank:5, name:'德约 vs 阿尔卡拉斯', sport:'🎾 ATP', heat:'65.8' },
+    { rank:6, name:'NaVi vs FaZe', sport:'🎮 CS2', heat:'58.4' },
+    { rank:7, name:'洋基 vs 道奇', sport:'⚾ MLB', heat:'51.2' },
+    { rank:8, name:'马哈切夫 vs 普瓦里尔', sport:'🥊 UFC', heat:'46.7' },
+  ];
+  hotMatches.forEach(m => {
+    const rc = m.rank===1?'r1':m.rank===2?'r2':m.rank===3?'r3':'';
+    html += `<div class="hot-item">
+      <span class="hot-rank ${rc}">${m.rank}</span>
+      <span style="flex:1;font-weight:500">${m.name}</span>
+      <span style="color:var(--text-muted);font-size:12px">${m.sport}</span>
+      <span style="color:var(--accent-current);font-weight:600;font-size:12px">${m.heat}${t('heatUnit')}</span>
+    </div>`;
+  });
+  html += `</div>`;
+
+  // Streaks
+  html += `<div class="dash-card"><h3>${t('dashStreak')}</h3>`;
+  const streaks = [
+    { name: currentLang === 'zh' ? '足球达人' : 'Football Pro', streak:12, sport:'⚽' },
+    { name: currentLang === 'zh' ? '电竞之王' : 'Esports King', streak:9, sport:'🎮' },
+    { name: currentLang === 'zh' ? 'NBA分析师' : 'NBA Analyst', streak:8, sport:'🏀' },
+    { name: currentLang === 'zh' ? '全能玩家' : 'All-Rounder', streak:7, sport:'🏆' },
+    { name: currentLang === 'zh' ? '网球专家' : 'Tennis Expert', streak:6, sport:'🎾' },
+  ];
+  streaks.forEach((s,i) => {
+    html += `<div class="streak-item">
+      <span style="font-size:16px">${s.sport}</span>
+      <span style="flex:1;font-weight:500">${s.name}</span>
+      <span class="streak-count" style="color:var(--accent-current)">${s.streak}${t('streakUnit')}</span>
+    </div>`;
+  });
+  html += `</div>`;
+
+  html += '</div>';
+  return html;
+}
+
+// ===== API INTEGRATION PLACEHOLDERS =====
+// (kept from original — unchanged)
+
+init();
+</script>
+
+<!-- Schema.org Structured Data -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SportPredict",
+    "url": "https://sportpredict.github.io/",
+    "description": "Free sports predictions and match analysis",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://sportpredict.github.io/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "Manchester City vs Arsenal - Premier League",
+    "startDate": "2026-06-04T21:00+08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "sport": "Football",
+    "homeTeam": { "@type": "SportsTeam", "name": "Manchester City" },
+    "awayTeam": { "@type": "SportsTeam", "name": "Arsenal" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "Liverpool vs Chelsea - Premier League",
+    "startDate": "2026-06-04T23:30+08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "sport": "Football",
+    "homeTeam": { "@type": "SportsTeam", "name": "Liverpool" },
+    "awayTeam": { "@type": "SportsTeam", "name": "Chelsea" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "Real Madrid vs Barcelona - La Liga",
+    "startDate": "2026-06-05T03:00+08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "sport": "Football",
+    "homeTeam": { "@type": "SportsTeam", "name": "Real Madrid" },
+    "awayTeam": { "@type": "SportsTeam", "name": "Barcelona" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsEvent",
+    "name": "Inter Milan vs AC Milan - Serie A",
+    "startDate": "2026-06-05T02:45+08:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "sport": "Football",
+    "homeTeam": { "@type": "SportsTeam", "name": "Inter Milan" },
+    "awayTeam": { "@type": "SportsTeam", "name": "AC Milan" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Recommended Parlay Combos - SportPredict",
+    "description": "Expert-curated multi-leg parlay combinations across football, basketball, and esports",
+    "numberOfItems": 3,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Football + Basketball + Esports Cross-Sport Parlay",
+        "url": "https://sportpredict.github.io/?lang=en#combo"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Football + Basketball + Tennis Cross-Sport Parlay",
+        "url": "https://sportpredict.github.io/?lang=en#combo"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Football + Baseball + Fighting Cross-Sport Parlay",
+        "url": "https://sportpredict.github.io/?lang=en#combo"
+      }
+    ]
+  }
+]
+</script>
+</body>
+</html>
