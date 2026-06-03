@@ -697,6 +697,115 @@ html[dir="rtl"] .match-card-footer { flex-direction: row-reverse; }
   .odds-table { font-size:11px; }
   .odds-table th, .odds-table td { padding:4px 6px; }
 }
+
+/* ===== Auto-refresh Toggle ===== */
+.auto-refresh-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.toggle-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.toggle-switch.active { background: var(--accent-current); }
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 16px; height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform .2s;
+}
+.toggle-switch.active::after { transform: translateX(16px); }
+.last-refresh-time {
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ===== Match Status ===== */
+.match-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.match-status.live { background: rgba(46,160,67,.15); color: #2ea043; }
+.match-status.upcoming { background: rgba(240,136,62,.15); color: #f0883e; }
+.match-status.scheduled { background: rgba(139,148,158,.12); color: #8b949e; }
+.match-status.finished { background: rgba(110,118,129,.12); color: #6e7681; }
+
+/* ===== All Events Page ===== */
+.all-events-group { margin-bottom: 28px; }
+.all-events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.all-events-header h2 {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.all-events-header .arb-count {
+  font-size: 12px;
+  color: #2ea043;
+  font-weight: 600;
+  margin-left: 8px;
+}
+.view-all-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.view-all-btn:hover {
+  border-color: var(--accent-current);
+  color: var(--accent-current);
+}
+
+/* ===== Empty Sport State ===== */
+.empty-sport {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.empty-sport .empty-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+/* Sidebar empty indicator */
+.nav-item.no-data { opacity: 0.45; }
+.nav-item.no-data:hover { opacity: 0.7; }
+
+@media (max-width:768px) {
+  .auto-refresh-wrap { font-size: 11px; }
+  .auto-refresh-wrap .last-refresh-time { display: none; }
+}
 </style>
 </head>
 <body>
@@ -738,6 +847,11 @@ html[dir="rtl"] .match-card-footer { flex-direction: row-reverse; }
         <button class="refresh-btn" id="refreshBtn" onclick="refreshOdds()">
           <span class="refresh-icon">🔄</span> <span data-i18n="refreshOdds">刷新赔率</span>
         </button>
+        <div class="auto-refresh-wrap">
+          <div class="toggle-switch" id="autoRefreshToggle" onclick="toggleAutoRefresh()"></div>
+          <span data-i18n="autoRefresh">自动刷新</span>
+          <span class="last-refresh-time" id="lastRefreshTime"></span>
+        </div>
         <!-- Language Switcher -->
         <div class="lang-switcher" id="langSwitcher">
           <button class="lang-btn" onclick="toggleLangDropdown()">
@@ -750,7 +864,8 @@ html[dir="rtl"] .match-card-footer { flex-direction: row-reverse; }
       </div>
     </div>
     <div class="page-tabs">
-      <div class="page-tab active" data-page="matches" data-i18n="tabMatches" onclick="switchPage('matches')">赛事列表</div>
+      <div class="page-tab active" data-page="allevents" data-i18n="tabAllEvents" onclick="switchPage('allevents')">所有赛事</div>
+      <div class="page-tab" data-page="matches" data-i18n="tabMatches" onclick="switchPage('matches')">赛事列表</div>
       <div class="page-tab" data-page="combos" data-i18n="tabCombos" onclick="switchPage('combos')">数据洞察</div>
       <div class="page-tab" data-page="dashboard" data-i18n="tabDashboard" onclick="switchPage('dashboard')">数据看板</div>
     </div>
@@ -1604,6 +1719,129 @@ const I18N = {
   },
 };
 
+// ===== New I18N Keys for v2 Upgrade =====
+const NEW_I18N = {
+  zh: {
+    noEvents: '暂无赛事安排', autoRefresh: '自动刷新', every5Min: '每5分钟更新',
+    lastRefresh: '上次刷新', viewAll: '查看全部', tabAllEvents: '所有赛事',
+    matchLive: '进行中', matchUpcoming: '即将开始', matchScheduled: '未开始', matchFinished: '已结束',
+    sportLacrosse: '长曲棍球', sportMixedMartialArts: '综合格斗', sportPolitics: '政治', sportRugbyLeague: '橄榄球联赛',
+    arbOpportunityCount: '{count}场有差异分析机会',
+  },
+  en: {
+    noEvents: 'No events scheduled', autoRefresh: 'Auto Refresh', every5Min: 'Updates every 5 min',
+    lastRefresh: 'Last refresh', viewAll: 'View All', tabAllEvents: 'All Events',
+    matchLive: 'Live', matchUpcoming: 'Starting Soon', matchScheduled: 'Scheduled', matchFinished: 'Finished',
+    sportLacrosse: 'Lacrosse', sportMixedMartialArts: 'Mixed Martial Arts', sportPolitics: 'Politics', sportRugbyLeague: 'Rugby League',
+    arbOpportunityCount: '{count} matches with discrepancy opportunities',
+  },
+  es: {
+    noEvents: 'Sin eventos programados', autoRefresh: 'Actualización automática', every5Min: 'Cada 5 minutos',
+    lastRefresh: 'Última actualización', viewAll: 'Ver todo', tabAllEvents: 'Todos los eventos',
+    matchLive: 'En vivo', matchUpcoming: 'Próximo', matchScheduled: 'Programado', matchFinished: 'Finalizado',
+    sportLacrosse: 'Lacrosse', sportMixedMartialArts: 'Artes Marciales Mixtas', sportPolitics: 'Política', sportRugbyLeague: 'Liga de Rugby',
+    arbOpportunityCount: '{count} partidos con oportunidades de discrepancia',
+  },
+  pt: {
+    noEvents: 'Sem eventos programados', autoRefresh: 'Atualização automática', every5Min: 'A cada 5 minutos',
+    lastRefresh: 'Última atualização', viewAll: 'Ver tudo', tabAllEvents: 'Todos os eventos',
+    matchLive: 'Ao vivo', matchUpcoming: 'Começando em breve', matchScheduled: 'Programado', matchFinished: 'Finalizado',
+    sportLacrosse: 'Lacrosse', sportMixedMartialArts: 'Artes Marciais Mistas', sportPolitics: 'Política', sportRugbyLeague: 'Liga de Rugby',
+    arbOpportunityCount: '{count} jogos com oportunidades de discrepância',
+  },
+  ar: {
+    noEvents: 'لا أحداث مجدولة', autoRefresh: 'تحديث تلقائي', every5Min: 'كل 5 دقائق',
+    lastRefresh: 'آخر تحديث', viewAll: 'عرض الكل', tabAllEvents: 'جميع الأحداث',
+    matchLive: 'مباشر', matchUpcoming: 'يبدأ قريباً', matchScheduled: 'مجدول', matchFinished: 'منتهي',
+    sportLacrosse: 'لاكروس', sportMixedMartialArts: 'فنون القتال المختلطة', sportPolitics: 'سياسة', sportRugbyLeague: 'دوري الركبي',
+    arbOpportunityCount: '{count} مباريات بفرص تباين',
+  },
+  ja: {
+    noEvents: '予定されたイベントなし', autoRefresh: '自動更新', every5Min: '5分ごとに更新',
+    lastRefresh: '最終更新', viewAll: 'すべて表示', tabAllEvents: '全イベント',
+    matchLive: '試合中', matchUpcoming: 'まもなく開始', matchScheduled: '予定', matchFinished: '終了',
+    sportLacrosse: 'ラクロス', sportMixedMartialArts: '総合格闘技', sportPolitics: '政治', sportRugbyLeague: 'ラグビーリーグ',
+    arbOpportunityCount: '{count}試合にオッズ差異の機会あり',
+  },
+  ko: {
+    noEvents: '예정된 이벤트 없음', autoRefresh: '자동 새로고침', every5Min: '5분마다 업데이트',
+    lastRefresh: '마지막 새로고침', viewAll: '전체 보기', tabAllEvents: '전체 이벤트',
+    matchLive: '진행 중', matchUpcoming: '곧 시작', matchScheduled: '예정', matchFinished: '종료',
+    sportLacrosse: '라크로스', sportMixedMartialArts: '종합격투기', sportPolitics: '정치', sportRugbyLeague: '럭비리그',
+    arbOpportunityCount: '{count}경기 배당률 차이 기회 있음',
+  },
+  ru: {
+    noEvents: 'Нет запланированных событий', autoRefresh: 'Автообновление', every5Min: 'Обновление каждые 5 мин',
+    lastRefresh: 'Последнее обновление', viewAll: 'Показать все', tabAllEvents: 'Все события',
+    matchLive: 'В прямом эфире', matchUpcoming: 'Скоро начнётся', matchScheduled: 'Запланировано', matchFinished: 'Завершено',
+    sportLacrosse: 'Лакросс', sportMixedMartialArts: 'Смешанные единоборства', sportPolitics: 'Политика', sportRugbyLeague: 'Регбилиг',
+    arbOpportunityCount: '{count} матчей с расхождением коэффициентов',
+  },
+  fr: {
+    noEvents: 'Aucun événement prévu', autoRefresh: 'Actualisation auto', every5Min: 'Mise à jour toutes les 5 min',
+    lastRefresh: 'Dernière actualisation', viewAll: 'Voir tout', tabAllEvents: 'Tous les événements',
+    matchLive: 'En direct', matchUpcoming: 'Commence bientôt', matchScheduled: 'Programmé', matchFinished: 'Terminé',
+    sportLacrosse: 'Crosse', sportMixedMartialArts: 'Arts martiaux mixtes', sportPolitics: 'Politique', sportRugbyLeague: 'Rugby à XIII',
+    arbOpportunityCount: "{count} matchs avec opportunités d'écart",
+  },
+  de: {
+    noEvents: 'Keine Veranstaltungen geplant', autoRefresh: 'Auto-Aktualisierung', every5Min: 'Alle 5 Min. aktualisiert',
+    lastRefresh: 'Letzte Aktualisierung', viewAll: 'Alle anzeigen', tabAllEvents: 'Alle Veranstaltungen',
+    matchLive: 'Live', matchUpcoming: 'Beginnt bald', matchScheduled: 'Geplant', matchFinished: 'Beendet',
+    sportLacrosse: 'Lacrosse', sportMixedMartialArts: 'Mixed Martial Arts', sportPolitics: 'Politik', sportRugbyLeague: 'Rugby League',
+    arbOpportunityCount: '{count} Spiele mit Quotendifferenz',
+  },
+};
+
+Object.keys(NEW_I18N).forEach(lang => {
+  if (I18N[lang]) Object.assign(I18N[lang], NEW_I18N[lang]);
+});
+
+// ===== League Name Translations =====
+const LEAGUE_I18N = {
+  'FIFA World Cup': { zh:'世界杯', en:'FIFA World Cup', es:'Copa Mundial FIFA', pt:'Copa do Mundo FIFA', ar:'كأس العالم', ja:'ワールドカップ', ko:'월드컵', ru:'Чемпионат мира', fr:'Coupe du Monde', de:'Weltmeisterschaft' },
+  'Premier League': { zh:'英超', en:'Premier League', es:'Premier League', pt:'Premier League', ar:'الدوري الإنجليزي', ja:'プレミアリーグ', ko:'프리미어리그', ru:'АПЛ', fr:'Premier League', de:'Premier League' },
+  'NFL': { zh:'美式足球NFL', en:'NFL', es:'NFL', pt:'NFL', ar:'NFL', ja:'NFL', ko:'NFL', ru:'НФЛ', fr:'NFL', de:'NFL' },
+  'MLB': { zh:'美国职业棒球', en:'MLB', es:'MLB', pt:'MLB', ar:'MLB', ja:'MLB', ko:'MLB', ru:'МЛБ', fr:'MLB', de:'MLB' },
+  'KBO': { zh:'韩国棒球', en:'KBO', es:'KBO', pt:'KBO', ar:'KBO', ja:'KBO', ko:'KBO', ru:'KBO', fr:'KBO', de:'KBO' },
+  'NPB': { zh:'日本棒球', en:'NPB', es:'NPB', pt:'NPB', ar:'NPB', ja:'NPB', ko:'NPB', ru:'NPB', fr:'NPB', de:'NPB' },
+  'Copa Libertadores': { zh:'南美解放者杯', en:'Copa Libertadores', es:'Copa Libertadores', pt:'Copa Libertadores', ar:'كوبا ليبرتادوريس', ja:'コパ・リベルタドーレス', ko:'코파 리베르타도레스', ru:'Копа Либертадорес', fr:'Copa Libertadores', de:'Copa Libertadores' },
+  'J League': { zh:'日本J联赛', en:'J League', es:'J League', pt:'J League', ar:'الدوري الياباني', ja:'Jリーグ', ko:'J리그', ru:'Джей-лига', fr:'J League', de:'J League' },
+  'La Liga': { zh:'西甲', en:'La Liga', es:'La Liga', pt:'La Liga', ar:'الدوري الإسباني', ja:'ラ・リーガ', ko:'라리가', ru:'Ла Лига', fr:'La Liga', de:'La Liga' },
+  'Serie A': { zh:'意甲', en:'Serie A', es:'Serie A', pt:'Serie A', ar:'الدوري الإيطالي', ja:'セリエA', ko:'세리에A', ru:'Серия А', fr:'Serie A', de:'Serie A' },
+  'Bundesliga': { zh:'德甲', en:'Bundesliga', es:'Bundesliga', pt:'Bundesliga', ar:'الدوري الألماني', ja:'ブンデスリーガ', ko:'분데스리가', ru:'Бундеслига', fr:'Bundesliga', de:'Bundesliga' },
+  'Ligue 1': { zh:'法甲', en:'Ligue 1', es:'Ligue 1', pt:'Ligue 1', ar:'الدوري الفرنسي', ja:'リーグ・アン', ko:'리그1', ru:'Лига 1', fr:'Ligue 1', de:'Ligue 1' },
+  'NBA': { zh:'NBA', en:'NBA', es:'NBA', pt:'NBA', ar:'NBA', ja:'NBA', ko:'NBA', ru:'НБА', fr:'NBA', de:'NBA' },
+  'NHL': { zh:'NHL冰球', en:'NHL', es:'NHL', pt:'NHL', ar:'NHL', ja:'NHL', ko:'NHL', ru:'НХЛ', fr:'NHL', de:'NHL' },
+  'Champions League': { zh:'欧冠', en:'Champions League', es:'Champions League', pt:'Champions League', ar:'دوري أبطال أوروبا', ja:'チャンピオンズリーグ', ko:'챔피언스리그', ru:'Лига чемпионов', fr:'Ligue des Champions', de:'Champions League' },
+  'Europa League': { zh:'欧联', en:'Europa League', es:'Europa League', pt:'Europa League', ar:'الدوري الأوروبي', ja:'ヨーロッパリーグ', ko:'유로파리그', ru:'Лига Европы', fr:'Ligue Europa', de:'Europa League' },
+  'MLS': { zh:'美国职业足球', en:'MLS', es:'MLS', pt:'MLS', ar:'MLS', ja:'MLS', ko:'MLS', ru:'MLS', fr:'MLS', de:'MLS' },
+  'Eredivisie': { zh:'荷甲', en:'Eredivisie', es:'Eredivisie', pt:'Eredivisie', ar:'الدوري الهولندي', ja:'エールディヴィジ', ko:'에레디비시', ru:'Эредивизи', fr:'Eredivisie', de:'Eredivisie' },
+  'Primeira Liga': { zh:'葡超', en:'Primeira Liga', es:'Primeira Liga', pt:'Primeira Liga', ar:'الدوري البرتغالي', ja:'プリメイラ・リーガ', ko:'프리메이라리가', ru:'Примейра', fr:'Primeira Liga', de:'Primeira Liga' },
+  'Scottish Premiership': { zh:'苏超', en:'Scottish Premiership', es:'Premiership Escocesa', pt:'Premiership Escocesa', ar:'الدوري الاسكتلندي', ja:'スコティッシュ・プレミアシップ', ko:'스코티시 프리미어십', ru:'Шотландская Премьер-лига', fr:'Premiership écossaise', de:'Scottish Premiership' },
+  'Championship': { zh:'英冠', en:'Championship', es:'Championship', pt:'Championship', ar:'البطولة الإنجليزية', ja:'チャンピオンシップ', ko:'챔피언십', ru:'Чемпионшип', fr:'Championship', de:'Championship' },
+  'League One': { zh:'英甲', en:'League One', es:'League One', pt:'League One', ar:'الدوري الأول', ja:'リーグ1', ko:'리그원', ru:'Первая лига', fr:'League One', de:'League One' },
+  'Serie B': { zh:'意乙', en:'Serie B', es:'Serie B', pt:'Serie B', ar:'الدوري الإيطالي ب', ja:'セリエB', ko:'세리에B', ru:'Серия B', fr:'Serie B', de:'Serie B' },
+  'Liga MX': { zh:'墨西哥联赛', en:'Liga MX', es:'Liga MX', pt:'Liga MX', ar:'ليغا MX', ja:'リーガMX', ko:'리가MX', ru:'Лига MX', fr:'Liga MX', de:'Liga MX' },
+  'A-League': { zh:'澳超', en:'A-League', es:'A-League', pt:'A-League', ar:'الدوري الأسترالي', ja:'Aリーグ', ko:'A리그', ru:'А-Лига', fr:'A-League', de:'A-League' },
+  'UEFA Nations League': { zh:'欧国联', en:'UEFA Nations League', es:'Liga de Naciones UEFA', pt:'Liga das Nações UEFA', ar:'دوري الأمم الأوروبي', ja:'UEFAネーションズリーグ', ko:'UEFA 네이션스리그', ru:'Лига наций УЕФА', fr:'Ligue des Nations UEFA', de:'UEFA Nations League' },
+  'NCAA': { zh:'NCAA', en:'NCAA', es:'NCAA', pt:'NCAA', ar:'NCAA', ja:'NCAA', ko:'NCAA', ru:'NCAA', fr:'NCAA', de:'NCAA' },
+  'UFC': { zh:'UFC', en:'UFC', es:'UFC', pt:'UFC', ar:'UFC', ja:'UFC', ko:'UFC', ru:'UFC', fr:'UFC', de:'UFC' },
+  'Bellator': { zh:'Bellator', en:'Bellator', es:'Bellator', pt:'Bellator', ar:'Bellator', ja:'Bellator', ko:'Bellator', ru:'Bellator', fr:'Bellator', de:'Bellator' },
+  'PFL': { zh:'PFL', en:'PFL', es:'PFL', pt:'PFL', ar:'PFL', ja:'PFL', ko:'PFL', ru:'PFL', fr:'PFL', de:'PFL' },
+  'Super Rugby': { zh:'超级橄榄球', en:'Super Rugby', es:'Super Rugby', pt:'Super Rugby', ar:'سوبر رجبي', ja:'スーパーラグビー', ko:'수퍼 럭비', ru:'Супер Регби', fr:'Super Rugby', de:'Super Rugby' },
+  'NRL': { zh:'NRL橄榄球联赛', en:'NRL', es:'NRL', pt:'NRL', ar:'NRL', ja:'NRL', ko:'NRL', ru:'NRL', fr:'NRL', de:'NRL' },
+  'IPL': { zh:'印度板球超级联赛', en:'IPL', es:'IPL', pt:'IPL', ar:'IPL', ja:'IPL', ko:'IPL', ru:'IPL', fr:'IPL', de:'IPL' },
+  'PGA': { zh:'PGA高尔夫', en:'PGA', es:'PGA', pt:'PGA', ar:'PGA', ja:'PGA', ko:'PGA', ru:'PGA', fr:'PGA', de:'PGA' },
+  'Formula 1': { zh:'F1', en:'Formula 1', es:'Fórmula 1', pt:'Fórmula 1', ar:'فورمولا 1', ja:'F1', ko:'F1', ru:'Формула 1', fr:'Formule 1', de:'Formel 1' },
+};
+
+function getLeagueLocalizedName(leagueTitle) {
+  if (!leagueTitle) return '';
+  if (LEAGUE_I18N[leagueTitle]) return LEAGUE_I18N[leagueTitle][currentLang] || LEAGUE_I18N[leagueTitle].en || leagueTitle;
+  return leagueTitle;
+}
+
 // Current language
 let currentLang = 'zh';
 
@@ -1630,7 +1868,7 @@ const GROUP_MAP = {
   'Cricket': { emoji: '🏏', i18nKey: 'sportCricket', accent: '--accent-cricket', accentVal: '#f59e0b' },
   'Rugby': { emoji: '🏉', i18nKey: 'sportRugby', accent: '--accent-rugby', accentVal: '#10b981' },
   'Esports': { emoji: '🎮', i18nKey: 'sportEsports', accent: '--accent-esports', accentVal: '#a855f7' },
-  'Aussie Rules': { emoji: '🦘', i18nKey: 'sportAussieRules', accent: '--accent-rugby', accentVal: '#10b981' },
+  'Aussie Rules': { emoji: '🏉', i18nKey: 'sportAussieRules', accent: '--accent-rugby', accentVal: '#10b981' },
   'Golf': { emoji: '⛳', i18nKey: 'sportGolf', accent: '--accent-football', accentVal: '#2ea043' },
   'Darts': { emoji: '🎯', i18nKey: 'sportDarts', accent: '--accent-basketball', accentVal: '#f0883e' },
   'Cycling': { emoji: '🚴', i18nKey: 'sportCycling', accent: '--accent-hockey', accentVal: '#06b6d4' },
@@ -1640,6 +1878,10 @@ const GROUP_MAP = {
   'Futsal': { emoji: '⚽', i18nKey: 'sportFutsal', accent: '--accent-football', accentVal: '#2ea043' },
   'Table Tennis': { emoji: '🏓', i18nKey: 'sportTableTennis', accent: '--accent-hockey', accentVal: '#06b6d4' },
   'Badminton': { emoji: '🏸', i18nKey: 'sportBadminton', accent: '--accent-tennis', accentVal: '#a3e635' },
+  'Lacrosse': { emoji: '🥍', i18nKey: 'sportLacrosse', accent: '--accent-rugby', accentVal: '#10b981' },
+  'Mixed Martial Arts': { emoji: '🥊', i18nKey: 'sportMixedMartialArts', accent: '--accent-fighting', accentVal: '#dc2626' },
+  'Politics': { emoji: '🗳️', i18nKey: 'sportPolitics', accent: '--accent-esports', accentVal: '#a855f7' },
+  'Rugby League': { emoji: '🏉', i18nKey: 'sportRugbyLeague', accent: '--accent-rugby', accentVal: '#10b981' },
 };
 const DEFAULT_GROUP = { emoji: '🏆', i18nKey: null, accent: '--accent-football', accentVal: '#2ea043' };
 
@@ -1729,6 +1971,9 @@ let apiRequestsRemaining = null;
 let isLoadingOdds = false;
 let currentPage = 'matches';
 let currentSubFilter = null; // sport_key for sub-filter, or null for "all"
+let autoRefreshEnabled = false;
+let autoRefreshTimer = null;
+let lastRefreshTime = null;
 
 // ===== LIVE CHANNELS CONFIG =====
 const LIVE_CHANNELS = {
@@ -1923,9 +2168,8 @@ function buildSidebar() {
   });
 
   let html = '';
-  // First: "All" item for each group category
   const groupOrder = Object.keys(groups).sort((a, b) => {
-    const order = ['Soccer','Basketball','Baseball','Ice Hockey','Tennis','American Football','Boxing','MMA','Esports','Cricket','Rugby'];
+    const order = ['Soccer','Basketball','Baseball','Ice Hockey','Tennis','American Football','Boxing','MMA','Mixed Martial Arts','Esports','Cricket','Rugby','Rugby League','Aussie Rules','Golf','Handball','Lacrosse','Politics','Darts','Cycling','Snooker','Volleyball','Futsal','Table Tennis','Badminton'];
     const ia = order.indexOf(a), ib = order.indexOf(b);
     if (ia === -1 && ib === -1) return a.localeCompare(b);
     if (ia === -1) return 1;
@@ -1936,13 +2180,17 @@ function buildSidebar() {
   groupOrder.forEach(group => {
     const info = getGroupInfo(group);
     const sports = groups[group];
-    const matchCount = sports.length;
     html += `<div class="nav-group-label">${info.emoji} ${getGroupLocalizedName(group)}</div>`;
     sports.forEach(s => {
       const isActive = currentSportKey === s.key;
-      html += `<div class="nav-item${isActive ? ' active' : ''}" data-sport="${s.key}" data-group="${group}" onclick="setSport('${s.key}')">
+      const cached = oddsCache[s.key];
+      const hasData = cached && cached.data && cached.data.length > 0;
+      const noDataClass = (cached && !hasData) ? ' no-data' : '';
+      const countBadge = hasData ? `<span class="nav-count">${cached.data.length}</span>` : (cached ? '<span class="nav-count" style="opacity:.4">0</span>' : '');
+      html += `<div class="nav-item${isActive ? ' active' : ''}${noDataClass}" data-sport="${s.key}" data-group="${group}" onclick="setSport('${s.key}')">
         <span class="emoji">${info.emoji}</span>
-        <span class="nav-label">${s.title}</span>
+        <span class="nav-label" title="${s.title}">${getLeagueLocalizedName(s.title) || s.title}</span>
+        ${countBadge}
       </div>`;
     });
   });
@@ -1962,20 +2210,25 @@ function buildMobileNav() {
   });
 
   const groupOrder = Object.keys(groups).sort((a, b) => {
-    const order = ['Soccer','Basketball','Baseball','Ice Hockey','Tennis','American Football','Boxing','MMA','Esports','Cricket','Rugby'];
+    const order = ['Soccer','Basketball','Baseball','Ice Hockey','Tennis','American Football','Boxing','MMA','Mixed Martial Arts','Esports','Cricket','Rugby','Rugby League','Aussie Rules','Golf','Handball','Lacrosse','Politics','Darts','Cycling','Snooker','Volleyball','Futsal','Table Tennis','Badminton'];
     const ia = order.indexOf(a), ib = order.indexOf(b);
     if (ia === -1 && ib === -1) return a.localeCompare(b);
     if (ia === -1) return 1; if (ib === -1) return -1;
     return ia - ib;
   });
 
+  // Add "All Events" item first
+  let html = `<div class="mobile-nav-item${currentSportKey === '__allevents__' ? ' active' : ''}" onclick="showAllEvents()">🏆 ${t('tabAllEvents')}</div>`;
+
   // Show first sport of each group as the group nav item
-  nav.innerHTML = groupOrder.map(group => {
+  groupOrder.forEach(group => {
     const info = getGroupInfo(group);
     const firstSport = groups[group][0];
     const isActive = currentSportKey && groups[group].some(s => s.key === currentSportKey);
-    return `<div class="mobile-nav-item${isActive ? ' active' : ''}" data-group="${group}" onclick="setSport('${firstSport.key}')">${info.emoji} ${getGroupLocalizedName(group)}</div>`;
-  }).join('');
+    html += `<div class="mobile-nav-item${isActive ? ' active' : ''}" data-group="${group}" onclick="setSport('${firstSport.key}')">${info.emoji} ${getGroupLocalizedName(group)}</div>`;
+  });
+
+  nav.innerHTML = html;
 }
 
 function updatePageTitle() {
@@ -2007,7 +2260,7 @@ async function setSport(sportKey) {
   });
 
   updatePageTitle();
-  document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === 'matches'));
+  document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === currentPage));
 
   // Load odds
   try {
@@ -2021,21 +2274,101 @@ async function setSport(sportKey) {
 function switchPage(page) {
   currentPage = page;
   document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === page));
-  renderContent();
+  if (page === 'allevents') {
+    showAllEvents();
+  } else {
+    renderContent();
+  }
 }
 
 async function refreshOdds() {
+  if (currentSportKey === '__allevents__') {
+    const btn = document.getElementById('refreshBtn');
+    btn.classList.add('spinning');
+    try {
+      await loadAllEventsData(true);
+      lastRefreshTime = new Date();
+      updateLastRefreshTime();
+    } catch(e) { console.error('Refresh failed:', e); }
+    btn.classList.remove('spinning');
+    renderContent();
+    return;
+  }
   if (!currentSportKey) return;
   const btn = document.getElementById('refreshBtn');
   btn.classList.add('spinning');
 
   try {
     await fetchOdds(currentSportKey, true);
+    lastRefreshTime = new Date();
+    updateLastRefreshTime();
   } catch(e) {
     console.error('Refresh failed:', e);
   }
   btn.classList.remove('spinning');
   renderContent();
+}
+
+function toggleAutoRefresh() {
+  autoRefreshEnabled = !autoRefreshEnabled;
+  const toggle = document.getElementById('autoRefreshToggle');
+  toggle.classList.toggle('active', autoRefreshEnabled);
+  if (autoRefreshEnabled) {
+    startAutoRefresh();
+  } else {
+    stopAutoRefresh();
+  }
+}
+
+function startAutoRefresh() {
+  stopAutoRefresh();
+  autoRefreshTimer = setInterval(async () => {
+    if (currentSportKey && currentSportKey !== '__allevents__') {
+      try {
+        await fetchOdds(currentSportKey, true);
+        lastRefreshTime = new Date();
+        updateLastRefreshTime();
+        renderContent();
+      } catch(e) { console.error('Auto-refresh failed:', e); }
+    } else if (currentSportKey === '__allevents__') {
+      await loadAllEventsData(true);
+      lastRefreshTime = new Date();
+      updateLastRefreshTime();
+      renderContent();
+    }
+  }, 5 * 60 * 1000);
+}
+
+function stopAutoRefresh() {
+  if (autoRefreshTimer) {
+    clearInterval(autoRefreshTimer);
+    autoRefreshTimer = null;
+  }
+}
+
+function updateLastRefreshTime() {
+  const el = document.getElementById('lastRefreshTime');
+  if (!el) return;
+  if (!lastRefreshTime) { el.textContent = ''; return; }
+  const localeMap = { zh:'zh-CN', en:'en-US', es:'es-ES', pt:'pt-BR', ar:'ar-SA', ja:'ja-JP', ko:'ko-KR', ru:'ru-RU', fr:'fr-FR', de:'de-DE' };
+  el.textContent = t('lastRefresh') + ': ' + lastRefreshTime.toLocaleTimeString(localeMap[currentLang] || 'en-US', { hour:'2-digit', minute:'2-digit' });
+}
+
+// ===== MATCH STATUS =====
+function getMatchStatus(commenceTime, scores) {
+  const now = Date.now();
+  const start = new Date(commenceTime).getTime();
+  const diff = now - start;
+  const hasScores = scores && Object.keys(scores).length > 0;
+  if (diff > 4 * 3600 * 1000 && hasScores) {
+    return { key: 'finished', emoji: '✅', cssClass: 'finished', label: t('matchFinished') };
+  } else if (diff >= 0 && diff <= 2 * 3600 * 1000) {
+    return { key: 'live', emoji: '🟢', cssClass: 'live', label: t('matchLive') };
+  } else if (diff < 0 && Math.abs(diff) <= 3 * 3600 * 1000) {
+    return { key: 'upcoming', emoji: '⏰', cssClass: 'upcoming', label: t('matchUpcoming') };
+  } else {
+    return { key: 'scheduled', emoji: '📅', cssClass: 'scheduled', label: t('matchScheduled') };
+  }
 }
 
 function updateApiBadge() {
@@ -2058,6 +2391,12 @@ function updateApiBadge() {
 // ===== RENDER =====
 function renderContent() {
   const area = document.getElementById('contentArea');
+
+  if (currentSportKey === '__allevents__') {
+    area.innerHTML = renderAllEvents();
+    return;
+  }
+
   if (!currentSportKey) {
     area.innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><span>${t('loading')}</span></div>`;
     return;
@@ -2083,6 +2422,134 @@ function getCurrentSportInfo() {
   return sport ? { sport, groupInfo: getGroupInfo(sport.group) } : null;
 }
 
+// ===== ALL EVENTS PAGE =====
+async function showAllEvents() {
+  currentSportKey = '__allevents__';
+  currentPage = 'allevents';
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.toggle('active', el.onclick && el.onclick.toString().includes('showAllEvents')));
+  document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === 'allevents'));
+  document.getElementById('pageTitle').textContent = '🏆 ' + t('tabAllEvents');
+  document.documentElement.style.setProperty('--accent-current', 'var(--accent-football)');
+  await loadAllEventsData();
+  renderContent();
+}
+
+async function loadAllEventsData(forceRefresh = false) {
+  // Load data for popular sports if not already cached
+  const popularKeys = [
+    'soccer_epl', 'soccer_fifa_world_cup', 'basketball_nba', 'baseball_mlb',
+    'icehockey_nhl', 'soccer_germany_bundesliga', 'soccer_italy_serie_a',
+    'soccer_spain_la_liga', 'soccer_france_ligue_one', 'tennis_atp_aus_open',
+    'americanfootball_nfl', 'soccer_champions_league', 'soccer_europa_league'
+  ];
+  const keysToLoad = popularKeys.filter(k => sportsList.some(s => s.key === k));
+  for (const key of keysToLoad) {
+    if (forceRefresh || !oddsCache[key]) {
+      try { await fetchOdds(key, forceRefresh); } catch(e) { /* skip failed loads */ }
+    }
+  }
+  if (forceRefresh || !lastRefreshTime) {
+    lastRefreshTime = new Date();
+    updateLastRefreshTime();
+  }
+}
+
+function renderAllEvents() {
+  // Collect all matches with data from oddsCache, grouped by sport group
+  const groupMatches = {};
+  const groupSports = {};
+
+  Object.keys(oddsCache).forEach(sk => {
+    const sInfo = sportsList.find(s => s.key === sk);
+    if (!sInfo) return;
+    const group = sInfo.group;
+    if (!groupMatches[group]) { groupMatches[group] = []; groupSports[group] = []; }
+    groupSports[group].push(sInfo);
+    oddsCache[sk].data.forEach(m => {
+      const prob = calcImpliedProbabilities(m);
+      if (prob) {
+        groupMatches[group].push({ match: m, prob, sportKey: sk, sportInfo: sInfo });
+      }
+    });
+  });
+
+  // Sort groups by number of matches (most first)
+  const sortedGroups = Object.keys(groupMatches).sort((a, b) => groupMatches[b].length - groupMatches[a].length);
+
+  if (!sortedGroups.length) {
+    return `<div class="loading-state"><div class="loading-spinner"></div><span>${t('loading')}</span></div>`;
+  }
+
+  let html = '';
+  sortedGroups.forEach(group => {
+    const matches = groupMatches[group];
+    const info = getGroupInfo(group);
+    const sports = groupSports[group];
+    const displayMatches = matches.slice(0, 3);
+    const arbCount = matches.filter(m => m.prob.isArb).length;
+
+    html += `<div class="all-events-group">`;
+    html += `<div class="all-events-header">
+      <h2>${info.emoji} ${getGroupLocalizedName(group)}
+        ${arbCount > 0 ? `<span class="arb-count">🌟 ${t('arbOpportunityCount', {count: arbCount})}</span>` : ''}
+      </h2>
+      <button class="view-all-btn" onclick="setSport('${sports[0].key}')">${t('viewAll')} →</button>
+    </div>`;
+
+    displayMatches.forEach((m, idx) => {
+      const prob = m.prob;
+      const hasDraw = prob.hasDraw;
+      const confClass = prob.confidence >= 80 ? 'high' : prob.confidence >= 65 ? 'medium' : 'low';
+      const status = getMatchStatus(m.match.commence_time, m.match.scores);
+      const timeStr = formatTime(m.match.commence_time);
+
+      html += `<div class="match-card${prob.isArb ? ' arb-highlight' : ''}" style="margin-bottom:8px">
+        <div class="match-header">
+          <span class="match-league">${info.emoji} ${getLeagueLocalizedName(m.match.sport_title) || m.match.sport_title}</span>
+          <span class="match-time">${timeStr}</span>
+          <span class="match-status ${status.cssClass}">${status.emoji} ${status.label}</span>
+        </div>
+        <div class="match-body">
+          <div class="team">
+            <span class="team-name">${m.match.home_team}</span>
+          </div>
+          <div class="predict-bar-wrap">
+            <div class="predict-bar">
+              <div class="fill fill-home" style="width:${prob.homeProb}%">${prob.homeProb}%</div>
+              ${hasDraw ? `<div class="fill fill-draw" style="width:${prob.drawProb}%">${prob.drawProb}%</div>` : ''}
+              <div class="fill fill-away" style="width:${prob.awayProb}%">${prob.awayProb}%</div>
+            </div>
+            <div class="predict-labels">
+              <span>${t('homeTeam')} ${prob.bestHome.toFixed(2)}</span>
+              ${hasDraw ? `<span>${t('draw')} ${prob.bestDraw.toFixed(2)}</span>` : ''}
+              <span>${t('awayTeam')} ${prob.bestAway.toFixed(2)}</span>
+            </div>
+          </div>
+          <div class="team">
+            <span class="team-name">${m.match.away_team}</span>
+          </div>
+        </div>
+        <div class="match-card-footer">
+          <div class="confidence">
+            <span class="confidence-label">${t('confidence')}</span>
+            <span class="confidence-value ${confClass}">${prob.confidence}%</span>
+            ${prob.isArb ? `<span class="arb-badge">🌟 ${t('arbOpportunity')} ${prob.arbProfit}%</span>` : ''}
+          </div>
+        </div>
+      </div>`;
+    });
+
+    if (matches.length > 3) {
+      html += `<div style="text-align:center;padding:4px 0;font-size:12px;color:var(--text-muted)">+${matches.length - 3} ${t('heatUnit')}</div>`;
+    }
+
+    html += `</div>`;
+  });
+
+  return html;
+}
+
 // ===== MATCHES =====
 function renderMatches() {
   const matches = getCurrentOdds();
@@ -2099,14 +2566,15 @@ function renderMatches() {
   html += `<button class="sub-filter-btn${!currentSubFilter ? ' active' : ''}" onclick="filterSub(null)">${allLabel}</button>`;
   leagues.forEach(l => {
     const isActive = currentSubFilter === l;
-    html += `<button class="sub-filter-btn${isActive ? ' active' : ''}" onclick="filterSub('${l.replace(/'/g, "\\'")}')">${l}</button>`;
+    const displayName = getLeagueLocalizedName(l) || l;
+    html += `<button class="sub-filter-btn${isActive ? ' active' : ''}" onclick="filterSub('${l.replace(/'/g, "\\'")}')">${displayName}</button>`;
   });
   html += `</div>`;
 
   const filtered = currentSubFilter ? matches.filter(m => m.sport_title === currentSubFilter) : matches;
 
   if (!filtered.length) {
-    html += `<div style="text-align:center;padding:60px 0;color:var(--text-muted);font-size:15px;">${t('noMatches', {sport: sport.title})}</div>`;
+    html += `<div class="empty-sport"><div class="empty-icon">${groupInfo.emoji}</div><div>${t('noEvents')}</div><div style="margin-top:4px;font-size:12px">${getLeagueLocalizedName(sport.title) || sport.title}</div></div>`;
     return html;
   }
 
@@ -2115,13 +2583,15 @@ function renderMatches() {
     if (!prob) return; // skip matches without odds
 
     const timeStr = formatTime(m.commence_time);
+    const status = getMatchStatus(m.commence_time, m.scores);
     const hasDraw = prob.hasDraw;
     const confClass = prob.confidence >= 80 ? 'high' : prob.confidence >= 65 ? 'medium' : 'low';
 
     html += `<div class="match-card${prob.isArb ? ' arb-highlight' : ''}">
       <div class="match-header">
-        <span class="match-league">${groupInfo.emoji} ${m.sport_title}</span>
-        <span class="match-time">🕐 ${timeStr}</span>
+        <span class="match-league">${groupInfo.emoji} ${getLeagueLocalizedName(m.sport_title) || m.sport_title}</span>
+        <span class="match-time">${timeStr}</span>
+        <span class="match-status ${status.cssClass}">${status.emoji} ${status.label}</span>
       </div>
       <div class="match-body">
         <div class="team">
@@ -2531,14 +3001,13 @@ async function init() {
     buildSidebar();
     buildMobileNav();
 
-    // Auto-select first sport with known data
-    const preferredSports = ['soccer_fifa_world_cup', 'basketball_nba', 'baseball_mlb', 'icehockey_nhl', 'soccer_epl'];
-    const firstSport = preferredSports.find(sk => sportsList.some(s => s.key === sk)) ||
-                       (sportsList.length ? sportsList[0].key : null);
-
-    if (firstSport) {
-      await setSport(firstSport);
-    }
+    // Default to All Events page
+    currentSportKey = '__allevents__';
+    currentPage = 'allevents';
+    document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === 'allevents'));
+    document.getElementById('pageTitle').textContent = '🏆 ' + t('tabAllEvents');
+    await loadAllEventsData();
+    renderContent();
   } catch(e) {
     console.error('Init failed:', e);
     document.getElementById('contentArea').innerHTML = `
