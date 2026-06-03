@@ -172,6 +172,7 @@ a { color: var(--accent-current); text-decoration:none; }
 }
 .api-badge.warning { background:rgba(240,136,62,.12); color:#f0883e; }
 .api-badge.danger { background:rgba(239,68,68,.12); color:#ef4444; }
+.api-footer-warning { color:#ef4444; font-size:11px; margin-left:4px; }
 .refresh-btn {
   display:inline-flex; align-items:center; gap:4px;
   padding:5px 12px; border-radius:8px;
@@ -888,6 +889,10 @@ html[dir="rtl"] .match-card-footer { flex-direction: row-reverse; }
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <footer style="text-align:center;padding:20px;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px;">
 <p data-i18n="footerDisclaimer">⚠️ SportPredict 是体育数据分析平台，不提供任何博彩服务，不收取任何费用。所有数据仅供分析参考。</p>
+<p style="margin-top:8px;color:var(--text-muted);font-size:11px;">
+  🔑 API请求: <span id="apiFooterCounter">0/500</span>
+  <span id="apiFooterWarning" style="display:none;color:#ef4444;margin-left:4px">⚠️ 额度不足</span>
+</p>
 <p style="margin-top:10px;">
 <a href="#" onclick="showSection('about');return false;" style="color:var(--text-muted);" data-i18n="footerAbout">关于我们</a> | 
 <a href="#" onclick="showSection('privacy');return false;" style="color:var(--text-muted);" data-i18n="footerPrivacy">隐私政策</a> | 
@@ -1043,6 +1048,10 @@ const I18N = {
     footerPrivacy: '隐私政策',
     footerTerms: '使用条款',
     footerContact: '联系我们',
+    allEventsGuide: '点击左侧联赛加载数据，赔率将自动缓存5分钟',
+    clickToLoadOdds: '点击上方联赛名加载赔率数据',
+    apiQuotaExceeded: 'API额度已用完，请等待下月重置',
+    apiQuotaHint: '免费版每月500次请求',
   },
   en: {
     sidebarLogo: 'All Sports Analysis',
@@ -1164,6 +1173,10 @@ const I18N = {
     footerPrivacy: 'Privacy Policy',
     footerTerms: 'Terms of Service',
     footerContact: 'Contact Us',
+    allEventsGuide: 'Click a league on the sidebar to load data. Odds are cached for 5 minutes.',
+    clickToLoadOdds: 'Click the league above to load odds data',
+    apiQuotaExceeded: 'API quota exceeded. Please wait for next month reset.',
+    apiQuotaHint: 'Free tier: 500 requests per month',
   },
   es: {
     sidebarLogo: 'Análisis Deportivo',
@@ -1275,6 +1288,10 @@ const I18N = {
     footerPrivacy: 'Política de Privacidad',
     footerTerms: 'Términos de Servicio',
     footerContact: 'Contáctenos',
+    allEventsGuide: 'Haga clic en una liga en la barra lateral para cargar datos. Las cuotas se almacenan en caché durante 5 minutos.',
+    clickToLoadOdds: 'Haga clic en la liga de arriba para cargar datos de cuotas',
+    apiQuotaExceeded: 'Cuota de API excedida. Espere al reinicio del próximo mes.',
+    apiQuotaHint: 'Plan gratuito: 500 solicitudes por mes',
   },
   pt: {
     sidebarLogo: 'Análise Esportiva',
@@ -1341,6 +1358,10 @@ const I18N = {
     footerPrivacy: 'Política de Privacidade',
     footerTerms: 'Termos de Serviço',
     footerContact: 'Contate-nos',
+    allEventsGuide: 'Clique em uma liga na barra lateral para carregar dados. As probabilidades sao armazenadas em cache por 5 minutos.',
+    clickToLoadOdds: 'Clique na liga acima para carregar dados de probabilidades',
+    apiQuotaExceeded: 'Cota de API excedida. Aguarde o reset do proximo mes.',
+    apiQuotaHint: 'Plano gratuito: 500 solicitacoes por mes',
   },
   ar: {
     sidebarLogo: 'تحليل رياضي', sidebarFooter: 'بيانات مرجعية فقط · ليست نصيحة مالية',
@@ -1983,12 +2004,14 @@ let sportsList = [];       // [{key, group, title, active, ...}]
 let currentSportKey = null; // sport_key like "soccer_epl"
 let oddsCache = {};        // { sport_key: { data: [...], ts: timestamp } }
 let apiRequestsRemaining = null;
+let apiRequestsUsed = 0;   // Track API requests used this month
 let isLoadingOdds = false;
 let currentPage = 'matches';
 let currentSubFilter = null; // sport_key for sub-filter, or null for "all"
 let autoRefreshEnabled = false;
 let autoRefreshTimer = null;
 let lastRefreshTime = null;
+let loadingSportKey = null; // Track which sport is currently loading
 
 // ===== LIVE CHANNELS CONFIG =====
 const LIVE_CHANNELS = {
@@ -2064,10 +2087,11 @@ async function fetchSports() {
 }
 
 async function fetchOdds(sportKey, forceRefresh = false) {
+  // Check memory cache first
   if (!forceRefresh && oddsCache[sportKey] && Date.now() - oddsCache[sportKey].ts < CACHE_TTL) {
     return oddsCache[sportKey].data;
   }
-  // Also check localStorage
+  // Check localStorage cache
   if (!forceRefresh) {
     const cacheKey = `odds_api_odds_${sportKey}`;
     const cached = localStorage.getItem(cacheKey);
@@ -2082,14 +2106,25 @@ async function fetchOdds(sportKey, forceRefresh = false) {
     }
   }
 
+  loadingSportKey = sportKey;
   isLoadingOdds = true;
   renderContent();
 
   try {
-    const resp = await fetch(`${API_BASE}/sports/${sportKey}/odds/?apiKey=${API_KEY}&regions=eu,us&markets=h2h`);
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    // Only request h2h market, only eu region - saves API credits
+    const resp = await fetch(`${API_BASE}/sports/${sportKey}/odds/?apiKey=${API_KEY}&regions=eu&markets=h2h`);
+    if (!resp.ok) {
+      if (resp.status === 429) {
+        throw new Error('API_QUOTA_EXCEEDED');
+      }
+      throw new Error(`HTTP ${resp.status}`);
+    }
     const remaining = resp.headers.get('X-Requests-Remaining');
-    if (remaining) apiRequestsRemaining = parseInt(remaining);
+    if (remaining) {
+      apiRequestsRemaining = parseInt(remaining);
+      apiRequestsUsed = 500 - apiRequestsRemaining;
+      localStorage.setItem('odds_api_usage', JSON.stringify({ used: apiRequestsUsed, remaining: apiRequestsRemaining, ts: Date.now() }));
+    }
     updateApiBadge();
     const data = await resp.json();
     const cacheObj = { data, ts: Date.now() };
@@ -2110,6 +2145,7 @@ async function fetchOdds(sportKey, forceRefresh = false) {
     throw e;
   } finally {
     isLoadingOdds = false;
+    loadingSportKey = null;
   }
 }
 
@@ -2277,11 +2313,31 @@ async function setSport(sportKey) {
   updatePageTitle();
   document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === currentPage));
 
-  // Load odds
+  // Load odds with loading/error state
+  const area = document.getElementById('contentArea');
+  const sportInfo = sportsList.find(s => s.key === sportKey);
+  const groupEmoji = sportInfo ? getGroupInfo(sportInfo.group).emoji : '⚽';
+  area.innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><span>${t('loading')} ${groupEmoji} ${sportInfo ? (getLeagueLocalizedName(sportInfo.title) || sportInfo.title) : ''}...</span></div>`;
+
   try {
     await fetchOdds(sportKey);
   } catch(e) {
     console.error('Failed to load odds:', e);
+    if (e.message === 'API_QUOTA_EXCEEDED') {
+      area.innerHTML = `<div class="error-state">
+        <div class="error-icon">🔴</div>
+        <div class="error-msg">${t('apiQuotaExceeded') || 'API额度已用完，请等待下月重置'}</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:4px">${t('apiQuotaHint') || '免费版每月500次请求'}</div>
+        <button class="retry-btn" onclick="setSport('${sportKey}')">${t('retry')}</button>
+      </div>`;
+      return;
+    }
+    area.innerHTML = `<div class="error-state">
+      <div class="error-icon">⚠️</div>
+      <div class="error-msg">${t('loadError')}: ${e.message}</div>
+      <button class="retry-btn" onclick="setSport('${sportKey}')">${t('retry')}</button>
+    </div>`;
+    return;
   }
   renderContent();
 }
@@ -2298,14 +2354,8 @@ function switchPage(page) {
 
 async function refreshOdds() {
   if (currentSportKey === '__allevents__') {
-    const btn = document.getElementById('refreshBtn');
-    btn.classList.add('spinning');
-    try {
-      await loadAllEventsData(true);
-      lastRefreshTime = new Date();
-      updateLastRefreshTime();
-    } catch(e) { console.error('Refresh failed:', e); }
-    btn.classList.remove('spinning');
+    // On all-events page, refresh only loads data if there's none cached
+    // Don't bulk-load all leagues
     renderContent();
     return;
   }
@@ -2319,6 +2369,14 @@ async function refreshOdds() {
     updateLastRefreshTime();
   } catch(e) {
     console.error('Refresh failed:', e);
+    if (e.message === 'API_QUOTA_EXCEEDED') {
+      const area = document.getElementById('contentArea');
+      area.innerHTML = `<div class="error-state">
+        <div class="error-icon">🔴</div>
+        <div class="error-msg">${t('apiQuotaExceeded') || 'API额度已用完，请等待下月重置'}</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:4px">${t('apiQuotaHint') || '免费版每月500次请求'}</div>
+      </div>`;
+    }
   }
   btn.classList.remove('spinning');
   renderContent();
@@ -2345,12 +2403,8 @@ function startAutoRefresh() {
         updateLastRefreshTime();
         renderContent();
       } catch(e) { console.error('Auto-refresh failed:', e); }
-    } else if (currentSportKey === '__allevents__') {
-      await loadAllEventsData(true);
-      lastRefreshTime = new Date();
-      updateLastRefreshTime();
-      renderContent();
     }
+    // Don't auto-refresh all-events page (would burn 13 API calls)
   }, 5 * 60 * 1000);
 }
 
@@ -2389,17 +2443,36 @@ function getMatchStatus(commenceTime, scores) {
 function updateApiBadge() {
   const badge = document.getElementById('apiBadge');
   if (apiRequestsRemaining === null) {
+    // Try to load from localStorage
+    try {
+      const stored = JSON.parse(localStorage.getItem('odds_api_usage'));
+      if (stored) {
+        apiRequestsUsed = stored.used;
+        apiRequestsRemaining = stored.remaining;
+      }
+    } catch(e) {}
+  }
+  if (apiRequestsRemaining === null) {
     badge.textContent = 'API: --';
     badge.className = 'api-badge';
   } else if (apiRequestsRemaining > 200) {
-    badge.textContent = `${t('apiRemaining')}: ${apiRequestsRemaining}`;
+    badge.textContent = `API: ${apiRequestsUsed}/500`;
     badge.className = 'api-badge';
   } else if (apiRequestsRemaining > 50) {
-    badge.textContent = `${t('apiRemaining')}: ${apiRequestsRemaining}`;
+    badge.textContent = `API: ${apiRequestsUsed}/500 ⚠`;
     badge.className = 'api-badge warning';
   } else {
-    badge.textContent = `${t('apiRemaining')}: ${apiRequestsRemaining}`;
+    badge.textContent = `API: ${apiRequestsUsed}/500 🔴`;
     badge.className = 'api-badge danger';
+  }
+  // Update footer counter too
+  const footerCounter = document.getElementById('apiFooterCounter');
+  if (footerCounter) {
+    footerCounter.textContent = `${apiRequestsUsed}/500`;
+    const warnEl = document.getElementById('apiFooterWarning');
+    if (warnEl) {
+      warnEl.style.display = apiRequestsRemaining !== null && apiRequestsRemaining < 50 ? 'inline' : 'none';
+    }
   }
 }
 
@@ -2417,8 +2490,10 @@ function renderContent() {
     return;
   }
 
-  if (isLoadingOdds) {
-    area.innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><span>${t('loading')}</span></div>`;
+  if (isLoadingOdds && loadingSportKey === currentSportKey) {
+    const sportInfo = sportsList.find(s => s.key === currentSportKey);
+    const groupEmoji = sportInfo ? getGroupInfo(sportInfo.group).emoji : '⚽';
+    area.innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><span>${t('loading')} ${groupEmoji} ${sportInfo ? (getLeagueLocalizedName(sportInfo.title) || sportInfo.title) : ''}...</span></div>`;
     return;
   }
 
@@ -2446,12 +2521,14 @@ async function showAllEvents() {
   document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === 'allevents'));
   document.getElementById('pageTitle').textContent = '🏆 ' + t('tabAllEvents');
   document.documentElement.style.setProperty('--accent-current', 'var(--accent-football)');
-  await loadAllEventsData();
+  // Don't fetch any odds data on all-events page - just show what's cached
+  // User clicks into a specific league to load its odds
   renderContent();
 }
 
 async function loadAllEventsData(forceRefresh = false) {
-  // Load data for popular sports if not already cached
+  // Load schedule-only data for popular sports (no odds to save API credits)
+  // Only load odds when user clicks into a specific league
   const popularKeys = [
     'soccer_epl', 'soccer_fifa_world_cup', 'basketball_nba', 'baseball_mlb',
     'icehockey_nhl', 'soccer_germany_bundesliga', 'soccer_italy_serie_a',
@@ -2460,6 +2537,7 @@ async function loadAllEventsData(forceRefresh = false) {
   ];
   const keysToLoad = popularKeys.filter(k => sportsList.some(s => s.key === k));
   for (const key of keysToLoad) {
+    // Only fetch if not already cached (even stale cache is fine for schedule display)
     if (forceRefresh || !oddsCache[key]) {
       try { await fetchOdds(key, forceRefresh); } catch(e) { /* skip failed loads */ }
     }
@@ -2471,7 +2549,8 @@ async function loadAllEventsData(forceRefresh = false) {
 }
 
 function renderAllEvents() {
-  // Collect all matches with data from oddsCache, grouped by sport group
+  // Show matches from cached data, grouped by sport group
+  // If no cached data, show schedule-only view with sport list
   const groupMatches = {};
   const groupSports = {};
 
@@ -2480,20 +2559,50 @@ function renderAllEvents() {
     if (!sInfo) return;
     const group = sInfo.group;
     if (!groupMatches[group]) { groupMatches[group] = []; groupSports[group] = []; }
-    groupSports[group].push(sInfo);
+    if (!groupSports[group].some(s => s.key === sk)) groupSports[group].push(sInfo);
     oddsCache[sk].data.forEach(m => {
       const prob = calcImpliedProbabilities(m);
-      if (prob) {
-        groupMatches[group].push({ match: m, prob, sportKey: sk, sportInfo: sInfo });
-      }
+      groupMatches[group].push({ match: m, prob, sportKey: sk, sportInfo: sInfo });
     });
   });
 
   // Sort groups by number of matches (most first)
   const sortedGroups = Object.keys(groupMatches).sort((a, b) => groupMatches[b].length - groupMatches[a].length);
 
+  // If no cached data at all, show guide to click a league
   if (!sortedGroups.length) {
-    return `<div class="loading-state"><div class="loading-spinner"></div><span>${t('loading')}</span></div>`;
+    let guideHtml = `<div class="loading-state" style="min-height:40vh">
+      <div style="font-size:48px;margin-bottom:12px">🏆</div>
+      <div style="font-size:18px;font-weight:600;margin-bottom:8px">${t('tabAllEvents')}</div>
+      <div style="font-size:14px;color:var(--text-muted);max-width:360px;text-align:center;line-height:1.6">${t('allEventsGuide') || '点击左侧联赛加载数据，赔率将自动缓存5分钟'}</div>
+    </div>`;
+    // Show all available leagues as clickable items
+    guideHtml += '<div style="margin-top:20px">';
+    const groups = {};
+    sportsList.forEach(s => {
+      if (!groups[s.group]) groups[s.group] = [];
+      groups[s.group].push(s);
+    });
+    const groupOrder = Object.keys(groups).sort((a, b) => {
+      const order = ['Soccer','Basketball','Baseball','Ice Hockey','Tennis','American Football','Boxing','MMA','Mixed Martial Arts','Esports','Cricket','Rugby','Rugby League','Aussie Rules','Golf','Handball','Lacrosse','Politics','Darts','Cycling','Snooker','Volleyball','Futsal','Table Tennis','Badminton'];
+      const ia = order.indexOf(a), ib = order.indexOf(b);
+      if (ia === -1 && ib === -1) return a.localeCompare(b);
+      if (ia === -1) return 1; if (ib === -1) return -1;
+      return ia - ib;
+    });
+    groupOrder.forEach(group => {
+      const info = getGroupInfo(group);
+      const sports = groups[group];
+      guideHtml += `<div style="margin-bottom:16px">`;
+      guideHtml += `<div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;padding-left:4px">${info.emoji} ${getGroupLocalizedName(group)}</div>`;
+      guideHtml += `<div style="display:flex;flex-wrap:wrap;gap:6px">`;
+      sports.forEach(s => {
+        guideHtml += `<button class="sub-filter-btn" onclick="setSport('${s.key}')" style="font-size:12px">${getLeagueLocalizedName(s.title) || s.title}</button>`;
+      });
+      guideHtml += `</div></div>`;
+    });
+    guideHtml += '</div>';
+    return guideHtml;
   }
 
   let html = '';
@@ -2502,7 +2611,8 @@ function renderAllEvents() {
     const info = getGroupInfo(group);
     const sports = groupSports[group];
     const displayMatches = matches.slice(0, 3);
-    const arbCount = matches.filter(m => m.prob.isArb).length;
+    const matchesWithOdds = matches.filter(m => m.prob);
+    const arbCount = matchesWithOdds.filter(m => m.prob.isArb).length;
 
     html += `<div class="all-events-group">`;
     html += `<div class="all-events-header">
@@ -2513,46 +2623,71 @@ function renderAllEvents() {
     </div>`;
 
     displayMatches.forEach((m, idx) => {
-      const prob = m.prob;
-      const hasDraw = prob.hasDraw;
-      const confClass = prob.confidence >= 80 ? 'high' : prob.confidence >= 65 ? 'medium' : 'low';
-      const status = getMatchStatus(m.match.commence_time, m.match.scores);
       const timeStr = formatTime(m.match.commence_time);
+      const status = getMatchStatus(m.match.commence_time, m.match.scores);
 
-      html += `<div class="match-card${prob.isArb ? ' arb-highlight' : ''}" style="margin-bottom:8px">
-        <div class="match-header">
-          <span class="match-league">${info.emoji} ${getLeagueLocalizedName(m.match.sport_title) || m.match.sport_title}</span>
-          <span class="match-time">${timeStr}</span>
-          <span class="match-status ${status.cssClass}">${status.emoji} ${status.label}</span>
-        </div>
-        <div class="match-body">
-          <div class="team">
-            <span class="team-name">${m.match.home_team}</span>
+      if (m.prob) {
+        // Match has odds data - show full prediction bar
+        const prob = m.prob;
+        const hasDraw = prob.hasDraw;
+        const confClass = prob.confidence >= 80 ? 'high' : prob.confidence >= 65 ? 'medium' : 'low';
+
+        html += `<div class="match-card${prob.isArb ? ' arb-highlight' : ''}" style="margin-bottom:8px">
+          <div class="match-header">
+            <span class="match-league">${info.emoji} ${getLeagueLocalizedName(m.match.sport_title) || m.match.sport_title}</span>
+            <span class="match-time">${timeStr}</span>
+            <span class="match-status ${status.cssClass}">${status.emoji} ${status.label}</span>
           </div>
-          <div class="predict-bar-wrap">
-            <div class="predict-bar">
-              <div class="fill fill-home" style="width:${prob.homeProb}%">${prob.homeProb}%</div>
-              ${hasDraw ? `<div class="fill fill-draw" style="width:${prob.drawProb}%">${prob.drawProb}%</div>` : ''}
-              <div class="fill fill-away" style="width:${prob.awayProb}%">${prob.awayProb}%</div>
+          <div class="match-body">
+            <div class="team">
+              <span class="team-name">${m.match.home_team}</span>
             </div>
-            <div class="predict-labels">
-              <span>${t('homeTeam')} ${prob.bestHome.toFixed(2)}</span>
-              ${hasDraw ? `<span>${t('draw')} ${prob.bestDraw.toFixed(2)}</span>` : ''}
-              <span>${t('awayTeam')} ${prob.bestAway.toFixed(2)}</span>
+            <div class="predict-bar-wrap">
+              <div class="predict-bar">
+                <div class="fill fill-home" style="width:${prob.homeProb}%">${prob.homeProb}%</div>
+                ${hasDraw ? `<div class="fill fill-draw" style="width:${prob.drawProb}%">${prob.drawProb}%</div>` : ''}
+                <div class="fill fill-away" style="width:${prob.awayProb}%">${prob.awayProb}%</div>
+              </div>
+              <div class="predict-labels">
+                <span>${t('homeTeam')} ${prob.bestHome.toFixed(2)}</span>
+                ${hasDraw ? `<span>${t('draw')} ${prob.bestDraw.toFixed(2)}</span>` : ''}
+                <span>${t('awayTeam')} ${prob.bestAway.toFixed(2)}</span>
+              </div>
+            </div>
+            <div class="team">
+              <span class="team-name">${m.match.away_team}</span>
             </div>
           </div>
-          <div class="team">
-            <span class="team-name">${m.match.away_team}</span>
+          <div class="match-card-footer">
+            <div class="confidence">
+              <span class="confidence-label">${t('confidence')}</span>
+              <span class="confidence-value ${confClass}">${prob.confidence}%</span>
+              ${prob.isArb ? `<span class="arb-badge">🌟 ${t('arbOpportunity')} ${prob.arbProfit}%</span>` : ''}
+            </div>
           </div>
-        </div>
-        <div class="match-card-footer">
-          <div class="confidence">
-            <span class="confidence-label">${t('confidence')}</span>
-            <span class="confidence-value ${confClass}">${prob.confidence}%</span>
-            ${prob.isArb ? `<span class="arb-badge">🌟 ${t('arbOpportunity')} ${prob.arbProfit}%</span>` : ''}
+        </div>`;
+      } else {
+        // Match has no odds data - show schedule-only view
+        html += `<div class="match-card" style="margin-bottom:8px">
+          <div class="match-header">
+            <span class="match-league">${info.emoji} ${getLeagueLocalizedName(m.match.sport_title) || m.match.sport_title}</span>
+            <span class="match-time">${timeStr}</span>
+            <span class="match-status ${status.cssClass}">${status.emoji} ${status.label}</span>
           </div>
-        </div>
-      </div>`;
+          <div class="match-body" style="justify-content:center;gap:20px">
+            <div class="team">
+              <span class="team-name">${m.match.home_team}</span>
+            </div>
+            <span style="color:var(--text-muted);font-size:14px">vs</span>
+            <div class="team">
+              <span class="team-name">${m.match.away_team}</span>
+            </div>
+          </div>
+          <div class="match-card-footer" style="justify-content:center">
+            <span style="font-size:11px;color:var(--text-muted)">${t('clickToLoadOdds') || '点击上方联赛名加载赔率数据'}</span>
+          </div>
+        </div>`;
+      }
     });
 
     if (matches.length > 3) {
@@ -3016,12 +3151,14 @@ async function init() {
     buildSidebar();
     buildMobileNav();
 
-    // Default to All Events page
+    // Default to All Events page (no API calls - just shows cached data)
     currentSportKey = '__allevents__';
     currentPage = 'allevents';
     document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === 'allevents'));
     document.getElementById('pageTitle').textContent = '🏆 ' + t('tabAllEvents');
-    await loadAllEventsData();
+    // Don't call loadAllEventsData() - save API credits
+    // User clicks into a league to load its data
+    updateApiBadge();
     renderContent();
   } catch(e) {
     console.error('Init failed:', e);
