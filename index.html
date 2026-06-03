@@ -806,9 +806,177 @@ html[dir="rtl"] .match-card-footer { flex-direction: row-reverse; }
 .nav-item.no-data { opacity: 0.45; }
 .nav-item.no-data:hover { opacity: 0.7; }
 
+/* ===== Search Box ===== */
+.search-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.search-input {
+  width: 220px;
+  padding: 6px 12px 6px 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 13px;
+  transition: all .2s;
+  outline: none;
+}
+.search-input:focus { border-color: var(--accent-current); width: 280px; }
+.search-input::placeholder { color: var(--text-muted); }
+.search-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+.search-clear {
+  position: absolute;
+  right: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: none;
+  background: none;
+  border: none;
+  padding: 2px;
+}
+.search-clear.visible { display: block; }
+.search-highlight { background: rgba(46,160,67,.25); border-radius: 2px; padding: 0 1px; }
+
+/* Mobile search */
+.mobile-search-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+@media (max-width:768px) {
+  .search-input { width: 140px; }
+  .search-input:focus { width: 180px; }
+  .mobile-search-btn { display: inline-flex; }
+  .search-wrap.collapsed .search-input { display: none; }
+  .search-wrap.collapsed .search-clear { display: none; }
+  .search-wrap.expanded .search-input { display: block; width: 200px; }
+  .search-wrap.expanded .mobile-search-btn { display: none; }
+}
+
+/* ===== Theme Toggle ===== */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .2s;
+  color: var(--text-secondary);
+}
+.theme-toggle:hover { border-color: var(--accent-current); color: var(--text-primary); }
+
+/* Light theme overrides */
+html[data-theme="light"] {
+  --bg-primary: #f6f8fa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0f2f5;
+  --text-primary: #1f2328;
+  --text-secondary: #656d76;
+  --text-muted: #8b949e;
+  --border: #d0d7de;
+  --shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+html[data-theme="light"] .match-card { box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+html[data-theme="light"] .sidebar { box-shadow: 1px 0 3px rgba(0,0,0,.06); }
+html[data-theme="light"] .predict-bar { background: #e1e4e8; }
+html[data-theme="light"] .odds-table th { background: #f6f8fa; }
+html[data-theme="light"] .hit-rate-bar-bg { background: #e1e4e8; }
+html[data-theme="light"] .nav-item:hover { background: #f6f8fa; }
+html[data-theme="light"] .nav-item.active { background: #f0f2f5; }
+html[data-theme="light"] .combo-pick { background: #f6f8fa; }
+
+/* ===== Hot Match Badge ===== */
+.hot-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 13px;
+  margin-left: 4px;
+}
+.nav-item .hot-badge { font-size: 12px; margin-left: auto; margin-right: 4px; }
+
+/* ===== Match Timeline ===== */
+.match-timeline {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 8px;
+}
+.match-timeline.urgent { color: #f0883e; }
+.match-timeline.soon { color: #2ea043; }
+
+/* ===== Quick Filter Tags ===== */
+.quick-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.quick-filter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.quick-filter-tag:hover { border-color: var(--accent-current); color: var(--text-primary); }
+.quick-filter-tag.active {
+  background: var(--accent-current);
+  color: #fff;
+  border-color: var(--accent-current);
+}
+
+/* ===== Favorites ===== */
+.fav-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 4px;
+  transition: transform .2s;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  opacity: .5;
+}
+.fav-btn:hover { opacity: 1; transform: scale(1.2); }
+.fav-btn.active { opacity: 1; }
+.match-card { position: relative; }
+
+/* ===== Odds Change Indicator ===== */
+.odds-up { color: #2ea043; font-size: 11px; font-weight: 700; }
+.odds-down { color: #ef4444; font-size: 11px; font-weight: 700; }
+
 @media (max-width:768px) {
   .auto-refresh-wrap { font-size: 11px; }
   .auto-refresh-wrap .last-refresh-time { display: none; }
+  .quick-filters { gap: 6px; }
+  .quick-filter-tag { padding: 5px 10px; font-size: 12px; }
 }
 </style>
 </head>
@@ -838,6 +1006,13 @@ html[dir="rtl"] .match-card-footer { flex-direction: row-reverse; }
   <div class="sidebar">
     <div class="sidebar-logo"><span>🏆</span> <span data-i18n="sidebarLogo">全赛事数据分析</span></div>
     <nav class="sidebar-nav" id="sidebarNav"></nav>
+    <div class="sidebar-fav-section" id="sidebarFav" style="padding:8px 0;border-top:1px solid var(--border);">
+      <div class="nav-item" id="favNavItem" onclick="showFavorites()" style="cursor:pointer">
+        <span class="emoji">⭐</span>
+        <span class="nav-label" data-i18n="myFavorites">我的收藏</span>
+        <span class="nav-count" id="favCount">0</span>
+      </div>
+    </div>
     <div class="sidebar-footer" data-i18n="sidebarFooter">数据仅供参考 · 不构成任何建议</div>
     <!-- AD_SLOT: sidebar -->
     <ins class="adsbygoogle"
@@ -872,6 +1047,15 @@ html[dir="rtl"] .match-card-footer { flex-direction: row-reverse; }
           </button>
           <div class="lang-dropdown" id="langDropdown"></div>
         </div>
+        <!-- Search -->
+        <div class="search-wrap collapsed" id="searchWrap">
+          <span class="search-icon">🔍</span>
+          <input class="search-input" id="searchInput" type="text" oninput="onSearchInput(this.value)" />
+          <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
+          <button class="mobile-search-btn" onclick="toggleMobileSearch()">🔍</button>
+        </div>
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙</button>
       </div>
     </div>
     <div class="page-tabs">
@@ -1763,6 +1947,25 @@ const NEW_I18N = {
     matchLive: '进行中', matchUpcoming: '即将开始', matchScheduled: '未开始', matchFinished: '已结束',
     sportLacrosse: '长曲棍球', sportMixedMartialArts: '综合格斗', sportPolitics: '政治', sportRugbyLeague: '橄榄球联赛',
     arbOpportunityCount: '{count}场有差异分析机会',
+    // V3 features
+    searchPlaceholder: '搜索比赛、队伍...',
+    myFavorites: '我的收藏',
+    noFavorites: '暂无收藏',
+    favAdded: '已收藏',
+    favRemoved: '已取消收藏',
+    filterHot: '🔥 热门',
+    filterUpcoming: '⏰ 即将开始',
+    filterLive: '🟢 进行中',
+    filterArb: '🌟 差异分析',
+    filterHighAttention: '⭐ 高关注度',
+    timeJustNow: '刚刚',
+    timeMinutesLater: '{n}分钟后',
+    timeHoursLater: '{n}小时后',
+    timeTomorrow: '明天',
+    timeDaysLater: '{n}天后',
+    timeStarted: '已开始',
+    oddsUp: '上升',
+    oddsDown: '下降',
   },
   en: {
     noEvents: 'No events scheduled', autoRefresh: 'Auto Refresh', every5Min: 'Updates every 5 min',
@@ -1770,6 +1973,25 @@ const NEW_I18N = {
     matchLive: 'Live', matchUpcoming: 'Starting Soon', matchScheduled: 'Scheduled', matchFinished: 'Finished',
     sportLacrosse: 'Lacrosse', sportMixedMartialArts: 'Mixed Martial Arts', sportPolitics: 'Politics', sportRugbyLeague: 'Rugby League',
     arbOpportunityCount: '{count} matches with discrepancy opportunities',
+    // V3 features
+    searchPlaceholder: 'Search matches, teams...',
+    myFavorites: 'My Favorites',
+    noFavorites: 'No favorites yet',
+    favAdded: 'Added to favorites',
+    favRemoved: 'Removed from favorites',
+    filterHot: '🔥 Hot',
+    filterUpcoming: '⏰ Starting Soon',
+    filterLive: '🟢 Live',
+    filterArb: '🌟 Discrepancy',
+    filterHighAttention: '⭐ High Attention',
+    timeJustNow: 'Just now',
+    timeMinutesLater: '{n} min',
+    timeHoursLater: '{n}h',
+    timeTomorrow: 'Tomorrow',
+    timeDaysLater: '{n} days',
+    timeStarted: 'Started',
+    oddsUp: 'Up',
+    oddsDown: 'Down',
   },
   es: {
     noEvents: 'Sin eventos programados', autoRefresh: 'Actualización automática', every5Min: 'Cada 5 minutos',
@@ -1777,6 +1999,25 @@ const NEW_I18N = {
     matchLive: 'En vivo', matchUpcoming: 'Próximo', matchScheduled: 'Programado', matchFinished: 'Finalizado',
     sportLacrosse: 'Lacrosse', sportMixedMartialArts: 'Artes Marciales Mixtas', sportPolitics: 'Política', sportRugbyLeague: 'Liga de Rugby',
     arbOpportunityCount: '{count} partidos con oportunidades de discrepancia',
+    // V3 features
+    searchPlaceholder: 'Buscar partidos, equipos...',
+    myFavorites: 'Mis Favoritos',
+    noFavorites: 'Sin favoritos',
+    favAdded: 'Añadido a favoritos',
+    favRemoved: 'Eliminado de favoritos',
+    filterHot: '🔥 Popular',
+    filterUpcoming: '⏰ Próximo',
+    filterLive: '🟢 En vivo',
+    filterArb: '🌟 Discrepancia',
+    filterHighAttention: '⭐ Alta atención',
+    timeJustNow: 'Ahora',
+    timeMinutesLater: '{n} min',
+    timeHoursLater: '{n}h',
+    timeTomorrow: 'Mañana',
+    timeDaysLater: '{n} días',
+    timeStarted: 'Comenzado',
+    oddsUp: 'Subió',
+    oddsDown: 'Bajó',
   },
   pt: {
     noEvents: 'Sem eventos programados', autoRefresh: 'Atualização automática', every5Min: 'A cada 5 minutos',
@@ -1784,6 +2025,25 @@ const NEW_I18N = {
     matchLive: 'Ao vivo', matchUpcoming: 'Começando em breve', matchScheduled: 'Programado', matchFinished: 'Finalizado',
     sportLacrosse: 'Lacrosse', sportMixedMartialArts: 'Artes Marciais Mistas', sportPolitics: 'Política', sportRugbyLeague: 'Liga de Rugby',
     arbOpportunityCount: '{count} jogos com oportunidades de discrepância',
+    // V3 features
+    searchPlaceholder: 'Buscar jogos, times...',
+    myFavorites: 'Meus Favoritos',
+    noFavorites: 'Sem favoritos',
+    favAdded: 'Adicionado aos favoritos',
+    favRemoved: 'Removido dos favoritos',
+    filterHot: '🔥 Popular',
+    filterUpcoming: '⏰ Em breve',
+    filterLive: '🟢 Ao vivo',
+    filterArb: '🌟 Discrepância',
+    filterHighAttention: '⭐ Alta atenção',
+    timeJustNow: 'Agora',
+    timeMinutesLater: '{n} min',
+    timeHoursLater: '{n}h',
+    timeTomorrow: 'Amanhã',
+    timeDaysLater: '{n} dias',
+    timeStarted: 'Iniciado',
+    oddsUp: 'Subiu',
+    oddsDown: 'Desceu',
   },
   ar: {
     noEvents: 'لا أحداث مجدولة', autoRefresh: 'تحديث تلقائي', every5Min: 'كل 5 دقائق',
@@ -1791,6 +2051,25 @@ const NEW_I18N = {
     matchLive: 'مباشر', matchUpcoming: 'يبدأ قريباً', matchScheduled: 'مجدول', matchFinished: 'منتهي',
     sportLacrosse: 'لاكروس', sportMixedMartialArts: 'فنون القتال المختلطة', sportPolitics: 'سياسة', sportRugbyLeague: 'دوري الركبي',
     arbOpportunityCount: '{count} مباريات بفرص تباين',
+    // V3 features
+    searchPlaceholder: 'بحث عن مباريات، فرق...',
+    myFavorites: 'مفضلاتي',
+    noFavorites: 'لا مفضلات',
+    favAdded: 'أضيف إلى المفضلة',
+    favRemoved: 'أزيل من المفضلة',
+    filterHot: '🔥 رائج',
+    filterUpcoming: '⏰ قريباً',
+    filterLive: '🟢 مباشر',
+    filterArb: '🌟 تباين',
+    filterHighAttention: '⭐ اهتمام عالي',
+    timeJustNow: 'الآن',
+    timeMinutesLater: '{n} د',
+    timeHoursLater: '{n} س',
+    timeTomorrow: 'غداً',
+    timeDaysLater: '{n} أيام',
+    timeStarted: 'بدأ',
+    oddsUp: 'ارتفع',
+    oddsDown: 'انخفض',
   },
   ja: {
     noEvents: '予定されたイベントなし', autoRefresh: '自動更新', every5Min: '5分ごとに更新',
@@ -1798,6 +2077,25 @@ const NEW_I18N = {
     matchLive: '試合中', matchUpcoming: 'まもなく開始', matchScheduled: '予定', matchFinished: '終了',
     sportLacrosse: 'ラクロス', sportMixedMartialArts: '総合格闘技', sportPolitics: '政治', sportRugbyLeague: 'ラグビーリーグ',
     arbOpportunityCount: '{count}試合にオッズ差異の機会あり',
+    // V3 features
+    searchPlaceholder: '試合、チームを検索...',
+    myFavorites: 'お気に入り',
+    noFavorites: 'お気に入りなし',
+    favAdded: 'お気に入りに追加',
+    favRemoved: 'お気に入りから削除',
+    filterHot: '🔥 人気',
+    filterUpcoming: '⏰ 開始間近',
+    filterLive: '🟢 試合中',
+    filterArb: '🌟 差異分析',
+    filterHighAttention: '⭐ 高注目',
+    timeJustNow: 'たった今',
+    timeMinutesLater: '{n}分後',
+    timeHoursLater: '{n}時間後',
+    timeTomorrow: '明日',
+    timeDaysLater: '{n}日後',
+    timeStarted: '開始済',
+    oddsUp: '上昇',
+    oddsDown: '下落',
   },
   ko: {
     noEvents: '예정된 이벤트 없음', autoRefresh: '자동 새로고침', every5Min: '5분마다 업데이트',
@@ -1805,6 +2103,25 @@ const NEW_I18N = {
     matchLive: '진행 중', matchUpcoming: '곧 시작', matchScheduled: '예정', matchFinished: '종료',
     sportLacrosse: '라크로스', sportMixedMartialArts: '종합격투기', sportPolitics: '정치', sportRugbyLeague: '럭비리그',
     arbOpportunityCount: '{count}경기 배당률 차이 기회 있음',
+    // V3 features
+    searchPlaceholder: '경기, 팀 검색...',
+    myFavorites: '즐겨찾기',
+    noFavorites: '즐겨찾기 없음',
+    favAdded: '즐겨찾기 추가',
+    favRemoved: '즐겨찾기 제거',
+    filterHot: '🔥 인기',
+    filterUpcoming: '⏰ 곧 시작',
+    filterLive: '🟢 진행 중',
+    filterArb: '🌟 차이 분석',
+    filterHighAttention: '⭐ 높은 관심',
+    timeJustNow: '방금',
+    timeMinutesLater: '{n}분 후',
+    timeHoursLater: '{n}시간 후',
+    timeTomorrow: '내일',
+    timeDaysLater: '{n}일 후',
+    timeStarted: '시작됨',
+    oddsUp: '상승',
+    oddsDown: '하락',
   },
   ru: {
     noEvents: 'Нет запланированных событий', autoRefresh: 'Автообновление', every5Min: 'Обновление каждые 5 мин',
@@ -1812,6 +2129,25 @@ const NEW_I18N = {
     matchLive: 'В прямом эфире', matchUpcoming: 'Скоро начнётся', matchScheduled: 'Запланировано', matchFinished: 'Завершено',
     sportLacrosse: 'Лакросс', sportMixedMartialArts: 'Смешанные единоборства', sportPolitics: 'Политика', sportRugbyLeague: 'Регбилиг',
     arbOpportunityCount: '{count} матчей с расхождением коэффициентов',
+    // V3 features
+    searchPlaceholder: 'Поиск матчей, команд...',
+    myFavorites: 'Избранное',
+    noFavorites: 'Нет избранных',
+    favAdded: 'Добавлено в избранное',
+    favRemoved: 'Удалено из избранного',
+    filterHot: '🔥 Популярные',
+    filterUpcoming: '⏰ Скоро',
+    filterLive: '🟢 В эфире',
+    filterArb: '🌟 Расхождение',
+    filterHighAttention: '⭐ Высокий интерес',
+    timeJustNow: 'Сейчас',
+    timeMinutesLater: '{n} мин',
+    timeHoursLater: '{n} ч',
+    timeTomorrow: 'Завтра',
+    timeDaysLater: '{n} дн.',
+    timeStarted: 'Началось',
+    oddsUp: 'Рост',
+    oddsDown: 'Падение',
   },
   fr: {
     noEvents: 'Aucun événement prévu', autoRefresh: 'Actualisation auto', every5Min: 'Mise à jour toutes les 5 min',
@@ -1819,6 +2155,25 @@ const NEW_I18N = {
     matchLive: 'En direct', matchUpcoming: 'Commence bientôt', matchScheduled: 'Programmé', matchFinished: 'Terminé',
     sportLacrosse: 'Crosse', sportMixedMartialArts: 'Arts martiaux mixtes', sportPolitics: 'Politique', sportRugbyLeague: 'Rugby à XIII',
     arbOpportunityCount: "{count} matchs avec opportunités d'écart",
+    // V3 features
+    searchPlaceholder: 'Rechercher matchs, équipes...',
+    myFavorites: 'Mes Favoris',
+    noFavorites: 'Aucun favori',
+    favAdded: 'Ajouté aux favoris',
+    favRemoved: 'Retiré des favoris',
+    filterHot: '🔥 Tendance',
+    filterUpcoming: '⏰ Bientôt',
+    filterLive: '🟢 En direct',
+    filterArb: '🌟 Écart',
+    filterHighAttention: '⭐ Forte attention',
+    timeJustNow: "À l'instant",
+    timeMinutesLater: '{n} min',
+    timeHoursLater: '{n}h',
+    timeTomorrow: 'Demain',
+    timeDaysLater: '{n} jours',
+    timeStarted: 'Commencé',
+    oddsUp: 'Hausse',
+    oddsDown: 'Baisse',
   },
   de: {
     noEvents: 'Keine Veranstaltungen geplant', autoRefresh: 'Auto-Aktualisierung', every5Min: 'Alle 5 Min. aktualisiert',
@@ -1826,6 +2181,25 @@ const NEW_I18N = {
     matchLive: 'Live', matchUpcoming: 'Beginnt bald', matchScheduled: 'Geplant', matchFinished: 'Beendet',
     sportLacrosse: 'Lacrosse', sportMixedMartialArts: 'Mixed Martial Arts', sportPolitics: 'Politik', sportRugbyLeague: 'Rugby League',
     arbOpportunityCount: '{count} Spiele mit Quotendifferenz',
+    // V3 features
+    searchPlaceholder: 'Spiele, Teams suchen...',
+    myFavorites: 'Meine Favoriten',
+    noFavorites: 'Keine Favoriten',
+    favAdded: 'Zu Favoriten hinzugefügt',
+    favRemoved: 'Aus Favoriten entfernt',
+    filterHot: '🔥 Beliebt',
+    filterUpcoming: '⏰ Bald',
+    filterLive: '🟢 Live',
+    filterArb: '🌟 Differenz',
+    filterHighAttention: '⭐ Hohe Aufmerksamkeit',
+    timeJustNow: 'Gerade eben',
+    timeMinutesLater: '{n} Min.',
+    timeHoursLater: '{n} Std.',
+    timeTomorrow: 'Morgen',
+    timeDaysLater: '{n} Tage',
+    timeStarted: 'Gestartet',
+    oddsUp: 'Steigung',
+    oddsDown: 'Gefälle',
   },
 };
 
@@ -1972,6 +2346,12 @@ function applyLang() {
   buildMobileNav();
   if (currentSportKey) updatePageTitle();
   updateApiBadge();
+  // Update search placeholder
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput && !searchInput.value) searchInput.placeholder = t('searchPlaceholder');
+  // Update favorites label
+  const favLabel = document.querySelector('#favNavItem .nav-label');
+  if (favLabel) favLabel.textContent = t('myFavorites');
 }
 
 function updateDate() {
@@ -2237,10 +2617,12 @@ function buildSidebar() {
       const cached = oddsCache[s.key];
       const hasData = cached && cached.data && cached.data.length > 0;
       const noDataClass = (cached && !hasData) ? ' no-data' : '';
+      const hotCount = hasData ? cached.data.filter(m => isHotMatch(m)).length : 0;
       const countBadge = hasData ? `<span class="nav-count">${cached.data.length}</span>` : (cached ? '<span class="nav-count" style="opacity:.4">0</span>' : '');
       html += `<div class="nav-item${isActive ? ' active' : ''}${noDataClass}" data-sport="${s.key}" data-group="${group}" onclick="setSport('${s.key}')">
         <span class="emoji">${info.emoji}</span>
         <span class="nav-label" title="${s.title}">${getLeagueLocalizedName(s.title) || s.title}</span>
+        ${hotCount > 0 ? `<span class="hot-badge">🔥</span>` : ''}
         ${countBadge}
       </div>`;
     });
@@ -3172,6 +3554,542 @@ async function init() {
 
   applyLang();
 }
+
+// ===== V3 FEATURES: Search, Hot Match, Timeline, Quick Filters, Theme, Favorites, Odds Change =====
+
+// --- Search ---
+let searchQuery = '';
+
+function onSearchInput(val) {
+  searchQuery = val.trim().toLowerCase();
+  const clearBtn = document.getElementById('searchClear');
+  clearBtn.classList.toggle('visible', searchQuery.length > 0);
+  renderContent();
+}
+
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  searchQuery = '';
+  document.getElementById('searchClear').classList.remove('visible');
+  renderContent();
+}
+
+function toggleMobileSearch() {
+  const wrap = document.getElementById('searchWrap');
+  wrap.classList.toggle('collapsed');
+  wrap.classList.toggle('expanded');
+  if (wrap.classList.contains('expanded')) {
+    document.getElementById('searchInput').focus();
+  }
+}
+
+function matchesSearch(m) {
+  if (!searchQuery) return true;
+  const q = searchQuery;
+  const homeTeam = (m.home_team || '').toLowerCase();
+  const awayTeam = (m.away_team || '').toLowerCase();
+  const sportTitle = (m.sport_title || '').toLowerCase();
+  const sportInfo = sportsList.find(s => s.key === (m.sport_key || currentSportKey));
+  const groupName = sportInfo ? (getGroupLocalizedName(sportInfo.group) || '').toLowerCase() : '' ;
+  return homeTeam.includes(q) || awayTeam.includes(q) || sportTitle.includes(q) || groupName.includes(q);
+}
+
+function highlightText(text, query) {
+  if (!query) return text;
+  const idx = text.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return text;
+  return text.substring(0, idx) + '<span class="search-highlight">' + text.substring(idx, idx + query.length) + '</span>' + text.substring(idx + query.length);
+}
+
+// --- Hot Match ---
+function isHotMatch(match) {
+  return match.bookmakers && match.bookmakers.length >= 3;
+}
+
+function isHighAttention(match) {
+  return match.bookmakers && match.bookmakers.length >= 5;
+}
+
+// --- Match Timeline ---
+function getTimeUntilStart(commenceTime) {
+  const now = Date.now();
+  const start = new Date(commenceTime).getTime();
+  const diff = start - now;
+  if (diff <= 0) return { text: t('timeStarted'), cssClass: 'urgent' };
+  const minutes = Math.floor(diff / 60000);
+  if (minutes <= 1) return { text: t('timeJustNow'), cssClass: 'urgent' };
+  if (minutes < 60) return { text: t('timeMinutesLater', {n: minutes}), cssClass: 'urgent' };
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return { text: t('timeHoursLater', {n: hours}), cssClass: hours <= 3 ? 'soon' : '' };
+  const days = Math.floor(hours / 24);
+  if (days === 1) return { text: t('timeTomorrow'), cssClass: '' };
+  return { text: t('timeDaysLater', {n: days}), cssClass: '' };
+}
+
+// --- Quick Filters ---
+let activeQuickFilter = null; // 'hot' | 'upcoming' | 'live' | 'arb' | 'high' | null
+
+function toggleQuickFilter(filter) {
+  activeQuickFilter = activeQuickFilter === filter ? null : filter;
+  document.querySelectorAll('.quick-filter-tag').forEach(el => {
+    el.classList.toggle('active', el.dataset.filter === activeQuickFilter);
+  });
+  renderContent();
+}
+
+function passesQuickFilter(match, prob) {
+  if (!activeQuickFilter) return true;
+  const status = getMatchStatus(match.commence_time, match.scores);
+  switch(activeQuickFilter) {
+    case 'hot': return isHotMatch(match);
+    case 'upcoming': return status.key === 'upcoming';
+    case 'live': return status.key === 'live';
+    case 'arb': return prob && prob.isArb;
+    case 'high': return isHighAttention(match);
+    default: return true;
+  }
+}
+
+function renderQuickFilters() {
+  return `<div class="quick-filters">
+    <button class="quick-filter-tag${activeQuickFilter==='hot'?' active':''}" data-filter="hot" onclick="toggleQuickFilter('hot')">${t('filterHot')}</button>
+    <button class="quick-filter-tag${activeQuickFilter==='upcoming'?' active':''}" data-filter="upcoming" onclick="toggleQuickFilter('upcoming')">${t('filterUpcoming')}</button>
+    <button class="quick-filter-tag${activeQuickFilter==='live'?' active':''}" data-filter="live" onclick="toggleQuickFilter('live')">${t('filterLive')}</button>
+    <button class="quick-filter-tag${activeQuickFilter==='arb'?' active':''}" data-filter="arb" onclick="toggleQuickFilter('arb')">${t('filterArb')}</button>
+    <button class="quick-filter-tag${activeQuickFilter==='high'?' active':''}" data-filter="high" onclick="toggleQuickFilter('high')">${t('filterHighAttention')}</button>
+  </div>`;
+}
+
+// --- Theme Toggle ---
+function initTheme() {
+  const saved = localStorage.getItem('sportpredict-theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeToggle').textContent = '☀️';
+  }
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const isLight = html.getAttribute('data-theme') === 'light';
+  if (isLight) {
+    html.removeAttribute('data-theme');
+    btn.textContent = '🌙';
+    localStorage.setItem('sportpredict-theme', 'dark');
+  } else {
+    html.setAttribute('data-theme', 'light');
+    btn.textContent = '☀️';
+    localStorage.setItem('sportpredict-theme', 'light');
+  }
+}
+
+// --- Favorites ---
+function getFavorites() {
+  try { return JSON.parse(localStorage.getItem('sportpredict-favorites') || '[]'); } catch(e) { return []; }
+}
+
+function saveFavorites(favs) {
+  localStorage.setItem('sportpredict-favorites', JSON.stringify(favs));
+  updateFavCount();
+}
+
+function isFavorite(matchId) {
+  return getFavorites().includes(matchId);
+}
+
+function toggleFavorite(matchId, event) {
+  if (event) event.stopPropagation();
+  let favs = getFavorites();
+  if (favs.includes(matchId)) {
+    favs = favs.filter(id => id !== matchId);
+  } else {
+    favs.push(matchId);
+  }
+  saveFavorites(favs);
+  renderContent();
+}
+
+function updateFavCount() {
+  const el = document.getElementById('favCount');
+  if (el) el.textContent = getFavorites().length;
+}
+
+function showFavorites() {
+  currentSportKey = '__favorites__';
+  currentPage = 'matches';
+  document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === 'matches'));
+  document.getElementById('pageTitle').textContent = '⭐ ' + t('myFavorites');
+  renderContent();
+}
+
+function renderFavorites() {
+  const favs = getFavorites();
+  if (!favs.length) {
+    return `<div class="empty-sport"><div class="empty-icon">⭐</div><div>${t('noFavorites')}</div></div>`;
+  }
+
+  let html = renderQuickFilters();
+  const favMatches = [];
+
+  Object.keys(oddsCache).forEach(sk => {
+    const sInfo = sportsList.find(s => s.key === sk);
+    if (!sInfo) return;
+    oddsCache[sk].data.forEach(m => {
+      if (favs.includes(m.id)) {
+        favMatches.push({ match: m, sportKey: sk, sportInfo: sInfo });
+      }
+    });
+  });
+
+  if (!favMatches.length) {
+    html += `<div class="empty-sport"><div class="empty-icon">⭐</div><div>${t('noFavorites')}</div></div>`;
+    return html;
+  }
+
+  // Sort: hot first, then by commence_time
+  favMatches.sort((a, b) => {
+    const hotA = isHotMatch(a.match) ? 0 : 1;
+    const hotB = isHotMatch(b.match) ? 0 : 1;
+    if (hotA !== hotB) return hotA - hotB;
+    return new Date(a.match.commence_time) - new Date(b.match.commence_time);
+  });
+
+  favMatches.forEach(item => {
+    const m = item.match;
+    const prob = calcImpliedProbabilities(m);
+    if (!passesQuickFilter(m, prob)) return;
+    html += renderMatchCard(m, prob, item.sportInfo, true);
+  });
+
+  return html;
+}
+
+// --- Odds Change Tracking ---
+let previousOdds = {}; // { matchId: { home: X, away: Y, draw: Z } }
+
+function storePreviousOdds() {
+  try {
+    const saved = localStorage.getItem('sportpredict-prev-odds');
+    if (saved) previousOdds = JSON.parse(saved);
+  } catch(e) {}
+}
+
+function saveCurrentOddsAsPrevious() {
+  const current = {};
+  Object.keys(oddsCache).forEach(sk => {
+    oddsCache[sk].data.forEach(m => {
+      const prob = calcImpliedProbabilities(m);
+      if (prob) {
+        current[m.id] = { home: prob.bestHome, away: prob.bestAway, draw: prob.bestDraw };
+      }
+    });
+  });
+  // Merge: keep existing entries, update/add new ones
+  Object.assign(previousOdds, current);
+  try { localStorage.setItem('sportpredict-prev-odds', JSON.stringify(previousOdds)); } catch(e) {}
+}
+
+function getOddsChangeIndicator(matchId, outcome, currentOdds) {
+  if (!previousOdds[matchId]) return '';
+  const prev = previousOdds[matchId][outcome];
+  if (!prev) return '';
+  if (currentOdds > prev + 0.01) return ' <span class="odds-up">▲</span>';
+  if (currentOdds < prev - 0.01) return ' <span class="odds-down">▼</span>';
+  return '';
+}
+
+// --- Shared match card renderer ---
+function renderMatchCard(m, prob, sportInfo, showLeagueName) {
+  const groupInfo = getGroupInfo(sportInfo.group);
+  const timeStr = formatTime(m.commence_time);
+  const status = getMatchStatus(m.commence_time, m.scores);
+  const timeline = getTimeUntilStart(m.commence_time);
+  const hasDraw = prob ? prob.hasDraw : false;
+  const confClass = prob ? (prob.confidence >= 80 ? 'high' : prob.confidence >= 65 ? 'medium' : 'low') : '';
+  const hot = isHotMatch(m);
+  const favActive = isFavorite(m.id);
+  const leagueName = getLeagueLocalizedName(m.sport_title) || m.sport_title;
+  const homeTeamDisp = highlightText(m.home_team, searchQuery);
+  const awayTeamDisp = highlightText(m.away_team, searchQuery);
+  const leagueDisp = highlightText(leagueName, searchQuery);
+
+  // Odds change indicators
+  let homeChange = '', awayChange = '', drawChange = '';
+  if (prob) {
+    homeChange = getOddsChangeIndicator(m.id, 'home', prob.bestHome);
+    awayChange = getOddsChangeIndicator(m.id, 'away', prob.bestAway);
+    if (hasDraw) drawChange = getOddsChangeIndicator(m.id, 'draw', prob.bestDraw);
+  }
+
+  if (prob) {
+    return `<div class="match-card${prob.isArb ? ' arb-highlight' : ''}">
+      <button class="fav-btn${favActive ? ' active' : ''}" onclick="toggleFavorite('${m.id}', event)">${favActive ? '⭐' : '☆'}</button>
+      <div class="match-header">
+        <span class="match-league">${groupInfo.emoji} ${leagueDisp}${hot ? ' <span class="hot-badge">🔥</span>' : ''}</span>
+        <span class="match-time">${timeStr}</span>
+        <span class="match-timeline ${timeline.cssClass}">${timeline.text}</span>
+        <span class="match-status ${status.cssClass}">${status.emoji} ${status.label}</span>
+      </div>
+      <div class="match-body">
+        <div class="team"><span class="team-name">${homeTeamDisp}</span></div>
+        <div class="predict-bar-wrap">
+          <div class="predict-bar">
+            <div class="fill fill-home" style="width:${prob.homeProb}%">${prob.homeProb}%</div>
+            ${hasDraw ? `<div class="fill fill-draw" style="width:${prob.drawProb}%">${prob.drawProb}%</div>` : ''}
+            <div class="fill fill-away" style="width:${prob.awayProb}%">${prob.awayProb}%</div>
+          </div>
+          <div class="predict-labels">
+            <span>${t('homeTeam')} ${prob.bestHome.toFixed(2)}${homeChange}</span>
+            ${hasDraw ? `<span>${t('draw')} ${prob.bestDraw.toFixed(2)}${drawChange}</span>` : ''}
+            <span>${t('awayTeam')} ${prob.bestAway.toFixed(2)}${awayChange}</span>
+          </div>
+        </div>
+        <div class="team"><span class="team-name">${awayTeamDisp}</span></div>
+      </div>
+      <div class="match-card-footer">
+        <div class="confidence">
+          <span class="confidence-label">${t('confidence')}</span>
+          <span class="confidence-value ${confClass}">${prob.confidence}%</span>
+          ${prob.isArb ? `<span class="arb-badge">🌟 ${t('arbOpportunity')} ${prob.arbProfit}%</span>` : ''}
+        </div>
+        <div>
+          <button class="odds-toggle" onclick="toggleOddsTable('odds_${m.id}')">${t('showOdds')}</button>
+          <button class="watch-btn" onclick="openWatchModal('${sportInfo.group}')">${t('watchLive')}</button>
+        </div>
+      </div>
+      <div class="odds-table-wrap" id="odds_${m.id}">
+        ${renderOddsTable(m, prob)}
+      </div>
+    </div>`;
+  } else {
+    return `<div class="match-card">
+      <button class="fav-btn" onclick="toggleFavorite('${m.id}', event)">☆</button>
+      <div class="match-header">
+        <span class="match-league">${groupInfo.emoji} ${leagueDisp}</span>
+        <span class="match-time">${timeStr}</span>
+        <span class="match-timeline ${timeline.cssClass}">${timeline.text}</span>
+        <span class="match-status ${status.cssClass}">${status.emoji} ${status.label}</span>
+      </div>
+      <div class="match-body" style="justify-content:center;gap:20px">
+        <div class="team"><span class="team-name">${homeTeamDisp}</span></div>
+        <span style="color:var(--text-muted);font-size:14px">vs</span>
+        <div class="team"><span class="team-name">${awayTeamDisp}</span></div>
+      </div>
+      <div class="match-card-footer" style="justify-content:center">
+        <span style="font-size:11px;color:var(--text-muted)">${t('clickToLoadOdds') || '点击上方联赛名加载赔率数据'}</span>
+      </div>
+    </div>`;
+  }
+}
+
+// Override renderContent to handle favorites + search + quick filters
+const _originalRenderContent = renderContent;
+renderContent = function() {
+  const area = document.getElementById('contentArea');
+
+  // Update search placeholder
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput && !searchInput.value) {
+    searchInput.placeholder = t('searchPlaceholder');
+  }
+
+  if (currentSportKey === '__favorites__') {
+    area.innerHTML = renderFavorites();
+    return;
+  }
+
+  if (currentSportKey === '__allevents__') {
+    area.innerHTML = renderAllEvents();
+    return;
+  }
+
+  if (!currentSportKey) {
+    area.innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><span>${t('loading')}</span></div>`;
+    return;
+  }
+
+  if (isLoadingOdds && loadingSportKey === currentSportKey) {
+    const sportInfo = sportsList.find(s => s.key === currentSportKey);
+    const groupEmoji = sportInfo ? getGroupInfo(sportInfo.group).emoji : '⚽';
+    area.innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><span>${t('loading')} ${groupEmoji} ${sportInfo ? (getLeagueLocalizedName(sportInfo.title) || sportInfo.title) : ''}...</span></div>`;
+    return;
+  }
+
+  if (currentPage === 'matches') {
+    area.innerHTML = renderMatches();
+  } else if (currentPage === 'combos') {
+    area.innerHTML = renderCombos();
+  } else if (currentPage === 'dashboard') {
+    area.innerHTML = renderDashboard();
+  }
+};
+
+// Override renderMatches to use new renderMatchCard with search/filter/hot/fav/timeline
+// We redefine the function entirely
+renderMatches = function() {
+  const matches = getCurrentOdds();
+  const info = getCurrentSportInfo();
+  if (!info) return '';
+
+  const { sport, groupInfo } = info;
+
+  // Build sub-filter
+  const leagues = [...new Set(matches.map(m => m.sport_title))];
+  const allLabel = t('all');
+
+  let html = renderQuickFilters();
+
+  html += `<div class="sub-filter">`;
+  html += `<button class="sub-filter-btn${!currentSubFilter ? ' active' : ''}" onclick="filterSub(null)">${allLabel}</button>`;
+  leagues.forEach(l => {
+    const isActive = currentSubFilter === l;
+    const displayName = getLeagueLocalizedName(l) || l;
+    html += `<button class="sub-filter-btn${isActive ? ' active' : ''}" onclick="filterSub('${l.replace(/'/g, "\\'")}')">${displayName}</button>`;
+  });
+  html += `</div>`;
+
+  let filtered = currentSubFilter ? matches.filter(m => m.sport_title === currentSubFilter) : matches;
+
+  // Apply search filter
+  if (searchQuery) {
+    filtered = filtered.filter(m => matchesSearch(m));
+  }
+
+  if (!filtered.length) {
+    html += `<div class="empty-sport"><div class="empty-icon">${groupInfo.emoji}</div><div>${t('noEvents')}</div><div style="margin-top:4px;font-size:12px">${getLeagueLocalizedName(sport.title) || sport.title}</div></div>`;
+    return html;
+  }
+
+  // Sort: hot matches first
+  filtered.sort((a, b) => {
+    const hotA = isHotMatch(a) ? 0 : 1;
+    const hotB = isHotMatch(b) ? 0 : 1;
+    if (hotA !== hotB) return hotA - hotB;
+    return new Date(a.commence_time) - new Date(b.commence_time);
+  });
+
+  filtered.forEach(m => {
+    const prob = calcImpliedProbabilities(m);
+    if (!passesQuickFilter(m, prob)) return;
+    html += renderMatchCard(m, prob, sport, false);
+  });
+
+  return html;
+};
+
+// Update renderAllEvents to also use search + hot + timeline
+const _origRenderAllEvents = renderAllEvents;
+renderAllEvents = function() {
+  const groupMatches = {};
+  const groupSports = {};
+
+  Object.keys(oddsCache).forEach(sk => {
+    const sInfo = sportsList.find(s => s.key === sk);
+    if (!sInfo) return;
+    const group = sInfo.group;
+    if (!groupMatches[group]) { groupMatches[group] = []; groupSports[group] = []; }
+    if (!groupSports[group].some(s => s.key === sk)) groupSports[group].push(sInfo);
+    oddsCache[sk].data.forEach(m => {
+      if (searchQuery && !matchesSearch(m)) return;
+      const prob = calcImpliedProbabilities(m);
+      groupMatches[group].push({ match: m, prob, sportKey: sk, sportInfo: sInfo });
+    });
+  });
+
+  const sortedGroups = Object.keys(groupMatches).sort((a, b) => groupMatches[b].length - groupMatches[a].length);
+
+  if (!sortedGroups.length) {
+    let guideHtml = `<div class="loading-state" style="min-height:40vh">
+      <div style="font-size:48px;margin-bottom:12px">🏆</div>
+      <div style="font-size:18px;font-weight:600;margin-bottom:8px">${t('tabAllEvents')}</div>
+      <div style="font-size:14px;color:var(--text-muted);max-width:360px;text-align:center;line-height:1.6">${t('allEventsGuide') || '点击左侧联赛加载数据，赔率将自动缓存5分钟'}</div>
+    </div>`;
+    guideHtml += '<div style="margin-top:20px">';
+    const groups = {};
+    sportsList.forEach(s => { if (!groups[s.group]) groups[s.group] = []; groups[s.group].push(s); });
+    const groupOrder = Object.keys(groups).sort((a, b) => {
+      const order = ['Soccer','Basketball','Baseball','Ice Hockey','Tennis','American Football','Boxing','MMA','Mixed Martial Arts','Esports','Cricket','Rugby','Rugby League','Aussie Rules','Golf','Handball','Lacrosse','Politics','Darts','Cycling','Snooker','Volleyball','Futsal','Table Tennis','Badminton'];
+      const ia = order.indexOf(a), ib = order.indexOf(b);
+      if (ia === -1 && ib === -1) return a.localeCompare(b);
+      if (ia === -1) return 1; if (ib === -1) return -1;
+      return ia - ib;
+    });
+    groupOrder.forEach(group => {
+      const info = getGroupInfo(group);
+      const sports = groups[group];
+      guideHtml += `<div style="margin-bottom:16px">`;
+      guideHtml += `<div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;padding-left:4px">${info.emoji} ${getGroupLocalizedName(group)}</div>`;
+      guideHtml += `<div style="display:flex;flex-wrap:wrap;gap:6px">`;
+      sports.forEach(s => {
+        guideHtml += `<button class="sub-filter-btn" onclick="setSport('${s.key}')" style="font-size:12px">${getLeagueLocalizedName(s.title) || s.title}</button>`;
+      });
+      guideHtml += `</div></div>`;
+    });
+    guideHtml += '</div>';
+    return guideHtml;
+  }
+
+  let html = renderQuickFilters();
+
+  sortedGroups.forEach(group => {
+    let matches = groupMatches[group];
+    const info = getGroupInfo(group);
+    const sports = groupSports[group];
+
+    // Apply quick filter
+    if (activeQuickFilter) {
+      matches = matches.filter(m => passesQuickFilter(m.match, m.prob));
+    }
+    if (!matches.length) return;
+
+    // Sort: hot first
+    matches.sort((a, b) => {
+      const hotA = isHotMatch(a.match) ? 0 : 1;
+      const hotB = isHotMatch(b.match) ? 0 : 1;
+      if (hotA !== hotB) return hotA - hotB;
+      return new Date(a.match.commence_time) - new Date(b.match.commence_time);
+    });
+
+    const displayMatches = matches.slice(0, 3);
+    const matchesWithOdds = matches.filter(m => m.prob);
+    const arbCount = matchesWithOdds.filter(m => m.prob.isArb).length;
+    const hotCount = matches.filter(m => isHotMatch(m.match)).length;
+
+    html += `<div class="all-events-group">`;
+    html += `<div class="all-events-header">
+      <h2>${info.emoji} ${getGroupLocalizedName(group)}${hotCount > 0 ? ` <span class="hot-badge">🔥 ${hotCount}</span>` : ''}
+        ${arbCount > 0 ? `<span class="arb-count">🌟 ${t('arbOpportunityCount', {count: arbCount})}</span>` : ''}
+      </h2>
+      <button class="view-all-btn" onclick="setSport('${sports[0].key}')">${t('viewAll')} →</button>
+    </div>`;
+
+    displayMatches.forEach(m => {
+      html += renderMatchCard(m.match, m.prob, m.sportInfo, true);
+    });
+
+    if (matches.length > 3) {
+      html += `<div style="text-align:center;padding:4px 0;font-size:12px;color:var(--text-muted)">+${matches.length - 3} ${t('heatUnit')}</div>`;
+    }
+
+    html += `</div>`;
+  });
+
+  return html;
+};
+
+// Patch refreshOdds to save odds snapshots for change tracking
+const _origRefreshOdds = refreshOdds;
+refreshOdds = async function() {
+  // Save current odds as previous before refreshing
+  saveCurrentOddsAsPrevious();
+  return _origRefreshOdds.call(this);
+};
+
+// Init theme + favorites + odds change on load
+storePreviousOdds();
+initTheme();
+updateFavCount();
 
 init();
 </script>
