@@ -5520,7 +5520,7 @@ function renderAnalysisCard(m, prob, sportInfo) {
         <div>
           <div class="analysis-section-title">💡 ${t('keyFindings')}</div>
           <div class="analysis-finding-item">📊 ${numBookmakers} ${t('bookmakersProviding')}】{t('highMarketAttention')}</div>
-          ${lowestHome.odds !== Infinity ? `<div class="analysis-finding-item">📈 ${t('highest')}${t('homeTeam')}${highestHome.odds.toFixed(2)}（{highestHome.bookmaker}），${t('lowest')}${lowestHome.odds.toFixed(2)}�?{lowestHome.bookmaker}），${t('difference')}${homeOddsDiff}%</div>` : ''}
+          ${lowestHome.odds !== Infinity ? `<div class="analysis-finding-item">📈 ${t('highest')}${t('homeTeam')}${highestHome.odds.toFixed(2)}（{highestHome.bookmaker}），${t('lowest')}${lowestHome.odds.toFixed(2)}（{lowestHome.bookmaker}），${t('difference')}${homeOddsDiff}%</div>` : ''}
           ${prob.isArb ? `<div class="analysis-finding-item" style="color:#4ade80">🌟 ${t('oddsDiscrepancyFound') ${t('arbProfit')}${prob.arbProfit}%</div>` : ''}
           <div class="analysis-finding-item">📊 ${t('marketTendency')�?{favored} ${t('favored')}</div>
         </div>
@@ -5617,6 +5617,7 @@ initTheme();
 updateFavCount();
 
 init();
+}
 </script>
 
 <!-- Schema.org Structured Data -->
