@@ -1,463 +1,163 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8994443349650818" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Probability Analyzer - Sports Odds Analysis Tool | SportPredict</title>
-<meta name="description" content="Free sports probability analyzer: market probability distribution, historical odds tracking, and bookmaker odds heatmap. Professional odds analysis tool." />
-<meta name="keywords" content="probability analyzer, odds analysis, market probability, odds tracking, odds heatmap, bookmaker comparison, sports betting analysis" />
-<meta name="robots" content="index, follow" />
+<title>Probability Analyzer - Sports Odds Analysis | SportPredict</title>
+<meta name="description" content="Free sports probability analyzer. View market probability distributions, track odds changes, and compare bookmaker heatmaps. No signup required.">
 <link rel="canonical" href="https://10110289.xyz/analyzer.html" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://10110289.xyz/analyzer.html" />
-<meta property="og:title" content="Probability Analyzer - Sports Odds Analysis Tool | SportPredict" />
-<meta property="og:description" content="Analyze sports odds probability distribution, track historical changes, and compare bookmaker heatmaps." />
-<meta name="twitter:card" content="summary" />
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebApplication",
-  "name":"SportPredict Probability Analyzer",
-  "url":"https://10110289.xyz/analyzer.html",
-  "applicationCategory":"UtilityApplication",
-  "operatingSystem":"Any",
-  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
-  "description":"Analyze market probability distribution, track historical odds, and compare bookmaker heatmaps."
-}
-</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>馃弳</text></svg>" />
-<link rel="alternate" hreflang="zh" href="https://10110289.xyz/analyzer.html?lang=zh" />
-<link rel="alternate" hreflang="en" href="https://10110289.xyz/analyzer.html?lang=en" />
-<link rel="alternate" hreflang="es" href="https://10110289.xyz/analyzer.html?lang=es" />
-<link rel="alternate" hreflang="pt" href="https://10110289.xyz/analyzer.html?lang=pt" />
-<link rel="alternate" hreflang="ar" href="https://10110289.xyz/analyzer.html?lang=ar" />
-<link rel="alternate" hreflang="ja" href="https://10110289.xyz/analyzer.html?lang=ja" />
-<link rel="alternate" hreflang="ko" href="https://10110289.xyz/analyzer.html?lang=ko" />
-<link rel="alternate" hreflang="ru" href="https://10110289.xyz/analyzer.html?lang=ru" />
-<link rel="alternate" hreflang="fr" href="https://10110289.xyz/analyzer.html?lang=fr" />
-<link rel="alternate" hreflang="de" href="https://10110289.xyz/analyzer.html?lang=de" />
-<link rel="alternate" hreflang="x-default" href="https://10110289.xyz/analyzer.html" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8994443349650818" crossorigin="anonymous"></script>
 <style>
-:root{--bg:#0a0a1a;--bg2:#111128;--bg3:#1a1a3e;--card:#161635;--border:#2a2a5a;--text:#e8e8f0;--text2:#9999bb;--accent:#4ade80;--accent2:#22c55e;--red:#ef4444;--orange:#f59e0b;--blue:#3b82f6;--radius:10px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-a{color:var(--accent);text-decoration:none}
-.top-nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.top-nav .logo{font-size:20px;font-weight:700;display:flex;align-items:center;gap:8px}
-.top-nav .logo span{font-size:24px}
-.back-link{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;border:1px solid var(--border);color:var(--text2);font-size:13px;transition:all .2s}
-.back-link:hover{border-color:var(--accent);color:var(--accent)}
-.lang-switch{position:relative;display:inline-flex}
-.lang-btn{padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:13px;cursor:pointer}
-.lang-btn:hover{border-color:var(--accent);color:var(--text)}
-.lang-dd{position:absolute;top:100%;right:0;margin-top:4px;background:var(--card);border:1px solid var(--border);border-radius:8px;min-width:150px;z-index:200;display:none;overflow:hidden}
-.lang-dd.open{display:block}
-.lang-opt{padding:8px 14px;cursor:pointer;font-size:13px;color:var(--text2);transition:all .15s}
-.lang-opt:hover{background:var(--bg3);color:var(--text)}
-.lang-opt.active{color:var(--accent);font-weight:600}
-.container{max-width:1000px;margin:0 auto;padding:24px}
-.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:24px;overflow-x:auto}
-.tab{padding:12px 20px;cursor:pointer;font-size:14px;color:var(--text2);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap}
-.tab:hover{color:var(--text)}
-.tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
-.tab-panel{display:none}
-.tab-panel.active{display:block}
-.calc-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
-.calc-section h2{font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.input-group{margin-bottom:14px}
-.input-group label{display:block;font-size:13px;color:var(--text2);margin-bottom:6px;font-weight:500}
-.input-group input,.input-group select{width:100%;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;outline:none;transition:border .2s}
-.input-group input:focus,.input-group select:focus{border-color:var(--accent)}
-.input-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.btn{padding:10px 20px;border-radius:8px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-size:14px;cursor:pointer;transition:all .2s;font-weight:600}
-.btn:hover{background:var(--accent);color:#000}
-.btn-primary{background:var(--accent);color:#000;border-color:var(--accent)}
-.btn-primary:hover{background:var(--accent2)}
-.prob-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
-.prob-row:last-child{border:none}
-.prob-team{font-size:14px;font-weight:600;width:120px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.prob-bar-wrap{flex:1;height:24px;background:var(--bg);border-radius:12px;overflow:hidden}
-.prob-bar-fill{height:100%;border-radius:12px;transition:width .5s ease;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:700;color:#fff;min-width:36px}
-.prob-pct{font-size:14px;font-weight:700;width:60px;text-align:right;flex-shrink:0}
-.home-fill{background:var(--accent)}
-.draw-fill{background:#6e7681}
-.away-fill{background:var(--red)}
-.match-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:12px;transition:all .2s}
-.match-card:hover{border-color:var(--accent)}
-.match-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:13px;color:var(--text2)}
-.match-teams{font-size:16px;font-weight:700;margin-bottom:8px}
+body{background:#0a0a1a;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6}
+a{color:#4ade80;text-decoration:none}
+.nav{background:#1a1a2e;padding:12px 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid #2a2a3e}
+.nav-logo{font-size:20px;font-weight:900;color:#4ade80}
+.nav-links{display:flex;gap:12px;flex-wrap:wrap;font-size:14px}
+.nav-links a{color:#888}
+.container{max-width:900px;margin:0 auto;padding:20px}
+h1{font-size:28px;margin-bottom:8px;color:#fff}
+.subtitle{color:#888;margin-bottom:24px}
+.sport-select{padding:10px 16px;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:8px;color:#fff;font-size:15px;margin-bottom:20px;width:100%;max-width:400px}
+.card{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:12px;padding:20px;margin-bottom:16px}
+.card h2{font-size:18px;color:#fff;margin-bottom:12px}
+.match-row{display:flex;align-items:center;gap:12px;padding:12px;border-bottom:1px solid #2a2a3e}
+.match-row:last-child{border:none}
+.match-teams{flex:1;font-weight:600}
+.prob-bar-container{flex:2;display:flex;gap:2px;height:24px;border-radius:4px;overflow:hidden}
+.prob-segment{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;transition:width .3s}
+.prob-home{background:#4ade80;color:#0a0a1a}
+.prob-draw{background:#6e7681}
+.prob-away{background:#ef4444}
 .heatmap-table{width:100%;border-collapse:collapse;font-size:13px}
-.heatmap-table th{padding:10px 12px;text-align:center;color:var(--text2);border-bottom:1px solid var(--border);font-weight:600;position:sticky;top:0;background:var(--card)}
-.heatmap-table td{padding:8px 12px;text-align:center;border-bottom:1px solid var(--border);font-weight:600}
-.heatmap-table tr:hover td{background:rgba(255,255,255,.03)}
-.best-cell{color:var(--accent);font-weight:700;text-shadow:0 0 8px rgba(74,222,128,.3)}
-.worst-cell{color:var(--red)}
-canvas{border-radius:8px;width:100%}
-.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;color:var(--text2);gap:12px}
-.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.error-state{padding:40px;text-align:center;color:var(--text2)}
-.disclaimer{text-align:center;padding:20px;font-size:11px;color:var(--text2);border-top:1px solid var(--border);margin-top:40px}
-@media(max-width:768px){.input-row{grid-template-columns:1fr}.container{padding:14px}.heatmap-table{font-size:11px}.heatmap-table th,.heatmap-table td{padding:5px 6px}.prob-team{width:80px;font-size:12px}}
+.heatmap-table th{text-align:left;padding:8px;border-bottom:1px solid #2a2a3e;color:#888;font-weight:600}
+.heatmap-table td{padding:8px;border-bottom:1px solid #1a1a2e}
+.heat-low{background:rgba(74,222,128,.15);color:#4ade80;font-weight:700}
+.heat-mid{background:rgba(251,191,36,.15);color:#fbbf24}
+.heat-high{background:rgba(239,68,68,.15);color:#ef4444;font-weight:700}
+.loading{text-align:center;padding:40px;color:#666}
+.disclaimer{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:8px;padding:12px;font-size:12px;color:#666;text-align:center;margin-top:16px}
+.share-bar{display:flex;gap:8px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.share-btn{padding:6px 14px;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:6px;color:#888;font-size:13px;cursor:pointer;transition:all .2s}
+.share-btn:hover{border-color:#4ade80;color:#4ade80}
+@media(max-width:600px){.container{padding:12px}h1{font-size:22px}.prob-bar-container{height:20px}.heatmap-table{font-size:11px}}
 </style>
 </head>
 <body>
-
-<div class="top-nav">
-  <div class="logo"><span>馃弳</span> SportPredict</div>
-  <div style="display:flex;align-items:center;gap:12px">
-    <a href="index.html" class="back-link">鈫?<span data-i18n="backHome">杩斿洖棣栭〉</span></a>
-    <div class="lang-switch">
-      <button class="lang-btn" onclick="toggleLang()">馃寪 <span id="curLang">涓枃</span> 鈻?/button>
-      <div class="lang-dd" id="langDD"></div>
-    </div>
+<div class="nav">
+  <a href="/" class="nav-logo">🏆 SportPredict</a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/calculator.html">Calculator</a>
+    <a href="/analyzer.html" style="color:#4ade80">Analyzer</a>
+    <a href="/compare.html">Compare</a>
+    <a href="/daily.html">Daily</a>
   </div>
 </div>
-
 <div class="container">
-  <h1 style="font-size:24px;margin-bottom:4px" data-i18n="pageTitle">馃敩 姒傜巼鍒嗘瀽鍣?/h1>
-  <p style="color:var(--text2);font-size:14px;margin-bottom:20px" data-i18n="pageDesc">甯傚満姒傜巼鍒嗘瀽銆佸巻鍙茶禂鐜囪拷韪拰璧旂巼鐑姏鍥?/p>
+<h1>🔬 Probability Analyzer</h1>
+<p class="subtitle">Market probability distributions, odds tracking & bookmaker heatmap comparison</p>
 
-  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8994443349650818" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<select class="sport-select" id="sportSelect" onchange="loadData()">
+  <option value="">Select a league...</option>
+  <option value="soccer_fifa_world_cup">FIFA World Cup</option>
+  <option value="americanfootball_nfl">NFL</option>
+  <option value="basketball_nba">NBA</option>
+  <option value="baseball_mlb">MLB</option>
+  <option value="icehockey_nhl">NHL</option>
+  <option value="soccer_conmebol_copa_libertadores">Copa Libertadores</option>
+  <option value="boxing_boxing">Boxing</option>
+  <option value="mma_mixed_martial_arts">MMA</option>
+  <option value="tennis_atp_french_open">ATP French Open</option>
+  <option value="soccer_japan_j_league">J-League</option>
+</select>
 
-  <div class="tabs">
-    <div class="tab active" data-tab="market" onclick="switchTab('market')" data-i18n="tabMarket">甯傚満姒傜巼</div>
-    <div class="tab" data-tab="history" onclick="switchTab('history')" data-i18n="tabHistory">鍘嗗彶杩借釜</div>
-    <div class="tab" data-tab="heatmap" onclick="switchTab('heatmap')" data-i18n="tabHeatmap">璧旂巼鐑姏鍥?/div>
-  </div>
+<div id="content"><div class="loading">Select a league to analyze</div></div>
 
-  <!-- Tab 1: Market Probability -->
-  <div class="tab-panel active" id="panel-market">
-    <div class="calc-section">
-      <h2>馃搳 <span data-i18n="marketTitle">甯傚満姒傜巼鍒嗘瀽</span></h2>
-      <div class="input-row">
-        <div class="input-group">
-          <label data-i18n="selectSport">閫夋嫨杩愬姩</label>
-          <select id="sportSelect" onchange="loadLeagues()"></select>
-        </div>
-        <div class="input-group">
-          <label data-i18n="selectLeague">閫夋嫨鑱旇禌</label>
-          <select id="leagueSelect" onchange="loadMatches()"></select>
-        </div>
-      </div>
-      <button class="btn btn-primary" onclick="analyzeMarket()" data-i18n="analyzeBtn">鍒嗘瀽</button>
-    </div>
-    <div id="marketResult"></div>
-  </div>
+<div class="disclaimer">⚠️ All data is for analytical reference only. Odds sourced from The Odds API.</div>
 
-  <!-- Tab 2: Historical Tracking -->
-  <div class="tab-panel" id="panel-history">
-    <div class="calc-section">
-      <h2>馃搱 <span data-i18n="historyTitle">鍘嗗彶姒傜巼杩借釜</span></h2>
-      <p style="font-size:13px;color:var(--text2);margin-bottom:16px" data-i18n="historyDesc">璁板綍姣忔鏌ョ湅鏃剁殑璧旂巼鍙樺寲锛岃拷韪競鍦鸿秼鍔?/p>
-      <div class="input-row">
-        <div class="input-group">
-          <label data-i18n="selectMatch">閫夋嫨姣旇禌</label>
-          <select id="historyMatch"></select>
-        </div>
-        <div class="input-group">
-          <label data-i18n="timeRange">鏃堕棿鑼冨洿</label>
-          <select id="timeRange">
-            <option value="1h" data-i18n="last1h">鏈€杩?灏忔椂</option>
-            <option value="6h" data-i18n="last6h">鏈€杩?灏忔椂</option>
-            <option value="24h" selected data-i18n="last24h">鏈€杩?4灏忔椂</option>
-            <option value="7d" data-i18n="last7d">鏈€杩?澶?/option>
-          </select>
-        </div>
-      </div>
-      <button class="btn btn-primary" onclick="trackHistory()" data-i18n="trackBtn">杩借釜</button>
-    </div>
-    <div id="historyResult"></div>
-  </div>
-
-  <!-- Tab 3: Heatmap -->
-  <div class="tab-panel" id="panel-heatmap">
-    <div class="calc-section">
-      <h2>馃椇锔?<span data-i18n="heatmapTitle">璧旂巼鐑姏鍥?/span></h2>
-      <p style="font-size:13px;color:var(--text2);margin-bottom:16px" data-i18n="heatmapDesc">鍚勫崥褰╁叕鍙歌禂鐜囧姣旓紝棰滆壊娣辨祬琛ㄧず璧旂巼楂樹綆</p>
-      <div class="input-row">
-        <div class="input-group">
-          <label data-i18n="selectSport2">閫夋嫨杩愬姩</label>
-          <select id="hmSport" onchange="loadHmLeagues()"></select>
-        </div>
-        <div class="input-group">
-          <label data-i18n="selectLeague2">閫夋嫨鑱旇禌</label>
-          <select id="hmLeague"></select>
-        </div>
-      </div>
-      <button class="btn btn-primary" onclick="loadHeatmap()" data-i18n="heatmapBtn">鐢熸垚鐑姏鍥?/button>
-    </div>
-    <div id="heatmapResult" style="overflow-x:auto"></div>
-  </div>
-
-  <div class="disclaimer" data-i18n="disclaimer">鈿狅笍 鎵€鏈夋暟鎹粎渚涘垎鏋愬弬鑰冿紝涓嶆瀯鎴愪换浣曟姇娉ㄥ缓璁€傛暟鎹潵婧愪簬 The Odds API銆?/div>
+<div class="share-bar">
+  <button class="share-btn" onclick="shareTwitter()">𝕏 Twitter</button>
+  <button class="share-btn" onclick="shareReddit()">Reddit</button>
+  <button class="share-btn" onclick="shareWhatsApp()">WhatsApp</button>
+  <button class="share-btn" onclick="copyLink()">📋 Copy Link</button>
 </div>
+</div>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8994443349650818" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 
 <script>
 const API_KEY='1560e77265ec5a6f65265a96ad7c36cb';
-const API_BASE='https://api.the-odds-api.com/v4';
-
-const LANGS=[
-  {code:'zh',label:'涓枃',flag:'馃嚚馃嚦'},{code:'en',label:'English',flag:'馃嚭馃嚫'},
-  {code:'es',label:'Espa帽ol',flag:'馃嚜馃嚫'},{code:'pt',label:'Portugu锚s',flag:'馃嚙馃嚪'},
-  {code:'ar',label:'丕賱毓乇亘賷丞',flag:'馃嚫馃嚘'},{code:'ja',label:'鏃ユ湰瑾?,flag:'馃嚡馃嚨'},
-  {code:'ko',label:'頃滉淡鞏?,flag:'馃嚢馃嚪'},{code:'ru',label:'袪褍褋褋泻懈泄',flag:'馃嚪馃嚭'},
-  {code:'fr',label:'Fran莽ais',flag:'馃嚝馃嚪'},{code:'de',label:'Deutsch',flag:'馃嚛馃嚜'}
-];
-
-const I18N={
-zh:{
-  backHome:'杩斿洖棣栭〉',pageTitle:'馃敩 姒傜巼鍒嗘瀽鍣?,pageDesc:'甯傚満姒傜巼鍒嗘瀽銆佸巻鍙茶禂鐜囪拷韪拰璧旂巼鐑姏鍥?,
-  tabMarket:'甯傚満姒傜巼',tabHistory:'鍘嗗彶杩借釜',tabHeatmap:'璧旂巼鐑姏鍥?,
-  marketTitle:'甯傚満姒傜巼鍒嗘瀽',selectSport:'閫夋嫨杩愬姩',selectLeague:'閫夋嫨鑱旇禌',analyzeBtn:'鍒嗘瀽',
-  historyTitle:'鍘嗗彶姒傜巼杩借釜',historyDesc:'璁板綍姣忔鏌ョ湅鏃剁殑璧旂巼鍙樺寲锛岃拷韪競鍦鸿秼鍔?,
-  selectMatch:'閫夋嫨姣旇禌',timeRange:'鏃堕棿鑼冨洿',last1h:'鏈€杩?灏忔椂',last6h:'鏈€杩?灏忔椂',last24h:'鏈€杩?4灏忔椂',last7d:'鏈€杩?澶?,trackBtn:'杩借釜',
-  heatmapTitle:'璧旂巼鐑姏鍥?,heatmapDesc:'鍚勫崥褰╁叕鍙歌禂鐜囧姣旓紝棰滆壊娣辨祬琛ㄧず璧旂巼楂樹綆',
-  selectSport2:'閫夋嫨杩愬姩',selectLeague2:'閫夋嫨鑱旇禌',heatmapBtn:'鐢熸垚鐑姏鍥?,
-  homeWin:'涓昏儨',drawResult:'骞?,awayWin:'瀹㈣儨',bestOdds:'鏈€浼?,noData:'鏆傛棤鏁版嵁',
-  loading:'鍔犺浇涓?..',loadError:'鍔犺浇澶辫触',retry:'閲嶈瘯',
-  disclaimer:'鈿狅笍 鎵€鏈夋暟鎹粎渚涘垎鏋愬弬鑰冿紝涓嶆瀯鎴愪换浣曟姇娉ㄥ缓璁€傛暟鎹潵婧愪簬 The Odds API銆?
-},
-en:{
-  backHome:'Home',pageTitle:'馃敩 Probability Analyzer',pageDesc:'Market probability analysis, historical odds tracking and odds heatmap',
-  tabMarket:'Market Prob.',tabHistory:'History',tabHeatmap:'Heatmap',
-  marketTitle:'Market Probability Analysis',selectSport:'Select Sport',selectLeague:'Select League',analyzeBtn:'Analyze',
-  historyTitle:'Historical Odds Tracking',historyDesc:'Track odds changes over time and monitor market trends',
-  selectMatch:'Select Match',timeRange:'Time Range',last1h:'Last 1 hour',last6h:'Last 6 hours',last24h:'Last 24 hours',last7d:'Last 7 days',trackBtn:'Track',
-  heatmapTitle:'Odds Heatmap',heatmapDesc:'Compare bookmaker odds with color-coded heatmap',
-  selectSport2:'Select Sport',selectLeague2:'Select League',heatmapBtn:'Generate Heatmap',
-  homeWin:'Home',drawResult:'Draw',awayWin:'Away',bestOdds:'Best',noData:'No data',
-  loading:'Loading...',loadError:'Failed to load',retry:'Retry',
-  disclaimer:'鈿狅笍 All data for reference only. Data sourced from The Odds API.'
-},
-es:{backHome:'Inicio',pageTitle:'馃敩 Analizador de Probabilidad',pageDesc:'An谩lisis de probabilidad, seguimiento hist贸rico y mapa de calor',tabMarket:'Mercado',tabHistory:'Historial',tabHeatmap:'Mapa de Calor',marketTitle:'An谩lisis de Probabilidad del Mercado',selectSport:'Deporte',selectLeague:'Liga',analyzeBtn:'Analizar',historyTitle:'Seguimiento Hist贸rico',historyDesc:'Rastree cambios de cuotas',selectMatch:'Partido',timeRange:'Per铆odo',last1h:'1 hora',last6h:'6 horas',last24h:'24 horas',last7d:'7 d铆as',trackBtn:'Rastrear',heatmapTitle:'Mapa de Calor de Cuotas',heatmapDesc:'Compare cuotas con mapa de calor',selectSport2:'Deporte',selectLeague2:'Liga',heatmapBtn:'Generar',homeWin:'Local',drawResult:'Empate',awayWin:'Visitante',bestOdds:'Mejor',noData:'Sin datos',loading:'Cargando...',loadError:'Error',retry:'Reintentar',disclaimer:'鈿狅笍 Datos solo de referencia.'},
-pt:{backHome:'In铆cio',pageTitle:'馃敩 Analisador de Probabilidade',pageDesc:'An谩lise de probabilidade, rastreamento hist贸rico e mapa de calor',tabMarket:'Mercado',tabHistory:'Hist贸rico',tabHeatmap:'Mapa de Calor',marketTitle:'An谩lise de Probabilidade',selectSport:'Esporte',selectLeague:'Liga',analyzeBtn:'Analisar',historyTitle:'Rastreamento Hist贸rico',historyDesc:'Rastreie mudan莽as de odds',selectMatch:'Jogo',timeRange:'Per铆odo',last1h:'1 hora',last6h:'6 horas',last24h:'24 horas',last7d:'7 dias',trackBtn:'Rastrear',heatmapTitle:'Mapa de Calor de Odds',heatmapDesc:'Compare odds com mapa de calor',selectSport2:'Esporte',selectLeague2:'Liga',heatmapBtn:'Gerar',homeWin:'Casa',drawResult:'Empate',awayWin:'Fora',bestOdds:'Melhor',noData:'Sem dados',loading:'Carregando...',loadError:'Erro',retry:'Tentar',disclaimer:'鈿狅笍 Dados apenas para refer锚ncia.'},
-ar:{backHome:'丕賱乇卅賷爻賷丞',pageTitle:'馃敩 賲丨賱賱 丕賱丕丨鬲賲丕賱丕鬲',pageDesc:'鬲丨賱賷賱 丕丨鬲賲丕賱 丕賱爻賵賯 賵鬲鬲亘毓 丕賱丕丨鬲賲丕賱丕鬲 賵禺乇賷胤丞 丨乇丕乇賷丞',tabMarket:'丕賱爻賵賯',tabHistory:'丕賱鬲丕乇賷禺',tabHeatmap:'禺乇賷胤丞 丨乇丕乇賷丞',marketTitle:'鬲丨賱賷賱 丕丨鬲賲丕賱 丕賱爻賵賯',selectSport:'丕賱乇賷丕囟丞',selectLeague:'丕賱丿賵乇賷',analyzeBtn:'鬲丨賱賷賱',historyTitle:'丕賱鬲鬲亘毓 丕賱鬲丕乇賷禺賷',historyDesc:'鬲鬲亘毓 鬲睾賷乇丕鬲 丕賱丕丨鬲賲丕賱丕鬲',selectMatch:'丕賱賲亘丕乇丕丞',timeRange:'丕賱賮鬲乇丞',last1h:'1 爻丕毓丞',last6h:'6 爻丕毓丕鬲',last24h:'24 爻丕毓丞',last7d:'7 兀賷丕賲',trackBtn:'鬲鬲亘毓',heatmapTitle:'禺乇賷胤丞 丨乇丕乇賷丞 賱賱丕丨鬲賲丕賱丕鬲',heatmapDesc:'賯丕乇賳 丕丨鬲賲丕賱丕鬲 丕賱賲賰丕鬲亘',selectSport2:'丕賱乇賷丕囟丞',selectLeague2:'丕賱丿賵乇賷',heatmapBtn:'廿賳卮丕亍',homeWin:'賲囟賷賮',drawResult:'鬲毓丕丿賱',awayWin:'囟賷賮',bestOdds:'丕賱兀賮囟賱',noData:'賱丕 亘賷丕賳丕鬲',loading:'噩丕乇賷 丕賱鬲丨賲賷賱...',loadError:'禺胤兀',retry:'廿毓丕丿丞',disclaimer:'鈿狅笍 丕賱亘賷丕賳丕鬲 賱賱賲乇噩毓賷丞 賮賯胤.'},
-ja:{backHome:'銉涖兗銉?,pageTitle:'馃敩 纰虹巼鍒嗘瀽鍣?,pageDesc:'甯傚牬纰虹巼鍒嗘瀽銆佸饱姝磋拷璺°€併儝銉笺儓銉炪儍銉?,tabMarket:'甯傚牬纰虹巼',tabHistory:'灞ユ',tabHeatmap:'銉掋兗銉堛優銉冦儣',marketTitle:'甯傚牬纰虹巼鍒嗘瀽',selectSport:'銈广儩銉笺儎',selectLeague:'銉兗銈?,analyzeBtn:'鍒嗘瀽',historyTitle:'灞ユ杩借贰',historyDesc:'銈儍銈哄鍖栥倰杩借贰',selectMatch:'瑭﹀悎',timeRange:'鏈熼枔',last1h:'1鏅傞枔',last6h:'6鏅傞枔',last24h:'24鏅傞枔',last7d:'7鏃ラ枔',trackBtn:'杩借贰',heatmapTitle:'銈儍銈恒儝銉笺儓銉炪儍銉?,heatmapDesc:'銉栥儍銈儭銉笺偒銉笺伄銈儍銈恒倰銉掋兗銉堛優銉冦儣銇ф瘮杓?,selectSport2:'銈广儩銉笺儎',selectLeague2:'銉兗銈?,heatmapBtn:'鐢熸垚',homeWin:'銉涖兗銉?,drawResult:'鍒?,awayWin:'銈偊銈с偆',bestOdds:'鏈€閬?,noData:'銉囥兗銈裤仾銇?,loading:'瑾伩杈笺伩涓?..',loadError:'銈ㄣ儵銉?,retry:'鍐嶈│琛?,disclaimer:'鈿狅笍 銉囥兗銈裤伅鍙傝€冦伄銇裤€?},
-ko:{backHome:'頇?,pageTitle:'馃敩 頇曤 攵勳劃旮?,pageDesc:'鞁滌灔 頇曤 攵勳劃, 旮半 於旍爜, 頌堩姼毵?,tabMarket:'鞁滌灔 頇曤',tabHistory:'旮半',tabHeatmap:'頌堩姼毵?,marketTitle:'鞁滌灔 頇曤 攵勳劃',selectSport:'鞀ろ彫旄?,selectLeague:'毽犯',analyzeBtn:'攵勳劃',historyTitle:'旮半 於旍爜',historyDesc:'氚半嫻毳?氤€頇?於旍爜',selectMatch:'瓴疥赴',timeRange:'旮瓣皠',last1h:'1鞁滉皠',last6h:'6鞁滉皠',last24h:'24鞁滉皠',last7d:'7鞚?,trackBtn:'於旍爜',heatmapTitle:'氚半嫻毳?頌堩姼毵?,heatmapDesc:'攵侂鞚挫护 氚半嫻毳?牍勱祼',selectSport2:'鞀ろ彫旄?,selectLeague2:'毽犯',heatmapBtn:'靸濎劚',homeWin:'頇?,drawResult:'氍?,awayWin:'鞗愳爼',bestOdds:'斓滌爜',noData:'雿办澊韯?鞐嗢潓',loading:'搿滊敥...',loadError:'鞓る',retry:'鞛嫓霃?,disclaimer:'鈿狅笍 雿办澊韯半姅 彀戈碃鞖╈瀰雼堧嫟.'},
-ru:{backHome:'袚谢邪胁薪邪褟',pageTitle:'馃敩 袗薪邪谢懈蟹邪褌芯褉 胁械褉芯褟褌薪芯褋褌械泄',pageDesc:'袗薪邪谢懈蟹 褉褘薪芯褔薪芯泄 胁械褉芯褟褌薪芯褋褌懈, 芯褌褋谢械卸懈胁邪薪懈械 泻芯褝褎褎懈褑懈械薪褌芯胁 懈 褌械锌谢芯胁邪褟 泻邪褉褌邪',tabMarket:'袪褘薪芯泻',tabHistory:'袠褋褌芯褉懈褟',tabHeatmap:'孝械锌谢芯胁邪褟 泻邪褉褌邪',marketTitle:'袗薪邪谢懈蟹 褉褘薪芯褔薪芯泄 胁械褉芯褟褌薪芯褋褌懈',selectSport:'小锌芯褉褌',selectLeague:'袥懈谐邪',analyzeBtn:'袗薪邪谢懈蟹',historyTitle:'袠褋褌芯褉懈褔械褋泻芯械 芯褌褋谢械卸懈胁邪薪懈械',historyDesc:'袨褌褋谢械卸懈胁邪泄褌械 懈蟹屑械薪械薪懈褟 泻芯褝褎褎懈褑懈械薪褌芯胁',selectMatch:'袦邪褌褔',timeRange:'袩械褉懈芯写',last1h:'1 褔邪褋',last6h:'6 褔邪褋芯胁',last24h:'24 褔邪褋邪',last7d:'7 写薪械泄',trackBtn:'袨褌褋谢械卸懈胁邪褌褜',heatmapTitle:'孝械锌谢芯胁邪褟 泻邪褉褌邪 泻芯褝褎褎懈褑懈械薪褌芯胁',heatmapDesc:'小褉邪胁薪懈褌械 泻芯褝褎褎懈褑懈械薪褌褘 斜褍泻屑械泻械褉芯胁',selectSport2:'小锌芯褉褌',selectLeague2:'袥懈谐邪',heatmapBtn:'小芯蟹写邪褌褜',homeWin:'啸芯蟹褟械胁邪',drawResult:'袧懈褔褜褟',awayWin:'袚芯褋褌懈',bestOdds:'袥褍褔褕懈泄',noData:'袧械褌 写邪薪薪褘褏',loading:'袟邪谐褉褍蟹泻邪...',loadError:'袨褕懈斜泻邪',retry:'袩芯胁褌芯褉',disclaimer:'鈿狅笍 袛邪薪薪褘械 褌芯谢褜泻芯 写谢褟 褋锌褉邪胁泻懈.'},
-fr:{backHome:'Accueil',pageTitle:'馃敩 Analyseur de Probabilit茅',pageDesc:'Analyse de probabilit茅, suivi historique et carte de chaleur',tabMarket:'March茅',tabHistory:'Historique',tabHeatmap:'Carte de chaleur',marketTitle:'Analyse de probabilit茅 du march茅',selectSport:'Sport',selectLeague:'Ligue',analyzeBtn:'Analyser',historyTitle:'Suivi historique',historyDesc:'Suivez les changements de cotes',selectMatch:'Match',timeRange:'P茅riode',last1h:'1 heure',last6h:'6 heures',last24h:'24 heures',last7d:'7 jours',trackBtn:'Suivre',heatmapTitle:'Carte de chaleur des cotes',heatmapDesc:'Comparez les cotes des bookmakers',selectSport2:'Sport',selectLeague2:'Ligue',heatmapBtn:'G茅n茅rer',homeWin:'Domicile',drawResult:'Nul',awayWin:'Ext茅rieur',bestOdds:'Meilleur',noData:'Aucune donn茅e',loading:'Chargement...',loadError:'Erreur',retry:'R茅essayer',disclaimer:'鈿狅笍 Donn茅es 脿 titre indicatif uniquement.'},
-de:{backHome:'Startseite',pageTitle:'馃敩 Wahrscheinlichkeitsanalysator',pageDesc:'Marktwahrscheinlichkeitsanalyse, Verlauf und Heatmap',tabMarket:'Markt',tabHistory:'Verlauf',tabHeatmap:'Heatmap',marketTitle:'Marktwahrscheinlichkeitsanalyse',selectSport:'Sport',selectLeague:'Liga',analyzeBtn:'Analysieren',historyTitle:'Historische Verfolgung',historyDesc:'Verfolgen Sie Quoten盲nderungen',selectMatch:'Spiel',timeRange:'Zeitraum',last1h:'1 Stunde',last6h:'6 Stunden',last24h:'24 Stunden',last7d:'7 Tage',trackBtn:'Verfolgen',heatmapTitle:'Quoten-Heatmap',heatmapDesc:'Vergleichen Sie Buchmacher-Quoten',selectSport2:'Sport',selectLeague2:'Liga',heatmapBtn:'Erstellen',homeWin:'Heim',drawResult:'Unent.',awayWin:'Ausw盲rts',bestOdds:'Beste',noData:'Keine Daten',loading:'Laden...',loadError:'Fehler',retry:'Erneut',disclaimer:'鈿狅笍 Daten nur als Referenz.'}
-};
-
-let curLang=localStorage.getItem('sp_lang')||'zh';
-function t(k){return I18N[curLang]?.[k]||I18N.en[k]||k}
-function applyI18N(){document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');const v=t(k);if(v)el.textContent=v})}
-function toggleLang(){document.getElementById('langDD').classList.toggle('open')}
-function buildLangDD(){const dd=document.getElementById('langDD');dd.innerHTML=LANGS.map(l=>`<div class="lang-opt${l.code===curLang?' active':''}" onclick="setLang('${l.code}')">${l.flag} ${l.label}</div>`).join('')}
-function setLang(code){curLang=code;localStorage.setItem('sp_lang',code);document.getElementById('curLang').textContent=LANGS.find(l=>l.code===code)?.label||'涓枃';buildLangDD();applyI18N()}
-document.addEventListener('click',e=>{if(!e.target.closest('.lang-switch'))document.getElementById('langDD').classList.remove('open')});
-function switchTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+id))}
-
-let sportsList=[];
-const cache={};
-
-async function fetchSports(){
-  try{
-    const r=await fetch(`${API_BASE}/sports/?apiKey=${API_KEY}`);
-    if(!r.ok)throw new Error('API error');
-    sportsList=await r.json();
-    const sel1=document.getElementById('sportSelect');
-    const sel2=document.getElementById('hmSport');
-    const groups={};
-    sportsList.forEach(s=>{if(!groups[s.group])groups[s.group]=[];groups[s.group].push(s)});
-    const opts=Object.entries(groups).map(([g,ss])=>`<optgroup label="${g}">${ss.map(s=>`<option value="${s.key}">${s.title}</option>`).join('')}</optgroup>`).join('');
-    sel1.innerHTML=opts;sel2.innerHTML=opts;
-    loadLeagues();loadHmLeagues();
-  }catch(e){console.error(e)}
-}
-
-function loadLeagues(){
+async function loadData(){
   const sport=document.getElementById('sportSelect').value;
-  const sel=document.getElementById('leagueSelect');
-  const filtered=sportsList.filter(s=>s.group===sportsList.find(x=>x.key===sport)?.group);
-  sel.innerHTML=filtered.map(s=>`<option value="${s.key}">${s.title}</option>`).join('');
-}
-function loadHmLeagues(){
-  const sport=document.getElementById('hmSport').value;
-  const sel=document.getElementById('hmLeague');
-  const filtered=sportsList.filter(s=>s.group===sportsList.find(x=>x.key===sport)?.group);
-  sel.innerHTML=filtered.map(s=>`<option value="${s.key}">${s.title}</option>`).join('');
-}
-
-async function fetchOdds(sportKey){
-  const ck='odds_'+sportKey;
-  if(cache[ck]&&(Date.now()-cache[ck].ts)<5*60*1000)return cache[ck].data;
+  if(!sport)return;
+  document.getElementById('content').innerHTML='<div class="loading">Loading data...</div>';
   try{
-    const r=await fetch(`${API_BASE}/sports/${sportKey}/odds/?apiKey=${API_KEY}&oddsFormat=decimal`);
+    const r=await fetch(`https://api.the-odds-api.com/v4/sports/${sport}/odds/?apiKey=${API_KEY}&regions=eu&markets=h2h`);
     if(!r.ok)throw new Error('API error');
     const data=await r.json();
-    cache[ck]={data,ts:Date.now()};
-    return data;
-  }catch(e){return null}
+    if(!data.length){document.getElementById('content').innerHTML='<div class="loading">No matches available for this league</div>';return}
+    renderProbBars(data);
+    renderHeatmap(data);
+  }catch(e){document.getElementById('content').innerHTML='<div class="loading">Failed to load data. Please try again.</div>'}
 }
-
-async function analyzeMarket(){
-  const league=document.getElementById('leagueSelect').value;
-  if(!league)return;
-  const div=document.getElementById('marketResult');
-  div.innerHTML='<div class="loading"><div class="spinner"></div><span>'+t('loading')+'</span></div>';
-  const data=await fetchOdds(league);
-  if(!data||!data.length){div.innerHTML='<div class="error-state">'+t('noData')+'</div>';return}
-  let html='';
-  data.forEach(match=>{
-    const home=match.home_team;const away=match.away_team;
-    let hOdds=null,dOdds=null,aOdds=null;
-    if(match.bookmakers&&match.bookmakers.length){
-      const bm=match.bookmakers[0];
-      const mk=bm.markets?.find(m=>m.key==='h2h');
-      if(mk){
-        mk.outcomes.forEach(o=>{
-          if(o.name===home)hOdds=o.price;
-          else if(o.name===away)aOdds=o.price;
-          else dOdds=o.price;
-        });
-      }
-    }
-    html+=`<div class="match-card"><div class="match-header"><span>${match.sport_title||''}</span><span>${new Date(match.commence_time).toLocaleString()}</span></div><div class="match-teams">${home} vs ${away}</div>`;
-    if(hOdds&&aOdds){
-      const hp=1/hOdds*100,dp=dOdds?1/dOdds*100:0,ap=1/aOdds*100;
-      const total=hp+dp+ap;
-      html+=`<div class="prob-row"><span class="prob-team">${t('homeWin')}</span><div class="prob-bar-wrap"><div class="prob-bar-fill home-fill" style="width:${hp/total*100}%">${hp.toFixed(1)}%</div></div><span class="prob-pct">${hp.toFixed(1)}%</span></div>`;
-      if(dOdds)html+=`<div class="prob-row"><span class="prob-team">${t('drawResult')}</span><div class="prob-bar-wrap"><div class="prob-bar-fill draw-fill" style="width:${dp/total*100}%">${dp.toFixed(1)}%</div></div><span class="prob-pct">${dp.toFixed(1)}%</span></div>`;
-      html+=`<div class="prob-row"><span class="prob-team">${t('awayWin')}</span><div class="prob-bar-wrap"><div class="prob-bar-fill away-fill" style="width:${ap/total*100}%">${ap.toFixed(1)}%</div></div><span class="prob-pct">${ap.toFixed(1)}%</span></div>`;
-    }
-    html+='</div>';
+function renderProbBars(matches){
+  let html='<div class="card"><h2>📊 Market Probability Distribution</h2>';
+  matches.slice(0,20).forEach(m=>{
+    const bk=m.bookmakers&&m.bookmakers[0];
+    if(!bk||!bk.markets||!bk.markets[0])return;
+    const outcomes=bk.markets[0].outcomes;
+    if(outcomes.length<2)return;
+    const homeO=outcomes.find(o=>o.name===m.home_team);
+    const awayO=outcomes.find(o=>o.name===m.away_team);
+    const drawO=outcomes.find(o=>o.name==='Draw');
+    if(!homeO||!awayO)return;
+    const hp=1/homeO.price*100, ap=1/awayO.price*100;
+    const dp=drawO?1/drawO.price*100:0;
+    const total=hp+dp+ap;
+    const hPct=(hp/total*100).toFixed(1), dPct=(dp/total*100).toFixed(1), aPct=(ap/total*100).toFixed(1);
+    html+=`<div class="match-row">
+      <div class="match-teams">${m.home_team} vs ${m.away_team}</div>
+      <div class="prob-bar-container">
+        <div class="prob-segment prob-home" style="width:${hPct}%">${hPct}%</div>
+        ${drawO?`<div class="prob-segment prob-draw" style="width:${dPct}%">${dPct}%</div>`:''}
+        <div class="prob-segment prob-away" style="width:${aPct}%">${aPct}%</div>
+      </div>
+    </div>`;
   });
-  div.innerHTML=html;
+  html+='</div>';
+  document.getElementById('content').innerHTML=html;
 }
-
-async function loadMatches(){
-  const league=document.getElementById('leagueSelect').value;
-  if(!league)return;
-  const data=await fetchOdds(league);
-  const sel=document.getElementById('historyMatch');
-  if(!data||!data.length){sel.innerHTML='<option>'+t('noData')+'</option>';return}
-  sel.innerHTML=data.map((m,i)=>`<option value="${i}">${m.home_team} vs ${m.away_team}</option>`).join('');
-  // Store for history tracking
-  window._matchesData=data;
-}
-
-async function trackHistory(){
-  const league=document.getElementById('leagueSelect').value;
-  const idx=document.getElementById('historyMatch').value;
-  const div=document.getElementById('historyResult');
-  div.innerHTML='<div class="loading"><div class="spinner"></div><span>'+t('loading')+'</span></div>';
-  const data=await fetchOdds(league);
-  if(!data||!data[idx]){div.innerHTML='<div class="error-state">'+t('noData')+'</div>';return}
-  const match=data[idx];
-  // Save snapshot to localStorage
-  const key='sp_history_'+match.id;
-  let history=JSON.parse(localStorage.getItem(key)||'[]');
-  const now=Date.now();
-  const snapshot={ts:now,bookmakers:[]};
-  if(match.bookmakers){
-    match.bookmakers.forEach(bm=>{
-      const mk=bm.markets?.find(m=>m.key==='h2h');
-      if(mk){
-        const entry={name:bm.title,odds:{}};
-        mk.outcomes.forEach(o=>{entry.odds[o.name]=o.price});
-        snapshot.bookmakers.push(entry);
-      }
-    });
-  }
-  history.push(snapshot);
-  if(history.length>100)history=history.slice(-100);
-  localStorage.setItem(key,JSON.stringify(history));
-  // Draw trend chart with canvas
-  div.innerHTML='<div class="calc-section"><h2>馃搱 '+match.home_team+' vs '+match.away_team+'</h2><canvas id="trendCanvas" height="300"></canvas></div>';
-  const canvas=document.getElementById('trendCanvas');
-  const ctx=canvas.getContext('2d');
-  const W=canvas.width=canvas.offsetWidth;const H=canvas.height=300;
-  ctx.fillStyle='var(--bg)';ctx.fillRect(0,0,W,H);
-  if(history.length<2){
-    ctx.fillStyle='#999';ctx.font='14px sans-serif';ctx.fillText(t('noData')+' - '+t('last24h'),20,150);
-    return;
-  }
-  // Simple trend line for first bookmaker home odds
-  const homeOdds=history.filter(h=>h.bookmakers.length>0).map(h=>h.bookmakers[0]?.odds[match.home_team]).filter(Boolean);
-  const awayOdds=history.filter(h=>h.bookmakers.length>0).map(h=>h.bookmakers[0]?.odds[match.away_team]).filter(Boolean);
-  if(homeOdds.length<2){ctx.fillStyle='#999';ctx.font='14px sans-serif';ctx.fillText(t('noData'),20,150);return}
-  const allVals=[...homeOdds,...awayOdds];
-  const minV=Math.min(...allVals)-0.2;const maxV=Math.max(...allVals)+0.2;
-  const padL=50,padR=20,padT=30,padB=40;
-  const gW=W-padL-padR;const gH=H-padT-padB;
-  // Grid
-  ctx.strokeStyle='#2a2a5a';ctx.lineWidth=1;
-  for(let i=0;i<=4;i++){
-    const y=padT+gH*i/4;
-    ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();
-    ctx.fillStyle='#9999bb';ctx.font='11px sans-serif';ctx.textAlign='right';
-    ctx.fillText((maxV-(maxV-minV)*i/4).toFixed(2),padL-8,y+4);
-  }
-  // Lines
-  function drawLine(arr,color){
-    if(arr.length<2)return;
-    ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();
-    arr.forEach((v,i)=>{
-      const x=padL+i/(arr.length-1)*gW;
-      const y=padT+(maxV-v)/(maxV-minV)*gH;
-      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
-    });
-    ctx.stroke();
-  }
-  drawLine(homeOdds,'#4ade80');
-  drawLine(awayOdds,'#ef4444');
-  // Legend
-  ctx.fillStyle='#4ade80';ctx.font='12px sans-serif';ctx.textAlign='left';ctx.fillText(match.home_team,padL+10,H-10);
-  ctx.fillStyle='#ef4444';ctx.fillText(match.away_team,padL+120,H-10);
-}
-
-async function loadHeatmap(){
-  const league=document.getElementById('hmLeague').value;
-  if(!league)return;
-  const div=document.getElementById('heatmapResult');
-  div.innerHTML='<div class="loading"><div class="spinner"></div><span>'+t('loading')+'</span></div>';
-  const data=await fetchOdds(league);
-  if(!data||!data.length){div.innerHTML='<div class="error-state">'+t('noData')+'</div>';return}
-  // Collect bookmakers
-  const bks=new Set();
-  data.slice(0,10).forEach(m=>(m.bookmakers||[]).forEach(b=>bks.add(b.title)));
-  const bkList=[...bks].slice(0,8);
-  let html='<table class="heatmap-table"><thead><tr><th>'+t('selectMatch')+'</th>';
-  bkList.forEach(b=>html+='<th>'+b+'</th>');
-  html+='</tr></thead><tbody>';
-  data.slice(0,15).forEach(match=>{
-    html+='<tr><td style="text-align:left;white-space:nowrap">'+match.home_team+' vs '+match.away_team+'</td>';
-    bkList.forEach(bk=>{
-      const bm=match.bookmakers?.find(b=>b.title===bk);
-      const mk=bm?.markets?.find(m=>m.key==='h2h');
-      let bestO=Infinity;
-      // Find best odds for home team across all bookmakers
-      match.bookmakers?.forEach(b=>{
-        const m2=b.markets?.find(m=>m.key==='h2h');
-        m2?.outcomes?.forEach(o=>{if(o.name===match.home_team&&o.price<bestO)bestO=o.price});
-      });
-      if(mk){
-        const homeO=mk.outcomes.find(o=>o.name===match.home_team);
-        if(homeO){
-          const o=homeO.price;
-          const isBest=o===bestO;
-          // Color: green for high odds, red for low
-          const norm=Math.min(1,Math.max(0,(o-1)/3));
-          const r=Math.round(255*(1-norm)*0.3);const g=Math.round(255*norm*0.8);const b=Math.round(60);
-          const bg=`rgba(${r},${g},${b},0.15)`;
-          html+=`<td style="background:${bg}" class="${isBest?'best-cell':''}">${o.toFixed(2)}</td>`;
-        }else html+='<td>-</td>';
-      }else html+='<td>-</td>';
-    });
-    html+='</tr>';
+function renderHeatmap(matches){
+  const m=matches[0];if(!m||!m.bookmakers||m.bookmakers.length<2)return;
+  const bks=m.bookmakers.slice(0,8);
+  const outcomes=bks[0].markets&&bks[0].markets[0]&&bks[0].markets[0].outcomes;
+  if(!outcomes)return;
+  const hasDraw=outcomes.some(o=>o.name==='Draw');
+  let html='<div class="card"><h2>🔥 Odds Heatmap - '+m.home_team+' vs '+m.away_team+'</h2>';
+  html+='<table class="heatmap-table"><tr><th>Bookmaker</th><th>Home</th>';
+  if(hasDraw)html+='<th>Draw</th>';
+  html+='<th>Away</th></tr>';
+  let bestH=0,bestD=0,bestA=0;
+  bks.forEach(bk=>{const o=bk.markets[0].outcomes;const h=o.find(x=>x.name===m.home_team);const a=o.find(x=>x.name===m.away_team);const d=o.find(x=>x.name==='Draw');if(h&&h.price>bestH)bestH=h.price;if(d&&d.price>bestD)bestD=d.price;if(a&&a.price>bestA)bestA=a.price});
+  bks.forEach(bk=>{
+    const o=bk.markets[0].outcomes;
+    const h=o.find(x=>x.name===m.home_team);
+    const a=o.find(x=>x.name===m.away_team);
+    const d=o.find(x=>x.name==='Draw');
+    html+=`<tr><td>${bk.title}</td>`;
+    html+=`<td class="${h.price===bestH?'heat-low':'heat-mid'}">${h.price.toFixed(2)}</td>`;
+    if(hasDraw)html+=`<td class="${d&&d.price===bestD?'heat-low':'heat-mid'}">${d?d.price.toFixed(2):'-'}</td>`;
+    html+=`<td class="${a.price===bestA?'heat-low':'heat-mid'}">${a.price.toFixed(2)}</td></tr>`;
   });
-  html+='</tbody></table>';
-  div.innerHTML=html;
+  html+='</table></div>';
+  document.getElementById('content').innerHTML+=html;
 }
-
-// Init
-buildLangDD();applyI18N();
-if(curLang!=='zh')document.getElementById('curLang').textContent=LANGS.find(l=>l.code===curLang)?.label||'涓枃';
-fetchSports();loadMatches();
+function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href))}
+function shareReddit(){window.open('https://reddit.com/submit?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title))}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href))}
+function copyLink(){navigator.clipboard.writeText(location.href);alert('Link copied!')}
 </script>
 </body>
 </html>
