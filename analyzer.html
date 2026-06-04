@@ -7,6 +7,12 @@
 <meta name="description" content="Free sports probability analyzer. View market probability distributions, track odds changes, and compare bookmaker heatmaps. No signup required.">
 <link rel="canonical" href="https://10110289.xyz/analyzer.html" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8994443349650818" crossorigin="anonymous"></script>
+
+<link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" as="script" />
+<link rel="prefetch" href="daily.html" />
+<link rel="prefetch" href="compare.html" />
+<link rel="prefetch" href="analyzer.html" />
+<link rel="prefetch" href="leagues/world-cup.html" />
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a1a;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6}
@@ -41,7 +47,41 @@ h1{font-size:28px;margin-bottom:8px;color:#fff}
 .share-btn{padding:6px 14px;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:6px;color:#888;font-size:13px;cursor:pointer;transition:all .2s}
 .share-btn:hover{border-color:#4ade80;color:#4ade80}
 @media(max-width:600px){.container{padding:12px}h1{font-size:22px}.prob-bar-container{height:20px}.heatmap-table{font-size:11px}}
+
+/* Share Bar */
+.share-bar{display:flex;align-items:center;gap:8px;margin:20px 0;padding:14px 16px;background:var(--bg-card,var(--card,#1c2128));border-radius:10px;border:1px solid var(--border)}
+.share-bar span{font-size:13px;color:var(--text2,#8b949e);font-weight:600}
+.share-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text,#e6edf3);font-size:13px;cursor:pointer;transition:all .2s;text-decoration:none}
+.share-btn:hover{border-color:var(--accent,#4ade80);background:rgba(74,222,128,.08)}
+.share-btn.twitter:hover{border-color:#1da1f2;color:#1da1f2}
+.share-btn.facebook:hover{border-color:#1877f2;color:#1877f2}
+.share-btn.reddit:hover{border-color:#ff4500;color:#ff4500}
+.share-btn.whatsapp:hover{border-color:#25d366;color:#25d366}
+.breadcrumb{padding:10px 24px;font-size:13px;color:var(--text2,#8b949e);border-bottom:1px solid var(--border);background:var(--bg2,#161b22)}
+.breadcrumb a{color:var(--text2,#8b949e);transition:color .2s;text-decoration:none}
+.breadcrumb a:hover{color:var(--accent,#4ade80)}
+.breadcrumb .sep{margin:0 6px}
+.explore-section{margin:24px 0;padding:20px;background:var(--bg-card,var(--card,#1c2128));border:1px solid var(--border);border-radius:10px}
+.explore-section h3{font-size:15px;margin-bottom:12px}
+.explore-links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.explore-link-item{display:block;padding:12px;background:var(--bg,var(--bg-primary,#0d1117));border:1px solid var(--border);border-radius:8px;color:var(--text,#e6edf3);font-weight:600;font-size:13px;transition:all .2s;text-decoration:none}
+.explore-link-item:hover{border-color:var(--accent,#4ade80)}
+.explore-link-item .link-desc{font-size:11px;color:var(--text2,#8b949e);font-weight:400;margin-top:2px}
+.last-updated-bar{font-size:12px;color:var(--text2,#8b949e);text-align:center;padding:8px}
+
 </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"SportPredict Probability Analyzer",
+    "url":"https://10110289.xyz/analyzer.html",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"Any",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "description":"Analyze market probability distribution, track historical odds, and compare bookmaker heatmaps."
+  }
+  </script>
 </head>
 <body>
 <div class="nav">
@@ -54,6 +94,7 @@ h1{font-size:28px;margin-bottom:8px;color:#fff}
     <a href="/daily.html">Daily</a>
   </div>
 </div>
+<div class="breadcrumb"><a href="https://10110289.xyz/">Home</a><span class="sep">›</span><a href="index.html">Tools</a><span class="sep">›</span>Analyzer</div>
 <div class="container">
 <h1>🔬 Probability Analyzer</h1>
 <p class="subtitle">Market probability distributions, odds tracking & bookmaker heatmap comparison</p>
@@ -73,6 +114,28 @@ h1{font-size:28px;margin-bottom:8px;color:#fff}
 </select>
 
 <div id="content"><div class="loading">Select a league to analyze</div></div>
+
+
+    <div class="share-bar">
+      <span>Share:</span>
+      <a href="javascript:shareTwitter()" class="share-btn twitter">𝕏</a>
+      <a href="javascript:shareFacebook()" class="share-btn facebook">FB</a>
+      <a href="javascript:shareReddit()" class="share-btn reddit">Reddit</a>
+      <a href="javascript:shareWhatsApp()" class="share-btn whatsapp">WA</a>
+      <a href="javascript:copyLink()" class="share-btn copy">📋</a>
+    </div>
+    <div class="explore-section">
+      <h3>Explore More</h3>
+      <div class="explore-links-grid">
+        <a href="daily.html" class="explore-link-item">📰 Daily Analysis<span class="link-desc">Match previews and odds insights</span></a>
+        <a href="calculator.html" class="explore-link-item">📊 Odds Calculator<span class="link-desc">Convert odds, Kelly, arbitrage</span></a>
+        <a href="compare.html" class="explore-link-item">📋 Odds Comparison<span class="link-desc">Best odds across bookmakers</span></a>
+        <a href="analyzer.html" class="explore-link-item">🔬 Probability Analyzer<span class="link-desc">Market probability and heatmaps</span></a>
+        <a href="leagues/world-cup.html" class="explore-link-item">🏆 World Cup 2026<span class="link-desc">FIFA World Cup odds</span></a>
+        <a href="leagues/nfl.html" class="explore-link-item">🏈 NFL<span class="link-desc">NFL odds and analysis</span></a>
+      </div>
+    </div>
+    <div class="last-updated-bar">Last updated: <span class="last-updated-time">--</span></div>
 
 <div class="disclaimer">⚠️ All data is for analytical reference only. Odds sourced from The Odds API.</div>
 
@@ -158,6 +221,14 @@ function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+enc
 function shareReddit(){window.open('https://reddit.com/submit?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title))}
 function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href))}
 function copyLink(){navigator.clipboard.writeText(location.href);alert('Link copied!')}
+
+function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href))}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href))}
+function shareReddit(){window.open('https://reddit.com/submit?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title))}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href))}
+function copyLink(){navigator.clipboard.writeText(location.href);alert('Link copied!')}
+try{document.querySelectorAll('.last-updated-time').forEach(function(el){el.textContent=new Date().toLocaleString()})}catch(e){}
+
 </script>
 </body>
 </html>

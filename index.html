@@ -58,6 +58,14 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
+
+<link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" as="script" />
+<link rel="prefetch" href="daily.html" />
+<link rel="prefetch" href="calculator.html" />
+<link rel="prefetch" href="compare.html" />
+<link rel="prefetch" href="analyzer.html" />
+<link rel="prefetch" href="leagues/world-cup.html" />
+
 <style>
 :root {
   --bg-primary: #0d1117;
@@ -1061,6 +1069,28 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
   .vote-options { flex-direction: column; }
   .vote-result-count { width: 55px; }
 }
+/* Share Bar */
+.share-bar{display:flex;align-items:center;gap:8px;margin:20px 0;padding:14px 16px;background:var(--bg-card);border-radius:10px;border:1px solid var(--border)}
+.share-bar span{font-size:13px;color:var(--text-secondary);font-weight:600}
+.share-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text-primary);font-size:13px;cursor:pointer;transition:all .2s;text-decoration:none}
+.share-btn:hover{border-color:var(--accent-current);background:rgba(74,222,128,.08)}
+.share-btn.twitter:hover{border-color:#1da1f2;color:#1da1f2}
+.share-btn.facebook:hover{border-color:#1877f2;color:#1877f2}
+.share-btn.reddit:hover{border-color:#ff4500;color:#ff4500}
+.share-btn.whatsapp:hover{border-color:#25d366;color:#25d366}
+/* Breadcrumb */
+.breadcrumb{padding:10px 24px;font-size:13px;color:var(--text-secondary);border-bottom:1px solid var(--border);background:var(--bg-secondary)}
+.breadcrumb a{color:var(--text-muted);transition:color .2s;text-decoration:none}
+.breadcrumb a:hover{color:var(--accent-current)}
+.breadcrumb .sep{margin:0 6px}
+/* Explore Links */
+.explore-section{margin:24px 0;padding:20px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px}
+.explore-section h3{font-size:15px;margin-bottom:12px}
+.explore-links-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.explore-link-item{display:block;padding:12px;background:var(--bg-primary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-weight:600;font-size:13px;transition:all .2s;text-decoration:none}
+.explore-link-item:hover{border-color:var(--accent-current)}
+.explore-link-item .link-desc{font-size:11px;color:var(--text-muted);font-weight:400;margin-top:2px}
+.last-updated-bar{font-size:12px;color:var(--text-muted);text-align:center;padding:8px}
 </style>
 </head>
 <body>
@@ -1089,7 +1119,36 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
   <div class="sidebar">
     <div class="sidebar-logo"><span>🏆</span> <span data-i18n="sidebarLogo">全赛事数据分析</span></div>
     <nav class="sidebar-nav" id="sidebarNav"></nav>
-    <div class="sidebar-tools-section" style="padding:8px 0;border-top:1px solid var(--border);">
+    <div style="padding:8px 0;border-top:1px solid var(--border);">
+      <div class="nav-group-label">📰 <span data-i18n="dailyGroup">Daily</span></div>
+      <a href="daily.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📰</span>
+        <span class="nav-label" data-i18n="navDaily">Daily Analysis</span>
+      </a>
+    </div>
+    <div style="padding:8px 0;border-top:1px solid var(--border);">
+      <div class="nav-group-label">🏆 <span data-i18n="leaguesGroup">Leagues</span></div>
+      <a href="leagues/world-cup.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">🏆</span>
+        <span class="nav-label">World Cup</span>
+      </a>
+      <a href="leagues/nfl.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">🏈</span>
+        <span class="nav-label">NFL</span>
+      </a>
+      <a href="leagues/nba.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">🏀</span>
+        <span class="nav-label">NBA</span>
+      </a>
+      <a href="leagues/mlb.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">⚾</span>
+        <span class="nav-label">MLB</span>
+      </a>
+      <a href="leagues/premier-league.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">⚽</span>
+        <span class="nav-label">Premier League</span>
+      </a>
+    </div>    <div class="sidebar-tools-section" style="padding:8px 0;border-top:1px solid var(--border);">
       <div class="nav-group-label">🔧 <span data-i18n="toolsGroup">工具</span></div>
       <a href="calculator.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
         <span class="emoji">📊</span>
@@ -1123,6 +1182,7 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
 
   <!-- Main -->
   <div class="main-content">
+    <div class="breadcrumb"><a href="https://10110289.xyz/">Home</a><span class="sep">›</span>Live Odds</div>
     <div class="top-bar">
       <h1 id="pageTitle">⚽ 足球数据分析</h1>
       <div class="top-bar-right">
@@ -1170,6 +1230,29 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
     <!-- AD_SLOT: bottom_banner -->
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8994443349650818" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+    <div class="share-bar">
+      <span>Share:</span>
+      <a href="javascript:shareTwitter()" class="share-btn twitter">𝕏</a>
+      <a href="javascript:shareFacebook()" class="share-btn facebook">FB</a>
+      <a href="javascript:shareReddit()" class="share-btn reddit">Reddit</a>
+      <a href="javascript:shareWhatsApp()" class="share-btn whatsapp">WA</a>
+      <a href="javascript:copyLink()" class="share-btn copy">📋</a>
+    </div>
+
+    <div class="explore-section">
+      <h3>Explore More</h3>
+      <div class="explore-links-grid">
+        <a href="daily.html" class="explore-link-item">📰 Daily Analysis<span class="link-desc">Match previews and odds insights</span></a>
+        <a href="calculator.html" class="explore-link-item">📊 Odds Calculator<span class="link-desc">Convert odds, Kelly, arbitrage</span></a>
+        <a href="compare.html" class="explore-link-item">📋 Odds Comparison<span class="link-desc">Best odds across bookmakers</span></a>
+        <a href="analyzer.html" class="explore-link-item">🔬 Probability Analyzer<span class="link-desc">Market probability and heatmaps</span></a>
+        <a href="leagues/world-cup.html" class="explore-link-item">🏆 World Cup 2026<span class="link-desc">FIFA World Cup odds</span></a>
+        <a href="leagues/nfl.html" class="explore-link-item">🏈 NFL<span class="link-desc">NFL odds and analysis</span></a>
+      </div>
+    </div>
+
+    <div class="last-updated-bar">Last updated: <span class="last-updated-time">--</span></div>
 <footer style="text-align:center;padding:20px;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px;">
 <p data-i18n="footerDisclaimer">⚠️ SportPredict 是体育数据分析平台，不提供任何博彩服务，不收取任何费用。所有数据仅供分析参考。</p>
 <p style="margin-top:8px;color:var(--text-muted);font-size:11px;">
@@ -1192,6 +1275,7 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
 const API_KEY = '1560e77265ec5a6f65265a96ad7c36cb';
 const API_BASE = 'https://api.the-odds-api.com/v4';
 const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+try{document.querySelectorAll('.last-updated-time').forEach(function(el){el.textContent=new Date().toLocaleString()})}catch(e){}
 
 // ===== I18N SYSTEM =====
 const LANGS = [
@@ -4981,6 +5065,11 @@ init(); setTimeout(function(){ var f=document.querySelector('.nav-item'); if(f&&
     "sport": "Multi-Sport"
   }
 ]
+function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href))}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href))}
+function shareReddit(){window.open('https://reddit.com/submit?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title))}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href))}
+function copyLink(){navigator.clipboard.writeText(location.href);alert('Link copied!')}
 </script>
 </body>
 </html>
