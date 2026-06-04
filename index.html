@@ -1089,6 +1089,21 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
   <div class="sidebar">
     <div class="sidebar-logo"><span>🏆</span> <span data-i18n="sidebarLogo">全赛事数据分析</span></div>
     <nav class="sidebar-nav" id="sidebarNav"></nav>
+    <div class="sidebar-tools-section" style="padding:8px 0;border-top:1px solid var(--border);">
+      <div class="nav-group-label">🔧 <span data-i18n="toolsGroup">工具</span></div>
+      <a href="calculator.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📊</span>
+        <span class="nav-label" data-i18n="toolCalculator">赔率计算器</span>
+      </a>
+      <a href="analyzer.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">🔬</span>
+        <span class="nav-label" data-i18n="toolAnalyzer">概率分析器</span>
+      </a>
+      <a href="compare.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📋</span>
+        <span class="nav-label" data-i18n="toolCompare">赔率对比</span>
+      </a>
+    </div>
     <div class="sidebar-fav-section" id="sidebarFav" style="padding:8px 0;border-top:1px solid var(--border);">
       <div class="nav-item" id="favNavItem" onclick="showFavorites()" style="cursor:pointer">
         <span class="emoji">⭐</span>
@@ -2050,6 +2065,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: '搜索比赛、队伍...',
     myFavorites: '我的收藏',
+    toolsGroup: '工具',
+    toolCalculator: '赔率计算器',
+    toolAnalyzer: '概率分析器',
+    toolCompare: '赔率对比',
     noFavorites: '暂无收藏',
     favAdded: '已收藏',
     favRemoved: '已取消收藏',
@@ -2076,6 +2095,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: 'Search matches, teams...',
     myFavorites: 'My Favorites',
+    toolsGroup: 'Tools',
+    toolCalculator: 'Odds Calculator',
+    toolAnalyzer: 'Probability Analyzer',
+    toolCompare: 'Odds Comparison',
     noFavorites: 'No favorites yet',
     favAdded: 'Added to favorites',
     favRemoved: 'Removed from favorites',
@@ -2102,6 +2125,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: 'Buscar partidos, equipos...',
     myFavorites: 'Mis Favoritos',
+    toolsGroup: 'Herramientas',
+    toolCalculator: 'Calculadora de Cuotas',
+    toolAnalyzer: 'Analizador de Probabilidad',
+    toolCompare: 'Comparación de Cuotas',
     noFavorites: 'Sin favoritos',
     favAdded: 'Añadido a favoritos',
     favRemoved: 'Eliminado de favoritos',
@@ -2128,6 +2155,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: 'Buscar jogos, times...',
     myFavorites: 'Meus Favoritos',
+    toolsGroup: 'Ferramentas',
+    toolCalculator: 'Calculadora de Odds',
+    toolAnalyzer: 'Analisador de Probabilidade',
+    toolCompare: 'Comparação de Odds',
     noFavorites: 'Sem favoritos',
     favAdded: 'Adicionado aos favoritos',
     favRemoved: 'Removido dos favoritos',
@@ -2154,6 +2185,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: 'بحث عن مباريات، فرق...',
     myFavorites: 'مفضلاتي',
+    toolsGroup: 'أدوات',
+    toolCalculator: 'حاسبة الاحتمالات',
+    toolAnalyzer: 'محلل الاحتمالات',
+    toolCompare: 'مقارنة الاحتمالات',
     noFavorites: 'لا مفضلات',
     favAdded: 'أضيف إلى المفضلة',
     favRemoved: 'أزيل من المفضلة',
@@ -2180,6 +2215,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: '試合、チームを検索...',
     myFavorites: 'お気に入り',
+    toolsGroup: 'ツール',
+    toolCalculator: 'オッズ計算機',
+    toolAnalyzer: '確率分析器',
+    toolCompare: 'オッズ比較',
     noFavorites: 'お気に入りなし',
     favAdded: 'お気に入りに追加',
     favRemoved: 'お気に入りから削除',
@@ -2206,6 +2245,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: '경기, 팀 검색...',
     myFavorites: '즐겨찾기',
+    toolsGroup: '도구',
+    toolCalculator: '배당률 계산기',
+    toolAnalyzer: '확률 분석기',
+    toolCompare: '배당률 비교',
     noFavorites: '즐겨찾기 없음',
     favAdded: '즐겨찾기 추가',
     favRemoved: '즐겨찾기 제거',
@@ -2232,6 +2275,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: 'Поиск матчей, команд...',
     myFavorites: 'Избранное',
+    toolsGroup: 'Инструменты',
+    toolCalculator: 'Калькулятор коэффициентов',
+    toolAnalyzer: 'Анализатор вероятностей',
+    toolCompare: 'Сравнение коэффициентов',
     noFavorites: 'Нет избранных',
     favAdded: 'Добавлено в избранное',
     favRemoved: 'Удалено из избранного',
@@ -2258,6 +2305,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: 'Rechercher matchs, équipes...',
     myFavorites: 'Mes Favoris',
+    toolsGroup: 'Outils',
+    toolCalculator: 'Calculateur de Cotes',
+    toolAnalyzer: 'Analyseur de Probabilité',
+    toolCompare: 'Comparaison de Cotes',
     noFavorites: 'Aucun favori',
     favAdded: 'Ajouté aux favoris',
     favRemoved: 'Retiré des favoris',
@@ -2284,6 +2335,10 @@ const NEW_I18N = {
     // V3 features
     searchPlaceholder: 'Spiele, Teams suchen...',
     myFavorites: 'Meine Favoriten',
+    toolsGroup: 'Werkzeuge',
+    toolCalculator: 'Quoten-Rechner',
+    toolAnalyzer: 'Wahrscheinlichkeitsanalysator',
+    toolCompare: 'Quoten-Vergleich',
     noFavorites: 'Keine Favoriten',
     favAdded: 'Zu Favoriten hinzugefügt',
     favRemoved: 'Aus Favoriten entfernt',

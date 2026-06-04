@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8994443349650818" crossorigin="anonymous"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odds Calculator - Convert & Analyze Betting Odds | SportPredict</title>
+<meta name="description" content="Free odds calculator: convert decimal/fractional/American odds, Kelly criterion calculator, arbitrage finder, and implied probability tool. Professional betting odds analysis." />
+<meta name="keywords" content="odds calculator, betting calculator, kelly criterion, arbitrage calculator, implied probability, odds converter, decimal odds, fractional odds, american odds" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://10110289.xyz/calculator.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10110289.xyz/calculator.html" />
+<meta property="og:title" content="Odds Calculator - Convert & Analyze Betting Odds | SportPredict" />
+<meta property="og:description" content="Free odds calculator: convert odds formats, Kelly criterion, arbitrage finder, and implied probability analysis." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Odds Calculator | SportPredict" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"SportPredict Odds Calculator",
+  "url":"https://10110289.xyz/calculator.html",
+  "applicationCategory":"UtilityApplication",
+  "operatingSystem":"Any",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "description":"Convert odds formats, calculate Kelly criterion, find arbitrage opportunities, and analyze implied probabilities."
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>馃弳</text></svg>" />
+<link rel="alternate" hreflang="zh" href="https://10110289.xyz/calculator.html?lang=zh" />
+<link rel="alternate" hreflang="en" href="https://10110289.xyz/calculator.html?lang=en" />
+<link rel="alternate" hreflang="es" href="https://10110289.xyz/calculator.html?lang=es" />
+<link rel="alternate" hreflang="pt" href="https://10110289.xyz/calculator.html?lang=pt" />
+<link rel="alternate" hreflang="ar" href="https://10110289.xyz/calculator.html?lang=ar" />
+<link rel="alternate" hreflang="ja" href="https://10110289.xyz/calculator.html?lang=ja" />
+<link rel="alternate" hreflang="ko" href="https://10110289.xyz/calculator.html?lang=ko" />
+<link rel="alternate" hreflang="ru" href="https://10110289.xyz/calculator.html?lang=ru" />
+<link rel="alternate" hreflang="fr" href="https://10110289.xyz/calculator.html?lang=fr" />
+<link rel="alternate" hreflang="de" href="https://10110289.xyz/calculator.html?lang=de" />
+<link rel="alternate" hreflang="x-default" href="https://10110289.xyz/calculator.html" />
+<style>
+:root{--bg:#0a0a1a;--bg2:#111128;--bg3:#1a1a3e;--card:#161635;--border:#2a2a5a;--text:#e8e8f0;--text2:#9999bb;--accent:#4ade80;--accent2:#22c55e;--red:#ef4444;--orange:#f59e0b;--radius:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+a{color:var(--accent);text-decoration:none}
+.top-nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.top-nav .logo{font-size:20px;font-weight:700;display:flex;align-items:center;gap:8px}
+.top-nav .logo span{font-size:24px}
+.back-link{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:8px;border:1px solid var(--border);color:var(--text2);font-size:13px;transition:all .2s}
+.back-link:hover{border-color:var(--accent);color:var(--accent)}
+.lang-switch{position:relative;display:inline-flex}
+.lang-btn{padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:13px;cursor:pointer}
+.lang-btn:hover{border-color:var(--accent);color:var(--text)}
+.lang-dd{position:absolute;top:100%;right:0;margin-top:4px;background:var(--card);border:1px solid var(--border);border-radius:8px;min-width:150px;z-index:200;display:none;overflow:hidden}
+.lang-dd.open{display:block}
+.lang-opt{padding:8px 14px;cursor:pointer;font-size:13px;color:var(--text2);transition:all .15s}
+.lang-opt:hover{background:var(--bg3);color:var(--text)}
+.lang-opt.active{color:var(--accent);font-weight:600}
+.container{max-width:900px;margin:0 auto;padding:24px}
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:24px;overflow-x:auto}
+.tab{padding:12px 20px;cursor:pointer;font-size:14px;color:var(--text2);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;white-space:nowrap}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.calc-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:20px}
+.calc-section h2{font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.calc-section h3{font-size:14px;color:var(--text2);margin-bottom:12px}
+.input-group{margin-bottom:16px}
+.input-group label{display:block;font-size:13px;color:var(--text2);margin-bottom:6px;font-weight:500}
+.input-group input,.input-group select{width:100%;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:14px;outline:none;transition:border .2s}
+.input-group input:focus,.input-group select:focus{border-color:var(--accent)}
+.input-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.result-box{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:12px}
+.result-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.result-item:last-child{border:none}
+.result-label{font-size:13px;color:var(--text2)}
+.result-value{font-size:16px;font-weight:700;color:var(--accent)}
+.prob-bar-wrap{margin-top:16px}
+.prob-bar-label{font-size:12px;color:var(--text2);margin-bottom:4px;display:flex;justify-content:space-between}
+.prob-bar{height:24px;border-radius:12px;overflow:hidden;display:flex;background:var(--bg)}
+.prob-bar .fill{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;transition:width .4s ease;min-width:30px}
+.fill-home{background:var(--accent);border-radius:12px 0 0 12px}
+.fill-draw{background:#6e7681}
+.fill-away{background:var(--red);border-radius:0 12px 12px 0}
+.btn{padding:10px 20px;border-radius:8px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-size:14px;cursor:pointer;transition:all .2s;font-weight:600}
+.btn:hover{background:var(--accent);color:#000}
+.btn-primary{background:var(--accent);color:#000;border-color:var(--accent)}
+.btn-primary:hover{background:var(--accent2)}
+.arb-inputs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.risk-indicator{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-top:8px}
+.risk-low{background:rgba(74,222,128,.12);color:var(--accent)}
+.risk-med{background:rgba(245,158,11,.12);color:var(--orange)}
+.risk-high{background:rgba(239,68,68,.12);color:var(--red)}
+.disclaimer{text-align:center;padding:20px;font-size:11px;color:var(--text2);border-top:1px solid var(--border);margin-top:40px}
+@media(max-width:768px){.input-row{grid-template-columns:1fr}.arb-inputs{grid-template-columns:1fr}.container{padding:14px}}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="logo"><span>馃弳</span> SportPredict</div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="index.html" class="back-link">鈫?<span data-i18n="backHome">杩斿洖棣栭〉</span></a>
+    <div class="lang-switch">
+      <button class="lang-btn" onclick="toggleLang()">馃寪 <span id="curLang">涓枃</span> 鈻?/button>
+      <div class="lang-dd" id="langDD"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1 style="font-size:24px;margin-bottom:4px" data-i18n="pageTitle">馃搳 璧旂巼璁＄畻鍣?/h1>
+  <p style="color:var(--text2);font-size:14px;margin-bottom:20px" data-i18n="pageDesc">璧旂巼杞崲銆佸嚡鍒╁叕寮忋€佸樊寮傚垎鏋愬拰姒傜巼璁＄畻</p>
+
+  <!-- Ad Slot -->
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8994443349650818" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="converter" onclick="switchTab('converter')" data-i18n="tabConverter">璧旂巼杞崲</div>
+    <div class="tab" data-tab="kelly" onclick="switchTab('kelly')" data-i18n="tabKelly">鍑埄鍏紡</div>
+    <div class="tab" data-tab="arb" onclick="switchTab('arb')" data-i18n="tabArb">宸紓鍒嗘瀽</div>
+    <div class="tab" data-tab="probability" onclick="switchTab('probability')" data-i18n="tabProb">姒傜巼璁＄畻</div>
+  </div>
+
+  <!-- Tab 1: Odds Converter -->
+  <div class="tab-panel active" id="panel-converter">
+    <div class="calc-section">
+      <h2>馃攧 <span data-i18n="converterTitle">璧旂巼杞崲鍣?/span></h2>
+      <h3 data-i18n="converterDesc">杈撳叆浠绘剰鏍煎紡璧旂巼锛岃嚜鍔ㄨ浆鎹㈠叾浠栨牸寮忓苟璁＄畻闅愬惈姒傜巼</h3>
+      <div class="input-group">
+        <label data-i18n="decimalOdds">灏忔暟璧旂巼 (Decimal)</label>
+        <input type="number" id="decOdds" step="0.01" min="1.01" oninput="fromDecimal()" placeholder="渚? 2.50" />
+      </div>
+      <div class="input-group">
+        <label data-i18n="fractionalOdds">鍒嗘暟璧旂巼 (Fractional)</label>
+        <input type="text" id="fracOdds" oninput="fromFractional()" placeholder="渚? 3/2" />
+      </div>
+      <div class="input-group">
+        <label data-i18n="americanOdds">缇庡紡璧旂巼 (American)</label>
+        <input type="number" id="amerOdds" oninput="fromAmerican()" placeholder="渚? +150 鎴?-200" />
+      </div>
+      <div class="result-box">
+        <div class="result-item">
+          <span class="result-label" data-i18n="impliedProb">闅愬惈姒傜巼</span>
+          <span class="result-value" id="convImplied">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label" data-i18n="payout">楼100 鎶曟敞鍥炴姤</span>
+          <span class="result-value" id="convPayout">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2: Kelly Criterion -->
+  <div class="tab-panel" id="panel-kelly">
+    <div class="calc-section">
+      <h2>馃搻 <span data-i18n="kellyTitle">鍑埄鍏紡璁＄畻鍣?/span></h2>
+      <h3 data-i18n="kellyDesc">璁＄畻鏈€浼樻姇娉ㄦ瘮渚嬶紝閬垮厤杩囧害鎶曟敞鎴栦繚瀹堟姇娉?/h3>
+      <div class="input-row">
+        <div class="input-group">
+          <label data-i18n="yourProb">浣犵殑鑳滅巼浼扮畻 (%)</label>
+          <input type="number" id="kellyProb" min="1" max="99" placeholder="渚? 55" oninput="calcKelly()" />
+        </div>
+        <div class="input-group">
+          <label data-i18n="kellyOdds">灏忔暟璧旂巼</label>
+          <input type="number" id="kellyOdds" step="0.01" min="1.01" placeholder="渚? 2.00" oninput="calcKelly()" />
+        </div>
+        <div class="input-group">
+          <label data-i18n="bankroll">褰撳墠璧勯噾 (楼)</label>
+          <input type="number" id="kellyBank" min="1" placeholder="渚? 10000" oninput="calcKelly()" />
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-item">
+          <span class="result-label" data-i18n="kellyPct">鍑埄姣斾緥</span>
+          <span class="result-value" id="kellyResult">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label" data-i18n="kellyAmt">寤鸿閲戦</span>
+          <span class="result-value" id="kellyAmt">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label" data-i18n="halfKelly">鍗婂嚡鍒╋紙鏇村畨鍏級</span>
+          <span class="result-value" id="halfKelly">--</span>
+        </div>
+      </div>
+      <div id="kellyRisk"></div>
+    </div>
+  </div>
+
+  <!-- Tab 3: Arbitrage Finder -->
+  <div class="tab-panel" id="panel-arb">
+    <div class="calc-section">
+      <h2>馃攳 <span data-i18n="arbTitle">璧旂巼宸紓鍒嗘瀽鍣?/span></h2>
+      <h3 data-i18n="arbDesc">杈撳叆涓嶅悓鍗氬僵鍏徃鐨勮禂鐜囷紝妫€娴嬫槸鍚﹀瓨鍦ㄥ樊寮傛満浼?/h3>
+      <div id="arbInputs">
+        <div class="arb-inputs" style="margin-bottom:12px">
+          <div class="input-group">
+            <label data-i18n="bookmaker">鍗氬僵鍏徃 1</label>
+            <input type="text" id="bk1Name" value="Bookmaker A" />
+          </div>
+          <div class="input-group">
+            <label data-i18n="odds">璧旂巼</label>
+            <input type="number" id="bk1Odds" step="0.01" min="1.01" value="2.10" oninput="calcArb()" />
+          </div>
+        </div>
+        <div class="arb-inputs" style="margin-bottom:12px">
+          <div class="input-group">
+            <label data-i18n="bookmaker2">鍗氬僵鍏徃 2</label>
+            <input type="text" id="bk2Name" value="Bookmaker B" />
+          </div>
+          <div class="input-group">
+            <label data-i18n="odds">璧旂巼</label>
+            <input type="number" id="bk2Odds" step="0.01" min="1.01" value="1.95" oninput="calcArb()" />
+          </div>
+        </div>
+        <div class="arb-inputs" style="margin-bottom:12px">
+          <div class="input-group">
+            <label data-i18n="bookmaker3">鍗氬僵鍏徃 3锛堝彲閫夛級</label>
+            <input type="text" id="bk3Name" value="Bookmaker C" />
+          </div>
+          <div class="input-group">
+            <label data-i18n="odds">璧旂巼</label>
+            <input type="number" id="bk3Odds" step="0.01" min="1.01" placeholder="鍙€? oninput="calcArb()" />
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="calcArb()" data-i18n="calcArbBtn">璁＄畻宸紓</button>
+      <div class="result-box" id="arbResult" style="margin-top:12px">
+        <div class="result-item">
+          <span class="result-label" data-i18n="totalImplied">鎬婚殣鍚鐜?/span>
+          <span class="result-value" id="arbTotal">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label" data-i18n="arbExists">宸紓鏈轰細</span>
+          <span class="result-value" id="arbExists">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label" data-i18n="arbProfitPct">宸紓鍒╂鼎鐜?/span>
+          <span class="result-value" id="arbProfit">--</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 4: Probability Calculator -->
+  <div class="tab-panel" id="panel-probability">
+    <div class="calc-section">
+      <h2>馃搳 <span data-i18n="probTitle">姒傜巼璁＄畻鍣?/span></h2>
+      <h3 data-i18n="probDesc">杈撳叆璧旂巼鍙嶆帹甯傚満姒傜巼锛屽姣斿瀹惰禂鐜囨壘鍑哄競鍦哄垎姝?/h3>
+      <div id="probInputs">
+        <div style="margin-bottom:16px">
+          <div class="input-row">
+            <div class="input-group">
+              <label data-i18n="homeOdds">涓昏儨璧旂巼</label>
+              <input type="number" id="probHome" step="0.01" min="1.01" value="2.10" oninput="calcProb()" />
+            </div>
+            <div class="input-group">
+              <label data-i18n="drawOdds">骞冲眬璧旂巼</label>
+              <input type="number" id="probDraw" step="0.01" min="1.01" value="3.40" oninput="calcProb()" />
+            </div>
+            <div class="input-group">
+              <label data-i18n="awayOdds">瀹㈣儨璧旂巼</label>
+              <input type="number" id="probAway" step="0.01" min="1.01" value="3.50" oninput="calcProb()" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="result-box">
+        <div class="result-item">
+          <span class="result-label" data-i18n="homeProb">涓昏儨姒傜巼</span>
+          <span class="result-value" id="probHomeVal">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label" data-i18n="drawProb">骞冲眬姒傜巼</span>
+          <span class="result-value" id="probDrawVal">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label" data-i18n="awayProb">瀹㈣儨姒傜巼</span>
+          <span class="result-value" id="probAwayVal">--</span>
+        </div>
+        <div class="result-item">
+          <span class="result-label" data-i18n="overround">搴勫鍒╂鼎 (Overround)</span>
+          <span class="result-value" id="probOverround">--</span>
+        </div>
+      </div>
+      <div class="prob-bar-wrap" style="margin-top:16px">
+        <div class="prob-bar-label"><span data-i18n="homeWin">涓昏儨</span><span data-i18n="drawResult">骞冲眬</span><span data-i18n="awayWin">瀹㈣儨</span></div>
+        <div class="prob-bar" id="probBar">
+          <div class="fill fill-home" id="probBarHome" style="width:40%"></div>
+          <div class="fill fill-draw" id="probBarDraw" style="width:29%"></div>
+          <div class="fill fill-away" id="probBarAway" style="width:29%"></div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <h3 data-i18n="multiBookmaker">澶氬璧旂巼瀵规瘮</h3>
+        <div id="multiBkInputs"></div>
+        <button class="btn" onclick="addBookmaker()" style="margin-top:8px" data-i18n="addBk">+ 娣诲姞鍗氬僵鍏徃</button>
+        <div class="result-box" id="multiBkResult" style="display:none;margin-top:12px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer" data-i18n="disclaimer">鈿狅笍 鎵€鏈夎绠楃粨鏋滀粎渚涘垎鏋愬弬鑰冿紝涓嶆瀯鎴愪换浣曟姇娉ㄥ缓璁€傝鐞嗘€т娇鐢ㄣ€?/div>
+</div>
+
+<script>
+const LANGS=[
+  {code:'zh',label:'涓枃',flag:'馃嚚馃嚦'},
+  {code:'en',label:'English',flag:'馃嚭馃嚫'},
+  {code:'es',label:'Espa帽ol',flag:'馃嚜馃嚫'},
+  {code:'pt',label:'Portugu锚s',flag:'馃嚙馃嚪'},
+  {code:'ar',label:'丕賱毓乇亘賷丞',flag:'馃嚫馃嚘'},
+  {code:'ja',label:'鏃ユ湰瑾?,flag:'馃嚡馃嚨'},
+  {code:'ko',label:'頃滉淡鞏?,flag:'馃嚢馃嚪'},
+  {code:'ru',label:'袪褍褋褋泻懈泄',flag:'馃嚪馃嚭'},
+  {code:'fr',label:'Fran莽ais',flag:'馃嚝馃嚪'},
+  {code:'de',label:'Deutsch',flag:'馃嚛馃嚜'}
+];
+
+const I18N={
+zh:{
+  backHome:'杩斿洖棣栭〉',pageTitle:'馃搳 璧旂巼璁＄畻鍣?,pageDesc:'璧旂巼杞崲銆佸嚡鍒╁叕寮忋€佸樊寮傚垎鏋愬拰姒傜巼璁＄畻',
+  tabConverter:'璧旂巼杞崲',tabKelly:'鍑埄鍏紡',tabArb:'宸紓鍒嗘瀽',tabProb:'姒傜巼璁＄畻',
+  converterTitle:'璧旂巼杞崲鍣?,converterDesc:'杈撳叆浠绘剰鏍煎紡璧旂巼锛岃嚜鍔ㄨ浆鎹㈠叾浠栨牸寮忓苟璁＄畻闅愬惈姒傜巼',
+  decimalOdds:'灏忔暟璧旂巼 (Decimal)',fractionalOdds:'鍒嗘暟璧旂巼 (Fractional)',americanOdds:'缇庡紡璧旂巼 (American)',
+  impliedProb:'闅愬惈姒傜巼',payout:'楼100 鎶曟敞鍥炴姤',
+  kellyTitle:'鍑埄鍏紡璁＄畻鍣?,kellyDesc:'璁＄畻鏈€浼樻姇娉ㄦ瘮渚嬶紝閬垮厤杩囧害鎶曟敞鎴栦繚瀹堟姇娉?,
+  yourProb:'浣犵殑鑳滅巼浼扮畻 (%)',kellyOdds:'灏忔暟璧旂巼',bankroll:'褰撳墠璧勯噾 (楼)',
+  kellyPct:'鍑埄姣斾緥',kellyAmt:'寤鸿閲戦',halfKelly:'鍗婂嚡鍒╋紙鏇村畨鍏級',
+  riskLow:'鉁?鍚堢悊鎶曟敞鑼冨洿',riskMed:'鈿狅笍 寤鸿浣跨敤鍗婂嚡鍒╅檷浣庨闄?,riskHigh:'馃毇 杩囧害鎶曟敞锛佸缓璁ぇ骞呴檷浣庢瘮渚?,
+  arbTitle:'璧旂巼宸紓鍒嗘瀽鍣?,arbDesc:'杈撳叆涓嶅悓鍗氬僵鍏徃鐨勮禂鐜囷紝妫€娴嬫槸鍚﹀瓨鍦ㄥ樊寮傛満浼?,
+  bookmaker:'鍗氬僵鍏徃 1',bookmaker2:'鍗氬僵鍏徃 2',bookmaker3:'鍗氬僵鍏徃 3锛堝彲閫夛級',odds:'璧旂巼',
+  calcArbBtn:'璁＄畻宸紓',totalImplied:'鎬婚殣鍚鐜?,arbExists:'宸紓鏈轰細',arbProfitPct:'宸紓鍒╂鼎鐜?,
+  arbYes:'鉁?瀛樺湪锛?,arbNo:'鉂?涓嶅瓨鍦?,
+  probTitle:'姒傜巼璁＄畻鍣?,probDesc:'杈撳叆璧旂巼鍙嶆帹甯傚満姒傜巼锛屽姣斿瀹惰禂鐜囨壘鍑哄競鍦哄垎姝?,
+  homeOdds:'涓昏儨璧旂巼',drawOdds:'骞冲眬璧旂巼',awayOdds:'瀹㈣儨璧旂巼',
+  homeProb:'涓昏儨姒傜巼',drawProb:'骞冲眬姒傜巼',awayProb:'瀹㈣儨姒傜巼',overround:'搴勫鍒╂鼎 (Overround)',
+  homeWin:'涓昏儨',drawResult:'骞冲眬',awayWin:'瀹㈣儨',
+  multiBookmaker:'澶氬璧旂巼瀵规瘮',addBk:'+ 娣诲姞鍗氬僵鍏徃',
+  disclaimer:'鈿狅笍 鎵€鏈夎绠楃粨鏋滀粎渚涘垎鏋愬弬鑰冿紝涓嶆瀯鎴愪换浣曟姇娉ㄥ缓璁€傝鐞嗘€т娇鐢ㄣ€?
+},
+en:{
+  backHome:'Home',pageTitle:'馃搳 Odds Calculator',pageDesc:'Odds conversion, Kelly criterion, arbitrage analysis and probability calculation',
+  tabConverter:'Converter',tabKelly:'Kelly',tabArb:'Arbitrage',tabProb:'Probability',
+  converterTitle:'Odds Converter',converterDesc:'Enter any odds format to auto-convert and calculate implied probability',
+  decimalOdds:'Decimal Odds',fractionalOdds:'Fractional Odds',americanOdds:'American Odds',
+  impliedProb:'Implied Probability',payout:'$100 Bet Return',
+  kellyTitle:'Kelly Criterion Calculator',kellyDesc:'Calculate optimal bet size to avoid over/under betting',
+  yourProb:'Your Win Estimate (%)',kellyOdds:'Decimal Odds',bankroll:'Bankroll ($)',
+  kellyPct:'Kelly %',kellyAmt:'Suggested Amount',halfKelly:'Half Kelly (Safer)',
+  riskLow:'鉁?Reasonable bet size',riskMed:'鈿狅笍 Consider half-Kelly to reduce risk',riskHigh:'馃毇 Overbetting! Reduce significantly',
+  arbTitle:'Arbitrage Finder',arbDesc:'Enter odds from different bookmakers to detect arbitrage opportunities',
+  bookmaker:'Bookmaker 1',bookmaker2:'Bookmaker 2',bookmaker3:'Bookmaker 3 (optional)',odds:'Odds',
+  calcArbBtn:'Calculate',totalImplied:'Total Implied Prob',arbExists:'Arbitrage',arbProfitPct:'Profit Rate',
+  arbYes:'鉁?Yes!',arbNo:'鉂?No',
+  probTitle:'Probability Calculator',probDesc:'Reverse-calculate market probability from odds and compare bookmakers',
+  homeOdds:'Home Odds',drawOdds:'Draw Odds',awayOdds:'Away Odds',
+  homeProb:'Home Prob',drawProb:'Draw Prob',awayProb:'Away Prob',overround:'Overround',
+  homeWin:'Home',drawResult:'Draw',awayWin:'Away',
+  multiBookmaker:'Multi-Bookmaker Compare',addBk:'+ Add Bookmaker',
+  disclaimer:'鈿狅笍 All calculations are for analysis reference only, not betting advice. Use responsibly.'
+},
+es:{
+  backHome:'Inicio',pageTitle:'馃搳 Calculadora de Cuotas',pageDesc:'Conversi贸n de cuotas, criterio de Kelly, an谩lisis de arbitraje y c谩lculo de probabilidad',
+  tabConverter:'Convertidor',tabKelly:'Kelly',tabArb:'Arbitraje',tabProb:'Probabilidad',
+  converterTitle:'Convertidor de Cuotas',converterDesc:'Ingrese cualquier formato de cuotas para convertir autom谩ticamente',
+  decimalOdds:'Cuotas Decimales',fractionalOdds:'Cuotas Fraccionarias',americanOdds:'Cuotas Americanas',
+  impliedProb:'Probabilidad Impl铆cita',payout:'Retorno $100',
+  kellyTitle:'Calculadora Criterio Kelly',kellyDesc:'Calcule el tama帽o 贸ptimo de apuesta',
+  yourProb:'Su estimaci贸n (%)',kellyOdds:'Cuotas Decimales',bankroll:'Capital ($)',
+  kellyPct:'Kelly %',kellyAmt:'Monto Sugerido',halfKelly:'Half Kelly (M谩s seguro)',
+  riskLow:'鉁?Apuesta razonable',riskMed:'鈿狅笍 Considere half-Kelly',riskHigh:'馃毇 隆Sobreapuesta!',
+  arbTitle:'Buscador de Arbitraje',arbDesc:'Detecte oportunidades de arbitraje entre casas de apuestas',
+  bookmaker:'Casa 1',bookmaker2:'Casa 2',bookmaker3:'Casa 3 (opcional)',odds:'Cuotas',
+  calcArbBtn:'Calcular',totalImplied:'Prob. Impl铆cita Total',arbExists:'Arbitraje',arbProfitPct:'Tasa de Ganancia',
+  arbYes:'鉁?隆S铆!',arbNo:'鉂?No',
+  probTitle:'Calculadora de Probabilidad',probDesc:'Calcule probabilidad de mercado desde las cuotas',
+  homeOdds:'Cuotas Local',drawOdds:'Cuotas Empate',awayOdds:'Cuotas Visitante',
+  homeProb:'Prob. Local',drawProb:'Prob. Empate',awayProb:'Prob. Visitante',overround:'Overround',
+  homeWin:'Local',drawResult:'Empate',awayWin:'Visitante',
+  multiBookmaker:'Comparar Casas',addBk:'+ A帽adir Casa',
+  disclaimer:'鈿狅笍 Todos los c谩lculos son solo de referencia. No constituyen consejo de apuestas.'
+},
+pt:{
+  backHome:'In铆cio',pageTitle:'馃搳 Calculadora de Odds',pageDesc:'Convers茫o de odds, crit茅rio de Kelly, an谩lise de arbitragem e c谩lculo de probabilidade',
+  tabConverter:'Conversor',tabKelly:'Kelly',tabArb:'Arbitragem',tabProb:'Probabilidade',
+  converterTitle:'Conversor de Odds',converterDesc:'Insira qualquer formato para converter automaticamente',
+  decimalOdds:'Odds Decimais',fractionalOdds:'Odds Fracion谩rias',americanOdds:'Odds Americanas',
+  impliedProb:'Probabilidade Impl铆cita',payout:'Retorno R$100',
+  kellyTitle:'Calculadora Kelly',kellyDesc:'Calcule o tamanho ideal da aposta',
+  yourProb:'Sua estimativa (%)',kellyOdds:'Odds Decimais',bankroll:'Banca (R$)',
+  kellyPct:'Kelly %',kellyAmt:'Valor Sugerido',halfKelly:'Half Kelly (Mais seguro)',
+  riskLow:'鉁?Aposta razo谩vel',riskMed:'鈿狅笍 Considere half-Kelly',riskHigh:'馃毇 Sobreaposta!',
+  arbTitle:'Buscador de Arbitragem',arbDesc:'Detecte oportunidades de arbitragem',
+  bookmaker:'Casa 1',bookmaker2:'Casa 2',bookmaker3:'Casa 3 (opcional)',odds:'Odds',
+  calcArbBtn:'Calcular',totalImplied:'Prob. Impl铆cita Total',arbExists:'Arbitragem',arbProfitPct:'Taxa de Lucro',
+  arbYes:'鉁?Sim!',arbNo:'鉂?N茫o',
+  probTitle:'Calculadora de Probabilidade',probDesc:'Calcule probabilidade de mercado a partir das odds',
+  homeOdds:'Odds Casa',drawOdds:'Odds Empate',awayOdds:'Odds Fora',
+  homeProb:'Prob. Casa',drawProb:'Prob. Empate',awayProb:'Prob. Fora',overround:'Overround',
+  homeWin:'Casa',drawResult:'Empate',awayWin:'Fora',
+  multiBookmaker:'Comparar Casas',addBk:'+ Adicionar Casa',
+  disclaimer:'鈿狅笍 Todos os c谩lculos s茫o apenas para refer锚ncia. N茫o constituem conselho de apostas.'
+},
+ar:{
+  backHome:'丕賱乇卅賷爻賷丞',pageTitle:'馃搳 丨丕爻亘丞 丕賱丕丨鬲賲丕賱丕鬲',pageDesc:'鬲丨賵賷賱 丕賱丕丨鬲賲丕賱丕鬲貙 賲毓賷丕乇 賰賷賱賷貙 鬲丨賱賷賱 丕賱賲乇丕噩丨丞 賵丨爻丕亘 丕賱丕丨鬲賲丕賱',
+  tabConverter:'丕賱賲丨賵賱',tabKelly:'賰賷賱賷',tabArb:'丕賱賲乇丕噩丨丞',tabProb:'丕賱丕丨鬲賲丕賱',
+  converterTitle:'賲丨賵賱 丕賱丕丨鬲賲丕賱丕鬲',converterDesc:'兀丿禺賱 兀賷 鬲賳爻賷賯 丕丨鬲賲丕賱丕鬲 賱賱鬲丨賵賷賱 丕賱鬲賱賯丕卅賷',
+  decimalOdds:'丕丨鬲賲丕賱丕鬲 毓卮乇賷丞',fractionalOdds:'丕丨鬲賲丕賱丕鬲 賰爻乇賷丞',americanOdds:'丕丨鬲賲丕賱丕鬲 兀賲乇賷賰賷丞',
+  impliedProb:'丕賱丕丨鬲賲丕賱 丕賱囟賲賳賷',payout:'毓丕卅丿 $100',
+  kellyTitle:'丨丕爻亘丞 賲毓賷丕乇 賰賷賱賷',kellyDesc:'丕丨爻亘 丨噩賲 丕賱乇賴丕賳 丕賱兀賲孬賱',
+  yourProb:'鬲賯丿賷乇賰 (%)',kellyOdds:'丕丨鬲賲丕賱丕鬲 毓卮乇賷丞',bankroll:'乇兀爻 丕賱賲丕賱 ($)',
+  kellyPct:'賰賷賱賷 %',kellyAmt:'丕賱賲亘賱睾 丕賱賲賯鬲乇丨',halfKelly:'賳氐賮 賰賷賱賷 (兀賰孬乇 兀賲丕賳丕賸)',
+  riskLow:'鉁?乇賴丕賳 賲毓賯賵賱',riskMed:'鈿狅笍 賮賰乇 賮賷 賳氐賮 賰賷賱賷',riskHigh:'馃毇 乇賴丕賳 賲賮乇胤!',
+  arbTitle:'亘丕丨孬 丕賱賲乇丕噩丨丞',arbDesc:'丕賰鬲卮賮 賮乇氐 丕賱賲乇丕噩丨丞 亘賷賳 丕賱賲賰丕鬲亘',
+  bookmaker:'賲賰鬲亘 1',bookmaker2:'賲賰鬲亘 2',bookmaker3:'賲賰鬲亘 3 (丕禺鬲賷丕乇賷)',odds:'丕丨鬲賲丕賱丕鬲',
+  calcArbBtn:'丕丨爻亘',totalImplied:'廿噩賲丕賱賷 丕賱丕丨鬲賲丕賱 丕賱囟賲賳賷',arbExists:'賲乇丕噩丨丞',arbProfitPct:'賲毓丿賱 丕賱乇亘丨',
+  arbYes:'鉁?賳毓賲!',arbNo:'鉂?賱丕',
+  probTitle:'丨丕爻亘丞 丕賱丕丨鬲賲丕賱',probDesc:'丕丨爻亘 丕丨鬲賲丕賱 丕賱爻賵賯 賲賳 丕賱丕丨鬲賲丕賱丕鬲',
+  homeOdds:'丕丨鬲賲丕賱丕鬲 丕賱賲囟賷賮',drawOdds:'丕丨鬲賲丕賱丕鬲 丕賱鬲毓丕丿賱',awayOdds:'丕丨鬲賲丕賱丕鬲 丕賱囟賷賮',
+  homeProb:'丕丨鬲賲丕賱 丕賱賲囟賷賮',drawProb:'丕丨鬲賲丕賱 丕賱鬲毓丕丿賱',awayProb:'丕丨鬲賲丕賱 丕賱囟賷賮',overround:'賴丕賲卮 丕賱賲賰鬲亘',
+  homeWin:'賲囟賷賮',drawResult:'鬲毓丕丿賱',awayWin:'囟賷賮',
+  multiBookmaker:'賲賯丕乇賳丞 丕賱賲賰丕鬲亘',addBk:'+ 廿囟丕賮丞 賲賰鬲亘',
+  disclaimer:'鈿狅笍 噩賲賷毓 丕賱丨爻丕亘丕鬲 賱賱賲乇噩毓賷丞 賮賯胤. 賱丕 鬲卮賰賱 賳氐賷丨丞 乇賴丕賳.'
+},
+ja:{
+  backHome:'銉涖兗銉?,pageTitle:'馃搳 銈儍銈鸿▓绠楁',pageDesc:'銈儍銈哄鎻涖€併偙銉兗鍩烘簴銆併偄銉笺儞銉堛儵銉笺偢鍒嗘瀽銇ㄧ⒑鐜囪▓绠?,
+  tabConverter:'澶夋彌',tabKelly:'銈便儶銉?,tabArb:'銈兗銉撱儓銉┿兗銈?,tabProb:'纰虹巼',
+  converterTitle:'銈儍銈哄鎻涖儎銉笺儷',converterDesc:'浠绘剰銇偑銉冦偤褰㈠紡銈掑叆鍔涖仐銇﹁嚜鍕曞鎻?,
+  decimalOdds:'灏忔暟銈儍銈?,fractionalOdds:'鍒嗘暟銈儍銈?,americanOdds:'绫冲浗寮忋偑銉冦偤',
+  impliedProb:'鏆楃ず纰虹巼',payout:'楼100 銉欍儍銉堟檪銇墪鎴?,
+  kellyTitle:'銈便儶銉煎熀婧栬▓绠楁',kellyDesc:'鏈€閬┿儥銉冦儓椤嶃倰瑷堢畻',
+  yourProb:'鍕濈巼瑕嬬銈傘倞 (%)',kellyOdds:'灏忔暟銈儍銈?,bankroll:'璩囬噾 (楼)',
+  kellyPct:'銈便儶銉?',kellyAmt:'鎺ㄥエ椤?,halfKelly:'銉忋兗銉曘偙銉兗锛堛倛銈婂畨鍏級',
+  riskLow:'鉁?閬╂銉欍儍銉?,riskMed:'鈿狅笍 銉忋兗銉曘偙銉兗銈掓帹濂?,riskHigh:'馃毇 銉欍儍銉堥亷澶氾紒',
+  arbTitle:'銈兗銉撱儓銉┿兗銈告鍑?,arbDesc:'鐣般仾銈嬨儢銉冦偗銉°兗銈兗銇偑銉冦偤銇с偄銉笺儞銉堛儵銉笺偢銈掓鍑?,
+  bookmaker:'銉栥儍銈儭銉笺偒銉?1',bookmaker2:'銉栥儍銈儭銉笺偒銉?2',bookmaker3:'銉栥儍銈儭銉笺偒銉?3 (銈儣銈枫儳銉?',odds:'銈儍銈?,
+  calcArbBtn:'瑷堢畻',totalImplied:'鍚堣▓鏆楃ず纰虹巼',arbExists:'銈兗銉撱儓銉┿兗銈?,arbProfitPct:'鍒╃泭鐜?,
+  arbYes:'鉁?銇傘倞锛?,arbNo:'鉂?銇仐',
+  probTitle:'纰虹巼瑷堢畻姗?,probDesc:'銈儍銈恒亱銈夊競鍫寸⒑鐜囥倰閫嗙畻',
+  homeOdds:'銉涖兗銉犲嫕鍒┿偑銉冦偤',drawOdds:'寮曘亶鍒嗐亼銈儍銈?,awayOdds:'銈偊銈с偆鍕濆埄銈儍銈?,
+  homeProb:'銉涖兗銉犲嫕鐜?,drawProb:'寮曘亶鍒嗐亼纰虹巼',awayProb:'銈偊銈с偆鍕濈巼',overround:'銈兗銉愩兗銉┿偊銉炽儔',
+  homeWin:'銉涖兗銉?,drawResult:'鍒?,awayWin:'銈偊銈с偆',
+  multiBookmaker:'瑜囨暟銉栥儍銈儭銉笺偒銉兼瘮杓?,addBk:'+ 銉栥儍銈儭銉笺偒銉艰拷鍔?,
+  disclaimer:'鈿狅笍 瑷堢畻绲愭灉銇垎鏋愬弬鑰冦伄銇裤€傘儥銉冦儓鍔╄█銇с伅銇傘倞銇俱仜銈撱€?
+},
+ko:{
+  backHome:'頇?,pageTitle:'馃搳 氚半嫻毳?瓿勳偘旮?,pageDesc:'氚半嫻毳?氤€頇? 旒堧Μ 瓿奠嫕, 彀澋 攵勳劃 氚?頇曤 瓿勳偘',
+  tabConverter:'氤€頇?,tabKelly:'旒堧Μ',tabArb:'彀澋',tabProb:'頇曤',
+  converterTitle:'氚半嫻毳?氤€頇橁赴',converterDesc:'鞛勳潣鞚?氚半嫻毳?順曥嫕鞚?鞛呺牓頃橂┐ 鞛愲彊 氤€頇?,
+  decimalOdds:'靻岇垬 氚半嫻毳?,fractionalOdds:'攵勳垬 氚半嫻毳?,americanOdds:'氙戈淡鞁?氚半嫻毳?,
+  impliedProb:'雮挫灛 頇曤',payout:'鈧?00 氩犿寘 靾橃澋',
+  kellyTitle:'旒堧Μ 瓿奠嫕 瓿勳偘旮?,kellyDesc:'斓滌爜 氩犿寘 牍勳湪 瓿勳偘',
+  yourProb:'鞀闺 於旍爼 (%)',kellyOdds:'靻岇垬 氚半嫻毳?,bankroll:'鞛愱笀 (鈧?',
+  kellyPct:'旒堧Μ %',kellyAmt:'鞝滌晥 旮堨暋',halfKelly:'頃橅攧 旒堧Μ (鞎堨爠)',
+  riskLow:'鉁?鞝侅爤頃?氩犿寘',riskMed:'鈿狅笍 頃橅攧 旒堧Μ 甓岇灔',riskHigh:'馃毇 瓿茧弰頃?氩犿寘!',
+  arbTitle:'彀澋 瓴€靸?,arbDesc:'攵侂鞚挫护 臧?彀澋 旮绊殞 韮愳',
+  bookmaker:'攵侂鞚挫护 1',bookmaker2:'攵侂鞚挫护 2',bookmaker3:'攵侂鞚挫护 3 (靹犿儩)',odds:'氚半嫻毳?,
+  calcArbBtn:'瓿勳偘',totalImplied:'齑?雮挫灛 頇曤',arbExists:'彀澋',arbProfitPct:'靾橃澋毳?,
+  arbYes:'鉁?鞛堨潓!',arbNo:'鉂?鞐嗢潓',
+  probTitle:'頇曤 瓿勳偘旮?,probDesc:'氚半嫻毳犾棎靹?鞁滌灔 頇曤 鞐偘',
+  homeOdds:'頇?鞀?氚半嫻毳?,drawOdds:'氍挫姽攵€ 氚半嫻毳?,awayOdds:'鞗愳爼 鞀?氚半嫻毳?,
+  homeProb:'頇?鞀?頇曤',drawProb:'氍挫姽攵€ 頇曤',awayProb:'鞗愳爼 鞀?頇曤',overround:'鞓る矂霛检毚霌?,
+  homeWin:'頇?,drawResult:'氍?,awayWin:'鞗愳爼',
+  multiBookmaker:'雼れ 攵侂鞚挫护 牍勱祼',addBk:'+ 攵侂鞚挫护 於旉皜',
+  disclaimer:'鈿狅笍 氇摖 瓿勳偘鞚€ 攵勳劃 彀戈碃鞖╈澊氅?氩犿寘 臁办柛鞚?鞎勲嫏雼堧嫟.'
+},
+ru:{
+  backHome:'袚谢邪胁薪邪褟',pageTitle:'馃搳 袣邪谢褜泻褍谢褟褌芯褉 泻芯褝褎褎懈褑懈械薪褌芯胁',pageDesc:'袣芯薪胁械褉褌邪褑懈褟 泻芯褝褎褎懈褑懈械薪褌芯胁, 泻褉懈褌械褉懈泄 袣械谢谢懈, 邪褉斜懈褌褉邪卸薪褘泄 邪薪邪谢懈蟹 懈 褉邪褋褔褢褌 胁械褉芯褟褌薪芯褋褌懈',
+  tabConverter:'袣芯薪胁械褉褌械褉',tabKelly:'袣械谢谢懈',tabArb:'袗褉斜懈褌褉邪卸',tabProb:'袙械褉芯褟褌薪芯褋褌褜',
+  converterTitle:'袣芯薪胁械褉褌械褉 泻芯褝褎褎懈褑懈械薪褌芯胁',converterDesc:'袙胁械写懈褌械 泻芯褝褎褎懈褑懈械薪褌 胁 谢褞斜芯屑 褎芯褉屑邪褌械 写谢褟 邪胁褌芯泻芯薪胁械褉褌邪褑懈懈',
+  decimalOdds:'袛械褋褟褌懈褔薪褘泄',fractionalOdds:'袛褉芯斜薪褘泄',americanOdds:'袗屑械褉懈泻邪薪褋泻懈泄',
+  impliedProb:'袩芯写褉邪蟹褍屑械胁邪械屑邪褟 胁械褉芯褟褌薪芯褋褌褜',payout:'袙芯蟹胁褉邪褌 $100',
+  kellyTitle:'袣邪谢褜泻褍谢褟褌芯褉 泻褉懈褌械褉懈褟 袣械谢谢懈',kellyDesc:'袪邪褋褋褔懈褌邪泄褌械 芯锌褌懈屑邪谢褜薪褘泄 褉邪蟹屑械褉 褋褌邪胁泻懈',
+  yourProb:'袙邪褕邪 芯褑械薪泻邪 (%)',kellyOdds:'袛械褋褟褌懈褔薪褘泄 泻褝褎',bankroll:'袘邪薪泻褉芯谢谢 ($)',
+  kellyPct:'袣械谢谢懈 %',kellyAmt:'袩褉械写谢邪谐邪械屑邪褟 褋褍屑屑邪',halfKelly:'袩芯谢褍-袣械谢谢懈 (斜械蟹芯锌邪褋薪械械)',
+  riskLow:'鉁?袪邪蟹褍屑薪邪褟 褋褌邪胁泻邪',riskMed:'鈿狅笍 袪邪褋褋屑芯褌褉懈褌械 锌芯谢褍-袣械谢谢懈',riskHigh:'馃毇 袩械褉械褋褌邪胁泻邪!',
+  arbTitle:'袩芯懈褋泻 邪褉斜懈褌褉邪卸邪',arbDesc:'袨斜薪邪褉褍卸褜褌械 邪褉斜懈褌褉邪卸薪褘械 胁芯蟹屑芯卸薪芯褋褌懈 屑械卸写褍 斜褍泻屑械泻械褉邪屑懈',
+  bookmaker:'袘褍泻屑械泻械褉 1',bookmaker2:'袘褍泻屑械泻械褉 2',bookmaker3:'袘褍泻屑械泻械褉 3 (芯锌褑懈芯薪邪谢褜薪芯)',odds:'袣芯褝褎褎懈褑懈械薪褌',
+  calcArbBtn:'袪邪褋褋褔懈褌邪褌褜',totalImplied:'小褍屑屑邪褉薪邪褟 胁械褉芯褟褌薪芯褋褌褜',arbExists:'袗褉斜懈褌褉邪卸',arbProfitPct:'袩褉懈斜褘谢褜薪芯褋褌褜',
+  arbYes:'鉁?袛邪!',arbNo:'鉂?袧械褌',
+  probTitle:'袣邪谢褜泻褍谢褟褌芯褉 胁械褉芯褟褌薪芯褋褌懈',probDesc:'袪邪褋褋褔懈褌邪泄褌械 褉褘薪芯褔薪褍褞 胁械褉芯褟褌薪芯褋褌褜 懈蟹 泻芯褝褎褎懈褑懈械薪褌芯胁',
+  homeOdds:'袣褝褎 褏芯蟹褟械胁',drawOdds:'袣褝褎 薪懈褔褜懈',awayOdds:'袣褝褎 谐芯褋褌械泄',
+  homeProb:'袙械褉芯褟褌薪芯褋褌褜 褏芯蟹褟械胁',drawProb:'袙械褉芯褟褌薪芯褋褌褜 薪懈褔褜懈',awayProb:'袙械褉芯褟褌薪芯褋褌褜 谐芯褋褌械泄',overround:'袦邪褉卸邪 斜褍泻屑械泻械褉邪',
+  homeWin:'啸芯蟹褟械胁邪',drawResult:'袧懈褔褜褟',awayWin:'袚芯褋褌懈',
+  multiBookmaker:'小褉邪胁薪械薪懈械 斜褍泻屑械泻械褉芯胁',addBk:'+ 袛芯斜邪胁懈褌褜 斜褍泻屑械泻械褉邪',
+  disclaimer:'鈿狅笍 袙褋械 褉邪褋褔褢褌褘 褌芯谢褜泻芯 写谢褟 褋锌褉邪胁泻懈. 袧械 褟胁谢褟褞褌褋褟 褋褌邪胁芯褔薪褘屑 褋芯胁械褌芯屑.'
+},
+fr:{
+  backHome:'Accueil',pageTitle:'馃搳 Calculateur de Cotes',pageDesc:'Conversion de cotes, crit猫re de Kelly, analyse d\'arbitrage et calcul de probabilit茅',
+  tabConverter:'Convertisseur',tabKelly:'Kelly',tabArb:'Arbitrage',tabProb:'Probabilit茅',
+  converterTitle:'Convertisseur de Cotes',converterDesc:'Entrez n\'importe quel format de cotes pour la conversion automatique',
+  decimalOdds:'Cotes D茅cimales',fractionalOdds:'Cotes Fractionnelles',americanOdds:'Cotes Am茅ricaines',
+  impliedProb:'Probabilit茅 Implicite',payout:'Retour 100鈧?,
+  kellyTitle:'Calculateur Kelly',kellyDesc:'Calculez la taille optimale du pari',
+  yourProb:'Votre estimation (%)',kellyOdds:'Cotes D茅cimales',bankroll:'Bankroll (鈧?',
+  kellyPct:'Kelly %',kellyAmt:'Montant Sugg茅r茅',halfKelly:'Demi-Kelly (Plus s没r)',
+  riskLow:'鉁?Pari raisonnable',riskMed:'鈿狅笍 Envisagez le demi-Kelly',riskHigh:'馃毇 Surpari!',
+  arbTitle:'Recherche d\'Arbitrage',arbDesc:'D茅tectez les opportunit茅s d\'arbitrage entre bookmakers',
+  bookmaker:'Bookmaker 1',bookmaker2:'Bookmaker 2',bookmaker3:'Bookmaker 3 (optionnel)',odds:'Cotes',
+  calcArbBtn:'Calculer',totalImplied:'Prob. Implicite Totale',arbExists:'Arbitrage',arbProfitPct:'Taux de Profit',
+  arbYes:'鉁?Oui!',arbNo:'鉂?Non',
+  probTitle:'Calculateur de Probabilit茅',probDesc:'Calculez la probabilit茅 de march茅 脿 partir des cotes',
+  homeOdds:'Cotes Domicile',drawOdds:'Cotes Nul',awayOdds:'Cotes Ext茅rieur',
+  homeProb:'Prob. Domicile',drawProb:'Prob. Nul',awayProb:'Prob. Ext茅rieur',overround:'Overround',
+  homeWin:'Domicile',drawResult:'Nul',awayWin:'Ext茅rieur',
+  multiBookmaker:'Comparaison Bookmakers',addBk:'+ Ajouter Bookmaker',
+  disclaimer:'鈿狅笍 Tous les calculs sont 脿 titre indicatif uniquement. Ne constituent pas un conseil de pari.'
+},
+de:{
+  backHome:'Startseite',pageTitle:'馃搳 Quoten-Rechner',pageDesc:'Quotenumrechnung, Kelly-Kriterium, Arbitrage-Analyse und Wahrscheinlichkeitsberechnung',
+  tabConverter:'Konverter',tabKelly:'Kelly',tabArb:'Arbitrage',tabProb:'Wahrscheinlichkeit',
+  converterTitle:'Quoten-Konverter',converterDesc:'Geben Sie ein beliebiges Quotenformat ein f眉r automatische Umrechnung',
+  decimalOdds:'Dezimalquoten',fractionalOdds:'Bruchquoten',americanOdds:'Amerikanische Quoten',
+  impliedProb:'Implizite Wahrscheinlichkeit',payout:'100鈧?Einsatz R眉ckzahlung',
+  kellyTitle:'Kelly-Kriterium Rechner',kellyDesc:'Berechnen Sie die optimale Wettgr枚脽e',
+  yourProb:'Ihre Sch盲tzung (%)',kellyOdds:'Dezimalquoten',bankroll:'Bankroll (鈧?',
+  kellyPct:'Kelly %',kellyAmt:'Vorgeschlagener Betrag',halfKelly:'Halb-Kelly (Sicherer)',
+  riskLow:'鉁?Vern眉nftiger Einsatz',riskMed:'鈿狅笍 Halb-Kelly erw盲gen',riskHigh:'馃毇 脺berwetten!',
+  arbTitle:'Arbitrage-Suche',arbDesc:'Arbitrage-Gelegenheiten zwischen Buchmachern erkennen',
+  bookmaker:'Buchmacher 1',bookmaker2:'Buchmacher 2',bookmaker3:'Buchmacher 3 (optional)',odds:'Quoten',
+  calcArbBtn:'Berechnen',totalImplied:'Ges. impl. Wahrscheinlichkeit',arbExists:'Arbitrage',arbProfitPct:'Gewinnrate',
+  arbYes:'鉁?Ja!',arbNo:'鉂?Nein',
+  probTitle:'Wahrscheinlichkeitsrechner',probDesc:'Marktwahrscheinlichkeit aus Quoten berechnen',
+  homeOdds:'Heim-Quoten',drawOdds:'Unentschieden-Quoten',awayOdds:'Ausw盲rts-Quoten',
+  homeProb:'Heim-Wahrsch.',drawProb:'Unentsch. Wahrsch.',awayProb:'Ausw盲rts-Wahrsch.',overround:'Overround',
+  homeWin:'Heim',drawResult:'Unent.',awayWin:'Ausw盲rts',
+  multiBookmaker:'Buchmacher-Vergleich',addBk:'+ Buchmacher hinzuf眉gen',
+  disclaimer:'鈿狅笍 Alle Berechnungen nur als Referenz. Keine Wettberatung.'
+}
+};
+
+let curLang=localStorage.getItem('sp_lang')||'zh';
+function t(key){return I18N[curLang]?.[key]||I18N.en[key]||key}
+function applyI18N(){document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');const v=t(k);if(v)el.textContent=v})}
+
+function toggleLang(){document.getElementById('langDD').classList.toggle('open')}
+function buildLangDD(){
+  const dd=document.getElementById('langDD');
+  dd.innerHTML=LANGS.map(l=>`<div class="lang-opt${l.code===curLang?' active':''}" onclick="setLang('${l.code}')">${l.flag} ${l.label}</div>`).join('');
+}
+function setLang(code){
+  curLang=code;localStorage.setItem('sp_lang',code);
+  document.getElementById('curLang').textContent=LANGS.find(l=>l.code===code)?.label||'涓枃';
+  buildLangDD();applyI18N();
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.lang-switch'))document.getElementById('langDD').classList.remove('open')});
+
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+id));
+}
+
+// === Odds Converter ===
+function fromDecimal(){
+  const d=parseFloat(document.getElementById('decOdds').value);
+  if(!d||d<1.01)return;
+  document.getElementById('fracOdds').value=(d>1)?((d-1).toFixed(2)+'/'+1):'';
+  document.getElementById('amerOdds').value=d>=2?'+'+Math.round((d-1)*100):Math.round(-100/(d-1));
+  const imp=(1/d*100).toFixed(2);
+  document.getElementById('convImplied').textContent=imp+'%';
+  document.getElementById('convPayout').textContent='楼'+(100*d).toFixed(2);
+}
+function fromFractional(){
+  const v=document.getElementById('fracOdds').value.trim();
+  const m=v.match(/^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
+  if(!m)return;
+  const d=parseFloat(m[1])/parseFloat(m[2])+1;
+  document.getElementById('decOdds').value=d.toFixed(2);
+  fromDecimal();
+}
+function fromAmerican(){
+  const a=parseInt(document.getElementById('amerOdds').value);
+  if(isNaN(a))return;
+  const d=a>0?(a/100+1):(100/Math.abs(a)+1);
+  document.getElementById('decOdds').value=d.toFixed(2);
+  fromDecimal();
+}
+
+// === Kelly Calculator ===
+function calcKelly(){
+  const p=parseFloat(document.getElementById('kellyProb').value)/100;
+  const o=parseFloat(document.getElementById('kellyOdds').value);
+  const b=parseFloat(document.getElementById('kellyBank').value);
+  if(!p||!o||o<1.01)return;
+  const k=((o*p-(1-p))/(o-1))*100;
+  document.getElementById('kellyResult').textContent=k>0?k.toFixed(2)+'%':'0% (涓嶅缓璁?';
+  if(b&&k>0){
+    document.getElementById('kellyAmt').textContent='楼'+(b*k/100).toFixed(2);
+    document.getElementById('halfKelly').textContent='楼'+(b*k/200).toFixed(2);
+  }else{
+    document.getElementById('kellyAmt').textContent='--';
+    document.getElementById('halfKelly').textContent='--';
+  }
+  const riskDiv=document.getElementById('kellyRisk');
+  if(k>25)riskDiv.innerHTML='<div class="risk-indicator risk-high">'+t('riskHigh')+'</div>';
+  else if(k>10)riskDiv.innerHTML='<div class="risk-indicator risk-med">'+t('riskMed')+'</div>';
+  else if(k>0)riskDiv.innerHTML='<div class="risk-indicator risk-low">'+t('riskLow')+'</div>';
+  else riskDiv.innerHTML='';
+}
+
+// === Arbitrage Calculator ===
+function calcArb(){
+  const o1=parseFloat(document.getElementById('bk1Odds').value);
+  const o2=parseFloat(document.getElementById('bk2Odds').value);
+  const o3v=parseFloat(document.getElementById('bk3Odds').value);
+  if(!o1||!o2||o1<1.01||o2<1.01)return;
+  let total=1/o1+1/o2;
+  if(o3v&&o3v>1.01)total+=1/o3v;
+  document.getElementById('arbTotal').textContent=(total*100).toFixed(2)+'%';
+  if(total<1){
+    document.getElementById('arbExists').textContent=t('arbYes');
+    document.getElementById('arbExists').style.color='var(--accent)';
+    const profit=((1-total)*100).toFixed(2);
+    document.getElementById('arbProfit').textContent=profit+'%';
+  }else{
+    document.getElementById('arbExists').textContent=t('arbNo');
+    document.getElementById('arbExists').style.color='var(--red)';
+    document.getElementById('arbProfit').textContent='--';
+  }
+}
+
+// === Probability Calculator ===
+function calcProb(){
+  const h=parseFloat(document.getElementById('probHome').value);
+  const d=parseFloat(document.getElementById('probDraw').value);
+  const a=parseFloat(document.getElementById('probAway').value);
+  if(!h||!d||!a||h<1.01||d<1.01||a<1.01)return;
+  const hp=(1/h*100),dp=(1/d*100),ap=(1/a*100);
+  const overround=hp+dp+ap-100;
+  document.getElementById('probHomeVal').textContent=hp.toFixed(2)+'%';
+  document.getElementById('probDrawVal').textContent=dp.toFixed(2)+'%';
+  document.getElementById('probAwayVal').textContent=ap.toFixed(2)+'%';
+  document.getElementById('probOverround').textContent=overround.toFixed(2)+'%';
+  document.getElementById('probOverround').style.color=overround>5?'var(--red)':'var(--accent)';
+  const total=hp+dp+ap;
+  document.getElementById('probBarHome').style.width=(hp/total*100)+'%';
+  document.getElementById('probBarDraw').style.width=(dp/total*100)+'%';
+  document.getElementById('probBarAway').style.width=(ap/total*100)+'%';
+}
+
+let bkCount=0;
+function addBookmaker(){
+  bkCount++;
+  const div=document.createElement('div');
+  div.className='arb-inputs';
+  div.style.marginBottom='12px';
+  div.innerHTML=`<div class="input-group"><label>Bookmaker ${bkCount+3}</label><input type="text" id="bk${bkCount+3}Name" value="Bookmaker ${bkCount+3}" /></div><div class="input-group"><label>Odds (1X2)</label><input type="text" id="bk${bkCount+3}Odds" placeholder="2.10/3.40/3.50" /></div>`;
+  document.getElementById('multiBkInputs').appendChild(div);
+}
+
+// Init
+buildLangDD();applyI18N();
+if(curLang!=='zh')document.getElementById('curLang').textContent=LANGS.find(l=>l.code===curLang)?.label||'涓枃';
+calcProb();calcArb();
+</script>
+</body>
+</html>
