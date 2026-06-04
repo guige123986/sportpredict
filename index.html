@@ -978,6 +978,89 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
   .quick-filters { gap: 6px; }
   .quick-filter-tag { padding: 5px 10px; font-size: 12px; }
 }
+
+/* ===== Analysis Card ===== */
+.analysis-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: all .2s;
+}
+.analysis-card:hover { border-color: var(--accent-current); }
+.analysis-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+.analysis-teams { font-size: 18px; font-weight: 700; }
+.analysis-meta { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.analysis-body { display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: start; }
+@media (max-width: 768px) { .analysis-body { grid-template-columns: 1fr; } }
+.analysis-ring-section { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.analysis-ring-label { font-size: 11px; color: var(--text-muted); text-align: center; }
+.analysis-details { display: flex; flex-direction: column; gap: 16px; }
+.analysis-section-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.analysis-prob-list { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+.analysis-prob-item { display: flex; align-items: center; gap: 8px; }
+.analysis-prob-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.analysis-finding-item { font-size: 13px; color: var(--text-secondary); padding: 3px 0; line-height: 1.5; }
+.analysis-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-muted); }
+.share-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 12px; border-radius: 6px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text-secondary); font-size: 11px;
+  cursor: pointer; transition: all .2s;
+}
+.share-btn:hover { border-color: var(--accent-current); color: var(--text-primary); }
+
+/* ===== Vote Section ===== */
+.vote-section { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+.vote-question { font-size: 13px; font-weight: 600; margin-bottom: 10px; color: var(--text-secondary); }
+.vote-options { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.vote-btn {
+  flex: 1; min-width: 80px; padding: 8px 12px; border-radius: 8px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text-primary); font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all .2s; text-align: center;
+}
+.vote-btn:hover { border-color: var(--accent-current); background: rgba(255,255,255,.04); }
+.vote-btn.voted { cursor: default; opacity: .85; }
+.vote-btn.voted-home { border-color: #2ea043; background: rgba(46,160,67,.1); }
+.vote-btn.voted-draw { border-color: #6e7681; background: rgba(110,118,129,.1); }
+.vote-btn.voted-away { border-color: #ef4444; background: rgba(239,68,68,.1); }
+.vote-results { display: flex; flex-direction: column; gap: 6px; }
+.vote-result-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.vote-result-label { width: 80px; color: var(--text-secondary); flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vote-result-bar-bg { flex: 1; height: 8px; background: var(--bg-primary); border-radius: 4px; overflow: hidden; }
+.vote-result-bar { height: 100%; border-radius: 4px; transition: width 0.6s ease; width: 0; }
+.vote-result-bar.home { background: #2ea043; }
+.vote-result-bar.draw { background: #6e7681; }
+.vote-result-bar.away { background: #ef4444; }
+.vote-result-pct { width: 36px; text-align: right; font-weight: 600; color: var(--text-primary); }
+.vote-result-count { width: 70px; text-align: right; color: var(--text-muted); font-size: 11px; }
+.vote-stats-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 20px; margin-bottom: 16px;
+}
+.vote-stats-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.vote-stats-grid { display: flex; gap: 24px; flex-wrap: wrap; }
+.vote-stat-item { display: flex; flex-direction: column; gap: 2px; }
+.vote-stat-value { font-size: 20px; font-weight: 700; color: var(--accent-current); }
+.vote-stat-label { font-size: 11px; color: var(--text-muted); }
+.vote-toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #2ea043; color: #fff;
+  padding: 10px 20px; border-radius: 8px;
+  font-size: 14px; font-weight: 600;
+  z-index: 3000; opacity: 0;
+  transition: all .3s; pointer-events: none;
+}
+.vote-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+@media (max-width:768px) {
+  .analysis-body { grid-template-columns: 1fr; }
+  .vote-options { flex-direction: column; }
+  .vote-result-count { width: 55px; }
+}
 </style>
 </head>
 <body>
@@ -1066,6 +1149,7 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
       <div class="page-tab" data-page="matches" data-i18n="tabMatches" onclick="switchPage('matches')">赛事列表</div>
       <div class="page-tab" data-page="combos" data-i18n="tabCombos" onclick="switchPage('combos')">数据洞察</div>
       <div class="page-tab" data-page="dashboard" data-i18n="tabDashboard" onclick="switchPage('dashboard')">数据看板</div>
+      <div class="page-tab" data-page="analysis" data-i18n="tabAnalysis" onclick="switchPage('analysis')">📊 赛事分析</div>
     </div>
     <div class="content-area" id="contentArea"></div>
     <!-- AD_SLOT: bottom_banner -->
@@ -2205,6 +2289,284 @@ const NEW_I18N = {
 
 Object.keys(NEW_I18N).forEach(lang => {
   if (I18N[lang]) Object.assign(I18N[lang], NEW_I18N[lang]);
+});
+
+// ===== Analysis & Vote I18N =====
+const ANALYSIS_I18N = {
+  zh: {
+    tabAnalysis: '📊 赛事分析',
+    marketProbAnalysis: '市场概率分析',
+    keyFindings: '关键发现',
+    winRate: '胜率',
+    drawProbability: '平局概率',
+    favored: '被看好',
+    highMarketAttention: '市场关注度高',
+    oddsDiscrepancyFound: '发现赔率差异机会！',
+    highest: '最高',
+    lowest: '最低',
+    difference: '差异',
+    lastUpdated: '最后更新',
+    share: '分享',
+    todayVoteStats: '今日投票统计',
+    totalVotes: '总投票数',
+    hottestVoteMatch: '最热门投票比赛',
+    basedOnOdds: '基于赔率反推',
+    bookmakersProviding: '家机构提供赔率',
+    marketTendency: '市场整体倾向',
+    whoWillWin: '你认为谁会获胜？',
+    votes: '票',
+    voted: '已投票',
+    voteSuccess: '投票成功！',
+    copiedToClipboard: '已复制到剪贴板',
+    noAnalysisData: '暂无分析数据，请先选择联赛加载数据',
+  },
+  en: {
+    tabAnalysis: '📊 Match Analysis',
+    marketProbAnalysis: 'Market Probability Analysis',
+    keyFindings: 'Key Findings',
+    winRate: 'Win Rate',
+    drawProbability: 'Draw Probability',
+    favored: 'favored',
+    highMarketAttention: 'High market attention',
+    oddsDiscrepancyFound: 'Odds discrepancy opportunity found!',
+    highest: 'Highest',
+    lowest: 'Lowest',
+    difference: 'Diff',
+    lastUpdated: 'Last updated',
+    share: 'Share',
+    todayVoteStats: "Today's Vote Stats",
+    totalVotes: 'Total votes',
+    hottestVoteMatch: 'Hottest vote match',
+    basedOnOdds: 'Based on odds',
+    bookmakersProviding: 'bookmakers providing odds',
+    marketTendency: 'Market tendency',
+    whoWillWin: 'Who will win?',
+    votes: 'votes',
+    voted: 'Voted',
+    voteSuccess: 'Vote successful!',
+    copiedToClipboard: 'Copied to clipboard',
+    noAnalysisData: 'No analysis data. Please select a league first.',
+  },
+  es: {
+    tabAnalysis: '📊 Análisis de Partidos',
+    marketProbAnalysis: 'Análisis de Probabilidad de Mercado',
+    keyFindings: 'Hallazgos Clave',
+    winRate: 'Tasa de victoria',
+    drawProbability: 'Probabilidad de empate',
+    favored: 'favorito',
+    highMarketAttention: 'Alta atención del mercado',
+    oddsDiscrepancyFound: '¡Oportunidad de discrepancia de cuotas encontrada!',
+    highest: 'Máximo',
+    lowest: 'Mínimo',
+    difference: 'Dif.',
+    lastUpdated: 'Última actualización',
+    share: 'Compartir',
+    todayVoteStats: 'Estadísticas de votos de hoy',
+    totalVotes: 'Total de votos',
+    hottestVoteMatch: 'Partido más votado',
+    basedOnOdds: 'Basado en cuotas',
+    bookmakersProviding: 'casas de apuestas ofrecen cuotas',
+    marketTendency: 'Tendencia del mercado',
+    whoWillWin: '¿Quién ganará?',
+    votes: 'votos',
+    voted: 'Votado',
+    voteSuccess: '¡Voto exitoso!',
+    copiedToClipboard: 'Copiado al portapapeles',
+    noAnalysisData: 'Sin datos de análisis. Seleccione una liga primero.',
+  },
+  pt: {
+    tabAnalysis: '📊 Análise de Jogos',
+    marketProbAnalysis: 'Análise de Probabilidade de Mercado',
+    keyFindings: 'Descobertas Chave',
+    winRate: 'Taxa de vitória',
+    drawProbability: 'Probabilidade de empate',
+    favored: 'favorito',
+    highMarketAttention: 'Alta atenção do mercado',
+    oddsDiscrepancyFound: 'Oportunidade de discrepância de odds encontrada!',
+    highest: 'Máximo',
+    lowest: 'Mínimo',
+    difference: 'Dif.',
+    lastUpdated: 'Última atualização',
+    share: 'Compartilhar',
+    todayVoteStats: 'Estatísticas de votos de hoje',
+    totalVotes: 'Total de votos',
+    hottestVoteMatch: 'Jogo mais votado',
+    basedOnOdds: 'Baseado em odds',
+    bookmakersProviding: 'casas oferecem odds',
+    marketTendency: 'Tendência do mercado',
+    whoWillWin: 'Quem vencerá?',
+    votes: 'votos',
+    voted: 'Votado',
+    voteSuccess: 'Voto registrado!',
+    copiedToClipboard: 'Copiado',
+    noAnalysisData: 'Sem dados de análise. Selecione uma liga primeiro.',
+  },
+  ar: {
+    tabAnalysis: '📊 تحليل المباريات',
+    marketProbAnalysis: 'تحليل احتمالية السوق',
+    keyFindings: 'النتائج الرئيسية',
+    winRate: 'نسبة الفوز',
+    drawProbability: 'احتمالية التعادل',
+    favored: 'مرشح',
+    highMarketAttention: 'اهتمام سوقي عالي',
+    oddsDiscrepancyFound: 'تم العثور على فرصة تباين الاحتمالات!',
+    highest: 'الأعلى',
+    lowest: 'الأدنى',
+    difference: 'الفرق',
+    lastUpdated: 'آخر تحديث',
+    share: 'مشاركة',
+    todayVoteStats: 'إحصائيات التصويت اليوم',
+    totalVotes: 'إجمالي الأصوات',
+    hottestVoteMatch: 'أكثر مباراة تصويتاً',
+    basedOnOdds: 'بناءً على الاحتمالات',
+    bookmakersProviding: 'وكلاء يقدمون احتمالات',
+    marketTendency: 'اتجاه السوق',
+    whoWillWin: 'من سيفوز؟',
+    votes: 'أصوات',
+    voted: 'تم التصويت',
+    voteSuccess: 'تم التصويت بنجاح!',
+    copiedToClipboard: 'تم النسخ',
+    noAnalysisData: 'لا بيانات تحليل. اختر دورياً أولاً.',
+  },
+  ja: {
+    tabAnalysis: '📊 試合分析',
+    marketProbAnalysis: '市場確率分析',
+    keyFindings: '主な発見',
+    winRate: '勝率',
+    drawProbability: '引き分け確率',
+    favored: '有利',
+    highMarketAttention: '市場の注目度高',
+    oddsDiscrepancyFound: 'オッズ差異の機会を発見！',
+    highest: '最高',
+    lowest: '最低',
+    difference: '差異',
+    lastUpdated: '最終更新',
+    share: '共有',
+    todayVoteStats: '本日の投票統計',
+    totalVotes: '総投票数',
+    hottestVoteMatch: '最も投票された試合',
+    basedOnOdds: 'オッズに基づく',
+    bookmakersProviding: '社がオッズ提供',
+    marketTendency: '市場の傾向',
+    whoWillWin: 'どちらが勝ちますか？',
+    votes: '票',
+    voted: '投票済み',
+    voteSuccess: '投票しました！',
+    copiedToClipboard: 'コピーしました',
+    noAnalysisData: '分析データなし。リーグを選択してください。',
+  },
+  ko: {
+    tabAnalysis: '📊 경기 분석',
+    marketProbAnalysis: '시장 확률 분석',
+    keyFindings: '주요 발견',
+    winRate: '승률',
+    drawProbability: '무승부 확률',
+    favored: '유리',
+    highMarketAttention: '시장 관심도 높음',
+    oddsDiscrepancyFound: '배당률 차이 기회 발견!',
+    highest: '최고',
+    lowest: '최저',
+    difference: '차이',
+    lastUpdated: '마지막 업데이트',
+    share: '공유',
+    todayVoteStats: '오늘 투표 통계',
+    totalVotes: '총 투표 수',
+    hottestVoteMatch: '가장 인기 있는 투표 경기',
+    basedOnOdds: '배당률 기반',
+    bookmakersProviding: '개 업체 배당률 제공',
+    marketTendency: '시장 경향',
+    whoWillWin: '누가 이길 것 같나요?',
+    votes: '표',
+    voted: '투표 완료',
+    voteSuccess: '투표 성공!',
+    copiedToClipboard: '클립보드에 복사됨',
+    noAnalysisData: '분석 데이터 없음. 리그를 먼저 선택하세요.',
+  },
+  ru: {
+    tabAnalysis: '📊 Анализ матчей',
+    marketProbAnalysis: 'Анализ рыночной вероятности',
+    keyFindings: 'Ключевые выводы',
+    winRate: 'Вероятность победы',
+    drawProbability: 'Вероятность ничьей',
+    favored: 'фаворит',
+    highMarketAttention: 'Высокий интерес рынка',
+    oddsDiscrepancyFound: 'Найдена возможность расхождения коэффициентов!',
+    highest: 'Макс.',
+    lowest: 'Мин.',
+    difference: 'Разница',
+    lastUpdated: 'Последнее обновление',
+    share: 'Поделиться',
+    todayVoteStats: 'Статистика голосований за сегодня',
+    totalVotes: 'Всего голосов',
+    hottestVoteMatch: 'Самый популярный матч',
+    basedOnOdds: 'На основе коэффициентов',
+    bookmakersProviding: 'букмекеров предлагают коэффициенты',
+    marketTendency: 'Тенденция рынка',
+    whoWillWin: 'Кто победит?',
+    votes: 'голосов',
+    voted: 'Проголосовали',
+    voteSuccess: 'Голос принят!',
+    copiedToClipboard: 'Скопировано',
+    noAnalysisData: 'Нет данных для анализа. Сначала выберите лигу.',
+  },
+  fr: {
+    tabAnalysis: '📊 Analyse des matchs',
+    marketProbAnalysis: 'Analyse de probabilité du marché',
+    keyFindings: 'Constats clés',
+    winRate: 'Taux de victoire',
+    drawProbability: 'Probabilité de nul',
+    favored: 'favori',
+    highMarketAttention: 'Forte attention du marché',
+    oddsDiscrepancyFound: "Opportunité d'écart de cotes détectée !",
+    highest: 'Max.',
+    lowest: 'Min.',
+    difference: 'Écart',
+    lastUpdated: 'Dernière mise à jour',
+    share: 'Partager',
+    todayVoteStats: 'Statistiques de vote du jour',
+    totalVotes: 'Total des votes',
+    hottestVoteMatch: 'Match le plus voté',
+    basedOnOdds: 'Basé sur les cotes',
+    bookmakersProviding: 'bookmakers proposent des cotes',
+    marketTendency: 'Tendance du marché',
+    whoWillWin: 'Qui va gagner ?',
+    votes: 'votes',
+    voted: 'A voté',
+    voteSuccess: 'Vote enregistré !',
+    copiedToClipboard: 'Copié',
+    noAnalysisData: "Pas de données d'analyse. Sélectionnez d'abord une ligue.",
+  },
+  de: {
+    tabAnalysis: '📊 Spielanalyse',
+    marketProbAnalysis: 'Marktwahrscheinlichkeitsanalyse',
+    keyFindings: 'Wesentliche Erkenntnisse',
+    winRate: 'Gewinnquote',
+    drawProbability: 'Unentschieden-Wahrscheinlichkeit',
+    favored: 'bevorzugt',
+    highMarketAttention: 'Hohe Marktaufmerksamkeit',
+    oddsDiscrepancyFound: 'Quotendifferenz-Gelegenheit entdeckt!',
+    highest: 'Höchst',
+    lowest: 'Niedrigst',
+    difference: 'Differenz',
+    lastUpdated: 'Zuletzt aktualisiert',
+    share: 'Teilen',
+    todayVoteStats: 'Heutige Abstimmungsstatistik',
+    totalVotes: 'Gesamtstimmen',
+    hottestVoteMatch: 'Beliebteste Abstimmung',
+    basedOnOdds: 'Basierend auf Quoten',
+    bookmakersProviding: 'Buchmacher bieten Quoten',
+    marketTendency: 'Markttendenz',
+    whoWillWin: 'Wer wird gewinnen?',
+    votes: 'Stimmen',
+    voted: 'Abgestimmt',
+    voteSuccess: 'Stimme abgegeben!',
+    copiedToClipboard: 'Kopiert',
+    noAnalysisData: 'Keine Analysedaten. Bitte zuerst eine Liga auswählen.',
+  },
+};
+
+Object.keys(ANALYSIS_I18N).forEach(lang => {
+  if (I18N[lang]) Object.assign(I18N[lang], ANALYSIS_I18N[lang]);
 });
 
 // ===== League Name Translations =====
@@ -3762,6 +4124,9 @@ function renderFavorites() {
     html += renderMatchCard(m, prob, item.sportInfo, true);
   });
 
+  // Animate vote bars after render
+  setTimeout(() => animateVoteBars(), 100);
+
   return html;
 }
 
@@ -3858,6 +4223,7 @@ function renderMatchCard(m, prob, sportInfo, showLeagueName) {
           <button class="watch-btn" onclick="openWatchModal('${sportInfo.group}')">${t('watchLive')}</button>
         </div>
       </div>
+      ${renderVoteSection(m.id, m.home_team, m.away_team, hasDraw)}
       <div class="odds-table-wrap" id="odds_${m.id}">
         ${renderOddsTable(m, prob)}
       </div>
@@ -3922,6 +4288,9 @@ renderContent = function() {
     area.innerHTML = renderCombos();
   } else if (currentPage === 'dashboard') {
     area.innerHTML = renderDashboard();
+  } else if (currentPage === 'analysis') {
+    area.innerHTML = renderAnalysis();
+    setTimeout(() => animateVoteBars(), 100);
   }
 };
 
@@ -3974,6 +4343,9 @@ renderMatches = function() {
     if (!passesQuickFilter(m, prob)) return;
     html += renderMatchCard(m, prob, sport, false);
   });
+
+  // Animate vote bars after render
+  setTimeout(() => animateVoteBars(), 100);
 
   return html;
 };
@@ -4075,6 +4447,9 @@ renderAllEvents = function() {
     html += `</div>`;
   });
 
+  // Animate vote bars after render
+  setTimeout(() => animateVoteBars(), 100);
+
   return html;
 };
 
@@ -4085,6 +4460,390 @@ refreshOdds = async function() {
   saveCurrentOddsAsPrevious();
   return _origRefreshOdds.call(this);
 };
+
+// ===== V4: Analysis & Voting Features =====
+
+// --- Seeded Random ---
+function seededRandom(seed) {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) {
+    h = ((h << 5) - h + seed.charCodeAt(i)) | 0;
+  }
+  h = Math.abs(h);
+  return function() {
+    h = (h * 16807 + 0) % 2147483647;
+    return (h - 1) / 2147483646;
+  };
+}
+
+// --- Vote Data ---
+function getVoteData(matchId, homeTeam, awayTeam, hasDraw) {
+  const rng = seededRandom(matchId);
+  const baseHome = Math.floor(500 + rng() * 1500);
+  const baseDraw = hasDraw ? Math.floor(500 + rng() * 1500) : 0;
+  const baseAway = Math.floor(500 + rng() * 1500);
+
+  // Load user adjustments from localStorage
+  const adjKey = 'vote_adj_' + matchId;
+  let adj = { home: 0, draw: 0, away: 0 };
+  try {
+    const stored = localStorage.getItem(adjKey);
+    if (stored) adj = JSON.parse(stored);
+  } catch(e) {}
+
+  return {
+    home: baseHome + adj.home,
+    draw: baseDraw + adj.draw,
+    away: baseAway + adj.away,
+  };
+}
+
+function getUserVote(matchId) {
+  return localStorage.getItem('vote_' + matchId);
+}
+
+function castVote(matchId, choice) {
+  const existing = getUserVote(matchId);
+  if (existing) return; // Already voted
+
+  localStorage.setItem('vote_' + matchId, choice);
+
+  // Update adjustment
+  const adjKey = 'vote_adj_' + matchId;
+  let adj = { home: 0, draw: 0, away: 0 };
+  try {
+    const stored = localStorage.getItem(adjKey);
+    if (stored) adj = JSON.parse(stored);
+  } catch(e) {}
+  adj[choice] = (adj[choice] || 0) + 1;
+  localStorage.setItem(adjKey, JSON.stringify(adj));
+
+  // Update today's vote stats
+  const statsKey = 'vote_stats_' + new Date().toISOString().slice(0, 10);
+  let stats = { totalVotes: 0, matchVotes: {} };
+  try {
+    const stored = localStorage.getItem(statsKey);
+    if (stored) stats = JSON.parse(stored);
+  } catch(e) {}
+  stats.totalVotes++;
+  stats.matchVotes[matchId] = (stats.matchVotes[matchId] || 0) + 1;
+  localStorage.setItem(statsKey, JSON.stringify(stats));
+
+  // Re-render the vote section for this match
+  const voteEl = document.getElementById('vote_' + matchId);
+  if (voteEl) {
+    // Find match data
+    let match = null, prob = null;
+    Object.keys(oddsCache).forEach(sk => {
+      oddsCache[sk].data.forEach(m => {
+        if (m.id === matchId) { match = m; prob = calcImpliedProbabilities(m); }
+      });
+    });
+    if (match && prob) {
+      voteEl.outerHTML = renderVoteSection(matchId, match.home_team, match.away_team, prob.hasDraw);
+      // Animate the bars
+      setTimeout(() => animateVoteBars('vote_' + matchId), 50);
+    }
+  }
+
+  showVoteToast();
+}
+
+function showVoteToast() {
+  let toast = document.getElementById('voteToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'voteToast';
+    toast.className = 'vote-toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = t('voteSuccess');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+function animateVoteBars(containerId) {
+  const container = containerId ? document.getElementById(containerId) : document;
+  if (!container) return;
+  const bars = container.querySelectorAll('.vote-result-bar[data-target]');
+  bars.forEach(bar => {
+    const target = bar.dataset.target;
+    requestAnimationFrame(() => {
+      bar.style.width = target + '%';
+    });
+  });
+}
+
+// --- Vote Section Renderer ---
+function renderVoteSection(matchId, homeTeam, awayTeam, hasDraw) {
+  const userVote = getUserVote(matchId);
+  const data = getVoteData(matchId, homeTeam, awayTeam, hasDraw);
+  const total = data.home + data.draw + data.away;
+  const homePct = total ? Math.round(data.home / total * 100) : 0;
+  const drawPct = total ? Math.round(data.draw / total * 100) : 0;
+  const awayPct = total ? Math.max(0, 100 - homePct - drawPct) : 0;
+
+  let html = `<div class="vote-section" id="vote_${matchId}">`;
+  html += `<div class="vote-question">${t('whoWillWin')}</div>`;
+
+  if (!userVote) {
+    html += `<div class="vote-options">`;
+    html += `<button class="vote-btn" onclick="castVote('${matchId}','home')">${homeTeam} 🏠</button>`;
+    if (hasDraw) html += `<button class="vote-btn" onclick="castVote('${matchId}','draw')">${t('draw')} ⚖️</button>`;
+    html += `<button class="vote-btn" onclick="castVote('${matchId}','away')">${awayTeam} ✈️</button>`;
+    html += `</div>`;
+  } else {
+    html += `<div class="vote-options">`;
+    html += `<button class="vote-btn voted${userVote==='home'?' voted-home':''}">${homeTeam} 🏠</button>`;
+    if (hasDraw) html += `<button class="vote-btn voted${userVote==='draw'?' voted-draw':''}">${t('draw')} ⚖️</button>`;
+    html += `<button class="vote-btn voted${userVote==='away'?' voted-away':''}">${awayTeam} ✈️</button>`;
+    html += `</div>`;
+  }
+
+  html += `<div class="vote-results">`;
+  html += `<div class="vote-result-row">
+    <span class="vote-result-label">${homeTeam}</span>
+    <div class="vote-result-bar-bg"><div class="vote-result-bar home" data-target="${homePct}" style="width:0%"></div></div>
+    <span class="vote-result-pct">${homePct}%</span>
+    <span class="vote-result-count">(${data.home.toLocaleString()} ${t('votes')})</span>
+  </div>`;
+  if (hasDraw) {
+    html += `<div class="vote-result-row">
+      <span class="vote-result-label">${t('draw')}</span>
+      <div class="vote-result-bar-bg"><div class="vote-result-bar draw" data-target="${drawPct}" style="width:0%"></div></div>
+      <span class="vote-result-pct">${drawPct}%</span>
+      <span class="vote-result-count">(${data.draw.toLocaleString()} ${t('votes')})</span>
+    </div>`;
+  }
+  html += `<div class="vote-result-row">
+    <span class="vote-result-label">${awayTeam}</span>
+    <div class="vote-result-bar-bg"><div class="vote-result-bar away" data-target="${awayPct}" style="width:0%"></div></div>
+    <span class="vote-result-pct">${awayPct}%</span>
+    <span class="vote-result-count">(${data.away.toLocaleString()} ${t('votes')})</span>
+  </div>`;
+  html += `</div>`;
+
+  if (userVote) {
+    html += `<div style="font-size:11px;color:var(--text-muted);margin-top:6px">${t('voted')}</div>`;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+// --- Vote Stats ---
+function renderVoteStats() {
+  const statsKey = 'vote_stats_' + new Date().toISOString().slice(0, 10);
+  let stats = { totalVotes: 0, matchVotes: {} };
+  try {
+    const stored = localStorage.getItem(statsKey);
+    if (stored) stats = JSON.parse(stored);
+  } catch(e) {}
+
+  if (stats.totalVotes === 0) return '';
+
+  // Find hottest match
+  let hottestId = '', hottestCount = 0;
+  Object.entries(stats.matchVotes).forEach(([id, count]) => {
+    if (count > hottestCount) { hottestId = id; hottestCount = count; }
+  });
+
+  let hottestName = '';
+  if (hottestId) {
+    Object.keys(oddsCache).forEach(sk => {
+      oddsCache[sk].data.forEach(m => {
+        if (m.id === hottestId) hottestName = m.home_team + ' vs ' + m.away_team;
+      });
+    });
+  }
+
+  let html = `<div class="vote-stats-card">
+    <div class="vote-stats-title">📊 ${t('todayVoteStats')}</div>
+    <div class="vote-stats-grid">
+      <div class="vote-stat-item">
+        <div class="vote-stat-value">${stats.totalVotes}</div>
+        <div class="vote-stat-label">${t('totalVotes')}</div>
+      </div>`;
+  if (hottestName) {
+    html += `<div class="vote-stat-item">
+        <div class="vote-stat-value" style="font-size:14px">${hottestName}</div>
+        <div class="vote-stat-label">${t('hottestVoteMatch')} (${hottestCount} ${t('votes')})</div>
+      </div>`;
+  }
+  html += `</div></div>`;
+  return html;
+}
+
+// --- Share Analysis ---
+function shareAnalysis(matchId) {
+  const url = window.location.origin + window.location.pathname + '?match=' + matchId;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => showCopyToast());
+  } else {
+    // Fallback
+    const input = document.createElement('input');
+    input.value = url;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    showCopyToast();
+  }
+}
+
+function showCopyToast() {
+  let toast = document.getElementById('voteToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'voteToast';
+    toast.className = 'vote-toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = t('copiedToClipboard');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+// --- Analysis Page Renderer ---
+function renderAnalysis() {
+  let matches = [];
+
+  if (currentSportKey === '__allevents__' || currentSportKey === '__favorites__') {
+    Object.keys(oddsCache).forEach(sk => {
+      const sInfo = sportsList.find(s => s.key === sk);
+      if (!sInfo) return;
+      oddsCache[sk].data.forEach(m => {
+        const prob = calcImpliedProbabilities(m);
+        if (prob) matches.push({ match: m, prob, sportInfo: sInfo });
+      });
+    });
+  } else if (currentSportKey) {
+    const data = getCurrentOdds();
+    const info = getCurrentSportInfo();
+    if (info) {
+      data.forEach(m => {
+        const prob = calcImpliedProbabilities(m);
+        if (prob) matches.push({ match: m, prob, sportInfo: info.sport });
+      });
+    }
+  }
+
+  if (!matches.length) {
+    return `<div class="empty-sport"><div class="empty-icon">📊</div><div>${t('noAnalysisData')}</div></div>`;
+  }
+
+  let html = renderVoteStats();
+
+  matches.forEach(item => {
+    html += renderAnalysisCard(item.match, item.prob, item.sportInfo);
+  });
+
+  return html;
+}
+
+function renderAnalysisCard(m, prob, sportInfo) {
+  const groupInfo = getGroupInfo(sportInfo.group);
+  const timeStr = formatTime(m.commence_time);
+  const leagueName = getLeagueLocalizedName(m.sport_title) || m.sport_title;
+  const hasDraw = prob.hasDraw;
+
+  // Determine favored team
+  const favored = prob.homeProb >= prob.awayProb ? m.home_team : m.away_team;
+  const maxProb = Math.max(prob.homeProb, prob.awayProb);
+
+  // Key findings
+  const numBookmakers = m.bookmakers ? m.bookmakers.length : 0;
+
+  // Find highest and lowest home odds
+  let highestHome = { odds: 0, bookmaker: '' };
+  let lowestHome = { odds: Infinity, bookmaker: '' };
+  if (prob.allOdds) {
+    prob.allOdds.forEach(o => {
+      if (o.homeOdds > highestHome.odds) highestHome = { odds: o.homeOdds, bookmaker: o.bookmaker };
+      if (o.homeOdds < lowestHome.odds) lowestHome = { odds: o.homeOdds, bookmaker: o.bookmaker };
+    });
+  }
+  const homeOddsDiff = lowestHome.odds > 0 && lowestHome.odds !== Infinity
+    ? ((highestHome.odds - lowestHome.odds) / lowestHome.odds * 100).toFixed(1) : 0;
+
+  // SVG concentric rings for probability visualization
+  const outerR = 52, outerC = 2 * Math.PI * outerR;
+  const midR = 42, midC = 2 * Math.PI * midR;
+  const innerR = 32, innerC = 2 * Math.PI * innerR;
+
+  const ringHtml = `<svg width="120" height="120" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="${outerR}" stroke="rgba(46,160,67,0.2)" stroke-width="8" fill="none"/>
+    <circle cx="60" cy="60" r="${outerR}" stroke="#2ea043" stroke-width="8" fill="none"
+            stroke-dasharray="${outerC.toFixed(2)}" stroke-dashoffset="${(outerC - outerC * prob.homeProb / 100).toFixed(2)}"
+            transform="rotate(-90 60 60)" stroke-linecap="round"/>
+    ${hasDraw ? `<circle cx="60" cy="60" r="${midR}" stroke="rgba(110,118,129,0.2)" stroke-width="8" fill="none"/>
+    <circle cx="60" cy="60" r="${midR}" stroke="#6e7681" stroke-width="8" fill="none"
+            stroke-dasharray="${midC.toFixed(2)}" stroke-dashoffset="${(midC - midC * prob.drawProb / 100).toFixed(2)}"
+            transform="rotate(-90 60 60)" stroke-linecap="round"/>` : ''}
+    <circle cx="60" cy="60" r="${innerR}" stroke="rgba(239,68,68,0.2)" stroke-width="8" fill="none"/>
+    <circle cx="60" cy="60" r="${innerR}" stroke="#ef4444" stroke-width="8" fill="none"
+            stroke-dasharray="${innerC.toFixed(2)}" stroke-dashoffset="${(innerC - innerC * prob.awayProb / 100).toFixed(2)}"
+            transform="rotate(-90 60 60)" stroke-linecap="round"/>
+    <text x="60" y="54" text-anchor="middle" fill="var(--text-primary)" font-size="12" font-weight="700">${maxProb}%</text>
+    <text x="60" y="68" text-anchor="middle" fill="var(--text-muted)" font-size="9">${favored.substring(0, 12)}</text>
+  </svg>`;
+
+  let html = `<div class="analysis-card">
+    <div class="analysis-header">
+      <div>
+        <div class="analysis-teams">🏆 ${m.home_team} vs ${m.away_team}</div>
+        <div class="analysis-meta">📅 ${timeStr} | ${groupInfo.emoji} ${leagueName}</div>
+      </div>
+    </div>
+    <div class="analysis-body">
+      <div class="analysis-ring-section">
+        ${ringHtml}
+        <div class="analysis-ring-label">
+          <span style="color:#2ea043">●</span> ${t('homeTeam')}
+          ${hasDraw ? ` <span style="color:#6e7681">●</span> ${t('draw')}` : ''}
+          <span style="color:#ef4444">●</span> ${t('awayTeam')}
+        </div>
+      </div>
+      <div class="analysis-details">
+        <div>
+          <div class="analysis-section-title">📊 ${t('marketProbAnalysis')}</div>
+          <div class="analysis-prob-list">
+            <div class="analysis-prob-item">
+              <span class="analysis-prob-dot" style="background:#2ea043"></span>
+              <span>${m.home_team} ${t('winRate')}：${prob.homeProb}%（${t('basedOnOdds')}）</span>
+            </div>
+            ${hasDraw ? `<div class="analysis-prob-item">
+              <span class="analysis-prob-dot" style="background:#6e7681"></span>
+              <span>${t('drawProbability')}：${prob.drawProb}%</span>
+            </div>` : ''}
+            <div class="analysis-prob-item">
+              <span class="analysis-prob-dot" style="background:#ef4444"></span>
+              <span>${m.away_team} ${t('winRate')}：${prob.awayProb}%</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="analysis-section-title">💡 ${t('keyFindings')}</div>
+          <div class="analysis-finding-item">• ${numBookmakers} ${t('bookmakersProviding')}，${t('highMarketAttention')}</div>
+          ${lowestHome.odds !== Infinity ? `<div class="analysis-finding-item">• ${t('highest')}${t('homeTeam')}${highestHome.odds.toFixed(2)}（${highestHome.bookmaker}），${t('lowest')}${lowestHome.odds.toFixed(2)}（${lowestHome.bookmaker}），${t('difference')}${homeOddsDiff}%</div>` : ''}
+          ${prob.isArb ? `<div class="analysis-finding-item" style="color:#2ea043">• ${t('oddsDiscrepancyFound')} ${t('arbProfit')}${prob.arbProfit}%</div>` : ''}
+          <div class="analysis-finding-item">• ${t('marketTendency')}：${favored} ${t('favored')}</div>
+        </div>
+        <div>
+          <div class="analysis-section-title">📈 ${t('oddsCompare')}</div>
+          ${renderOddsTable(m, prob)}
+        </div>
+      </div>
+    </div>
+    ${renderVoteSection(m.id, m.home_team, m.away_team, hasDraw)}
+    <div class="analysis-footer">
+      <span>${t('lastUpdated')}：${new Date().toLocaleString()}</span>
+      <button class="share-btn" onclick="shareAnalysis('${m.id}')">🔗 ${t('share')}</button>
+    </div>
+  </div>`;
+
+  return html;
+}
 
 // Init theme + favorites + odds change on load
 storePreviousOdds();
