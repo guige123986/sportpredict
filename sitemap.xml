@@ -172,6 +172,38 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Guides -->
+  <url>
+    <loc>https://10110289.xyz/guides/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://10110289.xyz/guides/kelly-criterion.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://10110289.xyz/guides/odds-conversion.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://10110289.xyz/guides/arbitrage-betting.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://10110289.xyz/guides/understanding-overround.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://10110289.xyz/guides/world-cup-2026.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Language variants -->
   <url>
     <loc>https://10110289.xyz/?lang=zh</loc>

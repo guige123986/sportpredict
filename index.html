@@ -1182,6 +1182,13 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
 .explore-link-item:hover{border-color:var(--accent-current)}
 .explore-link-item .link-desc{font-size:11px;color:var(--text-muted);font-weight:400;margin-top:2px}
 .last-updated-bar{font-size:12px;color:var(--text-muted);text-align:center;padding:8px}
+.guides-section{margin:20px 0;padding:16px}
+.guides-section h2{font-size:18px;margin-bottom:12px}
+.guides-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.guide-card{background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:16px;text-decoration:none;color:var(--text-primary);transition:border-color .2s}
+.guide-card:hover{border-color:var(--accent-current)}
+.guide-card h3{font-size:14px;margin-bottom:4px}
+.guide-card p{font-size:12px;color:var(--text-secondary)}
 </style>
 </head>
 <body>
@@ -1273,7 +1280,34 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
         <span class="emoji">🎾</span>
         <span class="nav-label">Tennis</span>
       </a>
-    </div>    <div class="sidebar-tools-section" style="padding:8px 0;border-top:1px solid var(--border);">
+    </div>    <div style="padding:8px 0;border-top:1px solid var(--border);">
+      <div class="nav-group-label">📖 <span data-i18n="guidesGroup">Guides</span></div>
+      <a href="guides/index.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📖</span>
+        <span class="nav-label" data-i18n="navGuides">Strategy Guides</span>
+      </a>
+      <a href="guides/kelly-criterion.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📊</span>
+        <span class="nav-label">Kelly Criterion</span>
+      </a>
+      <a href="guides/odds-conversion.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📐</span>
+        <span class="nav-label">Odds Conversion</span>
+      </a>
+      <a href="guides/arbitrage-betting.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">💰</span>
+        <span class="nav-label">Arbitrage Guide</span>
+      </a>
+      <a href="guides/understanding-overround.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📈</span>
+        <span class="nav-label">Bookmaker Margin</span>
+      </a>
+      <a href="guides/world-cup-2026.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">🏆</span>
+        <span class="nav-label">World Cup 2026</span>
+      </a>
+    </div>
+    <div class="sidebar-tools-section" style="padding:8px 0;border-top:1px solid var(--border);">
       <div class="nav-group-label">🔧 <span data-i18n="toolsGroup">工具</span></div>
       <a href="calculator.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
         <span class="emoji">📊</span>
@@ -1367,6 +1401,32 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
       <a href="javascript:shareReddit()" class="share-btn reddit">Reddit</a>
       <a href="javascript:shareWhatsApp()" class="share-btn whatsapp">WA</a>
       <a href="javascript:copyLink()" class="share-btn copy">📋</a>
+    </div>
+
+    <div class="guides-section">
+      <h2>Guides & Strategy</h2>
+      <div class="guides-grid">
+        <a href="/guides/kelly-criterion.html" class="guide-card">
+          <h3>📊 Kelly Criterion Guide</h3>
+          <p>Master optimal bet sizing with the Kelly formula</p>
+        </a>
+        <a href="/guides/odds-conversion.html" class="guide-card">
+          <h3>📐 Odds Conversion Guide</h3>
+          <p>Decimal, fractional & American odds explained</p>
+        </a>
+        <a href="/guides/arbitrage-betting.html" class="guide-card">
+          <h3>💰 Arbitrage Betting Guide</h3>
+          <p>Find sure bets using odds discrepancies</p>
+        </a>
+        <a href="/guides/understanding-overround.html" class="guide-card">
+          <h3>📈 Bookmaker Margin Guide</h3>
+          <p>Understand overround, vig, and juice</p>
+        </a>
+        <a href="/guides/world-cup-2026.html" class="guide-card">
+          <h3>🏆 World Cup 2026 Guide</h3>
+          <p>Odds, predictions, and analysis for FIFA 2026</p>
+        </a>
+      </div>
     </div>
 
     <div class="explore-section">
