@@ -1279,9 +1279,17 @@ const I18N = {
     chNHLtv: 'NHL.tv',
     chNHLtvDesc: 'NHL官方流媒体订阅服务',
     chYoutubeSports: 'YouTube Sports',
-    chYoutubeSportsDesc: 'YouTube体育频道',
+    chYoutubeSportsDesc: 'YouTube Sports - Free Live',
     chDAZN: 'DAZN',
-    chDAZNDesc: '全球体育流媒体平台',
+    chDAZNDesc: 'Global streaming platform',
+    chBBCSport: 'BBC Sport',
+    chBBCSportDesc: 'BBC free sports (UK)',
+    chPlutoTV: 'Pluto TV',
+    chPlutoTVDesc: 'Free sports channels',
+    chTwitch: 'Twitch',
+    chTwitchDesc: 'Free esports live streams',
+    chYoutubeGamingDesc: 'YouTube Gaming - Free',
+    chYoutubeNewsDesc: 'YouTube News - Free',
     // Disclaimer
     disclaimer: '⚠️ 免责声明：本平台所有分析数据均基于市场赔率计算，仅供参考，不构成任何建议。',
     disclaimer2: '体育赛事结果受多种因素影响，历史数据不代表未来表现。请理性参考。',
@@ -1408,6 +1416,14 @@ const I18N = {
     chYoutubeSportsDesc: 'YouTube Sports channel',
     chDAZN: 'DAZN',
     chDAZNDesc: 'Global sports streaming platform',
+    chBBCSport: 'BBC Sport',
+    chBBCSportDesc: 'Free UK sports coverage',
+    chPlutoTV: 'Pluto TV',
+    chPlutoTVDesc: 'Free live TV channels',
+    chTwitch: 'Twitch',
+    chTwitchDesc: 'Free esports live streams',
+    chYoutubeGamingDesc: 'YouTube Gaming - Free',
+    chYoutubeNewsDesc: 'YouTube News - Free',
     disclaimer: '⚠️ Disclaimer: All analysis data is based on market odds, for reference only, not financial advice.',
     disclaimer2: 'Match results are affected by many factors. Past data does not guarantee future performance.',
     heatUnit: 'matches',
@@ -2758,42 +2774,75 @@ let loadingSportKey = null; // Track which sport is currently loading
 // ===== LIVE CHANNELS CONFIG =====
 const LIVE_CHANNELS = {
   'Soccer': [
-    { icon: '⚽', nameKey: 'chFIFA', descKey: 'chFIFADesc', url: 'https://www.fifa.com/fifaplus/' },
+    { icon: '🆓', nameKey: 'chFIFA', descKey: 'chFIFADesc', url: 'https://www.fifa.com/fifaplus/' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=football+live' },
+    { icon: '🆓', nameKey: 'chBBCSport', descKey: 'chBBCSportDesc', url: 'https://www.bbc.co.uk/sport/football' },
     { icon: '📺', nameKey: 'chDAZN', descKey: 'chDAZNDesc', url: 'https://www.dazn.com/' },
+    { icon: '🆓', nameKey: 'chPlutoTV', descKey: 'chPlutoTVDesc', url: 'https://pluto.tv/' },
   ],
   'Basketball': [
-    { icon: '🏀', nameKey: 'chNBALeaguePass', descKey: 'chNBALeaguePassDesc', url: 'https://www.nba.com/watch/league-pass' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=NBA+live' },
+    { icon: '🆓', nameKey: 'chNBALeaguePass', descKey: 'chNBALeaguePassDesc', url: 'https://www.nba.com/watch/league-pass' },
+    { icon: '🆓', nameKey: 'chPlutoTV', descKey: 'chPlutoTVDesc', url: 'https://pluto.tv/' },
   ],
   'Esports': [
-    { icon: '🎮', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/gaming' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeGamingDesc', url: 'https://www.youtube.com/gaming' },
+    { icon: '🆓', nameKey: 'chTwitch', descKey: 'chTwitchDesc', url: 'https://www.twitch.tv/directory/game/League%20of%20Legends' },
   ],
   'Tennis': [
-    { icon: '🎾', nameKey: 'chEurosport', descKey: 'chEurosportDesc', url: 'https://www.eurosport.com/' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=tennis+live' },
+    { icon: '📺', nameKey: 'chEurosport', descKey: 'chEurosportDesc', url: 'https://www.eurosport.com/' },
   ],
   'Baseball': [
-    { icon: '⚾', nameKey: 'chMLBtv', descKey: 'chMLBtvDesc', url: 'https://www.mlb.com/tv' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=MLB+live' },
+    { icon: '🆓', nameKey: 'chMLBtv', descKey: 'chMLBtvDesc', url: 'https://www.mlb.com/tv' },
+    { icon: '🆓', nameKey: 'chPlutoTV', descKey: 'chPlutoTVDesc', url: 'https://pluto.tv/' },
   ],
   'American Football': [
-    { icon: '🏈', nameKey: 'chNFLGamePass', descKey: 'chNFLGamePassDesc', url: 'https://www.nfl.com/gamepass/' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=NFL+live' },
+    { icon: '🆓', nameKey: 'chNFLGamePass', descKey: 'chNFLGamePassDesc', url: 'https://www.nfl.com/gamepass/' },
+    { icon: '🆓', nameKey: 'chPlutoTV', descKey: 'chPlutoTVDesc', url: 'https://pluto.tv/' },
   ],
   'Ice Hockey': [
-    { icon: '🏒', nameKey: 'chNHLtv', descKey: 'chNHLtvDesc', url: 'https://www.nhl.com/tv' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=NHL+live' },
+    { icon: '🆓', nameKey: 'chNHLtv', descKey: 'chNHLtvDesc', url: 'https://www.nhl.com/tv' },
   ],
   'Boxing': [
-    { icon: '🥊', nameKey: 'chESPNPlus', descKey: 'chESPNPlusDesc', url: 'https://www.espn.com/espnplus/' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=boxing+live' },
     { icon: '📺', nameKey: 'chDAZN', descKey: 'chDAZNDesc', url: 'https://www.dazn.com/' },
+    { icon: '📺', nameKey: 'chESPNPlus', descKey: 'chESPNPlusDesc', url: 'https://www.espn.com/espnplus/' },
   ],
-  'MMA': [
-    { icon: '🥊', nameKey: 'chESPNPlus', descKey: 'chESPNPlusDesc', url: 'https://www.espn.com/espnplus/' },
+  'Mixed Martial Arts': [
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=MMA+live' },
+    { icon: '🆓', nameKey: 'chTwitch', descKey: 'chTwitchDesc', url: 'https://www.twitch.tv/directory/game/MMA' },
+    { icon: '📺', nameKey: 'chESPNPlus', descKey: 'chESPNPlusDesc', url: 'https://www.espn.com/espnplus/' },
   ],
   'Cricket': [
-    { icon: '🏏', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/sports' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=cricket+live' },
   ],
-  'Rugby': [
-    { icon: '🏉', nameKey: 'chEurosport', descKey: 'chEurosportDesc', url: 'https://www.eurosport.com/' },
+  'Rugby League': [
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=rugby+live' },
+    { icon: '📺', nameKey: 'chEurosport', descKey: 'chEurosportDesc', url: 'https://www.eurosport.com/' },
+  ],
+  'Handball': [
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=handball+live' },
+    { icon: '📺', nameKey: 'chEurosport', descKey: 'chEurosportDesc', url: 'https://www.eurosport.com/' },
+  ],
+  'Aussie Rules': [
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=AFL+live' },
+  ],
+  'Golf': [
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=golf+live' },
+  ],
+  'Lacrosse': [
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/results?search_query=lacrosse+live' },
+  ],
+  'Politics': [
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeNewsDesc', url: 'https://www.youtube.com/news' },
   ],
   'default': [
-    { icon: '📺', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/sports' },
+    { icon: '🆓', nameKey: 'chYoutubeSports', descKey: 'chYoutubeSportsDesc', url: 'https://www.youtube.com/sports' },
+    { icon: '🆓', nameKey: 'chPlutoTV', descKey: 'chPlutoTVDesc', url: 'https://pluto.tv/' },
   ],
 };
 
