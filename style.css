@@ -1,0 +1,236 @@
+/* SportPredict - Shared Styles */
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #1c2128;
+  --card: #161635;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text2: #8b949e;
+  --accent: #4ade80;
+  --accent2: #22c55e;
+  --red: #ef4444;
+  --orange: #f59e0b;
+  --radius: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+/* Top Nav */
+.top-nav {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.top-nav .logo {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 16px 24px;
+  font-size: 13px;
+  color: var(--text2);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+}
+
+.breadcrumb a { color: var(--text2); transition: color .2s; }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb span { margin: 0 6px; }
+
+/* Container */
+.container { max-width: 1000px; margin: 0 auto; padding: 24px; }
+
+/* Headings */
+h1 { font-size: 28px; margin-bottom: 8px; }
+h2 { font-size: 22px; margin: 32px 0 16px; border-bottom: 2px solid var(--border); padding-bottom: 8px; }
+h3 { font-size: 18px; margin: 24px 0 12px; }
+
+/* League Intro */
+.league-intro {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+/* Season Notice */
+.season-notice { margin-bottom: 24px; }
+
+/* Match Card */
+.match-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  transition: border .2s;
+}
+
+.match-card:hover { border-color: var(--accent); }
+
+.match-teams { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.match-meta { font-size: 12px; color: var(--text2); margin-bottom: 8px; }
+
+.match-odds-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.match-odds-row .odd-item { display: flex; flex-direction: column; gap: 2px; }
+.match-odds-row .odd-label { font-size: 11px; color: var(--text2); }
+.match-odds-row .odd-value { font-weight: 700; color: var(--accent); }
+
+/* Probability Bar */
+.prob-bar {
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  background: var(--bg);
+  margin-top: 8px;
+}
+
+.prob-bar .fill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  min-width: 24px;
+  transition: width .5s;
+}
+
+.fill.home { background: var(--accent); }
+.fill.draw { background: #6e7681; }
+.fill.away { background: var(--red); }
+
+/* Share Bar */
+.share-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 24px 0;
+  padding: 16px;
+  background: var(--bg3);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.share-bar span { font-size: 13px; color: var(--text2); font-weight: 600; }
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all .2s;
+  text-decoration: none;
+}
+
+.share-btn:hover { border-color: var(--accent); background: rgba(74,222,128,.08); }
+.share-btn.twitter:hover { border-color: #1da1f2; color: #1da1f2; }
+.share-btn.facebook:hover { border-color: #1877f2; color: #1877f2; }
+.share-btn.reddit:hover { border-color: #ff4500; color: #ff4500; }
+.share-btn.whatsapp:hover { border-color: #25d366; color: #25d366; }
+
+/* Explore Links */
+.explore-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.explore-links a {
+  display: block;
+  padding: 16px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-weight: 600;
+  transition: all .2s;
+  text-decoration: none;
+}
+
+.explore-links a:hover { border-color: var(--accent); }
+.explore-links a .link-desc { font-size: 12px; color: var(--text2); font-weight: 400; margin-top: 4px; }
+
+/* Last Updated */
+.last-updated { font-size: 12px; color: var(--text2); text-align: center; margin: 16px 0; }
+
+/* Disclaimer */
+.disclaimer {
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: var(--text2);
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  color: var(--text2);
+  gap: 12px;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 14px; }
+  h1 { font-size: 22px; }
+  .explore-links { grid-template-columns: 1fr; }
+  .top-nav { padding: 10px 14px; flex-wrap: wrap; gap: 8px; }
+  .match-odds-row { gap: 10px; }
+}
