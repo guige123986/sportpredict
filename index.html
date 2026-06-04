@@ -1365,7 +1365,7 @@ html[dir="rtl"] .nav-item.active { border-right-color: var(--brand-primary); }
   <div class="modal-box">
     <div class="modal-header">
       <h2 id="modalTitle">📺 官方直播渠道</h2>
-      <button class="modal-close" onclick="closeWatchModal()">�?/button>
+      <button class="modal-close" onclick="closeWatchModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="channel-list" id="channelList"></div>
@@ -1377,7 +1377,7 @@ html[dir="rtl"] .nav-item.active { border-right-color: var(--brand-primary); }
 </div>
 
 <!-- Scroll to Top -->
-<button class="scroll-top-btn" id="scrollTopBtn" onclick="document.getElementById('contentArea').scrollTo({top:0,behavior:'smooth'})">�?/button>
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="document.getElementById('contentArea').scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <!-- Sidebar Overlay (mobile) -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebarDrawer()"></div>
@@ -1392,7 +1392,7 @@ html[dir="rtl"] .nav-item.active { border-right-color: var(--brand-primary); }
     <nav class="sidebar-nav" id="sidebarNav"></nav>
     <div class="sidebar-fav-section" id="sidebarFav" style="padding:8px 0;border-top:1px solid var(--border);">
       <div class="nav-item" id="favNavItem" onclick="showFavorites()" style="cursor:pointer">
-        <span class="emoji">�?/span>
+        <span class="emoji">⚽</span>
         <span class="nav-label" data-i18n="myFavorites">我的收藏</span>
         <span class="nav-count" id="favCount">0</span>
       </div>
@@ -1412,7 +1412,7 @@ html[dir="rtl"] .nav-item.active { border-right-color: var(--brand-primary); }
     <div class="top-bar">
       <h1 id="pageTitle">⚽ 足球数据分析</h1>
       <div class="top-bar-right">
-        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="openSidebarDrawer()">�?/button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="openSidebarDrawer()">☰</button>
         <span id="currentDate"></span>
         <span class="api-badge" id="apiBadge">API: --</span>
         <button class="refresh-btn" id="refreshBtn" onclick="refreshOdds()">
@@ -1428,7 +1428,7 @@ html[dir="rtl"] .nav-item.active { border-right-color: var(--brand-primary); }
           <button class="lang-btn" onclick="toggleLangDropdown()">
             <span class="lang-globe">🌐</span>
             <span id="langLabel">中文</span>
-            <span style="font-size:10px">�?/span>
+            <span style="font-size:10px">▼</span>
           </button>
           <div class="lang-dropdown" id="langDropdown"></div>
         </div>
@@ -1436,7 +1436,7 @@ html[dir="rtl"] .nav-item.active { border-right-color: var(--brand-primary); }
         <div class="search-wrap collapsed" id="searchWrap">
           <span class="search-icon">🔍</span>
           <input class="search-input" id="searchInput" type="text" oninput="onSearchInput(this.value)" />
-          <button class="search-clear" id="searchClear" onclick="clearSearch()">�?/button>
+          <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
           <button class="mobile-search-btn" onclick="toggleMobileSearch()">🔍</button>
         </div>
         <!-- Theme Toggle -->
@@ -1458,7 +1458,7 @@ html[dir="rtl"] .nav-item.active { border-right-color: var(--brand-primary); }
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8994443349650818" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 <footer style="text-align:center;padding:20px;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px;">
-<p data-i18n="footerDisclaimer">⚠️ SportPredict 是体育数据分析平台，不提供任何博彩服务，不收取任何费用。所有数据仅供分析参考�?/p>
+<p data-i18n="footerDisclaimer">⚠️ SportPredict 是体育数据分析平台，不提供任何博彩服务，不收取任何费用。所有数据仅供分析参考。</p>
 <p style="margin-top:8px;color:var(--text-muted);font-size:11px;">
   🔑 API请求: <span id="apiFooterCounter">0/500</span>
   <span id="apiFooterWarning" style="display:none;color:#ef4444;margin-left:4px">⚠️ 额度不足</span>
@@ -4030,7 +4030,7 @@ function renderAllEvents() {
       <h2>${info.emoji} ${getGroupLocalizedName(group)}
         ${arbCount > 0 ? `<span class="arb-count">🌟 ${t('arbOpportunityCount', {count: arbCount})}</span>` : ''}
       </h2>
-      <button class="view-all-btn" onclick="setSport('${sports[0].key}')">${t('viewAll')} �?/button>
+      <button class="view-all-btn" onclick="setSport('${sports[0].key}')">${t('viewAll')} →</button>
     </div>`;
 
     displayMatches.forEach((m, idx) => {
@@ -4522,7 +4522,7 @@ function openWatchModal(group) {
         <div class="channel-name">${t(ch.nameKey)}</div>
         <div class="channel-desc">${t(ch.descKey)}</div>
       </div>
-      <a class="channel-link" href="${ch.url}" target="_blank" rel="noopener noreferrer nofollow">�?/a>
+      <a class="channel-link" href="${ch.url}" target="_blank" rel="noopener noreferrer nofollow">→</a>
     </div>
   `).join('');
 
@@ -4755,7 +4755,7 @@ function showFavorites() {
 function renderFavorites() {
   const favs = getFavorites();
   if (!favs.length) {
-    return `<div class="empty-sport"><div class="empty-icon">�?/div><div>${t('noFavorites')}</div></div>`;
+    return `<div class="empty-sport"><div class="empty-icon">⭐</div><div>${t('noFavorites')}</div></div>`;
   }
 
   let html = renderQuickFilters();
@@ -4772,7 +4772,7 @@ function renderFavorites() {
   });
 
   if (!favMatches.length) {
-    html += `<div class="empty-sport"><div class="empty-icon">�?/div><div>${t('noFavorites')}</div></div>`;
+    html += `<div class="empty-sport"><div class="empty-icon">⭐</div><div>${t('noFavorites')}</div></div>`;
     return html;
   }
 
@@ -4826,8 +4826,8 @@ function getOddsChangeIndicator(matchId, outcome, currentOdds) {
   if (!previousOdds[matchId]) return '';
   const prev = previousOdds[matchId][outcome];
   if (!prev) return '';
-  if (currentOdds > prev + 0.01) return ' <span class="odds-up">�?/span>';
-  if (currentOdds < prev - 0.01) return ' <span class="odds-down">�?/span>';
+  if (currentOdds > prev + 0.01) return ' <span class="odds-up">↑</span>';
+  if (currentOdds < prev - 0.01) return ' <span class="odds-down">↓</span>';
   return '';
 }
 
@@ -4856,7 +4856,7 @@ function renderMatchCard(m, prob, sportInfo, showLeagueName) {
 
   if (prob) {
     return `<div class="match-card${prob.isArb ? ' arb-highlight' : ''}">
-      <button class="fav-btn${favActive ? ' active' : ''}" onclick="toggleFavorite('${m.id}', event)">${favActive ? '�? : '�?}</button>
+      <button class="fav-btn${favActive ? ' active' : ''}" onclick="toggleFavorite('${m.id}', event)">${favActive ? '★' : '☆'}</button>
       <div class="match-header">
         <span class="match-league">${groupInfo.emoji} ${leagueDisp}${hot ? ' <span class="hot-badge">🔥</span>' : ''}</span>
         <span class="match-time">${timeStr}</span>
@@ -4897,7 +4897,7 @@ function renderMatchCard(m, prob, sportInfo, showLeagueName) {
     </div>`;
   } else {
     return `<div class="match-card">
-      <button class="fav-btn" onclick="toggleFavorite('${m.id}', event)">�?/button>
+      <button class="fav-btn" onclick="toggleFavorite('${m.id}', event)">☆</button>
       <div class="match-header">
         <span class="match-league">${groupInfo.emoji} ${leagueDisp}</span>
         <span class="match-time">${timeStr}</span>
@@ -5128,7 +5128,7 @@ renderAllEvents = function() {
       <h2>${info.emoji} ${getGroupLocalizedName(group)}${hotCount > 0 ? ` <span class="hot-badge">🔥 ${hotCount}</span>` : ''}
         ${arbCount > 0 ? `<span class="arb-count">🌟 ${t('arbOpportunityCount', {count: arbCount})}</span>` : ''}
       </h2>
-      <button class="view-all-btn" onclick="setSport('${sports[0].key}')">${t('viewAll')} �?/button>
+      <button class="view-all-btn" onclick="setSport('${sports[0].key}')">${t('viewAll')} →</button>
     </div>`;
 
     displayMatches.forEach(m => {
@@ -5494,9 +5494,9 @@ function renderAnalysisCard(m, prob, sportInfo) {
       <div class="analysis-ring-section">
         ${ringHtml}
         <div class="analysis-ring-label">
-          <span style="color:#4ade80">�?/span> ${t('homeTeam')}
-          ${hasDraw ? ` <span style="color:#6e7681">�?/span> ${t('draw')}` : ''}
-          <span style="color:#ef4444">�?/span> ${t('awayTeam')}
+          <span style="color:#4ade80">●</span> ${t('homeTeam')}
+          ${hasDraw ? ` <span style="color:#6e7681">●</span> ${t('draw')}` : ''}
+          <span style="color:#ef4444">●</span> ${t('awayTeam')}
         </div>
       </div>
       <div class="analysis-details">
@@ -5505,15 +5505,15 @@ function renderAnalysisCard(m, prob, sportInfo) {
           <div class="analysis-prob-list">
             <div class="analysis-prob-item">
               <span class="analysis-prob-dot" style="background:#4ade80"></span>
-              <span>${m.home_team} ${t('winRate')}�?{prob.homeProb}%�?{t('basedOnOdds')}�?/span>
+              <span>${m.home_team} ${t('winRate')}：${prob.homeProb}%（${t('basedOnOdds')}）</span>
             </div>
             ${hasDraw ? `<div class="analysis-prob-item">
               <span class="analysis-prob-dot" style="background:#6e7681"></span>
-              <span>${t('drawProbability')}�?{prob.drawProb}%</span>
+              <span>${t('drawProbability')}：${prob.drawProb}%</span>
             </div>` : ''}
             <div class="analysis-prob-item">
               <span class="analysis-prob-dot" style="background:#ef4444"></span>
-              <span>${m.away_team} ${t('winRate')}�?{prob.awayProb}%</span>
+              <span>${m.away_team} ${t('winRate')}：${prob.awayProb}%</span>
             </div>
           </div>
         </div>
@@ -5522,7 +5522,7 @@ function renderAnalysisCard(m, prob, sportInfo) {
           <div class="analysis-finding-item">📊 ${numBookmakers} ${t('bookmakersProviding')}】{t('highMarketAttention')}</div>
           ${lowestHome.odds !== Infinity ? `<div class="analysis-finding-item">📈 ${t('highest')}${t('homeTeam')}${highestHome.odds.toFixed(2)}（{highestHome.bookmaker}），${t('lowest')}${lowestHome.odds.toFixed(2)}（{lowestHome.bookmaker}），${t('difference')}${homeOddsDiff}%</div>` : ''}
           ${prob.isArb ? `<div class="analysis-finding-item" style="color:#4ade80">🌟 ${t('oddsDiscrepancyFound') ${t('arbProfit')}${prob.arbProfit}%</div>` : ''}
-          <div class="analysis-finding-item">📊 ${t('marketTendency')�?{favored} ${t('favored')}</div>
+          <div class="analysis-finding-item">📊 ${t('marketTendency')}：{favored} ${t('favored')}</div>
         </div>
         <div>
           <div class="analysis-section-title">📈 ${t('oddsCompare')}</div>
@@ -5615,6 +5615,25 @@ document.addEventListener('click', function(e) {
 storePreviousOdds();
 initTheme();
 updateFavCount();
+
+// Cookie & Legal functions
+function acceptCookies() {
+  localStorage.setItem('cookieConsent','1');
+  var b=document.getElementById('cookieBanner');
+  if(b)b.style.display='none';
+}
+function showSection(id) {
+  document.querySelectorAll('.legal-section').forEach(function(s){s.style.display='none';});
+  var el=document.getElementById(id);
+  if(el){el.style.display='block';window.scrollTo({top:el.offsetTop-60,behavior:'smooth'});}
+}
+// Cookie banner init
+(function(){
+  if(!localStorage.getItem('cookieConsent')){
+    var b=document.getElementById('cookieBanner');
+    if(b)b.style.display='block';
+  }
+})();
 
 init();
 }
