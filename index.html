@@ -1189,6 +1189,47 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
 .guide-card:hover{border-color:var(--accent-current)}
 .guide-card h3{font-size:14px;margin-bottom:4px}
 .guide-card p{font-size:12px;color:var(--text-secondary)}
+
+/* ===== Prediction Markets ===== */
+.prediction-markets-section { padding: 16px 0; }
+.section-title { font-size: 18px; color: #fff; display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.section-desc { font-size: 13px; color: #888; margin-bottom: 16px; }
+.live-dot { width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite; }
+@keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:0.4; } }
+.pm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+.pm-card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 16px; cursor: pointer; transition: border-color .2s; }
+.pm-card:hover { border-color: var(--accent-current); }
+.pm-title { font-size: 14px; color: #fff; font-weight: 600; margin-bottom: 12px; line-height: 1.4; }
+.pm-outcomes { display: flex; gap: 8px; }
+.pm-outcome { flex: 1; padding: 10px 12px; border-radius: 8px; text-align: center; font-size: 13px; font-weight: 600; }
+.pm-yes { background: rgba(74,222,128,.15); color: #4ade80; }
+.pm-no { background: rgba(239,68,68,.15); color: #ef4444; }
+.pm-pct { font-size: 20px; font-weight: 800; display: block; }
+.pm-label { font-size: 11px; opacity: .7; }
+.pm-volume { font-size: 11px; color: #666; margin-top: 8px; }
+.pm-bar { height: 4px; border-radius: 2px; background: #2a2a3e; margin-top: 8px; overflow: hidden; }
+.pm-bar-fill { height: 100%; background: #4ade80; border-radius: 2px; transition: width .3s; }
+
+/* ===== Prob Display (Polymarket-style) ===== */
+.prob-display { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+.prob-home { font-size: 22px; font-weight: 800; color: #4ade80; }
+.prob-vs { font-size: 12px; color: #666; }
+.prob-away { font-size: 22px; font-weight: 800; color: #ef4444; }
+
+/* ===== LIVE Pulse ===== */
+.match-live { display: inline-flex; align-items: center; gap: 4px; }
+.match-live::before { content: ''; width: 6px; height: 6px; background: #ef4444; border-radius: 50%; animation: pulse 1.5s infinite; }
+
+/* ===== Bookmaker Badge ===== */
+.bookmaker-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 12px;
+  font-size: 11px; font-weight: 700;
+  background: rgba(74,222,128,.12); color: #4ade80;
+}
+@media (max-width:768px) {
+  .pm-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -1322,6 +1363,13 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
         <span class="nav-label" data-i18n="toolCompare">赔率对比</span>
       </a>
     </div>
+    <div style="padding:8px 0;border-top:1px solid var(--border);">
+      <div class="nav-group-label">📈 Markets</div>
+      <a href="https://polymarket.com/sports" class="nav-item" target="_blank" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📈</span>
+        <span class="nav-label">Polymarket</span>
+      </a>
+    </div>
     <div class="sidebar-fav-section" id="sidebarFav" style="padding:8px 0;border-top:1px solid var(--border);">
       <div class="nav-item" id="favNavItem" onclick="showFavorites()" style="cursor:pointer">
         <span class="emoji">⭐</span>
@@ -1347,6 +1395,7 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
       <div class="top-bar-right">
         <span id="currentDate"></span>
         <span class="api-badge" id="apiBadge">API: --</span>
+        <span class="bookmaker-badge">📊 20+ Bookmakers Tracked</span>
         <button class="refresh-btn" id="refreshBtn" onclick="refreshOdds()">
           <span class="refresh-icon">🔄</span> <span data-i18n="refreshOdds">刷新赔率</span>
         </button>
@@ -1390,6 +1439,13 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
       <div class="page-tab" onclick="location.href='compare.html'">📋 Compare</div>
     </div>
     <div class="content-area" id="contentArea"></div>
+
+    <!-- Prediction Markets Section -->
+    <div id="predictionMarkets" class="prediction-markets-section" style="padding:0 24px">
+      <h2 class="section-title">Prediction Markets <span class="live-dot"></span></h2>
+      <p class="section-desc">Real-time crowd predictions from Polymarket</p>
+      <div id="pmGrid" class="pm-grid"></div>
+    </div>
     <!-- AD_SLOT: bottom_banner -->
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8994443349650818" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -4579,11 +4635,16 @@ function renderMatchCard(m, prob, sportInfo, showLeagueName) {
         <span class="match-league">${groupInfo.emoji} ${leagueDisp}${hot ? ' <span class="hot-badge">🔥</span>' : ''}</span>
         <span class="match-time">${timeStr}</span>
         <span class="match-timeline ${timeline.cssClass}">${timeline.text}</span>
-        <span class="match-status ${status.cssClass}">${status.emoji} ${status.label}</span>
+        <span class="match-status ${status.cssClass}${status.cssClass === 'live' ? ' match-live' : ''}">${status.emoji} ${status.label}</span>
       </div>
       <div class="match-body">
         <div class="team"><span class="team-name">${homeTeamDisp}</span></div>
         <div class="predict-bar-wrap">
+          <div class="prob-display">
+            <span class="prob-home">${prob.homeProb}%</span>
+            <span class="prob-vs">vs</span>
+            <span class="prob-away">${prob.awayProb}%</span>
+          </div>
           <div class="predict-bar">
             <div class="fill fill-home" style="width:${prob.homeProb}%">${prob.homeProb}%</div>
             ${hasDraw ? `<div class="fill fill-draw" style="width:${prob.drawProb}%">${prob.drawProb}%</div>` : ''}
@@ -4973,15 +5034,15 @@ function renderVoteSection(matchId, homeTeam, awayTeam, hasDraw) {
 
   if (!userVote) {
     html += `<div class="vote-options">`;
-    html += `<button class="vote-btn" onclick="castVote('${matchId}','home')">${homeTeam} 🏠</button>`;
+    html += `<button class="vote-btn" onclick="castVote('${matchId}','home')" style="border-color:#4ade80;color:#4ade80">Yes - ${homeTeam}</button>`;
     if (hasDraw) html += `<button class="vote-btn" onclick="castVote('${matchId}','draw')">${t('draw')} ⚖️</button>`;
-    html += `<button class="vote-btn" onclick="castVote('${matchId}','away')">${awayTeam} ✈️</button>`;
+    html += `<button class="vote-btn" onclick="castVote('${matchId}','away')" style="border-color:#ef4444;color:#ef4444">No - ${awayTeam}</button>`;
     html += `</div>`;
   } else {
     html += `<div class="vote-options">`;
-    html += `<button class="vote-btn voted${userVote==='home'?' voted-home':''}">${homeTeam} 🏠</button>`;
+    html += `<button class="vote-btn voted${userVote==='home'?' voted-home':''}" style="border-color:#4ade80;color:#4ade80">Yes - ${homeTeam}</button>`;
     if (hasDraw) html += `<button class="vote-btn voted${userVote==='draw'?' voted-draw':''}">${t('draw')} ⚖️</button>`;
-    html += `<button class="vote-btn voted${userVote==='away'?' voted-away':''}">${awayTeam} ✈️</button>`;
+    html += `<button class="vote-btn voted${userVote==='away'?' voted-away':''}" style="border-color:#ef4444;color:#ef4444">No - ${awayTeam}</button>`;
     html += `</div>`;
   }
 
@@ -5234,6 +5295,37 @@ function renderAnalysisCard(m, prob, sportInfo) {
 storePreviousOdds();
 initTheme();
 updateFavCount();
+
+// ===== Polymarket Prediction Markets =====
+async function loadPredictionMarkets() {
+  try {
+    const r = await fetch('https://gamma-api.polymarket.com/events?tag_slug=sports&active=true&closed=false&limit=6&order=volume&ascending=false');
+    const events = await r.json();
+    const grid = document.getElementById('pmGrid');
+    if (!grid || !events.length) return;
+    grid.innerHTML = events.map(e => {
+      const m = e.markets && e.markets[0];
+      if (!m || !m.outcomePrices) return '';
+      const prices = JSON.parse(m.outcomePrices || '[]');
+      const yesPct = Math.round((prices[0] || 0) * 100);
+      const noPct = 100 - yesPct;
+      const vol = e.volume ? Number(e.volume) : 0;
+      const volStr = vol > 1e6 ? '$' + (vol/1e6).toFixed(1) + 'M' : vol > 1e3 ? '$' + (vol/1e3).toFixed(0) + 'K' : '$' + vol.toFixed(0);
+      const q = m.question || e.title || '';
+      return `<div class="pm-card" onclick="window.open('https://polymarket.com/event/${e.slug}','_blank')">
+        <div class="pm-title">${q}</div>
+        <div class="pm-outcomes">
+          <div class="pm-outcome pm-yes"><span class="pm-pct">${yesPct}%</span><span class="pm-label">Yes</span></div>
+          <div class="pm-outcome pm-no"><span class="pm-pct">${noPct}%</span><span class="pm-label">No</span></div>
+        </div>
+        <div class="pm-bar"><div class="pm-bar-fill" style="width:${yesPct}%"></div></div>
+        <div class="pm-volume">Volume: ${volStr}</div>
+      </div>`;
+    }).join('');
+  } catch(e) {}
+}
+loadPredictionMarkets();
+setInterval(loadPredictionMarkets, 60000);
 
 init(); setTimeout(function(){ var f=document.querySelector('.nav-item'); if(f&&!window.currentSport)f.click(); }, 800);
 </script>
