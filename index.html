@@ -3726,21 +3726,23 @@ async function showAllEvents() {
 }
 
 async function loadAllEventsData(forceRefresh = false) {
-  // Load schedule-only data for popular sports (no odds to save API credits)
-  // Only load odds when user clicks into a specific league
-  const popularKeys = [
-    'soccer_epl', 'soccer_fifa_world_cup', 'basketball_nba', 'baseball_mlb',
-    'icehockey_nhl', 'soccer_germany_bundesliga', 'soccer_italy_serie_a',
-    'soccer_spain_la_liga', 'soccer_france_ligue_one', 'tennis_atp_aus_open',
-    'americanfootball_nfl', 'soccer_champions_league', 'soccer_europa_league'
-  ];
-  const keysToLoad = popularKeys.filter(k => sportsList.some(s => s.key === k));
+  // Dynamically load top active sports by group priority
+  const groupPriority = { 'Soccer': 1, 'Basketball': 2, 'Baseball': 3, 'Ice Hockey': 4, 'American Football': 5, 'Tennis': 6, 'Boxing': 7, 'MMA': 8, 'Golf': 9, 'Cricket': 10 };
+  const activeSports = sportsList
+    .filter(s => s.active)
+    .sort((a, b) => (groupPriority[a.group] || 99) - (groupPriority[b.group] || 99));
+  // Load top 8 active sports
+  const keysToLoad = activeSports.slice(0, 8).map(s => s.key);
+  // Always include World Cup if available
+  if (!keysToLoad.includes('soccer_fifa_world_cup') && sportsList.some(s => s.key === 'soccer_fifa_world_cup' && s.active)) {
+    keysToLoad.unshift('soccer_fifa_world_cup');
+  }
   for (const key of keysToLoad) {
-    // Only fetch if not already cached (even stale cache is fine for schedule display)
     if (forceRefresh || !oddsCache[key]) {
       try { await fetchOdds(key, forceRefresh); } catch(e) { /* skip failed loads */ }
     }
   }
+  renderContent();
   if (forceRefresh || !lastRefreshTime) {
     lastRefreshTime = new Date();
     updateLastRefreshTime();
@@ -4350,13 +4352,13 @@ async function init() {
     buildSidebar();
     buildMobileNav();
 
-    // Default to All Events page (no API calls - just shows cached data)
+    // Load top active sports data so the page isn't empty
     currentSportKey = '__allevents__';
     currentPage = 'allevents';
     document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === 'allevents'));
     document.getElementById('pageTitle').textContent = '🏆 ' + t('tabAllEvents');
-    // Don't call loadAllEventsData() - save API credits
-    // User clicks into a league to load its data
+    // Auto-load events so users see data immediately
+    loadAllEventsData();
     updateApiBadge();
     renderContent();
   } catch(e) {
