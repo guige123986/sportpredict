@@ -3738,16 +3738,22 @@ async function loadAllEventsData(forceRefresh = false) {
     .filter(s => s.active)
     .sort((a, b) => (groupPriority[a.group] || 99) - (groupPriority[b.group] || 99));
   // Load top 8 active sports
-  const keysToLoad = activeSports.slice(0, 8).map(s => s.key);
-  // Always include World Cup if available
-  if (!keysToLoad.includes('soccer_fifa_world_cup') && sportsList.some(s => s.key === 'soccer_fifa_world_cup' && s.active)) {
-    keysToLoad.unshift('soccer_fifa_world_cup');
-  }
+  let keysToLoad = activeSports.slice(0, 8).map(s => s.key);
+  // Always include World Cup and popular sports
+  const mustHave = ['soccer_fifa_world_cup', 'baseball_mlb', 'icehockey_nhl', 'basketball_wnba', 'boxing_boxing', 'mma_mixed_martial_arts'];
+  mustHave.forEach(k => {
+    if (sportsList.some(s => s.key === k && s.active) && !keysToLoad.includes(k)) keysToLoad.unshift(k);
+  });
+  // Remove duplicates
+  keysToLoad = [...new Set(keysToLoad)];
+  console.log('Loading sports:', keysToLoad);
   for (const key of keysToLoad) {
     if (forceRefresh || !oddsCache[key]) {
-      try { await fetchOdds(key, forceRefresh); } catch(e) { /* skip failed loads */ }
+      try { await fetchOdds(key, forceRefresh); } catch(e) { console.warn('Failed to load', key, e.message); }
     }
   }
+  console.log('Cache keys after load:', Object.keys(oddsCache));
+  console.log('Total matches cached:', Object.values(oddsCache).reduce((sum, c) => sum + (c.data?.length || 0), 0));
   renderContent();
   if (forceRefresh || !lastRefreshTime) {
     lastRefreshTime = new Date();
@@ -4364,7 +4370,7 @@ async function init() {
     document.querySelectorAll('.page-tab').forEach(el => el.classList.toggle('active', el.dataset.page === 'allevents'));
     document.getElementById('pageTitle').textContent = '🏆 ' + t('tabAllEvents');
     // Auto-load events so users see data immediately
-    loadAllEventsData();
+    await loadAllEventsData();
     updateApiBadge();
     renderContent();
   } catch(e) {
