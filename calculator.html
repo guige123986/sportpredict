@@ -96,6 +96,7 @@ h1{font-size:28px;margin-bottom:8px;color:#fff}
     <a href="/calculator.html" style="color:#4ade80">Calculator</a>
     <a href="/analyzer.html">Analyzer</a>
     <a href="/compare.html">Compare</a>
+    <a href="/crowd-vs-bookmakers.html">🔥 Crowd vs Books</a>
     <a href="/daily.html">Daily</a>
   </div>
 </div>
@@ -119,6 +120,7 @@ h1{font-size:28px;margin-bottom:8px;color:#fff}
 <div class="input-group"><label>Decimal Odds</label><input type="number" id="decOdds" step="0.01" min="1.01" oninput="fromDecimal()"></div>
 <div class="input-group"><label>Fractional Odds (e.g. 3/1)</label><input type="text" id="fracOdds" placeholder="3/1" oninput="fromFractional()"></div>
 <div class="input-group"><label>American Odds</label><input type="number" id="amOdds" oninput="fromAmerican()"></div>
+<div class="input-group"><label>From Prediction Market (Yes price 0-100)</label><input type="number" id="pmPrice" step="1" min="0" max="100" placeholder="e.g. 65 for 65% Yes" oninput="fromPredMarket()"></div>
 <div class="result-row"><span class="result-label">Implied Probability</span><span class="result-value" id="impProb">--</span></div>
 <div class="result-row"><span class="result-label">$100 Bet Returns</span><span class="result-value" id="betReturn">--</span></div>
 </div>
@@ -191,6 +193,7 @@ h1{font-size:28px;margin-bottom:8px;color:#fff}
         <a href="analyzer.html" class="explore-link-item">🔬 Probability Analyzer<span class="link-desc">Market probability and heatmaps</span></a>
         <a href="leagues/world-cup.html" class="explore-link-item">🏆 World Cup 2026<span class="link-desc">FIFA World Cup odds</span></a>
         <a href="leagues/nfl.html" class="explore-link-item">🏈 NFL<span class="link-desc">NFL odds and analysis</span></a>
+        <a href="crowd-vs-bookmakers.html" class="explore-link-item">🔥 Crowd vs Books<span class="link-desc">Prediction market vs sportsbook odds</span></a>
       </div>
     </div>
     <div class="last-updated-bar">Last updated: <span class="last-updated-time">--</span></div>
@@ -210,6 +213,7 @@ h1{font-size:28px;margin-bottom:8px;color:#fff}
 
 <script>
 function switchTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));event.target.classList.add('active');document.getElementById('panel-'+id).classList.add('active')}
+function fromPredMarket(){const p=parseFloat(document.getElementById('pmPrice').value);if(isNaN(p)||p<1||p>99)return;const d=100/p;const prob=(p).toFixed(1);document.getElementById('decOdds').value=d.toFixed(2);document.getElementById('impProb').textContent=prob+'%';document.getElementById('betReturn').textContent='$'+(d*100).toFixed(2);if(d>=2){document.getElementById('amOdds').value='+'+Math.round((d-1)*100);document.getElementById('fracOdds').value=Math.round((d-1)*1)+'/'+1}else{document.getElementById('amOdds').value=Math.round(-100/(d-1));const f=d-1;const n=Math.round(f*100);document.getElementById('fracOdds').value=n+'/100'}}
 function fromDecimal(){const d=parseFloat(document.getElementById('decOdds').value);if(!d||d<1.01)return;const prob=(1/d*100).toFixed(1);document.getElementById('impProb').textContent=prob+'%';document.getElementById('betReturn').textContent='$'+(d*100).toFixed(2);if(d>=2){document.getElementById('amOdds').value='+'+Math.round((d-1)*100);document.getElementById('fracOdds').value=Math.round((d-1)*1)+'/'+1}else{document.getElementById('amOdds').value=Math.round(-100/(d-1));const f=d-1;const n=Math.round(f*100);document.getElementById('fracOdds').value=n+'/100'}}
 function fromFractional(){const v=document.getElementById('fracOdds').value;if(!v||!v.includes('/'))return;const p=v.split('/');const d=parseFloat(p[0])/parseFloat(p[1])+1;document.getElementById('decOdds').value=d.toFixed(2);fromDecimal()}
 function fromAmerican(){const a=parseInt(document.getElementById('amOdds').value);if(!a)return;let d;if(a>0)d=a/100+1;else d=100/Math.abs(a)+1;document.getElementById('decOdds').value=d.toFixed(2);fromDecimal()}

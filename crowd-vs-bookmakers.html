@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crowd vs Bookmakers - Prediction Market vs Sportsbook Odds Comparison | SportPredict</title>
+<meta name="description" content="Compare real-time Polymarket prediction market probabilities with sportsbook odds to find value gaps. See where crowd wisdom disagrees with bookmakers.">
+<meta name="keywords" content="prediction market vs bookmakers, polymarket odds, crowd wisdom, prediction market comparison, sportsbook vs prediction market, value gap analysis">
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://10110289.xyz/crowd-vs-bookmakers.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://10110289.xyz/crowd-vs-bookmakers.html" />
+<meta property="og:title" content="Crowd vs Bookmakers - Prediction Market vs Sportsbook Odds Comparison" />
+<meta property="og:description" content="Compare real-time Polymarket prediction market probabilities with sportsbook odds to find value gaps." />
+<meta property="og:site_name" content="SportPredict" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Crowd vs Bookmakers - Prediction Market vs Sportsbook Odds Comparison" />
+<meta name="twitter:description" content="Compare real-time Polymarket prediction market probabilities with sportsbook odds to find value gaps." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔥</text></svg>" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8994443349650818" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/style.css">
+<link rel="preload" href="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" as="script" />
+<link rel="prefetch" href="calculator.html" />
+<link rel="prefetch" href="compare.html" />
+<link rel="prefetch" href="analyzer.html" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Crowd vs Bookmakers - Prediction Market vs Sportsbook Odds Comparison",
+  "description": "Compare real-time Polymarket prediction market probabilities with sportsbook odds to find value gaps.",
+  "url": "https://10110289.xyz/crowd-vs-bookmakers.html"
+}
+</script>
+<style>
+:root{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2128;--card:#161635;--border:#30363d;--text:#e6edf3;--text2:#8b949e;--accent:#4ade80;--accent2:#22c55e;--red:#ef4444;--blue:#3b82f6;--orange:#f59e0b;--radius:10px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.7}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.top-nav{background:var(--bg2);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.top-nav .logo{font-size:20px;font-weight:700;display:flex;align-items:center;gap:8px}
+.breadcrumb{padding:16px 24px;font-size:13px;color:var(--text2);border-bottom:1px solid var(--border);background:var(--bg2)}
+.breadcrumb a{color:var(--text2);transition:color .2s}.breadcrumb a:hover{color:var(--accent)}
+.breadcrumb span{margin:0 6px}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+h1{font-size:28px;margin-bottom:8px}
+.subtitle{color:var(--text2);margin-bottom:20px;font-size:15px}
+.hero-desc{color:var(--text2);margin-bottom:24px;line-height:1.8;max-width:800px}
+
+/* Filters */
+.filter-bar{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.filter-btn{padding:8px 18px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:13px;cursor:pointer;transition:all .2s;font-weight:500}
+.filter-btn:hover{border-color:var(--accent);color:var(--text)}
+.filter-btn.active{background:var(--accent);color:#0a0a1a;border-color:var(--accent);font-weight:700}
+
+/* Cards */
+.cvb-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:14px;transition:border .2s}
+.cvb-card:hover{border-color:var(--accent)}
+.cvb-card.value-gap{border-color:var(--orange);box-shadow:0 0 16px rgba(245,158,11,.12)}
+.cvb-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:14px;line-height:1.4}
+.cvb-badge{display:inline-block;padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-left:8px;vertical-align:middle}
+.cvb-badge.crowd-only{background:rgba(74,222,128,.12);color:#4ade80}
+.cvb-badge.books-only{background:rgba(59,130,246,.12);color:#3b82f6}
+.cvb-badge.gap{background:rgba(245,158,11,.15);color:#f59e0b}
+
+/* Comparison Bars */
+.cvb-compare{display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
+.cvb-row{display:flex;align-items:center;gap:12px}
+.cvb-label{width:120px;font-size:12px;color:var(--text2);text-align:right;flex-shrink:0}
+.cvb-bar-wrap{flex:1;height:28px;background:var(--bg);border-radius:14px;overflow:hidden;position:relative}
+.cvb-bar-fill{height:100%;border-radius:14px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:12px;font-weight:700;color:#fff;transition:width .6s ease;min-width:40px}
+.cvb-bar-fill.crowd{background:linear-gradient(90deg,#22c55e,#4ade80)}
+.cvb-bar-fill.books{background:linear-gradient(90deg,#2563eb,#3b82f6)}
+.cvb-pct{font-size:14px;font-weight:800;width:52px;text-align:right;flex-shrink:0}
+.cvb-pct.crowd{color:#4ade80}
+.cvb-pct.books{color:#3b82f6}
+
+/* Gap Display */
+.cvb-gap{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;margin-top:8px;font-size:14px;font-weight:700}
+.cvb-gap.positive{background:rgba(245,158,11,.1);color:#f59e0b}
+.cvb-gap.negative{background:rgba(59,130,246,.1);color:#3b82f6}
+.cvb-gap.neutral{background:rgba(139,148,158,.1);color:var(--text2)}
+
+/* Meta */
+.cvb-meta{display:flex;gap:16px;font-size:12px;color:var(--text2);margin-top:10px;flex-wrap:wrap}
+.cvb-meta span{display:inline-flex;align-items:center;gap:4px}
+
+/* Single-source card */
+.cvb-single{padding:10px 14px;border-radius:8px;font-size:13px;color:var(--text2);font-style:italic;margin-top:8px;background:rgba(139,148,158,.06)}
+
+/* SEO Content */
+.seo-content{margin-top:40px;padding:24px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);line-height:1.9;color:var(--text2)}
+.seo-content h2{font-size:20px;color:#fff;margin-bottom:12px;margin-top:24px}
+.seo-content h2:first-child{margin-top:0}
+.seo-content p{margin-bottom:14px}
+
+/* Auto-refresh */
+.refresh-info{font-size:12px;color:var(--text2);display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.refresh-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* Share Bar */
+.share-bar{display:flex;align-items:center;gap:8px;margin:20px 0;padding:14px 16px;background:var(--bg3);border-radius:10px;border:1px solid var(--border)}
+.share-bar span{font-size:13px;color:var(--text2);font-weight:600}
+.share-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text);font-size:13px;cursor:pointer;transition:all .2s;text-decoration:none}
+.share-btn:hover{border-color:var(--accent);background:rgba(74,222,128,.08)}
+.share-btn.twitter:hover{border-color:#1da1f2;color:#1da1f2}
+.share-btn.facebook:hover{border-color:#1877f2;color:#1877f2}
+.share-btn.reddit:hover{border-color:#ff4500;color:#ff4500}
+.share-btn.whatsapp:hover{border-color:#25d366;color:#25d366}
+
+/* Explore */
+.explore-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0}
+.explore-links a{display:block;padding:16px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-weight:600;transition:all .2s}
+.explore-links a:hover{border-color:var(--accent)}
+.explore-links a .link-desc{font-size:12px;color:var(--text2);font-weight:400;margin-top:4px}
+
+.disclaimer{text-align:center;padding:20px;font-size:11px;color:var(--text2);border-top:1px solid var(--border);margin-top:40px}
+.loading{display:flex;flex-direction:column;align-items:center;padding:40px;color:var(--text2);gap:12px}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+@media(max-width:768px){
+  .container{padding:14px;padding-bottom:70px}
+  h1{font-size:22px}
+  .cvb-row{flex-direction:column;align-items:stretch;gap:4px}
+  .cvb-label{text-align:left;width:auto}
+  .cvb-pct{width:auto;text-align:left}
+  .explore-links{grid-template-columns:1fr}
+  .filter-bar{gap:6px}
+  .filter-btn{padding:6px 12px;font-size:12px}
+}
+.mobile-bottom-nav{display:none}
+@media(max-width:768px){.mobile-bottom-nav{display:flex;position:fixed;bottom:0;left:0;right:0;background:#1a1a2e;border-top:1px solid #2a2a3e;z-index:100;justify-content:space-around;padding:6px 0;padding-bottom:max(6px,env(safe-area-inset-bottom))}.bottom-nav-item{display:flex;flex-direction:column;align-items:center;color:#888;text-decoration:none;font-size:10px;padding:4px 8px;min-width:56px}.bottom-nav-item.active,.bottom-nav-item:hover{color:#4ade80}.bni-icon{font-size:20px;margin-bottom:2px}.bni-label{font-weight:500}}
+</style>
+</head>
+<body>
+
+<div class="top-nav">
+  <div class="logo">🔥 SportPredict</div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="index.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">🏠 Home</a>
+    <a href="calculator.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">🧮 Calculator</a>
+    <a href="compare.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">📋 Compare</a>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="https://10110289.xyz/">Home</a><span>›</span><a href="index.html">Tools</a><span>›</span>Crowd vs Bookmakers
+</div>
+
+<div class="container">
+  <h1>🔥 Crowd vs Bookmakers</h1>
+  <p class="subtitle">Prediction Market vs Sportsbook Odds Comparison</p>
+  <p class="hero-desc">See where crowd wisdom from Polymarket disagrees with traditional bookmakers. When prediction market probabilities diverge significantly from sportsbook implied probabilities, it may signal a value gap worth investigating.</p>
+
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8994443349650818" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" onclick="setFilter('soccer',this)">⚽ Soccer</button>
+    <button class="filter-btn" onclick="setFilter('nba',this)">🏀 NBA</button>
+    <button class="filter-btn" onclick="setFilter('nfl',this)">🏈 NFL</button>
+    <button class="filter-btn" onclick="setFilter('mlb',this)">⚾ MLB</button>
+    <button class="filter-btn" onclick="setFilter('tennis',this)">🎾 Tennis</button>
+  </div>
+
+  <div class="refresh-info">
+    <span class="refresh-dot"></span>
+    <span>Auto-refreshes every 60 seconds</span>
+    <span>| Last updated: <span id="lastUpdate">--</span></span>
+  </div>
+
+  <div id="cardList"><div class="loading"><div class="spinner"></div>Loading prediction market and sportsbook data...</div></div>
+
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8994443349650818" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+  <div class="share-bar">
+    <span>Share:</span>
+    <a href="javascript:shareTwitter()" class="share-btn twitter">𝕏</a>
+    <a href="javascript:shareFacebook()" class="share-btn facebook">FB</a>
+    <a href="javascript:shareReddit()" class="share-btn reddit">Reddit</a>
+    <a href="javascript:shareWhatsApp()" class="share-btn whatsapp">WA</a>
+    <a href="javascript:copyLink()" class="share-btn copy">📋</a>
+  </div>
+
+  <div class="explore-links">
+    <a href="calculator.html">🧮 Odds Calculator<span class="link-desc">Convert odds formats, Kelly criterion</span></a>
+    <a href="compare.html">📋 Odds Comparison<span class="link-desc">Best odds across bookmakers</span></a>
+    <a href="analyzer.html">🔬 Probability Analyzer<span class="link-desc">Market probability and heatmaps</span></a>
+    <a href="guides/prediction-markets-explained.html">📖 Prediction Markets Guide<span class="link-desc">Learn how prediction markets work</span></a>
+    <a href="daily.html">📰 Daily Analysis<span class="link-desc">Today's match analysis</span></a>
+  </div>
+
+  <div class="seo-content">
+    <h2>What Are Prediction Markets?</h2>
+    <p>Prediction markets are exchange-traded markets where participants trade contracts based on the outcome of future events. Unlike traditional sportsbooks that set odds based on analytical models and adjust for bookmaker margin, prediction markets aggregate the collective wisdom of thousands of individual traders who each bring their own information and analysis to the market. The resulting prices reflect a crowd-sourced probability estimate that can be remarkably accurate.</p>
+
+    <h2>Why Do Crowd Predictions Differ from Bookmaker Odds?</h2>
+    <p>There are several key reasons why prediction market probabilities and sportsbook implied probabilities can diverge. First, bookmakers build a margin (overround) into their odds, typically 4-8%, which means the implied probabilities always sum to more than 100%. Prediction markets, by contrast, have prices that naturally sum to approximately 100% since the Yes and No prices complement each other. Second, bookmakers may shade their odds toward popular outcomes to balance their books, while prediction markets have no such incentive — they simply reflect where the money flows. Third, prediction markets can incorporate information faster than bookmakers, especially for breaking news like injury reports or lineup changes, because individual traders can act immediately. Finally, the participant base differs: bookmakers employ professional oddsmakers, while prediction markets include everyone from casual fans to sophisticated quantitative analysts.</p>
+
+    <h2>Understanding Value Gaps</h2>
+    <p>A value gap occurs when the probability implied by a prediction market differs significantly from the probability implied by sportsbook odds. When the gap exceeds 5 percentage points, it may indicate that one side of the market has information the other has not yet incorporated. These gaps do not guarantee a profitable opportunity — both markets can be wrong — but they do highlight events worth closer analysis. A crowd probability significantly higher than the bookmaker probability might suggest that informed traders are betting on an outcome the books have undervalued, while the reverse might indicate bookmaker caution or insider knowledge not yet reflected in the prediction market.</p>
+
+    <h2>How to Use This Data</h2>
+    <p>This comparison tool is designed for analytical and educational purposes. Use the data to identify events where market opinions diverge, then conduct your own deeper analysis to understand why. Compare with our <a href="calculator.html">Odds Calculator</a> to convert between formats and calculate implied probabilities. Check our <a href="compare.html">Odds Comparison</a> tool to see the best available odds across bookmakers. Remember: all data on this site is for informational purposes only and does not constitute financial or betting advice.</p>
+  </div>
+
+  <div class="disclaimer">⚠️ SportPredict is a sports data analysis platform. All data is for informational and educational purposes only. Prediction market data from Polymarket, sportsbook odds from The Odds API. This is not financial advice.</div>
+</div>
+
+<script>
+const API_KEY = '1560e77265ec5a6f65265a96ad7c36cb';
+const ODDS_BASE = 'https://api.the-odds-api.com/v4';
+const POLY_BASE = 'https://gamma-api.polymarket.com';
+
+const SPORT_MAP = {
+  soccer: ['soccer_epl','soccer_usa_mls','soccer_germany_bundesliga','soccer_italy_serie_a','soccer_spain_la_liga','soccer_france_ligue_one','soccer_champions_league'],
+  nba: ['basketball_nba'],
+  nfl: ['americanfootball_nfl'],
+  mlb: ['baseball_mlb'],
+  tennis: ['tennis_atp_australian_open','tennis_atp_french_open','tennis_atp_wimbledon','tennis_atp_us_open']
+};
+
+const ODDS_SPORT_KEYS = ['soccer_epl','basketball_nba','americanfootball_nfl','baseball_mlb','tennis_atp_australian_open','tennis_atp_french_open','tennis_atp_wimbledon','tennis_atp_us_open','soccer_usa_mls','soccer_germany_bundesliga','soccer_italy_serie_a','soccer_spain_la_liga','soccer_france_ligue_one','soccer_champions_league'];
+
+let currentFilter = 'all';
+let allCards = [];
+
+async function fetchPolymarket() {
+  try {
+    const r = await fetch(POLY_BASE + '/events?tag_slug=sports&active=true&closed=false&limit=20&order=volume&ascending=false');
+    if (!r.ok) throw new Error('Polymarket API error');
+    return await r.json();
+  } catch(e) { console.error('Polymarket fetch error:', e); return []; }
+}
+
+async function fetchOddsAPI() {
+  const results = {};
+  const keys = currentFilter === 'all' ? ODDS_SPORT_KEYS : (SPORT_MAP[currentFilter] || []);
+  const promises = keys.map(async key => {
+    try {
+      const r = await fetch(ODDS_BASE + '/sports/' + key + '/odds/?apiKey=' + API_KEY + '&regions=us&markets=h2h&oddsFormat=decimal');
+      if (!r.ok) return;
+      const data = await r.json();
+      data.forEach(m => {
+        const homeTeam = (m.home_team || '').toLowerCase();
+        const awayTeam = (m.away_team || '').toLowerCase();
+        const key = homeTeam + ' vs ' + awayTeam;
+        let homeProb = null, awayProb = null, drawProb = null, bookmakerCount = 0;
+        if (m.bookmakers && m.bookmakers.length) {
+          bookmakerCount = m.bookmakers.length;
+          const bk = m.bookmakers[0];
+          const mk = bk.markets && bk.markets.find(m => m.key === 'h2h');
+          if (mk) {
+            mk.outcomes.forEach(o => {
+              if (o.name === m.home_team) homeProb = 1 / o.price;
+              else if (o.name === m.away_team) awayProb = 1 / o.price;
+              else drawProb = 1 / o.price;
+            });
+          }
+        }
+        results[key] = {
+          homeTeam: m.home_team,
+          awayTeam: m.away_team,
+          homeProb,
+          awayProb,
+          drawProb,
+          bookmakerCount,
+          sportKey: key,
+          commence: m.commence_time
+        };
+      });
+    } catch(e) { /* skip */ }
+  });
+  await Promise.all(promises);
+  return results;
+}
+
+function extractKeywords(text) {
+  const stopWords = new Set(['the','a','an','vs','at','in','of','for','and','to','is','are','will','win','game','match','cup','league','season','championship','final','playoff','round']);
+  return (text || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(w => w.length > 2 && !stopWords.has(w));
+}
+
+function matchEvents(polyEvents, oddsData) {
+  const cards = [];
+  const matchedOddsKeys = new Set();
+
+  polyEvents.forEach(evt => {
+    const m = evt.markets && evt.markets[0];
+    if (!m || !m.outcomePrices) return;
+    const prices = JSON.parse(m.outcomePrices || '[]');
+    const yesPct = Math.round((prices[0] || 0) * 100);
+    const noPct = 100 - yesPct;
+    const vol = evt.volume ? Number(evt.volume) : 0;
+    const volStr = vol > 1e6 ? '$' + (vol/1e6).toFixed(1) + 'M' : vol > 1e3 ? '$' + (vol/1e3).toFixed(0) + 'K' : '$' + vol.toFixed(0);
+    const title = m.question || evt.title || '';
+    const polyKeywords = extractKeywords(title);
+
+    let bestMatch = null;
+    let bestScore = 0;
+    Object.keys(oddsData).forEach(ok => {
+      const od = oddsData[ok];
+      const oddsKeywords = extractKeywords(od.homeTeam + ' ' + od.awayTeam);
+      const overlap = polyKeywords.filter(k => oddsKeywords.includes(k)).length;
+      const score = overlap / Math.max(polyKeywords.length, oddsKeywords.length, 1);
+      if (score > bestScore && score > 0.25) {
+        bestScore = score;
+        bestMatch = ok;
+      }
+    });
+
+    let sport = 'other';
+    const t = title.toLowerCase();
+    if (t.includes('nba') || t.includes('basketball')) sport = 'nba';
+    else if (t.includes('nfl') || t.includes('football') || t.includes('super bowl')) sport = 'nfl';
+    else if (t.includes('mlb') || t.includes('baseball') || t.includes('world series')) sport = 'mlb';
+    else if (t.includes('tennis') || t.includes('wimbledon') || t.includes('open') || t.includes('atp') || t.includes('grand slam')) sport = 'tennis';
+    else if (t.includes('soccer') || t.includes('premier') || t.includes('liga') || t.includes('serie') || t.includes('bundesliga') || t.includes('champions') || t.includes('world cup') || t.includes('cup') || t.includes('football')) sport = 'soccer';
+
+    if (bestMatch) {
+      matchedOddsKeys.add(bestMatch);
+      const od = oddsData[bestMatch];
+      const gap = yesPct - Math.round((od.homeProb || 0) * 100);
+      const absGap = Math.abs(gap);
+      cards.push({
+        type: 'matched',
+        title,
+        yesPct,
+        noPct,
+        bookHomePct: od.homeProb ? Math.round(od.homeProb * 100) : null,
+        bookAwayPct: od.awayProb ? Math.round(od.awayProb * 100) : null,
+        bookDrawPct: od.drawProb ? Math.round(od.drawProb * 100) : null,
+        gap,
+        absGap,
+        volume: volStr,
+        bookmakerCount: od.bookmakerCount,
+        sport,
+        isValueGap: absGap > 5,
+        slug: evt.slug
+      });
+    } else {
+      cards.push({
+        type: 'crowd-only',
+        title,
+        yesPct,
+        noPct,
+        volume: volStr,
+        sport,
+        slug: evt.slug
+      });
+    }
+  });
+
+  Object.keys(oddsData).forEach(ok => {
+    if (matchedOddsKeys.has(ok)) return;
+    const od = oddsData[ok];
+    let sport = 'other';
+    const sk = od.sportKey || '';
+    if (sk.includes('basketball_nba')) sport = 'nba';
+    else if (sk.includes('americanfootball')) sport = 'nfl';
+    else if (sk.includes('baseball')) sport = 'mlb';
+    else if (sk.includes('tennis')) sport = 'tennis';
+    else if (sk.includes('soccer')) sport = 'soccer';
+    cards.push({
+      type: 'books-only',
+      title: od.homeTeam + ' vs ' + od.awayTeam,
+      bookHomePct: od.homeProb ? Math.round(od.homeProb * 100) : null,
+      bookAwayPct: od.awayProb ? Math.round(od.awayProb * 100) : null,
+      bookDrawPct: od.drawProb ? Math.round(od.drawProb * 100) : null,
+      bookmakerCount: od.bookmakerCount,
+      sport,
+      commence: od.commence
+    });
+  });
+
+  cards.sort((a, b) => (b.absGap || 0) - (a.absGap || 0));
+  return cards;
+}
+
+function renderCards(cards) {
+  const container = document.getElementById('cardList');
+  const filtered = currentFilter === 'all' ? cards : cards.filter(c => c.sport === currentFilter);
+
+  if (!filtered.length) {
+    container.innerHTML = '<div class="loading">No data available for this filter. Try "All" or check back later.</div>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(c => {
+    if (c.type === 'matched') {
+      const gapClass = c.gap > 0 ? 'positive' : c.gap < 0 ? 'negative' : 'neutral';
+      const gapSign = c.gap > 0 ? '+' : '';
+      return `<div class="cvb-card${c.isValueGap ? ' value-gap' : ''}">
+        <div class="cvb-title">${c.title}${c.isValueGap ? '<span class="cvb-badge gap">🔥 Value Gap</span>' : ''}</div>
+        <div class="cvb-compare">
+          <div class="cvb-row">
+            <span class="cvb-label">Polymarket</span>
+            <div class="cvb-bar-wrap"><div class="cvb-bar-fill crowd" style="width:${c.yesPct}%">${c.yesPct}%</div></div>
+            <span class="cvb-pct crowd">${c.yesPct}%</span>
+          </div>
+          <div class="cvb-row">
+            <span class="cvb-label">Bookmakers</span>
+            <div class="cvb-bar-wrap"><div class="cvb-bar-fill books" style="width:${c.bookHomePct || 0}%">${c.bookHomePct || '--'}%</div></div>
+            <span class="cvb-pct books">${c.bookHomePct || '--'}%</span>
+          </div>
+        </div>
+        <div class="cvb-gap ${gapClass}">Gap: ${gapSign}${c.gap}pp ${c.gap > 0 ? '(Crowd higher)' : c.gap < 0 ? '(Books higher)' : '(No gap)'}</div>
+        <div class="cvb-meta">
+          <span>📈 Volume: ${c.volume}</span>
+          <span>📊 ${c.bookmakerCount} bookmaker${c.bookmakerCount !== 1 ? 's' : ''}</span>
+          ${c.noPct !== undefined ? '<span>No: ' + c.noPct + '%</span>' : ''}
+        </div>
+      </div>`;
+    } else if (c.type === 'crowd-only') {
+      return `<div class="cvb-card">
+        <div class="cvb-title">${c.title}<span class="cvb-badge crowd-only">Crowd Only</span></div>
+        <div class="cvb-compare">
+          <div class="cvb-row">
+            <span class="cvb-label">Polymarket</span>
+            <div class="cvb-bar-wrap"><div class="cvb-bar-fill crowd" style="width:${c.yesPct}%">${c.yesPct}%</div></div>
+            <span class="cvb-pct crowd">${c.yesPct}%</span>
+          </div>
+        </div>
+        <div class="cvb-single">Bookmaker odds not available yet for this event</div>
+        <div class="cvb-meta"><span>📈 Volume: ${c.volume}</span>${c.noPct !== undefined ? '<span>No: ' + c.noPct + '%</span>' : ''}</div>
+      </div>`;
+    } else {
+      return `<div class="cvb-card">
+        <div class="cvb-title">${c.title}<span class="cvb-badge books-only">Books Only</span></div>
+        <div class="cvb-compare">
+          <div class="cvb-row">
+            <span class="cvb-label">Bookmakers</span>
+            <div class="cvb-bar-wrap"><div class="cvb-bar-fill books" style="width:${c.bookHomePct || 0}%">${c.bookHomePct || '--'}%</div></div>
+            <span class="cvb-pct books">${c.bookHomePct || '--'}%</span>
+          </div>
+        </div>
+        <div class="cvb-single">No prediction market yet for this event</div>
+        <div class="cvb-meta"><span>📊 ${c.bookmakerCount} bookmaker${c.bookmakerCount !== 1 ? 's' : ''}</span></div>
+      </div>`;
+    }
+  }).join('');
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderCards(allCards);
+}
+
+async function loadData() {
+  document.getElementById('lastUpdate').textContent = new Date().toLocaleTimeString();
+  const [polyEvents, oddsData] = await Promise.all([fetchPolymarket(), fetchOddsAPI()]);
+  allCards = matchEvents(polyEvents, oddsData);
+  renderCards(allCards);
+}
+
+function shareTwitter(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(document.title)+'&url='+encodeURIComponent(location.href))}
+function shareFacebook(){window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href))}
+function shareReddit(){window.open('https://reddit.com/submit?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title))}
+function shareWhatsApp(){window.open('https://wa.me/?text='+encodeURIComponent(document.title+' '+location.href))}
+function copyLink(){navigator.clipboard.writeText(location.href);alert('Link copied!')}
+
+loadData();
+setInterval(loadData, 60000);
+</script>
+
+<!-- Mobile Bottom Nav -->
+<div class="mobile-bottom-nav">
+  <a href="/" class="bottom-nav-item"><span class="bni-icon">&#127968;</span><span class="bni-label">Home</span></a>
+  <a href="/calculator.html" class="bottom-nav-item"><span class="bni-icon">&#129504;</span><span class="bni-label">Calc</span></a>
+  <a href="/analyzer.html" class="bottom-nav-item"><span class="bni-icon">&#128300;</span><span class="bni-label">Analyze</span></a>
+  <a href="/compare.html" class="bottom-nav-item"><span class="bni-icon">&#128203;</span><span class="bni-label">Compare</span></a>
+  <a href="/daily.html" class="bottom-nav-item"><span class="bni-icon">&#128240;</span><span class="bni-label">Daily</span></a>
+</div>
+
+</body>
+</html>

@@ -1347,6 +1347,10 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
         <span class="emoji">🏆</span>
         <span class="nav-label">World Cup 2026</span>
       </a>
+      <a href="guides/prediction-markets-explained.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">📖</span>
+        <span class="nav-label">Prediction Markets</span>
+      </a>
     </div>
     <div class="sidebar-tools-section" style="padding:8px 0;border-top:1px solid var(--border);">
       <div class="nav-group-label">🔧 <span data-i18n="toolsGroup">工具</span></div>
@@ -1368,6 +1372,10 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
       <a href="https://polymarket.com/sports" class="nav-item" target="_blank" style="text-decoration:none;color:var(--text-secondary)">
         <span class="emoji">📈</span>
         <span class="nav-label">Polymarket</span>
+      </a>
+      <a href="/crowd-vs-bookmakers.html" class="nav-item" style="text-decoration:none;color:var(--text-secondary)">
+        <span class="emoji">🔥</span>
+        <span class="nav-label">Crowd vs Books</span>
       </a>
     </div>
     <div class="sidebar-fav-section" id="sidebarFav" style="padding:8px 0;border-top:1px solid var(--border);">
@@ -1437,6 +1445,7 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
       <div class="page-tab" onclick="location.href='calculator.html'">🧠 Calculator</div>
       <div class="page-tab" onclick="location.href='analyzer.html'">🔬 Analyzer</div>
       <div class="page-tab" onclick="location.href='compare.html'">📋 Compare</div>
+      <div class="page-tab" onclick="location.href='crowd-vs-bookmakers.html'">🔥 Crowd vs Books</div>
     </div>
     <div class="content-area" id="contentArea"></div>
 
@@ -1482,6 +1491,10 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
           <h3>🏆 World Cup 2026 Guide</h3>
           <p>Odds, predictions, and analysis for FIFA 2026</p>
         </a>
+        <a href="/guides/prediction-markets-explained.html" class="guide-card">
+          <h3>📖 Prediction Markets Explained</h3>
+          <p>How prediction markets work and compare to sportsbooks</p>
+        </a>
       </div>
     </div>
 
@@ -1502,6 +1515,7 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
         <a href="leagues/mma.html" class="explore-link-item">🥋 MMA &amp; UFC<span class="link-desc">Fight night odds</span></a>
         <a href="leagues/tennis.html" class="explore-link-item">🎾 Tennis<span class="link-desc">Grand Slam odds</span></a>
         <a href="leagues/nfl.html" class="explore-link-item">🏈 NFL<span class="link-desc">NFL odds and analysis</span></a>
+        <a href="/crowd-vs-bookmakers.html" class="explore-link-item">🔥 Crowd vs Books<span class="link-desc">Prediction market vs sportsbook odds</span></a>
       </div>
     </div>
 
@@ -5299,7 +5313,7 @@ updateFavCount();
 // ===== Polymarket Prediction Markets =====
 async function loadPredictionMarkets() {
   try {
-    const r = await fetch('https://gamma-api.polymarket.com/events?tag_slug=sports&active=true&closed=false&limit=6&order=volume&ascending=false');
+    const r = await fetch('https://gamma-api.polymarket.com/events?tag_slug=sports&active=true&closed=false&limit=8&order=volume&ascending=false');
     const events = await r.json();
     const grid = document.getElementById('pmGrid');
     if (!grid || !events.length) return;
@@ -5319,9 +5333,9 @@ async function loadPredictionMarkets() {
           <div class="pm-outcome pm-no"><span class="pm-pct">${noPct}%</span><span class="pm-label">No</span></div>
         </div>
         <div class="pm-bar"><div class="pm-bar-fill" style="width:${yesPct}%"></div></div>
-        <div class="pm-volume">Volume: ${volStr}</div>
+        <div class="pm-volume">Volume: ${volStr} · <a href="/crowd-vs-bookmakers.html" style="color:#4ade80;font-size:11px" onclick="event.stopPropagation()">View comparison</a></div>
       </div>`;
-    }).join('');
+    }).join('') + '<div style="text-align:center;padding:12px;font-size:12px;color:#666">Powered by Polymarket</div>';
   } catch(e) {}
 }
 loadPredictionMarkets();
