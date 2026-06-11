@@ -81,15 +81,15 @@ h2{font-size:22px;margin:32px 0 16px;border-bottom:2px solid var(--border);paddi
 <div class="top-nav">
   <div class="logo"> SportPredict</div>
   <div style="display:flex;align-items:center;gap:12px">
-    <a href="../index.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">馃彔 Home</a>
-    <a href="../daily.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">馃摪 Daily</a>
-    <a href="../calculator.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">馃搳 Calculator</a>
-    <a href="../crowd-vs-bookmakers.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">🔥 Crowd vs Books</a>
+    <a href="../index.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">棣冨綌 Home</a>
+    <a href="../daily.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">棣冩應 Daily</a>
+    <a href="../calculator.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">棣冩惓 Calculator</a>
+    <a href="../crowd-vs-bookmakers.html" class="share-btn" style="width:auto;padding:6px 14px;font-size:13px">馃敟 Crowd vs Books</a>
   </div>
 </div>
 
 <div class="breadcrumb">
-  <a href="https://10110289.xyz/">Home</a><span>鈥?/span><a href="https://10110289.xyz/leagues/">Leagues</a><span>鈥?/span>NFL
+  <a href="https://10110289.xyz/">Home</a><span>閳?/span><a href="https://10110289.xyz/leagues/">Leagues</a><span>閳?/span>NFL
 </div>
 
 <div class="container">
@@ -102,29 +102,31 @@ h2{font-size:22px;margin:32px 0 16px;border-bottom:2px solid var(--border);paddi
 
   
 
-  <h2>馃搳 Live Odds</h2>
+  <h2>棣冩惓 Live Odds</h2>
   <div id="matchList"><div class="loading"><div class="spinner"></div>Loading NFL data...</div></div>
 
   <div class="share-bar">
     <span>Share:</span>
-    <a href="javascript:shareTwitter()" class="share-btn twitter">饾晱</a>
+    <a href="javascript:shareTwitter()" class="share-btn twitter">楗炬櫛</a>
     <a href="javascript:shareFacebook()" class="share-btn facebook">FB</a>
     <a href="javascript:shareReddit()" class="share-btn reddit">Reddit</a>
     <a href="javascript:shareWhatsApp()" class="share-btn whatsapp">WA</a>
-    <a href="javascript:copyLink()" class="share-btn copy">馃搵</a>
+    <a href="javascript:copyLink()" class="share-btn copy">棣冩惖</a>
   </div>
 
   <h3>Explore More</h3>
   <div class="explore-links">
-    <a href="../daily.html">馃摪 Daily Analysis<span class="link-desc">Today's match analysis and odds insights</span></a>
-    <a href="../calculator.html">馃搳 Odds Calculator<span class="link-desc">Convert odds, Kelly criterion, arbitrage finder</span></a>
-    <a href="../compare.html">馃搵 Odds Comparison<span class="link-desc">Live odds across all bookmakers</span></a>
-    <a href="../crowd-vs-bookmakers.html">🔥 Crowd vs Books<span class="link-desc">Prediction market vs sportsbook odds</span></a>
-    <a href="world-cup.html">馃弳 World Cup 2026<span class="link-desc">FIFA World Cup odds and group analysis</span></a>
+    <a href="../daily.html">棣冩應 Daily Analysis<span class="link-desc">Today's match analysis and odds insights</span></a>
+    <a href="../calculator.html">棣冩惓 Odds Calculator<span class="link-desc">Convert odds, Kelly criterion, arbitrage finder</span></a>
+    <a href="../compare.html">棣冩惖 Odds Comparison<span class="link-desc">Live odds across all bookmakers</span></a>
+    <a href="../crowd-vs-bookmakers.html">馃敟 Crowd vs Books<span class="link-desc">Prediction market vs sportsbook odds</span></a>
+    <a href="world-cup.html">棣冨汲 World Cup 2026<span class="link-desc">FIFA World Cup odds and group analysis</span></a>
   </div>
 
+      <a href="../guides/kelly-criterion.html">📊 Kelly Criterion Guide<span class="link-desc">Optimal bet sizing strategy</span></a>
+    <a href="../guides/odds-conversion.html">📐 Odds Conversion Guide<span class="link-desc">Master all odds formats</span></a>
   <div class="last-updated">Last updated: <span id="footerUpdated">--</span></div>
-  <div class="disclaimer">鈿狅笍 SportPredict is a sports data analysis platform. All data is for informational purposes only and does not constitute betting advice.</div>
+  <div class="disclaimer">閳跨媴绗?SportPredict is a sports data analysis platform. All data is for informational purposes only and does not constitute betting advice.</div>
 </div>
 
 <script>
@@ -168,9 +170,9 @@ async function loadMatches(){
       bks.forEach(bk=>{const mk2=bk.markets?.find(m=>m.key==='h2h');if(mk2)mk2.outcomes.forEach(o=>{if(o.name===home&&o.price>bestH)bestH=o.price;else if(o.name===away&&o.price>bestA)bestA=o.price;else if(o.price>bestD)bestD=o.price})});
     }
     const total=hProb+dProb+aProb;
-    html+='<div class="match-card"><div class="match-teams">'+home+' vs '+away+'</div><div class="match-meta">'+new Date(match.commence_time).toLocaleString()+(bks.length?' | '+bks.length+' bookmakers':'')+'</div><div class="match-odds-row"><div class="odd-item"><span class="odd-label">Home</span><span class="odd-value">'+hOdds+(bestH>0&&hOdds!=='--'&&bestH>parseFloat(hOdds)?' 鈫?'+bestH.toFixed(2):'')+'</span></div>';
+    html+='<div class="match-card"><div class="match-teams">'+home+' vs '+away+'</div><div class="match-meta">'+new Date(match.commence_time).toLocaleString()+(bks.length?' | '+bks.length+' bookmakers':'')+'</div><div class="match-odds-row"><div class="odd-item"><span class="odd-label">Home</span><span class="odd-value">'+hOdds+(bestH>0&&hOdds!=='--'&&bestH>parseFloat(hOdds)?' 閳?'+bestH.toFixed(2):'')+'</span></div>';
     if(dOdds!=='--')html+='<div class="odd-item"><span class="odd-label">Draw</span><span class="odd-value">'+dOdds+'</span></div>';
-    html+='<div class="odd-item"><span class="odd-label">Away</span><span class="odd-value">'+aOdds+(bestA>0&&aOdds!=='--'&&bestA>parseFloat(aOdds)?' 鈫?'+bestA.toFixed(2):'')+'</span></div></div>';
+    html+='<div class="odd-item"><span class="odd-label">Away</span><span class="odd-value">'+aOdds+(bestA>0&&aOdds!=='--'&&bestA>parseFloat(aOdds)?' 閳?'+bestA.toFixed(2):'')+'</span></div></div>';
     if(total>0)html+='<div class="prob-bar"><div class="fill home" style="width:'+hProb/total*100+'%">'+hProb.toFixed(0)+'%</div><div class="fill draw" style="width:'+dProb/total*100+'%">'+dProb.toFixed(0)+'%</div><div class="fill away" style="width:'+aProb/total*100+'%">'+aProb.toFixed(0)+'%</div></div>';
     html+='</div>';
   });
