@@ -1231,6 +1231,64 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
   .pm-grid { grid-template-columns: 1fr; }
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is SportPredict?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SportPredict is a free sports data analysis platform that aggregates real-time odds from over 20 bookmakers and combines them with prediction market data from Polymarket. We provide probability analysis, odds comparison, and match insights for football, basketball, baseball, ice hockey, tennis, boxing, MMA, F1, and more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are match predictions calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our predictions are based on implied probabilities derived from bookmaker odds. We collect odds from multiple bookmakers for each match, calculate the implied probability for each outcome, adjust for the bookmaker overround, and present the true market-estimated probability. We also overlay Polymarket crowd predictions for comparison."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between bookmaker odds and prediction markets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bookmaker odds are set by professional oddsmakers who factor in statistical models, market liability, and profit margins. Prediction markets like Polymarket reflect the collective wisdom of decentralized participants trading on outcomes. When the two disagree, it can signal a value opportunity worth investigating."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is SportPredict free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, SportPredict is completely free. All our tools, including the Odds Calculator, Probability Analyzer, and Odds Comparison tool, are available at no cost and require no sign-up or registration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often is the data updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our odds data refreshes automatically every few minutes during active match periods. Prediction market data from Polymarket updates every 60 seconds. You can also manually refresh at any time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compare odds across different bookmakers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our Odds Comparison tool shows side-by-side odds from more than 20 bookmakers for each match, highlighting the best available odds for each outcome. This helps you identify favorable prices and spot potential arbitrage opportunities."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
 
@@ -1451,9 +1509,89 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
       <div class="page-tab" onclick="location.href='compare.html'">📋 Compare</div>
       <div class="page-tab" onclick="location.href='crowd-vs-bookmakers.html'">🔥 Crowd vs Books</div>
     </div>
-    <div class="content-area" id="contentArea"></div>
+    
+<!-- Noscript fallback for crawlers - ensures content is visible without JS -->
+<noscript>
+<div style="padding:24px;max-width:900px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#e6edf3;background:#0d1117;">
+  <h2 style="font-size:24px;margin-bottom:12px;color:#4ade80;">SportPredict - Sports Data Analysis Platform</h2>
+  <p style="font-size:15px;line-height:1.7;margin-bottom:16px;color:#c9d1d9;">
+    SportPredict is a comprehensive sports data analysis platform that provides real-time match statistics, probability analysis, and odds comparison across more than 20 bookmakers. Our platform covers football (soccer), basketball, baseball, ice hockey, tennis, boxing, MMA, F1 racing, and many more sports. Whether you are looking for Premier League analysis, NBA game predictions, or NHL odds comparison, SportPredict delivers data-driven insights to help you understand match probabilities and market movements. We aggregate odds from top bookmakers worldwide and combine them with prediction market data from Polymarket to give you a unique perspective on every game.
+  </p>
+  <h3 style="font-size:18px;margin-bottom:10px;color:#4ade80;">Sports We Cover</h3>
+  <ul style="list-style:none;padding:0;margin-bottom:16px;display:flex;flex-wrap:wrap;gap:8px;">
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/world-cup.html" style="color:#4ade80;">World Cup Soccer</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/premier-league.html" style="color:#4ade80;">Premier League</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/nba.html" style="color:#4ade80;">NBA Basketball</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/mlb.html" style="color:#4ade80;">MLB Baseball</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/nhl.html" style="color:#4ade80;">NHL Ice Hockey</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/nfl.html" style="color:#4ade80;">NFL Football</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/boxing.html" style="color:#4ade80;">Boxing</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/mma.html" style="color:#4ade80;">MMA &amp; UFC</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/f1.html" style="color:#4ade80;">F1 Racing</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/tennis.html" style="color:#4ade80;">Tennis</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/champions-league.html" style="color:#4ade80;">Champions League</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/la-liga.html" style="color:#4ade80;">La Liga</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/bundesliga.html" style="color:#4ade80;">Bundesliga</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/serie-a.html" style="color:#4ade80;">Serie A</a></li>
+    <li style="background:#1c2128;padding:6px 14px;border-radius:8px;border:1px solid #30363d;"><a href="/leagues/ligue-1.html" style="color:#4ade80;">Ligue 1</a></li>
+  </ul>
+  <h3 style="font-size:18px;margin-bottom:10px;color:#4ade80;">Tools &amp; Guides</h3>
+  <ul style="list-style:none;padding:0;margin-bottom:16px;">
+    <li style="margin-bottom:6px;"><a href="/calculator.html" style="color:#4ade80;">Odds Calculator</a> - Convert between decimal, fractional, and American odds formats</li>
+    <li style="margin-bottom:6px;"><a href="/analyzer.html" style="color:#4ade80;">Probability Analyzer</a> - Visualize market probabilities and heatmaps</li>
+    <li style="margin-bottom:6px;"><a href="/compare.html" style="color:#4ade80;">Odds Comparison</a> - Compare odds across 20+ bookmakers</li>
+    <li style="margin-bottom:6px;"><a href="/daily.html" style="color:#4ade80;">Daily Analysis</a> - Match previews and daily insights</li>
+    <li style="margin-bottom:6px;"><a href="/guides/kelly-criterion.html" style="color:#4ade80;">Kelly Criterion Guide</a> - Learn optimal bet sizing strategies</li>
+    <li style="margin-bottom:6px;"><a href="/guides/odds-conversion.html" style="color:#4ade80;">Odds Conversion Guide</a> - Understand different odds formats</li>
+    <li style="margin-bottom:6px;"><a href="/guides/arbitrage-betting.html" style="color:#4ade80;">Arbitrage Guide</a> - Find risk-free betting opportunities</li>
+    <li style="margin-bottom:6px;"><a href="/guides/prediction-markets-explained.html" style="color:#4ade80;">Prediction Markets Explained</a> - How crowd predictions compare to bookmakers</li>
+  </ul>
+  <p style="font-size:13px;color:#8b949e;">SportPredict does not provide betting services or charge any fees. All data is for analytical reference only.</p>
+</div>
+</noscript>
 
-    <!-- Prediction Markets Section -->
+
+<!-- Visible About Section for crawlers and users -->
+<section class="about-section" style="padding:24px;margin:0 auto;max-width:900px;">
+  <h2 style="font-size:22px;font-weight:700;color:#4ade80;margin-bottom:12px;">About SportPredict: How We Analyze Sports Data</h2>
+  <p style="font-size:15px;line-height:1.8;color:#c9d1d9;margin-bottom:12px;">
+    SportPredict is a free sports data analysis platform that combines real-time bookmaker odds with prediction market data to deliver comprehensive match insights. Unlike traditional odds comparison sites that simply list numbers, SportPredict integrates crowd-sourced probability estimates from Polymarket alongside odds from more than 20 licensed bookmakers worldwide, giving users a dual perspective on every match. This unique combination allows you to see not just what bookmakers think, but also what the crowd believes, highlighting discrepancies that can indicate value opportunities or market inefficiencies.
+  </p>
+  <p style="font-size:15px;line-height:1.8;color:#c9d1d9;margin-bottom:12px;">
+    Our probability analysis engine calculates implied probabilities from bookmaker odds, adjusts for the overround (the bookmaker margin built into the odds), and presents the true market-estimated likelihood of each outcome. For each match, we display home win, draw, and away win probabilities as visual bars and percentage values, making it easy to compare at a glance. When multiple bookmakers offer different odds for the same event, our system identifies the best available odds and flags potential arbitrage opportunities where the combined implied probability drops below 100%.
+  </p>
+  <p style="font-size:15px;line-height:1.8;color:#c9d1d9;margin-bottom:12px;">
+    The methodology behind SportPredict is straightforward and transparent. We pull live odds data from The Odds API, which aggregates feeds from major bookmakers including Bet365, Betfair, Pinnacle, DraftKings, and many others. For prediction market data, we connect to Polymarket, the largest decentralized prediction market platform. By comparing traditional bookmaker odds (which reflect professional risk assessment and liability management) against prediction market prices (which reflect decentralized crowd consensus), SportPredict reveals where the two markets disagree. These divergences are often the most interesting data points for analysts seeking edge. All our tools, including the Odds Calculator, Probability Analyzer, and Odds Comparison tool, are free to use and require no sign-up.
+  </p>
+</section>
+
+<div class="content-area" id="contentArea"></div>
+
+    
+<!-- Learning Center / Expert Analysis Section -->
+<section class="learning-center" style="padding:24px;margin:0 auto;max-width:900px;border-top:1px solid var(--border);">
+  <h2 style="font-size:22px;font-weight:700;color:#4ade80;margin-bottom:16px;">Learning Center</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+    <a href="/guides/kelly-criterion.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;transition:border-color .2s;">
+      <h3 style="font-size:16px;color:#4ade80;margin-bottom:8px;">Kelly Criterion</h3>
+      <p style="font-size:13px;color:#8b949e;line-height:1.6;">Learn the mathematically optimal strategy for bet sizing. The Kelly formula helps you maximize long-term growth while managing risk effectively.</p>
+    </a>
+    <a href="/guides/odds-conversion.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;transition:border-color .2s;">
+      <h3 style="font-size:16px;color:#4ade80;margin-bottom:8px;">Odds Conversion</h3>
+      <p style="font-size:13px;color:#8b949e;line-height:1.6;">Understand how decimal, fractional, and American odds formats relate to each other. Convert between formats and calculate implied probability.</p>
+    </a>
+    <a href="/guides/arbitrage-betting.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;transition:border-color .2s;">
+      <h3 style="font-size:16px;color:#4ade80;margin-bottom:8px;">Arbitrage Betting</h3>
+      <p style="font-size:13px;color:#8b949e;line-height:1.6;">Discover how odds discrepancies between bookmakers create arbitrage opportunities where you can guarantee a profit regardless of the outcome.</p>
+    </a>
+    <a href="/guides/prediction-markets-explained.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;text-decoration:none;transition:border-color .2s;">
+      <h3 style="font-size:16px;color:#4ade80;margin-bottom:8px;">Prediction Markets</h3>
+      <p style="font-size:13px;color:#8b949e;line-height:1.6;">Explore how prediction markets like Polymarket work, how they differ from traditional sportsbooks, and what crowd wisdom reveals about event outcomes.</p>
+    </a>
+  </div>
+</section>
+
+<!-- Prediction Markets Section -->
     <div id="predictionMarkets" class="prediction-markets-section" style="padding:0 24px">
       <h2 class="section-title">Prediction Markets <span class="live-dot"></span></h2>
       <p class="section-desc">Real-time crowd predictions from Polymarket</p>
@@ -1526,6 +1664,38 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
     </div>
 
     <div class="last-updated-bar">Last updated: <span class="last-updated-time">--</span></div>
+
+<!-- FAQ Section with Schema.org Markup -->
+<section class="faq-section" style="padding:24px;margin:0 auto;max-width:900px;border-top:1px solid var(--border);">
+  <h2 style="font-size:22px;font-weight:700;color:#4ade80;margin-bottom:16px;">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item" style="margin-bottom:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <h3 style="font-size:15px;color:#e6edf3;margin-bottom:8px;">What is SportPredict?</h3>
+      <p style="font-size:14px;color:#8b949e;line-height:1.7;">SportPredict is a free sports data analysis platform that aggregates real-time odds from over 20 bookmakers and combines them with prediction market data from Polymarket. We provide probability analysis, odds comparison, and match insights for football, basketball, baseball, ice hockey, tennis, boxing, MMA, F1, and more.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <h3 style="font-size:15px;color:#e6edf3;margin-bottom:8px;">How are match predictions calculated?</h3>
+      <p style="font-size:14px;color:#8b949e;line-height:1.7;">Our predictions are based on implied probabilities derived from bookmaker odds. We collect odds from multiple bookmakers for each match, calculate the implied probability for each outcome (home win, draw, away win), adjust for the bookmaker overround, and present the true market-estimated probability. We also overlay Polymarket crowd predictions for comparison.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <h3 style="font-size:15px;color:#e6edf3;margin-bottom:8px;">What is the difference between bookmaker odds and prediction markets?</h3>
+      <p style="font-size:14px;color:#8b949e;line-height:1.7;">Bookmaker odds are set by professional oddsmakers who factor in statistical models, market liability, and profit margins (the overround). Prediction markets like Polymarket reflect the collective wisdom of decentralized participants trading on outcomes. When the two disagree, it can signal a value opportunity or market inefficiency worth investigating.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <h3 style="font-size:15px;color:#e6edf3;margin-bottom:8px;">Is SportPredict free to use?</h3>
+      <p style="font-size:14px;color:#8b949e;line-height:1.7;">Yes, SportPredict is completely free. All our tools, including the Odds Calculator, Probability Analyzer, and Odds Comparison tool, are available at no cost and require no sign-up or registration. We do not offer betting services or charge any fees.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <h3 style="font-size:15px;color:#e6edf3;margin-bottom:8px;">How often is the data updated?</h3>
+      <p style="font-size:14px;color:#8b949e;line-height:1.7;">Our odds data refreshes automatically every few minutes during active match periods. The auto-refresh feature can be toggled on or off from the top bar. Prediction market data from Polymarket updates every 60 seconds. You can also manually refresh at any time using the refresh button.</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+      <h3 style="font-size:15px;color:#e6edf3;margin-bottom:8px;">Can I compare odds across different bookmakers?</h3>
+      <p style="font-size:14px;color:#8b949e;line-height:1.7;">Yes. Our Odds Comparison tool shows side-by-side odds from more than 20 bookmakers for each match, highlighting the best available odds for each outcome. This helps you identify where the most favorable prices are offered and spot potential arbitrage opportunities.</p>
+    </div>
+  </div>
+</section>
+
 <footer style="text-align:center;padding:20px;color:var(--text-muted);font-size:12px;border-top:1px solid var(--border);margin-top:40px;">
 <p data-i18n="footerDisclaimer">⚠️ SportPredict 是体育数据分析平台，不提供任何博彩服务，不收取任何费用。所有数据仅供分析参考。</p>
 <p style="margin-top:8px;color:var(--text-muted);font-size:11px;">
@@ -1533,9 +1703,9 @@ html[data-theme="light"] .combo-pick { background: #f6f8fa; }
   <span id="apiFooterWarning" style="display:none;color:#ef4444;margin-left:4px">⚠️ 额度不足</span>
 </p>
 <p style="margin-top:10px;">
-<a href="#" onclick="showSection('about');return false;" style="color:var(--text-muted);" data-i18n="footerAbout">关于我们</a> | 
-<a href="#" onclick="showSection('privacy');return false;" style="color:var(--text-muted);" data-i18n="footerPrivacy">隐私政策</a> | 
-<a href="#" onclick="showSection('terms');return false;" style="color:var(--text-muted);" data-i18n="footerTerms">使用条款</a> | 
+<a href="/about.html" style="color:var(--text-muted);" data-i18n="footerAbout">关于我们</a> | 
+<a href="/privacy.html" style="color:var(--text-muted);" data-i18n="footerPrivacy">隐私政策</a> | 
+<a href="/terms.html" style="color:var(--text-muted);" data-i18n="footerTerms">使用条款</a> | 
 <a href="mailto:guige123986@users.noreply.github.com" style="color:var(--text-muted);" data-i18n="footerContact">联系我们</a>
 </p>
 <p style="margin-top:8px;">© 2026 SportPredict. All rights reserved.</p>
