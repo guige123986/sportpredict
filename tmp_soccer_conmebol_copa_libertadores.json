@@ -1,0 +1,1422 @@
+﻿[
+    {
+        "id":  "5383e72b96aae89323d03f4cd36283e2",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-11T22:00:00Z",
+        "home_team":  "Fluminense-RJ",
+        "away_team":  "Independiente Rivadavia",
+        "bookmakers":  [
+                           {
+                               "key":  "casumo",
+                               "title":  "Casumo",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "pmu_fr",
+                               "title":  "PMU (FR)",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "grosvenor",
+                               "title":  "Grosvenor",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "ladbrokes_uk",
+                               "title":  "Ladbrokes",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_fr",
+                               "title":  "Unibet (FR)",
+                               "last_update":  "2026-06-23T14:02:08Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:08Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "virginbet",
+                               "title":  "Virgin Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "livescorebet",
+                               "title":  "LiveScore Bet",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "onexbet",
+                               "title":  "1xBet",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betrivers",
+                               "title":  "BetRivers",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_de",
+                               "title":  "Winamax (DE)",
+                               "last_update":  "2026-06-23T14:01:31Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:31Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_fr",
+                               "title":  "Winamax (FR)",
+                               "last_update":  "2026-06-23T14:01:20Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:20Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_nl",
+                               "title":  "Unibet (NL)",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "coral",
+                               "title":  "Coral",
+                               "last_update":  "2026-06-23T14:01:19Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:19Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "leovegas_se",
+                               "title":  "LeoVegas (SE)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betclic_fr",
+                               "title":  "Betclic (FR)",
+                               "last_update":  "2026-06-23T13:59:58Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:58Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "paddypower",
+                               "title":  "Paddy Power",
+                               "last_update":  "2026-06-23T14:00:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:00:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betfair_sb_uk",
+                               "title":  "Betfair Sportsbook",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "tipico_de",
+                               "title":  "Tipico",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "marathonbet",
+                               "title":  "Marathon Bet",
+                               "last_update":  "2026-06-23T14:02:06Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:06Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betsson",
+                               "title":  "Betsson",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "nordicbet",
+                               "title":  "Nordic Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "smarkets",
+                               "title":  "Smarkets",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}",
+                                               "@{key=h2h_lay; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "suprabets",
+                               "title":  "Suprabets",
+                               "last_update":  "2026-06-23T13:59:42Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:42Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "codere_it",
+                               "title":  "Codere (IT)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    },
+    {
+        "id":  "d795b12013a333298079df3a5abd260d",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-12T00:00:00Z",
+        "home_team":  "Palmeiras-SP",
+        "away_team":  "Cerro Porteño",
+        "bookmakers":  [
+                           {
+                               "key":  "casumo",
+                               "title":  "Casumo",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "grosvenor",
+                               "title":  "Grosvenor",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "ladbrokes_uk",
+                               "title":  "Ladbrokes",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_fr",
+                               "title":  "Unibet (FR)",
+                               "last_update":  "2026-06-23T14:02:08Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:08Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "virginbet",
+                               "title":  "Virgin Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "livescorebet",
+                               "title":  "LiveScore Bet",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "onexbet",
+                               "title":  "1xBet",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betrivers",
+                               "title":  "BetRivers",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_de",
+                               "title":  "Winamax (DE)",
+                               "last_update":  "2026-06-23T14:01:31Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:31Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_fr",
+                               "title":  "Winamax (FR)",
+                               "last_update":  "2026-06-23T14:01:20Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:20Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_nl",
+                               "title":  "Unibet (NL)",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "coral",
+                               "title":  "Coral",
+                               "last_update":  "2026-06-23T14:01:19Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:19Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "leovegas_se",
+                               "title":  "LeoVegas (SE)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betclic_fr",
+                               "title":  "Betclic (FR)",
+                               "last_update":  "2026-06-23T13:59:58Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:58Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "paddypower",
+                               "title":  "Paddy Power",
+                               "last_update":  "2026-06-23T14:00:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:00:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betfair_sb_uk",
+                               "title":  "Betfair Sportsbook",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "tipico_de",
+                               "title":  "Tipico",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "marathonbet",
+                               "title":  "Marathon Bet",
+                               "last_update":  "2026-06-23T14:02:06Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:06Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betsson",
+                               "title":  "Betsson",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "nordicbet",
+                               "title":  "Nordic Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "suprabets",
+                               "title":  "Suprabets",
+                               "last_update":  "2026-06-23T13:59:42Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:42Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    },
+    {
+        "id":  "2931578ca874ba48e46a61c94fb56fcd",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-12T00:00:00Z",
+        "home_team":  "Platense",
+        "away_team":  "Coquimbo Unido",
+        "bookmakers":  [
+                           {
+                               "key":  "casumo",
+                               "title":  "Casumo",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "grosvenor",
+                               "title":  "Grosvenor",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_fr",
+                               "title":  "Unibet (FR)",
+                               "last_update":  "2026-06-23T14:02:08Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:08Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "virginbet",
+                               "title":  "Virgin Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "livescorebet",
+                               "title":  "LiveScore Bet",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "onexbet",
+                               "title":  "1xBet",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betrivers",
+                               "title":  "BetRivers",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_de",
+                               "title":  "Winamax (DE)",
+                               "last_update":  "2026-06-23T14:01:31Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:31Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_fr",
+                               "title":  "Winamax (FR)",
+                               "last_update":  "2026-06-23T14:01:20Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:20Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_nl",
+                               "title":  "Unibet (NL)",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "leovegas_se",
+                               "title":  "LeoVegas (SE)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betclic_fr",
+                               "title":  "Betclic (FR)",
+                               "last_update":  "2026-06-23T13:59:58Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:58Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "paddypower",
+                               "title":  "Paddy Power",
+                               "last_update":  "2026-06-23T14:00:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:00:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betfair_sb_uk",
+                               "title":  "Betfair Sportsbook",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "tipico_de",
+                               "title":  "Tipico",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betsson",
+                               "title":  "Betsson",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "nordicbet",
+                               "title":  "Nordic Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    },
+    {
+        "id":  "05412ae8c72a3f9765da81074803d9c2",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-12T00:00:00Z",
+        "home_team":  "Rosario Central",
+        "away_team":  "Corinthians-SP",
+        "bookmakers":  [
+                           {
+                               "key":  "casumo",
+                               "title":  "Casumo",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "grosvenor",
+                               "title":  "Grosvenor",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "virginbet",
+                               "title":  "Virgin Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "livescorebet",
+                               "title":  "LiveScore Bet",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betrivers",
+                               "title":  "BetRivers",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_nl",
+                               "title":  "Unibet (NL)",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "leovegas_se",
+                               "title":  "LeoVegas (SE)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    },
+    {
+        "id":  "76fe0ea572193cddb505ae4ba43cd069",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-12T00:00:00Z",
+        "home_team":  "Cruzeiro",
+        "away_team":  "Flamengo-RJ",
+        "bookmakers":  [
+                           {
+                               "key":  "casumo",
+                               "title":  "Casumo",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "grosvenor",
+                               "title":  "Grosvenor",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "ladbrokes_uk",
+                               "title":  "Ladbrokes",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_fr",
+                               "title":  "Unibet (FR)",
+                               "last_update":  "2026-06-23T14:02:08Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:08Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "virginbet",
+                               "title":  "Virgin Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "livescorebet",
+                               "title":  "LiveScore Bet",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "onexbet",
+                               "title":  "1xBet",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betrivers",
+                               "title":  "BetRivers",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_de",
+                               "title":  "Winamax (DE)",
+                               "last_update":  "2026-06-23T14:01:31Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:31Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_fr",
+                               "title":  "Winamax (FR)",
+                               "last_update":  "2026-06-23T14:01:20Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:20Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_nl",
+                               "title":  "Unibet (NL)",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "coral",
+                               "title":  "Coral",
+                               "last_update":  "2026-06-23T14:01:19Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:19Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "leovegas_se",
+                               "title":  "LeoVegas (SE)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betclic_fr",
+                               "title":  "Betclic (FR)",
+                               "last_update":  "2026-06-23T13:59:58Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:58Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "paddypower",
+                               "title":  "Paddy Power",
+                               "last_update":  "2026-06-23T14:00:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:00:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betfair_sb_uk",
+                               "title":  "Betfair Sportsbook",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "tipico_de",
+                               "title":  "Tipico",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "marathonbet",
+                               "title":  "Marathon Bet",
+                               "last_update":  "2026-06-23T14:02:06Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:06Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betsson",
+                               "title":  "Betsson",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "nordicbet",
+                               "title":  "Nordic Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    },
+    {
+        "id":  "dd06fab13c4861592da993d2d742c27b",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-12T00:00:00Z",
+        "home_team":  "Mirassol",
+        "away_team":  "LDU Quito",
+        "bookmakers":  [
+                           {
+                               "key":  "livescorebet",
+                               "title":  "LiveScore Bet",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_nl",
+                               "title":  "Unibet (NL)",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "ladbrokes_uk",
+                               "title":  "Ladbrokes",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betrivers",
+                               "title":  "BetRivers",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_de",
+                               "title":  "Winamax (DE)",
+                               "last_update":  "2026-06-23T14:01:31Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:31Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "tipico_de",
+                               "title":  "Tipico",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_fr",
+                               "title":  "Winamax (FR)",
+                               "last_update":  "2026-06-23T14:01:20Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:20Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "coral",
+                               "title":  "Coral",
+                               "last_update":  "2026-06-23T14:01:19Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:19Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "leovegas_se",
+                               "title":  "LeoVegas (SE)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_fr",
+                               "title":  "Unibet (FR)",
+                               "last_update":  "2026-06-23T14:02:08Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:08Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "virginbet",
+                               "title":  "Virgin Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "grosvenor",
+                               "title":  "Grosvenor",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "casumo",
+                               "title":  "Casumo",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "onexbet",
+                               "title":  "1xBet",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "paddypower",
+                               "title":  "Paddy Power",
+                               "last_update":  "2026-06-23T14:00:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:00:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betfair_sb_uk",
+                               "title":  "Betfair Sportsbook",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "marathonbet",
+                               "title":  "Marathon Bet",
+                               "last_update":  "2026-06-23T14:02:06Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:06Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betclic_fr",
+                               "title":  "Betclic (FR)",
+                               "last_update":  "2026-06-23T13:59:58Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:58Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betsson",
+                               "title":  "Betsson",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "nordicbet",
+                               "title":  "Nordic Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "suprabets",
+                               "title":  "Suprabets",
+                               "last_update":  "2026-06-23T13:59:42Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:42Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "smarkets",
+                               "title":  "Smarkets",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}",
+                                               "@{key=h2h_lay; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    },
+    {
+        "id":  "a19bccbe8889dfa8d2dafbdaa57749a0",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-12T00:30:00Z",
+        "home_team":  "Deportes Tolima",
+        "away_team":  "Independiente del Valle",
+        "bookmakers":  [
+                           {
+                               "key":  "casumo",
+                               "title":  "Casumo",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betrivers",
+                               "title":  "BetRivers",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_fr",
+                               "title":  "Unibet (FR)",
+                               "last_update":  "2026-06-23T14:02:08Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:08Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "grosvenor",
+                               "title":  "Grosvenor",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "coral",
+                               "title":  "Coral",
+                               "last_update":  "2026-06-23T14:01:19Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:19Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "onexbet",
+                               "title":  "1xBet",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betclic_fr",
+                               "title":  "Betclic (FR)",
+                               "last_update":  "2026-06-23T13:59:58Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:58Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_nl",
+                               "title":  "Unibet (NL)",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "livescorebet",
+                               "title":  "LiveScore Bet",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "leovegas_se",
+                               "title":  "LeoVegas (SE)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "virginbet",
+                               "title":  "Virgin Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_de",
+                               "title":  "Winamax (DE)",
+                               "last_update":  "2026-06-23T14:01:31Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:31Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "ladbrokes_uk",
+                               "title":  "Ladbrokes",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_fr",
+                               "title":  "Winamax (FR)",
+                               "last_update":  "2026-06-23T14:01:20Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:20Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "paddypower",
+                               "title":  "Paddy Power",
+                               "last_update":  "2026-06-23T14:00:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:00:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betfair_sb_uk",
+                               "title":  "Betfair Sportsbook",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "tipico_de",
+                               "title":  "Tipico",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "marathonbet",
+                               "title":  "Marathon Bet",
+                               "last_update":  "2026-06-23T14:02:06Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:06Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "pmu_fr",
+                               "title":  "PMU (FR)",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betsson",
+                               "title":  "Betsson",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "nordicbet",
+                               "title":  "Nordic Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "suprabets",
+                               "title":  "Suprabets",
+                               "last_update":  "2026-06-23T13:59:42Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:42Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    },
+    {
+        "id":  "0c574a337d17da360cbb2e4c44b637ee",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-12T00:30:00Z",
+        "home_team":  "Estudiantes La Plata",
+        "away_team":  "Universidad Católica (CHI)",
+        "bookmakers":  [
+                           {
+                               "key":  "casumo",
+                               "title":  "Casumo",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "grosvenor",
+                               "title":  "Grosvenor",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "ladbrokes_uk",
+                               "title":  "Ladbrokes",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_fr",
+                               "title":  "Unibet (FR)",
+                               "last_update":  "2026-06-23T14:02:08Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:08Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "virginbet",
+                               "title":  "Virgin Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "livescorebet",
+                               "title":  "LiveScore Bet",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "onexbet",
+                               "title":  "1xBet",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betrivers",
+                               "title":  "BetRivers",
+                               "last_update":  "2026-06-23T14:01:30Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:30Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_de",
+                               "title":  "Winamax (DE)",
+                               "last_update":  "2026-06-23T14:01:31Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:31Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_fr",
+                               "title":  "Winamax (FR)",
+                               "last_update":  "2026-06-23T14:01:20Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:20Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_nl",
+                               "title":  "Unibet (NL)",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "coral",
+                               "title":  "Coral",
+                               "last_update":  "2026-06-23T14:01:19Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:19Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "leovegas_se",
+                               "title":  "LeoVegas (SE)",
+                               "last_update":  "2026-06-23T14:01:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betclic_fr",
+                               "title":  "Betclic (FR)",
+                               "last_update":  "2026-06-23T13:59:58Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:58Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "paddypower",
+                               "title":  "Paddy Power",
+                               "last_update":  "2026-06-23T14:00:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:00:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betfair_sb_uk",
+                               "title":  "Betfair Sportsbook",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "tipico_de",
+                               "title":  "Tipico",
+                               "last_update":  "2026-06-23T14:02:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "marathonbet",
+                               "title":  "Marathon Bet",
+                               "last_update":  "2026-06-23T14:02:06Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:06Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betsson",
+                               "title":  "Betsson",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "nordicbet",
+                               "title":  "Nordic Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    },
+    {
+        "id":  "eea2d21194999c598d9231fd40ed71fc",
+        "sport_key":  "soccer_conmebol_copa_libertadores",
+        "sport_title":  "Copa Libertadores",
+        "commence_time":  "2026-08-14T00:30:00Z",
+        "home_team":  "Rosario Central",
+        "away_team":  "Corinthians-SP",
+        "bookmakers":  [
+                           {
+                               "key":  "onexbet",
+                               "title":  "1xBet",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_fr",
+                               "title":  "Winamax (FR)",
+                               "last_update":  "2026-06-23T14:01:20Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:20Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "coral",
+                               "title":  "Coral",
+                               "last_update":  "2026-06-23T14:01:19Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:19Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "nordicbet",
+                               "title":  "Nordic Bet",
+                               "last_update":  "2026-06-23T14:01:55Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:55Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betsson",
+                               "title":  "Betsson",
+                               "last_update":  "2026-06-23T14:01:09Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:09Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "ladbrokes_uk",
+                               "title":  "Ladbrokes",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "winamax_de",
+                               "title":  "Winamax (DE)",
+                               "last_update":  "2026-06-23T14:01:31Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:31Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betfair_sb_uk",
+                               "title":  "Betfair Sportsbook",
+                               "last_update":  "2026-06-23T14:01:07Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:01:07Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "betclic_fr",
+                               "title":  "Betclic (FR)",
+                               "last_update":  "2026-06-23T13:59:58Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:58Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "paddypower",
+                               "title":  "Paddy Power",
+                               "last_update":  "2026-06-23T14:00:43Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:00:43Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "unibet_fr",
+                               "title":  "Unibet (FR)",
+                               "last_update":  "2026-06-23T14:02:08Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:08Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "suprabets",
+                               "title":  "Suprabets",
+                               "last_update":  "2026-06-23T13:59:42Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T13:59:42Z; outcomes=System.Object[]}"
+                                           ]
+                           },
+                           {
+                               "key":  "marathonbet",
+                               "title":  "Marathon Bet",
+                               "last_update":  "2026-06-23T14:02:06Z",
+                               "markets":  [
+                                               "@{key=h2h; last_update=2026-06-23T14:02:06Z; outcomes=System.Object[]}"
+                                           ]
+                           }
+                       ]
+    }
+]
